@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Welcome to the bundle
-tagline: Supporting tagline
+tagline: Symfony2 blog, please 'clear cache'
 ---
 {% include JB/setup %}
 
