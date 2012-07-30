@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>statsd graphite vagrant = monitorize your life environment</title>
+    <meta name="description" content="monitorize your life environment">
+    <meta name="author" content="liuggio">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/readable-liuggio/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/readable-liuggio/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Welcome to the bundle</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>statsd graphite vagrant = monitorize your life environment</h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p>If Engineering at Tvision has a religion, it’s the Church of Graphs. If it moves, we track it.</p>
+
+<p>Ops I already heard this sentence, please read carefully this blog post <a href='http://codeascraft.etsy.com/2011/02/15/measure-anything-measure-everything/'>measure-anything-measure-everything</a></p>
+
+<p>For your production env sure you need statsd, you do will want to use it.</p>
+
+<h2 id='install_statsd__graphite__carbon__whisper__linuxos__apache__python__django__mod_wsgi_'>Install Statsd + Graphite + Carbon + Whisper + LinuxOS + apache + python + django + mod_wsgi &#8230;</h2>
+
+<p>The first time I spent 3 hours installing Graphite, now with vagrant you could try Statsd+Graphite in few minutes.</p>
+
+<ol>
+<li>
+<p>Install vagrant</p>
+
+<p><code>gem install vagrant</code> (if you need see the official documentation)</p>
+</li>
+
+<li>
+<p>Installing the world with <a href='http://vagrantup.com/'>vagrant</a> is so easy</p>
+
+<p><code>bash
+git clone https://github.com/liuggio/vagrant-statsd-graphite-puppet.git
+cd vagrant-statsd-graphite-puppet.git
+vagrant up
+</code></p>
+
+<p><em>My repo is just a fork of <code>Jimdo/vagrant-statsd-graphite-puppet</code> with a small bug fix</em></p>
+</li>
+
+<li>
+<p>Say &#8216;WOOOW&#8217; then connect to</p>
+
+<p>graphite: http://localhost:8080/</p>
+
+<p>statsd: 8125:udp</p>
+</li>
+</ol>
+
+<p>Everything is done, your virtual box with StatsD is ready to use, if you are a developer and you like web application YOU MUST use a web framework, if you are a php developer you SHOULD use Symfony2, if you use Symfony2 you should have a look to <a href='https://github.com/liuggio/StatsDClientBundle'>symfony2 liuggio StatsDClientBundle</a></p>
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev disabled"><a>&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next disabled"><a>Next &rarr;</a>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>30 July 2012</span></div>
+
+  
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+    
+
+
+  
+     
+    	<li><a href="/tags.html#statsd-ref">statsd <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#vagrant-ref">vagrant <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#graphite-ref">graphite <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#tutorial-ref">tutorial <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; liuggio 2012 
+          with help from
+            <a href="http://prose.io" target="_blank" title="A Content Editor for GitHub">prose.io</a>,
+            <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>,
+            <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>,
+            <a href="http://github.com" target="_blank">github</a>,
+            <a href="http://bootswatch.com/" target="_blank">bootswatch</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

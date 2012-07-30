@@ -1,11 +1,12 @@
 ---
 layout: post
-category : statsd
-tags : [statsd, vagrant, tutorial]
-published: false
+title: "statsd graphite vagrant = monitorize your life environment"
+description: "monitorize your life environment"
+category: stasd
+tags: [statsd, vagrant, graphite, tutorial]
 ---
-
 {% include JB/setup %}
+
 
 If Engineering at Tvision has a religion, it’s the Church of Graphs. If it moves, we track it. 
 
@@ -17,14 +18,17 @@ For your production env sure you need statsd, you do will want to use it.
 
 ## Install Statsd + Graphite + Carbon + Whisper + LinuxOS + apache + python + django + mod_wsgi ...
 
+
 The first time I spent 3 hours installing Graphite, 
 now with vagrant you could try Statsd+Graphite in few minutes.
 
 1. Install vagrant
+
    
    `gem install vagrant`  (if you need see the official documentation)
 
 2. Installing the world with [vagrant](http://vagrantup.com/) is so easy
+
 
    ``` bash
 git clone https://github.com/liuggio/vagrant-statsd-graphite-puppet.git
@@ -46,3 +50,4 @@ if you are a developer and you like web application YOU MUST use a web framework
 if you are a php developer you SHOULD use Symfony2,
 if you use Symfony2 you should have a look to 
 [symfony2 liuggio StatsDClientBundle](https://github.com/liuggio/StatsDClientBundle)
+

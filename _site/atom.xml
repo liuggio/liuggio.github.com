@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>Welcome to the bundle</title>
+ <link href="http://liuggio.github.com/atom.xml" rel="self"/>
+ <link href="http://liuggio.github.com"/>
+ <updated>2012-07-30T16:03:55+02:00</updated>
+ <id>http://liuggio.github.com</id>
+ <author>
+   <name>liuggio</name>
+   <email>liuggio@liuggio</email>
+ </author>
+
+ 
+ <entry>
+   <title>statsd graphite vagrant = monitorize your life environment</title>
+   <link href="http://liuggio.github.com/stasd/2012/07/30/statsd-graphite-vagrant-monitorize-your-life"/>
+   <updated>2012-07-30T00:00:00+02:00</updated>
+   <id>http://liuggio.github.com/stasd/2012/07/30/statsd-graphite-vagrant-monitorize-your-life</id>
+   <content type="html">&lt;p&gt;If Engineering at Tvision has a religion, it’s the Church of Graphs. If it moves, we track it.&lt;/p&gt;
+
+&lt;p&gt;Ops I already heard this sentence, please read carefully this blog post &lt;a href='http://codeascraft.etsy.com/2011/02/15/measure-anything-measure-everything/'&gt;measure-anything-measure-everything&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For your production env sure you need statsd, you do will want to use it.&lt;/p&gt;
+
+&lt;h2 id='install_statsd__graphite__carbon__whisper__linuxos__apache__python__django__mod_wsgi_'&gt;Install Statsd + Graphite + Carbon + Whisper + LinuxOS + apache + python + django + mod_wsgi &amp;#8230;&lt;/h2&gt;
+
+&lt;p&gt;The first time I spent 3 hours installing Graphite, now with vagrant you could try Statsd+Graphite in few minutes.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Install vagrant&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;gem install vagrant&lt;/code&gt; (if you need see the official documentation)&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;Installing the world with &lt;a href='http://vagrantup.com/'&gt;vagrant&lt;/a&gt; is so easy&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;bash
+git clone https://github.com/liuggio/vagrant-statsd-graphite-puppet.git
+cd vagrant-statsd-graphite-puppet.git
+vagrant up
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;My repo is just a fork of &lt;code&gt;Jimdo/vagrant-statsd-graphite-puppet&lt;/code&gt; with a small bug fix&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;Say &amp;#8216;WOOOW&amp;#8217; then connect to&lt;/p&gt;
+
+&lt;p&gt;graphite: http://localhost:8080/&lt;/p&gt;
+
+&lt;p&gt;statsd: 8125:udp&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Everything is done, your virtual box with StatsD is ready to use, if you are a developer and you like web application YOU MUST use a web framework, if you are a php developer you SHOULD use Symfony2, if you use Symfony2 you should have a look to &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;symfony2 liuggio StatsDClientBundle&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ 
+</feed>

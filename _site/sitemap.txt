@@ -1,0 +1,9 @@
+
+http://liuggio.github.com/sitemap.txt
+http://liuggio.github.com/atom.xml
+http://liuggio.github.com/archive.html
+http://liuggio.github.com/tags.html
+http://liuggio.github.com/index.html
+http://liuggio.github.com/categories.html
+
+http://liuggio.github.com/stasd/2012/07/30/statsd-graphite-vagrant-monitorize-your-life
