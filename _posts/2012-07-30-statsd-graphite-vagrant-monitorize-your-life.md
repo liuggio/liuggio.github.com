@@ -31,9 +31,9 @@ now with vagrant you could try Statsd+Graphite in few minutes.
 
 
    ``` bash
-git clone https://github.com/liuggio/vagrant-statsd-graphite-puppet.git
-cd vagrant-statsd-graphite-puppet.git
-vagrant up
+	git clone https://github.com/liuggio/vagrant-statsd-graphite-puppet.git
+	cd vagrant-statsd-graphite-puppet.git
+	vagrant up
    ```
 
    *My repo is just a fork of `Jimdo/vagrant-statsd-graphite-puppet` with a small bug fix*
