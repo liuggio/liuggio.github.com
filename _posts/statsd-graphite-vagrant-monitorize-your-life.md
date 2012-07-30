@@ -1,6 +1,7 @@
 ---
-layout: default
-published: false
+layout: post
+category : statsd
+tags : [statsd, vagrant, tutorial]
 ---
 
 {% include JB/setup %}
