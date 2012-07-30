@@ -31,7 +31,7 @@ cd vagrant-statsd-graphite-puppet.git
 vagrant up
 ```
 
-*My repo is just a fork of `Jimdo/vagrant-statsd-graphite-puppet` with a small bug fix*
+   *My repo is just a fork of `Jimdo/vagrant-statsd-graphite-puppet` with a small bug fix*
 
 3. Say 'WOOOW' then connect to 
 
@@ -45,5 +45,3 @@ if you are a developer and you like web application YOU MUST use a web framework
 if you are a php developer you SHOULD use Symfony2,
 if you use Symfony2 you should have a look to 
 [symfony2 liuggio StatsDClientBundle](https://github.com/liuggio/StatsDClientBundle)
-
-
