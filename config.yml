@@ -1,7 +1,0 @@
-auto: true
-server: true
-permalink: none
-baseurl: "liuggio"
-exclude:
-- .gitignore
-- README.md
