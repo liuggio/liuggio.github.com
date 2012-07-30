@@ -12,11 +12,11 @@ pygments: true
 title : Welcome to the bundle
 tagline: Symfony2 blog, please 'clear cache'
 author :
-  name : Name Lastname
-  email : blah@email.test
-  github : username
-  twitter : username
-  feedburner : feedname
+  name : liuggio
+  email : liuggio@liuggio
+  github : liuggio
+  twitter : liuggio
+#  feedburner : feedname
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
