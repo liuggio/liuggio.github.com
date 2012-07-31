@@ -1,10 +1,11 @@
 ---
 layout: post
-title: "statsd graphite vagrant = monitorize your life environment"
-description: "monitorize your life environment"
+title: "Easily install statsd and graphite with vagrant"
+description: "Monitor and react: monitorize your 'life' env"
 category: stasd
 tags: [statsd, vagrant, graphite, tutorial]
 ---
+
 {% include JB/setup %}
 
 
@@ -50,4 +51,3 @@ if you are a developer and you like web application YOU MUST use a web framework
 if you are a php developer you SHOULD use Symfony2,
 if you use Symfony2 you should have a look to 
 [symfony2 liuggio StatsDClientBundle](https://github.com/liuggio/StatsDClientBundle)
-
