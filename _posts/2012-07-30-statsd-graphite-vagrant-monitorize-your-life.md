@@ -1,10 +1,12 @@
 ---
 layout: post
-title: "statsd graphite vagrant = monitorize your life environment"
-description: "monitorize your life environment"
+title: "Easily install statsd and graphite with vagrant"
+description: "Monitor and react: monitorize your life env"
 category: stasd
 tags: [statsd, vagrant, graphite, tutorial]
+published: false
 ---
+
 {% include JB/setup %}
 
 
@@ -13,6 +15,8 @@ If Engineering at Tvision has a religion, it’s the Church of Graphs. If it mov
 Ops I already heard this sentence, please read carefully this blog post [measure-anything-measure-everything](http://codeascraft.etsy.com/2011/02/15/measure-anything-measure-everything/)
 
 For your production env sure you need statsd, you do will want to use it.
+
+If your salary is paid by a website, you need to **monitor and react**, you need a monitor that pushes the informations.
 
 
 
@@ -50,4 +54,3 @@ if you are a developer and you like web application YOU MUST use a web framework
 if you are a php developer you SHOULD use Symfony2,
 if you use Symfony2 you should have a look to 
 [symfony2 liuggio StatsDClientBundle](https://github.com/liuggio/StatsDClientBundle)
-
