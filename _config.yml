@@ -10,7 +10,7 @@ pygments: true
 # so be sure to set them if your theme uses them.
 #
 title : Welcome to the bundle
-tagline: Symfony2, developing, and fluffs.
+tagline: Best Practice, developing, and fluffs.
 author :
   name : liuggio
   email : liuggio@liuggio
