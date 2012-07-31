@@ -21,6 +21,9 @@ a:hover {
 a {
     color: #9C2520;  
 }
+code, pre {
+font-size: 12px;  
+}
 
 h1 a {
 	color: #D94D48;

@@ -6,4 +6,4 @@ http://liuggio.github.com/tags.html
 http://liuggio.github.com/index.html
 http://liuggio.github.com/categories.html
 
-http://liuggio.github.com/stasd/2012/07/30/statsd-graphite-vagrant-monitorize-your-life
+http://liuggio.github.com/stasd/2012/07/31/easily-install-statsd-and-graphite-with-vagrant

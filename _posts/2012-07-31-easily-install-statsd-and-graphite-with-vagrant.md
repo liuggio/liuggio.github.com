@@ -4,7 +4,7 @@ title: "Easily install statsd and graphite with vagrant"
 description: "Monitor and react: monitorize your life env"
 category: stasd
 tags: [statsd, vagrant, graphite, tutorial]
-published: false
+published: true
 ---
 
 {% include JB/setup %}
@@ -34,11 +34,13 @@ now with vagrant you could try Statsd+Graphite in few minutes.
 2. Installing the world with [vagrant](http://vagrantup.com/) is so easy
 
 
-   ``` bash
-	git clone https://github.com/liuggio/vagrant-statsd-graphite-puppet.git
-	cd vagrant-statsd-graphite-puppet.git
-	vagrant up
-   ```
+
+	`git clone https://github.com/liuggio/vagrant-statsd-graphite-puppet.git`
+
+	`cd vagrant-statsd-graphite-puppet.git`
+	
+	`vagrant up`
+   
 
    *My repo is just a fork of `Jimdo/vagrant-statsd-graphite-puppet` with a small bug fix*
 
