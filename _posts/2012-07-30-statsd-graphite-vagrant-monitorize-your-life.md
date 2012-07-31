@@ -16,7 +16,7 @@ Ops I already heard this sentence, please read carefully this blog post [measure
 
 For your production env sure you need statsd, you do will want to use it.
 
-If your salary is paid by a website, you need to monitor and react, you need a monitor that pushes the informations.
+If your salary is paid by a website, you need to **monitor and react**, you need a monitor that pushes the informations.
 
 
 
