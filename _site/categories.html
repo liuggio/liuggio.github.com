@@ -16,17 +16,20 @@
     <link href="/assets/themes/readable-liuggio/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/themes/readable-liuggio/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
 
-    <!-- Le fav and touch icons -->
-  <!-- Update these with your own images
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-  -->
+   <!-- Google Web Font-->
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+    <!--[if IE 7]><link rel="stylesheet" href="assets/css/font-awesome-ie7.css"><![endif]-->
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- fav icons -->
+
   </head>
 
   <body>
-
+ <!-- 
     <div class="navbar">
       <div class="navbar-inner">
         <div class="container">
@@ -81,17 +84,87 @@
         </div>
       </div>
     </div>
-
+ -->
     <div class="container">
+      <div id="header">
+        <div class="logo"><img src="/assets/themes/readable-liuggio/img/welcometothebundle-logo.png"></div>
+        <h1><a alt="" id="sitename" href="http://www.welcometothebundle.com/">Welcome to the bundle</a></h1>
+        <h2>Symfony2, developing, and fluffs.</h2>
+
+        <!--<div id="header-img">
+     <img title="Clear cache please" src="http://c1298286.r86.cf3.rackcdn.com/wp-content/uploads/2012/04/clearcache.png">
+       </div>
+       <div style="clear:both"></div>-->
+      
+    </div>
 
       <div class="content">
-        
-<div class="page-header">
-  <h1>Categories </h1>
-</div>
 
-<div class="row">
-  <div class="span12">
+        <div class="row">
+          <div class="sidebar">
+           <div class="span3">
+              <div class="box">
+                     
+                <h2>Tags</h2>
+                <ul>
+                  
+                
+
+
+  
+     
+    	<li><a href="/tags.html#tutorial-ref">tutorial <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#graphite-ref">graphite <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#statsd-ref">statsd <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#vagrant-ref">vagrant <span>1</span></a></li>
+    
+  
+
+
+
+                </ul>
+
+              </div>      
+
+              <div class="box">
+                
+                <h2>Categories</h2>
+                  
+                 
+                  <h4 id="stasd-ref">stasd</h2>
+                  <ul>
+                      
+                    
+
+
+  
+    
+      
+      	
+      	<li><a href="/stasd/2012/07/30/statsd-graphite-vagrant-monitorize-your-life">statsd graphite vagrant = monitorize your life environment</a></li>
+      	
+      
+    
+  
+
+
+
+                  </ul>
+                
+
+              </div>
+            </div>
+            </div>
+          
+
+
+  <div class="span8">
+  	 <div class="page-header">
+	     <h1>Categories </h1>
+	   </div>
     
 
 <ul class="tag_box inline">
@@ -135,10 +208,15 @@
 
 
   </div>
-</div>
 
 
+
+
+          </div>
       </div>
+
+
+
 
       <footer>
         <p>&copy; liuggio 2012 
@@ -149,7 +227,8 @@
             <a href="http://github.com" target="_blank">github</a>,
             <a href="http://bootswatch.com/" target="_blank">bootswatch</a>
         </p>
-      </footer>
+        <div id="footer"></div>
+        </footer>
 
     </div> <!-- /container -->
 

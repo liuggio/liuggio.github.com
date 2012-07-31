@@ -9,8 +9,8 @@ pygments: true
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : liuggio
-tagline: Symfony2 blog, please 'clear cache'
+title : Welcome to the bundle
+tagline: Symfony2, developing, and fluffs.
 author :
   name : liuggio
   email : liuggio@liuggio
