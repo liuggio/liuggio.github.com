@@ -6,6 +6,7 @@
     {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
     <meta name="author" content="{{ site.author.name }}">
 
+
     <!-- Le styles -->
     <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ ASSET_PATH }}/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
@@ -32,17 +33,18 @@
         <div class="row">
           <div class="sidebar">
            <div class="span3">
-              <div class="box">
-                     
-                <h2>Tags</h2>
-                <ul>
-                {% assign tags_list = site.tags %}  
-                {% include JB/tags_list %}
-                </ul>
 
-              </div>      
+            <div class="box">
+              <div class="twitter-cnt"><a href="https://twitter.com/liuggio" class="twitter-follow-button" data-show-count="false" data-size="large" data-dnt="true">Follow @liuggio</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
-              <div class="box">
+                <div class="btn clear-cache btn-mini"  onclick="alert('This button never works, maybe you don\'t have the permission, or maybe you need to set the acl.')"> Clear cache </div>
+                </div>
+
+        
+              </div>
+
+            <div class="box">
                 
                 <h2>Categories</h2>
                 {% assign categories_list = site.categories %}  
@@ -55,8 +57,21 @@
                 {% endfor %}
 
               </div>
+
+            <div class="box">
+                     
+                <h2>Tags</h2>
+                <ul>
+                {% assign tags_list = site.tags %}  
+                {% include JB/tags_list %}
+                </ul>
+
+              </div>      
+
+              
             </div>
             </div>
+
           {{ content }}
           </div>
       </div>
