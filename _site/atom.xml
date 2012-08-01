@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
  
  <title>Welcome to the bundle</title>
- <link href="http://liuggio.github.com/atom.xml" rel="self"/>
- <link href="http://liuggio.github.com"/>
- <updated>2012-07-31T15:49:41+02:00</updated>
- <id>http://liuggio.github.com</id>
+ <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
+ <link href="http://welcometothebundle.com"/>
+ <updated>2012-08-01T13:02:21+02:00</updated>
+ <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
    <email>liuggio@liuggio</email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>Easily install statsd and graphite with vagrant</title>
-   <link href="http://liuggio.github.com/stasd/2012/07/31/easily-install-statsd-and-graphite-with-vagrant"/>
+   <link href="http://welcometothebundle.com/easily-install-statsd-and-graphite-with-vagrant"/>
    <updated>2012-07-31T00:00:00+02:00</updated>
-   <id>http://liuggio.github.com/stasd/2012/07/31/easily-install-statsd-and-graphite-with-vagrant</id>
+   <id>http://welcometothebundle.com/easily-install-statsd-and-graphite-with-vagrant</id>
    <content type="html">&lt;p&gt;If Engineering at Tvision has a religion, it’s the Church of Graphs. If it moves, we track it.&lt;/p&gt;
 
 &lt;p&gt;Ops I already heard this sentence, please read carefully this blog post &lt;a href='http://codeascraft.etsy.com/2011/02/15/measure-anything-measure-everything/'&gt;measure-anything-measure-everything&lt;/a&gt;&lt;/p&gt;
@@ -58,6 +58,115 @@
 &lt;/ol&gt;
 
 &lt;p&gt;Everything is done, your virtual box with StatsD is ready to use, if you are a developer and you like web application YOU MUST use a web framework, if you are a php developer you SHOULD use Symfony2, if you use Symfony2 you should have a look to &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;symfony2 liuggio StatsDClientBundle&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Symfony2 assets on RackSpace Cloud files</title>
+   <link href="http://welcometothebundle.com/symfony2-assets-on-rackspace-cloud-files"/>
+   <updated>2012-05-06T00:00:00+02:00</updated>
+   <id>http://welcometothebundle.com/symfony2-assets-on-rackspace-cloud-files</id>
+   <content type="html">&lt;p&gt;How to use assetic on rackspace with symfony2?&lt;/p&gt;
+
+&lt;p&gt;The problem is how to move the static files to the cloud files and get them from twig?&lt;/p&gt;
+
+&lt;p&gt;Following some tips from the forum &lt;a href='http://groups.google.com/group/symfony2/browse_thread/thread/8e14c145683981d4'&gt;Registering (s3) stream wrapper for AsseticBundle – Symfony2 | Google Gruppi&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I created this bundle &lt;a href='https://github.com/liuggio/RackspaceCloudFilesBundle'&gt;RackspaceCloudFilesBundle&lt;/a&gt; that handles the static files easily&lt;/p&gt;
+
+&lt;h2 id='installing'&gt;Installing&lt;/h2&gt;
+
+&lt;h3 id='step_1'&gt;Step 1&lt;/h3&gt;
+
+&lt;p&gt;follow the README into the &lt;a href='https://github.com/liuggio/RackspaceCloudFilesBundle
+'&gt;RackspaceCloudFilesBundle&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id='step_2'&gt;Step 2&lt;/h3&gt;
+
+&lt;p&gt;modify the app/config/config.yml and the app/parameters.ini&lt;/p&gt;
+&lt;script src='https://gist.github.com/2420800.js'&gt; &lt;/script&gt;
+&lt;h3 id='step_3'&gt;Step 3&lt;/h3&gt;
+
+&lt;p&gt;when you will deploy a new image just run app/console assetic:dump –env=prod&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;That’s it!!!!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;PLEASE FELL FREE TO CLONE AND SEND PULL REQUEST!&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Using Github or Bitbucket as Assets container for Symfony2</title>
+   <link href="http://welcometothebundle.com/using-github-or-bitbucket-as-assets-container-for-symfony2"/>
+   <updated>2012-04-20T00:00:00+02:00</updated>
+   <id>http://welcometothebundle.com/using-github-or-bitbucket-as-assets-container-for-symfony2</id>
+   <content type="html">&lt;p&gt;I made the following changes to the config, deps and autoload in order to push all the assets directly into a github repository.&lt;/p&gt;
+
+&lt;p&gt;** Why you should pay for CDN if you can use Github? **&lt;/p&gt;
+
+&lt;h2 id='theory'&gt;Theory&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span&gt;Php library&lt;/span&gt; the library teqneers/PHP-Stream-Wrapper-for-Git registers a stream and commit to a repository each file that is moved throw the stream&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;span&gt;Symfony2&lt;/span&gt; Assetic bundle compresses and streams the files in your local repository, and twig render the raw.github url&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;span&gt;Git-Hook&lt;/span&gt; The Post-Commit hook will push to remote repository automatically&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id='how_to'&gt;How To&lt;/h2&gt;
+
+&lt;p&gt;Just 3 steps&lt;/p&gt;
+
+&lt;h2 id='step_1_install_the_library_in_your_symfony2'&gt;Step 1 Install the library in your symfony2&lt;/h2&gt;
+
+&lt;p&gt;In your deps file add the following lines, and then run bin/vendors install&lt;/p&gt;
+&lt;script src='https://gist.github.com/2427058.js?file=deps'&gt; &lt;/script&gt;
+&lt;p&gt;Register namespace and register stream into &lt;code&gt;app/autoload.php&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;‘/usr/bin/git’ is where your git binary are&lt;/p&gt;
+
+&lt;p&gt;‘php-git’ is the name of the stream&lt;/p&gt;
+&lt;script src='https://gist.github.com/2427058.js?file=app-autoload.php'&gt; &lt;/script&gt;
+&lt;h2 id='step_2_github_or_bitbucket_repository'&gt;Step 2 Github or BitBucket Repository&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Create Repo in the root /UsingGitHubAsAssetsCloudFiles&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href='http://help.github.com/create-a-repo/'&gt;http://help.github.com/create-a-repo/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;the public url of the repo will be www.github.com/liuggio/UsingGitHubAsAssetsCloudFiles,&lt;/p&gt;
+
+&lt;p&gt;your remote name is ‘origin’ and the branch is ‘master’&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Add the Hook into the /UsingGitHubAsAssetsCloudFiles&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;create a file into ‘/UsingGitHubAsAssetsCloudFiles/.git/hooks/post-commit’&lt;/p&gt;
+&lt;script src='https://gist.github.com/2427058.js?file=UsingGitHubAsAssetsCloudFiles-.git-hooks-post-commit'&gt; &lt;/script&gt;
+&lt;h2 id='step_3_configyml_and_assets'&gt;Step 3 Config.yml and Assets&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;modify your &lt;code&gt;app/config/config.yml&lt;/code&gt; in 2 different places&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script src='https://gist.github.com/2427058.js?file=app-config-config.yml'&gt; &lt;/script&gt;
+&lt;ul&gt;
+&lt;li&gt;dump all the file for prod&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;app/console assetic:dump –env=prod&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;go to your symfony2 website http://yoursymfony2.com/web/app.php/hello/{YES}&lt;/p&gt;
+
+&lt;p&gt;THAT’S ALL.&lt;/p&gt;
+
+&lt;p&gt;Now github is hosting your assets (for free) and your web server is happy (and if your webserver is into the cloud you’ll not charged for assets )&lt;/p&gt;</content>
  </entry>
  
  

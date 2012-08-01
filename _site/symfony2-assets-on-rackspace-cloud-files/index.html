@@ -3,8 +3,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Categories</title>
-    
+    <title>Symfony2 assets on RackSpace Cloud files</title>
+    <meta name="description" content="">
     <meta name="author" content="liuggio">
 
     <!-- Le styles -->
@@ -88,7 +88,7 @@
     
       
       	
-      	<li><a href="/symfony2-assets-on-rackspace-cloud-files">Symfony2 assets on RackSpace Cloud files</a></li>
+      	<li class="active"><a href="/symfony2-assets-on-rackspace-cloud-files" class="active">Symfony2 assets on RackSpace Cloud files</a></li>
       	
       
     
@@ -145,103 +145,108 @@
           
 
 
-  <div class="span8">
-  	 <div class="page-header">
-	     <h1>Categories </h1>
-	   </div>
-    
+  <div class="span9">
+     <div class="page-header">
+       <h1>Symfony2 assets on RackSpace Cloud files </h1>
+  
+ <div class="row">
+  <div class="span4">
+     <div class="date"><span>06 May 2012</span></div> 
+  </div>
 
-<ul class="tag_box inline">
+  <div class="span5">
   
-  
+    <ul class="tag_box">
+    
+    
 
 
   
      
-    	<li><a href="/categories.html#cloud-ref">
-    		cloud <span>1</span>
-    	</a></li>
+    	<li><a href="/tags.html#rackspace-ref">rackspace <span>1</span></a></li>
      
-    	<li><a href="/categories.html#hack-ref">
-    		hack <span>1</span>
-    	</a></li>
+    	<li><a href="/tags.html#symfony2-ref">symfony2 <span>2</span></a></li>
      
-    	<li><a href="/categories.html#stasd-ref">
-    		stasd <span>1</span>
-    	</a></li>
-    
-  
-
-
-</ul>
-
-
- 
-  <h2 id="cloud-ref">cloud</h2>
-  <ul>
-      
-    
-
-
-  
-    
-      
-      	
-      	<li><a href="/symfony2-assets-on-rackspace-cloud-files">Symfony2 assets on RackSpace Cloud files</a></li>
-      	
-      
+    	<li><a href="/tags.html#bundle-ref">bundle <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#assetic-ref">assetic <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#cdn-ref">cdn <span>1</span></a></li>
     
   
 
 
 
-  </ul>
- 
-  <h2 id="hack-ref">hack</h2>
-  <ul>
+    </ul>
+    
+  </div>
+</div>
+
+     </div>
+     
+    <p>How to use assetic on rackspace with symfony2?</p>
+
+<p>The problem is how to move the static files to the cloud files and get them from twig?</p>
+
+<p>Following some tips from the forum <a href='http://groups.google.com/group/symfony2/browse_thread/thread/8e14c145683981d4'>Registering (s3) stream wrapper for AsseticBundle – Symfony2 | Google Gruppi</a></p>
+
+<p>I created this bundle <a href='https://github.com/liuggio/RackspaceCloudFilesBundle'>RackspaceCloudFilesBundle</a> that handles the static files easily</p>
+
+<h2 id='installing'>Installing</h2>
+
+<h3 id='step_1'>Step 1</h3>
+
+<p>follow the README into the <a href='https://github.com/liuggio/RackspaceCloudFilesBundle
+'>RackspaceCloudFilesBundle</a></p>
+
+<h3 id='step_2'>Step 2</h3>
+
+<p>modify the app/config/config.yml and the app/parameters.ini</p>
+<script src='https://gist.github.com/2420800.js'> </script>
+<h3 id='step_3'>Step 3</h3>
+
+<p>when you will deploy a new image just run app/console assetic:dump –env=prod</p>
+
+<p><strong>That’s it!!!!</strong></p>
+
+<p>PLEASE FELL FREE TO CLONE AND SEND PULL REQUEST!</p>
+    <hr>
+    <div class="pagination">
+      <ul>
       
+        <li class="prev"><a href="/using-github-or-bitbucket-as-assets-container-for-symfony2" title="Using Github or Bitbucket as Assets container for Symfony2">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/easily-install-statsd-and-graphite-with-vagrant" title="Easily install statsd and graphite with vagrant">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
     
 
 
-  
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'welcometothebundle'; // required: replace example with your forum shortname
     
-      
-      	
-      	<li><a href="/using-github-or-bitbucket-as-assets-container-for-symfony2">Using Github or Bitbucket as Assets container for Symfony2</a></li>
-      	
-      
-    
-  
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
-
-
-  </ul>
- 
-  <h2 id="stasd-ref">stasd</h2>
-  <ul>
-      
-    
-
-
-  
-    
-      
-      	
-      	<li><a href="/easily-install-statsd-and-graphite-with-vagrant">Easily install statsd and graphite with vagrant</a></li>
-      	
-      
-    
-  
-
-
-
-  </ul>
 
 
 
   </div>
-
-
+  
+ 
 
 
           </div>

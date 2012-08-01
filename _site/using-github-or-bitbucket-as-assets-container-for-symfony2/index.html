@@ -3,8 +3,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Tags</title>
-    
+    <title>Using Github or Bitbucket as Assets container for Symfony2</title>
+    <meta name="description" content="">
     <meta name="author" content="liuggio">
 
     <!-- Le styles -->
@@ -108,7 +108,7 @@
     
       
       	
-      	<li><a href="/using-github-or-bitbucket-as-assets-container-for-symfony2">Using Github or Bitbucket as Assets container for Symfony2</a></li>
+      	<li class="active"><a href="/using-github-or-bitbucket-as-assets-container-for-symfony2" class="active">Using Github or Bitbucket as Assets container for Symfony2</a></li>
       	
       
     
@@ -145,297 +145,151 @@
           
 
 
-  <div class="span8">
-  	 <div class="page-header">
-	     <h1>Tags </h1>
-	   </div>
-    
-
-<ul class="tag_box inline">
-    
+  <div class="span9">
+     <div class="page-header">
+       <h1>Using Github or Bitbucket as Assets container for Symfony2 </h1>
   
+ <div class="row">
+  <div class="span4">
+     <div class="date"><span>20 April 2012</span></div> 
+  </div>
+
+  <div class="span5">
+  
+    <ul class="tag_box">
+    
+    
 
 
   
      
     	<li><a href="/tags.html#assetic-ref">assetic <span>2</span></a></li>
      
-    	<li><a href="/tags.html#tutorial-ref">tutorial <span>1</span></a></li>
-     
-    	<li><a href="/tags.html#graphite-ref">graphite <span>1</span></a></li>
-     
-    	<li><a href="/tags.html#rackspace-ref">rackspace <span>1</span></a></li>
+    	<li><a href="/tags.html#symfony2-ref">symfony2 <span>2</span></a></li>
      
     	<li><a href="/tags.html#bundle-ref">bundle <span>2</span></a></li>
      
-    	<li><a href="/tags.html#vagrant-ref">vagrant <span>1</span></a></li>
-     
     	<li><a href="/tags.html#github-ref">github <span>1</span></a></li>
      
-    	<li><a href="/tags.html#statsd-ref">statsd <span>1</span></a></li>
-     
-    	<li><a href="/tags.html#cdn-ref">cdn <span>1</span></a></li>
-     
     	<li><a href="/tags.html#bitbucket-ref">bitbucket <span>1</span></a></li>
-     
-    	<li><a href="/tags.html#symfony2-ref">symfony2 <span>2</span></a></li>
     
   
 
 
 
+    </ul>
+    
+  </div>
+</div>
+
+     </div>
+     
+    <p>I made the following changes to the config, deps and autoload in order to push all the assets directly into a github repository.</p>
+
+<p>** Why you should pay for CDN if you can use Github? **</p>
+
+<h2 id='theory'>Theory</h2>
+
+<ol>
+<li>
+<p><span>Php library</span> the library teqneers/PHP-Stream-Wrapper-for-Git registers a stream and commit to a repository each file that is moved throw the stream</p>
+</li>
+
+<li>
+<p><span>Symfony2</span> Assetic bundle compresses and streams the files in your local repository, and twig render the raw.github url</p>
+</li>
+
+<li>
+<p><span>Git-Hook</span> The Post-Commit hook will push to remote repository automatically</p>
+</li>
+</ol>
+
+<h2 id='how_to'>How To</h2>
+
+<p>Just 3 steps</p>
+
+<h2 id='step_1_install_the_library_in_your_symfony2'>Step 1 Install the library in your symfony2</h2>
+
+<p>In your deps file add the following lines, and then run bin/vendors install</p>
+<script src='https://gist.github.com/2427058.js?file=deps'> </script>
+<p>Register namespace and register stream into <code>app/autoload.php</code></p>
+
+<p>‘/usr/bin/git’ is where your git binary are</p>
+
+<p>‘php-git’ is the name of the stream</p>
+<script src='https://gist.github.com/2427058.js?file=app-autoload.php'> </script>
+<h2 id='step_2_github_or_bitbucket_repository'>Step 2 Github or BitBucket Repository</h2>
+
+<ul>
+<li>Create Repo in the root /UsingGitHubAsAssetsCloudFiles</li>
 </ul>
 
+<p><a href='http://help.github.com/create-a-repo/'>http://help.github.com/create-a-repo/</a></p>
 
- 
-  <h2 id="assetic-ref">assetic</h2>
-  <ul>
+<p>the public url of the repo will be www.github.com/liuggio/UsingGitHubAsAssetsCloudFiles,</p>
+
+<p>your remote name is ‘origin’ and the branch is ‘master’</p>
+
+<ul>
+<li>Add the Hook into the /UsingGitHubAsAssetsCloudFiles</li>
+</ul>
+
+<p>create a file into ‘/UsingGitHubAsAssetsCloudFiles/.git/hooks/post-commit’</p>
+<script src='https://gist.github.com/2427058.js?file=UsingGitHubAsAssetsCloudFiles-.git-hooks-post-commit'> </script>
+<h2 id='step_3_configyml_and_assets'>Step 3 Config.yml and Assets</h2>
+
+<ul>
+<li>modify your <code>app/config/config.yml</code> in 2 different places</li>
+</ul>
+<script src='https://gist.github.com/2427058.js?file=app-config-config.yml'> </script>
+<ul>
+<li>dump all the file for prod</li>
+</ul>
+
+<p><code>app/console assetic:dump –env=prod</code></p>
+
+<p>go to your symfony2 website http://yoursymfony2.com/web/app.php/hello/{YES}</p>
+
+<p>THAT’S ALL.</p>
+
+<p>Now github is hosting your assets (for free) and your web server is happy (and if your webserver is into the cloud you’ll not charged for assets )</p>
+    <hr>
+    <div class="pagination">
+      <ul>
       
+        <li class="prev disabled"><a>&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/symfony2-assets-on-rackspace-cloud-files" title="Symfony2 assets on RackSpace Cloud files">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
     
 
 
-  
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'welcometothebundle'; // required: replace example with your forum shortname
     
-      
-      	
-      	<li><a href="/symfony2-assets-on-rackspace-cloud-files">Symfony2 assets on RackSpace Cloud files</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/using-github-or-bitbucket-as-assets-container-for-symfony2">Using Github or Bitbucket as Assets container for Symfony2</a></li>
-      	
-      
-    
-  
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-
-  </ul>
- 
-  <h2 id="tutorial-ref">tutorial</h2>
-  <ul>
-      
-    
-
-
-  
-    
-      
-      	
-      	<li><a href="/easily-install-statsd-and-graphite-with-vagrant">Easily install statsd and graphite with vagrant</a></li>
-      	
-      
-    
-  
-
-
-
-  </ul>
- 
-  <h2 id="graphite-ref">graphite</h2>
-  <ul>
-      
-    
-
-
-  
-    
-      
-      	
-      	<li><a href="/easily-install-statsd-and-graphite-with-vagrant">Easily install statsd and graphite with vagrant</a></li>
-      	
-      
-    
-  
-
-
-
-  </ul>
- 
-  <h2 id="rackspace-ref">rackspace</h2>
-  <ul>
-      
-    
-
-
-  
-    
-      
-      	
-      	<li><a href="/symfony2-assets-on-rackspace-cloud-files">Symfony2 assets on RackSpace Cloud files</a></li>
-      	
-      
-    
-  
-
-
-
-  </ul>
- 
-  <h2 id="bundle-ref">bundle</h2>
-  <ul>
-      
-    
-
-
-  
-    
-      
-      	
-      	<li><a href="/symfony2-assets-on-rackspace-cloud-files">Symfony2 assets on RackSpace Cloud files</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/using-github-or-bitbucket-as-assets-container-for-symfony2">Using Github or Bitbucket as Assets container for Symfony2</a></li>
-      	
-      
-    
-  
-
-
-
-  </ul>
- 
-  <h2 id="vagrant-ref">vagrant</h2>
-  <ul>
-      
-    
-
-
-  
-    
-      
-      	
-      	<li><a href="/easily-install-statsd-and-graphite-with-vagrant">Easily install statsd and graphite with vagrant</a></li>
-      	
-      
-    
-  
-
-
-
-  </ul>
- 
-  <h2 id="github-ref">github</h2>
-  <ul>
-      
-    
-
-
-  
-    
-      
-      	
-      	<li><a href="/using-github-or-bitbucket-as-assets-container-for-symfony2">Using Github or Bitbucket as Assets container for Symfony2</a></li>
-      	
-      
-    
-  
-
-
-
-  </ul>
- 
-  <h2 id="statsd-ref">statsd</h2>
-  <ul>
-      
-    
-
-
-  
-    
-      
-      	
-      	<li><a href="/easily-install-statsd-and-graphite-with-vagrant">Easily install statsd and graphite with vagrant</a></li>
-      	
-      
-    
-  
-
-
-
-  </ul>
- 
-  <h2 id="cdn-ref">cdn</h2>
-  <ul>
-      
-    
-
-
-  
-    
-      
-      	
-      	<li><a href="/symfony2-assets-on-rackspace-cloud-files">Symfony2 assets on RackSpace Cloud files</a></li>
-      	
-      
-    
-  
-
-
-
-  </ul>
- 
-  <h2 id="bitbucket-ref">bitbucket</h2>
-  <ul>
-      
-    
-
-
-  
-    
-      
-      	
-      	<li><a href="/using-github-or-bitbucket-as-assets-container-for-symfony2">Using Github or Bitbucket as Assets container for Symfony2</a></li>
-      	
-      
-    
-  
-
-
-
-  </ul>
- 
-  <h2 id="symfony2-ref">symfony2</h2>
-  <ul>
-      
-    
-
-
-  
-    
-      
-      	
-      	<li><a href="/symfony2-assets-on-rackspace-cloud-files">Symfony2 assets on RackSpace Cloud files</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/using-github-or-bitbucket-as-assets-container-for-symfony2">Using Github or Bitbucket as Assets container for Symfony2</a></li>
-      	
-      
-    
-  
-
-
-
-  </ul>
 
 
   </div>
-
-
+  
+ 
 
 
           </div>
