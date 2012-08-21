@@ -2,50 +2,54 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{{ page.title }}</title>
-    {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+    <title>liuggio's blog :: {{ page.title }}</title>
+    {% if page.description %}
+        <meta name="description" content="{{ page.description }}">
+    {% endif %}
     <meta name="author" content="{{ site.author.name }}">
-
-
     <!-- Le styles -->
     <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ ASSET_PATH }}/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
     <link rel="stylesheet" href="{{ ASSET_PATH }}/css/font-awesome.css">
    <!-- Google Web Font-->
     <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
-    
-
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>  
   </head>
 
-  <body>
- 
+  <body> 
     <div class="container">
       <div id="header">
         <div class="logo"><img src="{{ ASSET_PATH }}/img/welcometothebundle-logo.png"></div>
         <h1><a alt="" id="sitename" href="http://www.welcometothebundle.com/">{{ site.title }}</a></h1>
         <h2>{% if site.tagline %}{{ site.tagline }}{% endif %}</h2>
-
-    </div>
-
+      </div>
       <div class="content">
-
         <div class="row">
           <div class="sidebar">
            <div class="span3">
-
             <div class="box">
-              <div class="twitter-cnt"><a href="https://twitter.com/liuggio" class="twitter-follow-button" data-show-count="false" data-size="large" data-dnt="true">Follow @liuggio</a>
+             
+
+              <p align="center"><img src="http://www.gravatar.com/avatar/662a52953053d94a145a00df9da9f0d2.png"></p>
+              <p style="font-size:95%"> I'm liuggio (aka Giulio De Donato) analyst and software developer graduated in I.T. Software Engineering with strong experience in web developing. I'm lead developer at Terravision and I love open source</p>
+
+              <p align="center"><a href="https://github.com/liuggio" title="liuggio github projects"><img src="{{ ASSET_PATH }}/img/github_blue_black_cat_32.png" target="_blank"></a>
+
+                <a href="http://twitter.com/liuggio" title="liuggio twitter page"><img src="{{ ASSET_PATH }}/img/1345542601_Twitter_32x32.png" target="_blank"></a>
+
+                <a href="http://www.linkedin.com/profile/view?id=94597934&" title="Giulio De Donato Linkedin profile"><img src="{{ ASSET_PATH }}/img/1345542710_social_linkedin_box_blue.png" target="_blank" width=34></a>
+              </p>
+
+             
+
+              <div  align="center" class="twitter-cnt"><a href="https://twitter.com/liuggio" class="twitter-follow-button" data-show-count="false" data-size="large" data-dnt="true">Follow @liuggio</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
-                <div class="btn clear-cache btn-mini"  onclick="alert('This button never works, maybe you don\'t have the permission, or maybe you need to set the acl.')"> Clear cache </div>
+                <div class="btn clear-cache btn-mini"  onclick="alert('This button never works, maybe you don\'t have the permission, or maybe you need to set the acl.\n Always clear cache.')"> Clear cache 
                 </div>
-
-        
               </div>
-
-            <div class="box">
-                
+            </div>
+            <div class="box">                
                 <h2>Categories</h2>
                 {% assign categories_list = site.categories %}  
                 {% for category in site.categories %} 
@@ -55,41 +59,31 @@
                     {% include JB/pages_list %}
                   </ul>
                 {% endfor %}
-
-              </div>
-
-            <div class="box">
-                     
+            </div>
+            <div class="box">                     
                 <h2>Tags</h2>
                 <ul>
                 {% assign tags_list = site.tags %}  
                 {% include JB/tags_list %}
                 </ul>
-
-              </div>      
-
-              
-            </div>
-            </div>
-
-          {{ content }}
+            </div>      
           </div>
+        </div>
+        {{ content }}
       </div>
-
-
-<hr>
-
+  </div>
+      <hr>
       <footer>
         <p>&copy; {{ site.author.name }} 2012 
           with help from
             <a href="http://prose.io" target="_blank" title="A Content Editor for GitHub">prose.io</a>,
             <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>,
             <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>,
-            <a href="http://github.com" target="_blank">github</a>,
+            <a href= "http://github.com" target="_blank">github</a>,
             <a href="http://bootswatch.com/" target="_blank">bootswatch</a>
         </p>
         <div id="footer"></div>
-        </footer>
+      </footer>
 
     </div> <!-- /container -->
 
