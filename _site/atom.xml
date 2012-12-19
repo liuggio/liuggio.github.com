@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2012-12-19T19:30:16+01:00</updated>
+ <updated>2012-12-19T19:36:36+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -22,7 +22,7 @@
 &lt;p&gt;In the chaos of the implict, the tvision team creates this document with few concepts in order to unify the coding and some basic knowledge.&lt;/p&gt;
 
 &lt;p&gt;If you are a developer and you are in the 2013 maybe you are already proficient with this notions.&lt;/p&gt;
-&lt;script src='https://gist.github.com/4339116.js'&gt; &lt;/script&gt;
+&lt;script src='https://gist.github.com/4339207.js'&gt; &lt;/script&gt;
 &lt;p&gt;Please help me to improve this document forking the gist.&lt;/p&gt;</content>
  </entry>
  
