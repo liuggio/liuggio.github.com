@@ -1,11 +1,12 @@
 
-http://welcometothebundle.com/index_d.html
-http://welcometothebundle.com/sitemap.txt
-http://welcometothebundle.com/atom.xml
 http://welcometothebundle.com/index.html
+http://welcometothebundle.com/sitemap.txt
+http://welcometothebundle.com/index_d.html
 http://welcometothebundle.com/tags.html
 http://welcometothebundle.com/categories.html
+http://welcometothebundle.com/atom.xml
 
+http://welcometothebundle.com/tvision-team-manifesto
 http://welcometothebundle.com/easily-install-statsd-and-graphite-with-vagrant
 http://welcometothebundle.com/symfony2-assets-on-rackspace-cloud-files
 http://welcometothebundle.com/using-github-or-bitbucket-as-assets-container-for-symfony2
