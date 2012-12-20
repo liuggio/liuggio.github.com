@@ -2,7 +2,7 @@
 layout: post
 title: "Easily install statsd and graphite with vagrant"
 description: "Monitor and react: monitorize your life env"
-category: stasd
+category: statsd
 tags: [statsd, vagrant, graphite, tutorial]
 published: true
 ---

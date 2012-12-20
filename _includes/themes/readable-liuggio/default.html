@@ -101,11 +101,12 @@
 
     var links = document.links;
     for (var i = 0, linksLength = links.length; i < linksLength; i++) {
+      
+       if (links[i].href == 'http://www.slideshare.net/liuggio/rationally-boost-your-symfony2-application-with-caching-tips-and-monitoring' ) {
  
-       if (links[i].hostname === 'www.slideshare.net') {
            //dirty solution in order to add slideshare frame into github Jekyll
            links[i].innerHTML='<iframe src="http://www.slideshare.net/slideshow/embed_code/14625769?rel=0" width="512" height="421" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe><div style="margin-bottom:5px"> <strong> <a href="http://www.slideshare.net/liuggio/rationally-boost-your-symfony2-application-with-caching-tips-and-monitoring" title="Rationally boost your symfony2 application with caching tips and monitoring" target="_blank">Rationally boost your symfony2 application with caching tips and monitoring</a></div>';
-           break;
+       break;
        } 
     }
 
