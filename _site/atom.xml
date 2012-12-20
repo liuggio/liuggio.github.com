@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2012-12-20T16:34:51+01:00</updated>
+ <updated>2012-12-20T16:39:36+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -29,9 +29,11 @@
 
 &lt;p&gt;&lt;strong&gt;Symfony2 Security Layer&lt;/strong&gt; - by @K3A, explained in detail the most difficult part of the symfony documentation.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;PHPUnit raised by Symfony2&lt;/strong&gt; of @euxpom, has described in detail&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;PHPUnit raised by Symfony2&lt;/strong&gt; of @euxpom, showed how many utensils you have for free by the Symfony2 framework&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Symfony CMF&lt;/strong&gt; of @jacoporomei described with an overwhelming sympathy a subject very dear to me the CMF and his architecture.&lt;/p&gt;</content>
+&lt;p&gt;&lt;strong&gt;Symfony CMF&lt;/strong&gt; of @jacoporomei described with an overwhelming sympathy a subject very dear to me the CMF and his architecture.&lt;/p&gt;
+
+&lt;p&gt;See you next year &lt;a href='http://www.symfonyday.it'&gt;symfonyday.it&lt;/a&gt;&lt;/p&gt;</content>
  </entry>
  
  <entry>

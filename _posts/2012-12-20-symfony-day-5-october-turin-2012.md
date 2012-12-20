@@ -20,6 +20,9 @@ There were a lot of other interesting talk:
 
 **Symfony2 Security Layer** - by @K3A, explained in detail the most difficult part of the symfony documentation.
 
-**PHPUnit raised by Symfony2** of @euxpom, has described in detail
+**PHPUnit raised by Symfony2** of @euxpom, showed how many utensils you have for free by the Symfony2 framework
 
 **Symfony CMF** of @jacoporomei described with an overwhelming sympathy a subject very dear to me the CMF and his architecture.
+
+
+See you next year [symfonyday.it](http://www.symfonyday.it)
