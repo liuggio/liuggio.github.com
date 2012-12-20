@@ -146,9 +146,15 @@
      
     	<li><a href="/tags.html#symfony2-ref">symfony2 <span>2</span></a></li>
      
+    	<li><a href="/tags.html#optimization-ref">optimization <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#speaker-ref">speaker <span>1</span></a></li>
+     
     	<li><a href="/tags.html#tutorial-ref">tutorial <span>1</span></a></li>
      
     	<li><a href="/tags.html#assetic-ref">assetic <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#symfony-ref">symfony <span>1</span></a></li>
      
     	<li><a href="/tags.html#coding-ref">coding <span>1</span></a></li>
      
@@ -164,11 +170,15 @@
      
     	<li><a href="/tags.html#bitbucket-ref">bitbucket <span>1</span></a></li>
      
+    	<li><a href="/tags.html#cache-ref">cache <span>1</span></a></li>
+     
     	<li><a href="/tags.html#bundle-ref">bundle <span>2</span></a></li>
      
     	<li><a href="/tags.html#statsd-ref">statsd <span>1</span></a></li>
      
     	<li><a href="/tags.html#rackspace-ref">rackspace <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#conference-ref">conference <span>1</span></a></li>
     
   
 
@@ -198,9 +208,15 @@
      
     	<li><a href="/tags.html#symfony2-ref">symfony2 <span>2</span></a></li>
      
+    	<li><a href="/tags.html#optimization-ref">optimization <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#speaker-ref">speaker <span>1</span></a></li>
+     
     	<li><a href="/tags.html#tutorial-ref">tutorial <span>1</span></a></li>
      
     	<li><a href="/tags.html#assetic-ref">assetic <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#symfony-ref">symfony <span>1</span></a></li>
      
     	<li><a href="/tags.html#coding-ref">coding <span>1</span></a></li>
      
@@ -216,11 +232,15 @@
      
     	<li><a href="/tags.html#bitbucket-ref">bitbucket <span>1</span></a></li>
      
+    	<li><a href="/tags.html#cache-ref">cache <span>1</span></a></li>
+     
     	<li><a href="/tags.html#bundle-ref">bundle <span>2</span></a></li>
      
     	<li><a href="/tags.html#statsd-ref">statsd <span>1</span></a></li>
      
     	<li><a href="/tags.html#rackspace-ref">rackspace <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#conference-ref">conference <span>1</span></a></li>
     
   
 
@@ -278,6 +298,46 @@
 
   </ul>
  
+  <h2 id="optimization-ref">optimization</h2>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/symfony-day-5-october-turin-2012">Symfony Day 5 October, Turin 2012</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h2 id="speaker-ref">speaker</h2>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/symfony-day-5-october-turin-2012">Symfony Day 5 October, Turin 2012</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
   <h2 id="tutorial-ref">tutorial</h2>
   <ul>
       
@@ -317,6 +377,26 @@
       
       	
       	<li><a href="/using-github-or-bitbucket-as-assets-container-for-symfony2">Using Github or Bitbucket as Assets container for Symfony2</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
+  <h2 id="symfony-ref">symfony</h2>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/symfony-day-5-october-turin-2012">Symfony Day 5 October, Turin 2012</a></li>
       	
       
     
@@ -466,6 +546,26 @@
 
   </ul>
  
+  <h2 id="cache-ref">cache</h2>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/symfony-day-5-october-turin-2012">Symfony Day 5 October, Turin 2012</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
+ 
   <h2 id="bundle-ref">bundle</h2>
   <ul>
       
@@ -533,12 +633,34 @@
 
 
   </ul>
+ 
+  <h2 id="conference-ref">conference</h2>
+  <ul>
+      
+    
+
+
+  
+    
+      
+      	
+      	<li><a href="/symfony-day-5-october-turin-2012">Symfony Day 5 October, Turin 2012</a></li>
+      	
+      
+    
+  
+
+
+
+  </ul>
 
 
   </div>
 
 
 
+
+   
 
       </div>
   </div>
@@ -566,6 +688,17 @@
            links[i].target = '_blank';
        } 
     }
+
+    var links = document.links;
+    for (var i = 0, linksLength = links.length; i < linksLength; i++) {
+ 
+       if (links[i].hostname === 'www.slideshare.net') {
+           //dirty solution in order to add slideshare frame into github Jekyll
+           links[i].innerHTML='<iframe src="http://www.slideshare.net/slideshow/embed_code/14625769?rel=0" width="512" height="421" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe><div style="margin-bottom:5px"> <strong> <a href="http://www.slideshare.net/liuggio/rationally-boost-your-symfony2-application-with-caching-tips-and-monitoring" title="Rationally boost your symfony2 application with caching tips and monitoring" target="_blank">Rationally boost your symfony2 application with caching tips and monitoring</a></div>';
+           break;
+       } 
+    }
+
     </script>
   </body>
 </html>
