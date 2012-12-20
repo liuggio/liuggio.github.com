@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2012-12-19T19:36:36+01:00</updated>
+ <updated>2012-12-20T12:34:18+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -19,11 +19,19 @@
    <id>http://welcometothebundle.com/tvision-team-manifesto</id>
    <content type="html">&lt;h2 id='abstract'&gt;Abstract&lt;/h2&gt;
 
-&lt;p&gt;In the chaos of the implict, the tvision team creates this document with few concepts in order to unify the coding and some basic knowledge.&lt;/p&gt;
+&lt;p&gt;In the chaos of the implicit, a programmer who joins a team must have a common language and some rules in order to have an integration without friction.&lt;/p&gt;
 
-&lt;p&gt;If you are a developer and you are in the 2013 maybe you are already proficient with this notions.&lt;/p&gt;
+&lt;p&gt;There is a level 0, a common and accepted (or imposed by the architect) knowledge.&lt;/p&gt;
+
+&lt;p&gt;This document defines the concepts and guidelines to follow in order to be a developer who can work in a software team in 2013.&lt;/p&gt;
+
+&lt;p&gt;I think that you are already proficient with this notions.&lt;/p&gt;
+
+&lt;p&gt;We use PHP as language and Symofony2 as framework.&lt;/p&gt;
 &lt;script src='https://gist.github.com/4339207.js'&gt; &lt;/script&gt;
-&lt;p&gt;Please help me to improve this document forking the gist.&lt;/p&gt;</content>
+&lt;p&gt;Any comment or help is really appreciated,&lt;/p&gt;
+
+&lt;p&gt;please help me to improve this document forking the gist.&lt;/p&gt;</content>
  </entry>
  
  <entry>
