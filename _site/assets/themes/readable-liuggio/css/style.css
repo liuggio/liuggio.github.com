@@ -1,3 +1,10 @@
+/*this is a fix in order to have a little space between the text and the gist border*/
+.gist-syntax {
+    background-color: white;
+    color: #000000;
+    padding-left: 10px;
+}
+
 /* Override some defaults */
 body {
     background: url("../img/pattern.png") repeat scroll 0 0 #FFFFFF;
