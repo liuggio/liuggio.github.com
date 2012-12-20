@@ -4,6 +4,7 @@ title: "2013-Software Team Manifesto"
 description: ""
 category: "manifesto"
 tags: [tvision, team, coding]
+date: 2012-09-16 16:09:12
 ---
 {% include JB/setup %}
 
@@ -26,8 +27,7 @@ We use PHP as language and Symofony2 as framework.
 
 Any comment or help is really appreciated, 
 
-please help me to improve this document forking the gist. 
-
+please help me to improve this document forking this [gist](https://gist.github.com/4339207).
 
 
 

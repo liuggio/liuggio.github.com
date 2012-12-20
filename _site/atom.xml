@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2012-12-20T12:53:24+01:00</updated>
+ <updated>2012-12-20T14:51:07+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -15,7 +15,7 @@
  <entry>
    <title>2013-Software Team Manifesto</title>
    <link href="http://welcometothebundle.com/tvision-team-manifesto"/>
-   <updated>2012-12-19T00:00:00+01:00</updated>
+   <updated>2012-09-16T16:09:12+02:00</updated>
    <id>http://welcometothebundle.com/tvision-team-manifesto</id>
    <content type="html">&lt;h2 id='abstract'&gt;Abstract&lt;/h2&gt;
 
@@ -31,7 +31,7 @@
 &lt;script src='https://gist.github.com/4339207.js'&gt; &lt;/script&gt;
 &lt;p&gt;Any comment or help is really appreciated,&lt;/p&gt;
 
-&lt;p&gt;please help me to improve this document forking the gist.&lt;/p&gt;</content>
+&lt;p&gt;please help me to improve this document forking this &lt;a href='https://gist.github.com/4339207'&gt;gist&lt;/a&gt;.&lt;/p&gt;</content>
  </entry>
  
  <entry>
