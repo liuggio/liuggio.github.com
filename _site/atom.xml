@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-01-03T16:18:56+01:00</updated>
+ <updated>2013-01-03T16:21:23+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -107,7 +107,7 @@ end&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;This will detect all the camel case problems, and you will have to follow the standard PSR1 :D&lt;/p&gt;
 
-&lt;h2 id='guard_'&gt;Guard &lt;code&gt;Symfony2&lt;/code&gt;&lt;/h2&gt;
+&lt;h2 id='guard____guardphpunitsf2'&gt;Guard + &lt;code&gt;Symfony2&lt;/code&gt; = guard-phpunit-sf2&lt;/h2&gt;
 
 &lt;p&gt;Unfortunately &lt;code&gt;guard-phpunit&lt;/code&gt; does not work with symfony2 framework,&lt;/p&gt;
 
@@ -133,7 +133,13 @@ sudo gem instal guard-phpunit-sf2-0.1.4.gem&lt;/code&gt;&lt;/pre&gt;
      watch(%r{^src\/(.+)\/(.+)Bundle\/(.+)\.php$}) { |m| &amp;quot;src/#{m[1]}/#{m[2]}Bundle/Tests/#{m[3]}Test.php&amp;quot; } # Watch all files in your bundles and run the respective tests on change
 end&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;then lunch &lt;code&gt;guard&lt;/code&gt; and start testing.&lt;/p&gt;</content>
+&lt;p&gt;then lunch &lt;code&gt;guard&lt;/code&gt; and start testing.&lt;/p&gt;
+
+&lt;p&gt;PS: maybe you should uninstall guard-phpunit in order to work with symfony2 :|&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sudo gem uninstall guard-phpunit&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Happy test to everybody.&lt;/p&gt;</content>
  </entry>
  
  <entry>

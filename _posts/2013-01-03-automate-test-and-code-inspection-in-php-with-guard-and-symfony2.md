@@ -114,7 +114,7 @@ and then add to your Guardfile
 This will detect all the camel case problems, and you will have to follow the standard PSR1 :D
 
 
-##  Guard `Symfony2`
+##  Guard + `Symfony2` = guard-phpunit-sf2
 
 Unfortunately `guard-phpunit` does not work with symfony2 framework,
 
@@ -142,5 +142,15 @@ then create the Guardfile into the root of your Symfony2 project
          watch(%r{^src\/(.+)\/(.+)Bundle\/(.+)\.php$}) { |m| "src/#{m[1]}/#{m[2]}Bundle/Tests/#{m[3]}Test.php" } # Watch all files in your bundles and run the respective tests on change
     end
 
-
 then lunch `guard` and start testing.
+
+
+PS: maybe you should uninstall guard-phpunit in order to work with symfony2 :|
+
+`sudo gem uninstall guard-phpunit`
+
+
+Happy test to everybody.
+
+
+

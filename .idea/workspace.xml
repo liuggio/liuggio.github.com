@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21d9821e-7f0c-4ddc-9ebc-e7e4dbadd7fc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-10-31-symfony-day-5-october-turin-2012.md" afterPath="$PROJECT_DIR$/_posts/2012-10-31-symfony-day-5-october-turin-2012.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-01-03-automate-test-and-code-inspection-in-php-with-guard-and-symfony2.md" afterPath="$PROJECT_DIR$/_posts/2013-01-03-automate-test-and-code-inspection-in-php-with-guard-and-symfony2.md" />
     </list>
     <ignored path="liuggio.github.com.iws" />
@@ -73,7 +72,7 @@
       <file leaf-file-name="2013-01-03-automate-test-and-code-inspection-in-php-with-guard-and-symfony2.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_posts/2013-01-03-automate-test-and-code-inspection-in-php-with-guard-and-symfony2.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="24" selection-start="207" selection-end="207" vertical-scroll-proportion="0.12376238">
+            <state line="151" column="0" selection-start="5024" selection-end="5024" vertical-scroll-proportion="0.9009901">
               <folding />
             </state>
           </provider>
@@ -401,7 +400,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2013-01-03-automate-test-and-code-inspection-in-php-with-guard-and-symfony2.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="24" selection-start="207" selection-end="207" vertical-scroll-proportion="0.12376238">
+        <state line="151" column="0" selection-start="5024" selection-end="5024" vertical-scroll-proportion="0.9009901">
           <folding />
         </state>
       </provider>
