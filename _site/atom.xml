@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-01-03T16:21:23+01:00</updated>
+ <updated>2013-01-03T16:29:19+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -27,9 +27,9 @@
 
 &lt;p&gt;You can easily edit your files, having only the front window of your editor/IDE, each change will run the test, and you will be notified.&lt;/p&gt;
 
-&lt;p&gt;Indeed during these years of development, especially in PHP I overstimulated shortcuts, I have become a slave of the keyboard, Alt-Tab, Key-Up + Enter for example, are a must for programmers TDD.&lt;/p&gt;
+&lt;p&gt;Indeed during these years of development, especially in PHP I overstimulated shortcuts, I have become a slave of the keyboard, &lt;strong&gt;Alt-Tab&lt;/strong&gt;, &lt;strong&gt;Key-Up + Enter&lt;/strong&gt; for example, are a must for TDD programmers .&lt;/p&gt;
 
-&lt;p&gt;For years I had the tic CTRL+S, in fact in my life I have saved (for mistake) around 2000 pages browsing with Firefox.&lt;/p&gt;
+&lt;p&gt;For years I had the &lt;strong&gt;CTRL+S&lt;/strong&gt; tic, in fact in my life I have saved (by mistake) around 2000 pages browsing with Firefox.&lt;/p&gt;
 
 &lt;p&gt;Before finding out &lt;a href='https://github.com/guard/guard'&gt;Guard&lt;/a&gt;, I was using a crude one-line script, it runs each 3 seconds PHPUnit if error otherwise waits 10 seconds&lt;/p&gt;
 
@@ -37,7 +37,7 @@
 while true; do clear; phpunit; if [ ! $? ]; then sleep 10; else sleep 3;fi; done;
 &lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;but it was not enough, I needed for something which could perform only the Test for the file that I had changed: &lt;a href='https://github.com/Maher4Ever/guard-phpunit'&gt;guard-phpunit&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;but it was not enough, I needed something which could perform only the Test for the file that I had changed: &lt;a href='https://github.com/Maher4Ever/guard-phpunit'&gt;guard-phpunit&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;In the PHP world, &lt;a href='https://github.com/guard/guard'&gt;Guard&lt;/a&gt; is not so popular but instead would require much more importance.&lt;/p&gt;
 

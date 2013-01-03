@@ -19,9 +19,9 @@ in that regard I wanted to share a useful library: [Guard](https://github.com/gu
 
 You can easily edit your files, having only the front window of your editor/IDE, each change will run the test, and you will be notified.
 
-Indeed during these years of development, especially in PHP I overstimulated shortcuts, I have become a slave of the keyboard, Alt-Tab, Key-Up + Enter for example, are a must for programmers TDD.
+Indeed during these years of development, especially in PHP I overstimulated shortcuts, I have become a slave of the keyboard, **Alt-Tab**, **Key-Up + Enter** for example, are a must for TDD programmers .
 
-For years I had the tic CTRL+S, in fact in my life I have saved (for mistake) around 2000 pages browsing with Firefox.
+For years I had the **CTRL+S** tic, in fact in my life I have saved (by mistake) around 2000 pages browsing with Firefox.
 
 Before finding out [Guard](https://github.com/guard/guard), I was using a crude one-line script,
 it runs each 3 seconds PHPUnit if error otherwise waits 10 seconds
@@ -30,7 +30,7 @@ it runs each 3 seconds PHPUnit if error otherwise waits 10 seconds
 while true; do clear; phpunit; if [ ! $? ]; then sleep 10; else sleep 3;fi; done;
 ```
 
-but it was not enough, I needed for something which could perform only the Test for the file that I had changed: [guard-phpunit](https://github.com/Maher4Ever/guard-phpunit)
+but it was not enough, I needed something which could perform only the Test for the file that I had changed: [guard-phpunit](https://github.com/Maher4Ever/guard-phpunit)
 
 In the PHP world, [Guard](https://github.com/guard/guard) is not so popular but instead would require much more importance.
 
