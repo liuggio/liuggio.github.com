@@ -9,9 +9,9 @@ date: 2012-11-01 06:01:25
 {% include JB/setup %}
 
 I was contacted by [leopro](https://twitter.com/_leopro_) ![_leopro_](https://en.gravatar.com/avatar/26d90e88b1eb694cc1276b9ab8d7630f?s=30)
-who congratulated for the excellent results obtained with the [StatsDClientBundle](https://github.com/liuggio/StatsDClientBundle).
+who congratulated me for the excellent results obtained with the [StatsDClientBundle](https://github.com/liuggio/StatsDClientBundle).
 
-In this way I discovered that [ServerGrove](http://blog.servergrove.com/2012/10/09/interesting-symfony-bundles-statsdclientbundle/) had chosen [StatsD Client Bundle](https://github.com/liuggio/StatsDClientBundle) as interesting Symfony2 project among more than 1600.
+Thanks to this comment I now know that [ServerGrove](http://blog.servergrove.com/2012/10/09/interesting-symfony-bundles-statsdclientbundle/) chosen [StatsD Client Bundle](https://github.com/liuggio/StatsDClientBundle) as its top choice for Symfony2 project among more than 1600.
 
 cite
 
