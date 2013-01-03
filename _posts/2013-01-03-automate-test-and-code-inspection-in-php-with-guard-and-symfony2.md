@@ -3,7 +3,7 @@ layout: post
 title: "Automate Test and Code Inspection in PHP with Guard, and Symfony2"
 description: "Automate Test and Code Inspection with Guard and Symfony2"
 category: phpunit
-tags: [phpunit, symfony, guard, php, automate, code-inspection]
+tags: [phpunit, symfony2, guard, php, automate, code-inspection]
 ---
 {% include JB/setup %}
 

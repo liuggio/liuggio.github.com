@@ -3,7 +3,7 @@ layout: post
 title: "Symfony Day 5 October, Turin 2012"
 description: "Speaker at Symfonyday in Turin"
 category: conference
-tags: [symfony, conference, speaker, cache, optimization]
+tags: [symfony2, conference, speaker, cache, optimization]
 date: 2012-10-31 23:01:25
 publish: false
 ---
