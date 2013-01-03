@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21d9821e-7f0c-4ddc-9ebc-e7e4dbadd7fc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-01-03-automate-test-and-code-inspection-in-php-with-guard-and-symfony2.md" afterPath="$PROJECT_DIR$/_posts/2013-01-03-automate-test-and-code-inspection-in-php-with-guard-and-symfony2.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/atom.xml" afterPath="$PROJECT_DIR$/_site/atom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/automate-test-and-code-inspection-in-php-with-guard-and-symfony2/index.html" afterPath="$PROJECT_DIR$/_site/automate-test-and-code-inspection-in-php-with-guard-and-symfony2/index.html" />
     </list>
     <ignored path="liuggio.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,7 +36,7 @@
       <file leaf-file-name="2013-01-03-automate-test-and-code-inspection-in-php-with-guard-and-symfony2.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_posts/2013-01-03-automate-test-and-code-inspection-in-php-with-guard-and-symfony2.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="143" column="37" selection-start="4857" selection-end="4857" vertical-scroll-proportion="0.9551569">
+            <state line="27" column="0" selection-start="1354" selection-end="1354" vertical-scroll-proportion="0.17937219">
               <folding />
             </state>
           </provider>
@@ -345,7 +342,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2013-01-03-automate-test-and-code-inspection-in-php-with-guard-and-symfony2.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="37" selection-start="4857" selection-end="4857" vertical-scroll-proportion="0.9551569">
+        <state line="27" column="0" selection-start="1354" selection-end="1354" vertical-scroll-proportion="0.17937219">
           <folding />
         </state>
       </provider>
