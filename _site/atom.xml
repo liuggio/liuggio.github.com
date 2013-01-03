@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-01-03T16:30:59+01:00</updated>
+ <updated>2013-01-03T17:03:41+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -78,7 +78,9 @@ end&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;gem install libnotify&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;you will have an Icon next your top panel.&lt;/p&gt;
+&lt;p&gt;you will have an Icon next your top panel&lt;/p&gt;
+
+&lt;p&gt;&lt;img src='http://welcometothebundle.com/assets/themes/readable-liuggio/img/guard-phpunit-sf2.png' alt='liuggio-guard-phpunit-sf2-notifier' /&gt;&lt;/p&gt;
 
 &lt;h3 id='4_trick_guard_on_large_directories'&gt;4 Trick Guard on large directories&lt;/h3&gt;
 
@@ -109,7 +111,7 @@ end&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;This will detect all the camel case problems, and you will have to follow the standard PSR1 :D&lt;/p&gt;
 
-&lt;h2 id='guard____guardphpunitsf2'&gt;Guard + &lt;code&gt;Symfony2&lt;/code&gt; = guard-phpunit-sf2&lt;/h2&gt;
+&lt;h2 id='guard____guardphpunitsf2'&gt;Guard + &lt;code&gt;Symfony2&lt;/code&gt; = &lt;a href='​​https://github.com/liuggio/guard-phpunit-sf2'&gt;guard-phpunit-sf2&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;Unfortunately &lt;code&gt;guard-phpunit&lt;/code&gt; does not work with symfony2 framework,&lt;/p&gt;
 

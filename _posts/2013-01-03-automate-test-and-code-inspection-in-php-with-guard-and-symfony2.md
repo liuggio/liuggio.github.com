@@ -77,7 +77,9 @@ If you install `libnotify` with
 
 `gem install libnotify`
 
-you will have an Icon next your top panel.
+you will have an Icon next your top panel
+
+![liuggio-guard-phpunit-sf2-notifier](http://welcometothebundle.com/assets/themes/readable-liuggio/img/guard-phpunit-sf2.png)
 
 
 ### 4 Trick Guard on large directories
