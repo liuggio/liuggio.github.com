@@ -6,7 +6,7 @@ http://welcometothebundle.com/tags.html
 http://welcometothebundle.com/categories.html
 http://welcometothebundle.com/atom.xml
 
-http://welcometothebundle.com/automate-test-and-code-inspection-in-php-with-guard
+http://welcometothebundle.com/automate-test-and-code-inspection-in-php-with-guard-and-symfony2
 http://welcometothebundle.com/symfony-day-5-october-turin-2012
 http://welcometothebundle.com/tvision-team-manifesto
 http://welcometothebundle.com/easily-install-statsd-and-graphite-with-vagrant

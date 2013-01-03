@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-01-03T10:27:30+01:00</updated>
+ <updated>2013-01-03T15:57:47+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -13,11 +13,113 @@
 
  
  <entry>
-   <title>Automate Test and Code Inspection in PHP with Guard</title>
-   <link href="http://welcometothebundle.com/automate-test-and-code-inspection-in-php-with-guard"/>
+   <title>Automate Test and Code Inspection in PHP with Guard, and Symfony2</title>
+   <link href="http://welcometothebundle.com/automate-test-and-code-inspection-in-php-with-guard-and-symfony2"/>
    <updated>2013-01-03T00:00:00+01:00</updated>
-   <id>http://welcometothebundle.com/automate-test-and-code-inspection-in-php-with-guard</id>
-   <content type="html"></content>
+   <id>http://welcometothebundle.com/automate-test-and-code-inspection-in-php-with-guard-and-symfony2</id>
+   <content type="html">&lt;p&gt;In everyday life there are tools that can not only speed, but also lighten the workload of your mind, in that regard I wanted to share a useful library: &lt;a href='https://github.com/guard/guard'&gt;Guard&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id='_guard'&gt;&lt;code&gt;Watch&lt;/code&gt; Guard!&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href='https://github.com/guard/guard'&gt;Guard&lt;/a&gt; is written in Ruby, it automates commands based on events that happen in the filesystem.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='https://github.com/guard/guard'&gt;Guard&lt;/a&gt; in a short time has become popular especially in the automate testing.&lt;/p&gt;
+
+&lt;p&gt;You can easily edit your files, having only the front window of your editor/IDE, each change will run the test, and you will be notified.&lt;/p&gt;
+
+&lt;p&gt;Indeed during these years of development, especially in PHP I overstimulated shortcuts, I have become a slave of the keyboard, Alt-Tab, Key-Up + Enter for example, are a must for programmers TDD.&lt;/p&gt;
+
+&lt;p&gt;For years I had the tic CTRL+S, in fact in my life I have saved (for mistake) around 2000 pages browsing with Firefox.&lt;/p&gt;
+
+&lt;p&gt;Before finding out &lt;a href='https://github.com/guard/guard'&gt;Guard&lt;/a&gt;, I was using a crude one-line script, it runs each 3 seconds PHPUnit if error otherwise waits 10 seconds&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;bash
+while true; do clear; phpunit; if [ ! $? ]; then sleep 10; else sleep 3;fi; done;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;but it was not enough, I needed for something which could perform only the Test for the file that I had changed: &lt;a href='https://github.com/Maher4Ever/guard-phpunit'&gt;guard-phpunit&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;In the PHP world, &lt;a href='https://github.com/guard/guard'&gt;Guard&lt;/a&gt; is not so popular but instead would require much more importance.&lt;/p&gt;
+
+&lt;h2 id='install_guardphpunit'&gt;&lt;strong&gt;Install&lt;/strong&gt; &lt;a href='https://github.com/Maher4Ever/guard-phpunit'&gt;guard-phpunit&lt;/a&gt;!&lt;/h2&gt;
+
+&lt;p&gt;Simply follow the instructions of the README.md https://github.com/Maher4Ever/guard-phpunit&lt;/p&gt;
+
+&lt;h3 id='1_install_guardphpunit'&gt;1 Install guard-phpunit&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;gem install guard-phpunit&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id='2_step_creare_un_file_guardfile'&gt;2 Step creare un file Guardfile&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;ruby
+guard &amp;#39;phpunit&amp;#39;, :tests_path =&amp;gt; &amp;#39;Tests&amp;#39;, :cli =&amp;gt; &amp;#39;--colors&amp;#39; do
+ # Watch tests files
+ watch(%r{^.+Test\.php$})
+ # Watch library files and run their tests
+ watch(%r{^Object/(.+)\.php}) { |m| &amp;quot;Tests/#{m[1]}Test.php&amp;quot; }
+end
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id='3_run'&gt;3 Run&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;bash
+    liuggio@liuggio:/var/repos/StatsDClientBundle$ guard
+    20:33:21 - INFO - Guard uses NotifySend to send notifications.
+    20:33:21 - INFO - Guard uses TerminalTitle to send notifications.
+    20:33:21 - INFO - Running all tests
+    20:33:23 - INFO - ..................
+    &amp;gt; [#51616B16C20E]
+    &amp;gt; [#51616B16C20E] Finished in 2 seconds
+    &amp;gt; [#51616B16C20E] 18 tests, 43 assertions
+    20:33:23 - INFO - Guard is now watching at &amp;#39;/var/www/StatsDClientBundle&amp;#39;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This will test the entire library for you, any changes will test only the files that have changed&lt;/p&gt;
+
+&lt;p&gt;If you install &lt;code&gt;libnotify&lt;/code&gt; with&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;gem install libnotify&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;you will have an Icon next your top panel.&lt;/p&gt;
+
+&lt;h3 id='4__guard_on_large_directories'&gt;4 &lt;code&gt;Trick&lt;/code&gt; Guard on large directories&lt;/h3&gt;
+
+&lt;p&gt;If you have big project you need to increase the amount of watches of libnotify&lt;/p&gt;
+
+&lt;p&gt;see this page for more info: https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers&lt;/p&gt;
+
+&lt;h2 id='_guard'&gt;&lt;code&gt;Inspect&lt;/code&gt; Guard!&lt;/h2&gt;
+
+&lt;p&gt;Another plugin that I suggest is Guard for code inspection:&lt;/p&gt;
+
+&lt;p&gt;is easy to install&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;bash
+sudo pear install PHP_CodeSniffer
+sudo gem install guard-phpcs
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;and then add to your Guardfile&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ruby
+guard &amp;#39;phpunit&amp;#39;, :tests_path =&amp;gt; &amp;#39;Tests&amp;#39;, :cli =&amp;gt; &amp;#39;--colors&amp;#39; do
+ # Watch tests files
+ watch(%r{^.+Test\.php$})
+ # Watch library files and run their tests
+ watch(%r{^/(.+)/(.+)/(.+)\.php}) { |m| &amp;quot;Test/#{m[1]}/#{m[2]}/#{m[3]}Test.php&amp;quot; }
+end
+guard &amp;#39;phpcs&amp;#39;, :standard =&amp;gt; &amp;#39;PSR1&amp;#39; do
+    watch(%r{.*\.php$})
+end
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This will detect all the camel case problems, and you will have to follow the standard PSR1 :D&lt;/p&gt;
+
+&lt;h2 id='guard_'&gt;Guard &lt;code&gt;Symfony2&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;Unfortunately &lt;code&gt;guard-phpunit&lt;/code&gt; does not work with symfony2 framework,&lt;/p&gt;
+
+&lt;p&gt;so I forked that repo and I made ​​https://github.com/liuggio/guard-phpunit-sf2 &lt;strong&gt;Hurray!!&lt;/strong&gt;&lt;/p&gt;</content>
  </entry>
  
  <entry>

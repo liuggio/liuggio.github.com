@@ -11,7 +11,7 @@ tags: [phpunit, symfony, guard, php, automate, code, inspection]
 In everyday life there are tools that can not only speed, but also lighten the workload of your mind,
 in that regard I wanted to share a useful library: [Guard](https://github.com/guard/guard).
 
-## **Watch**  Guard!
+## `Watch`  Guard!
 
 [Guard](https://github.com/guard/guard) is written in Ruby, it automates commands based on events that happen in the filesystem.
 
@@ -46,30 +46,26 @@ Simply follow the instructions of the README.md https://github.com/Maher4Ever/gu
 ### 2 Step creare un file  Guardfile
 
 ```ruby
-
 guard 'phpunit', :tests_path => 'Tests', :cli => '--colors' do
  # Watch tests files
  watch(%r{^.+Test\.php$})
-
  # Watch library files and run their tests
  watch(%r{^Object/(.+)\.php}) { |m| "Tests/#{m[1]}Test.php" }
 end
-
 ```
 
 ### 3 Run
 
 ```bash
-liuggio@liuggio:/var/repos/StatsDClientBundle$ guard
-20:33:21 - INFO - Guard uses NotifySend to send notifications.
-20:33:21 - INFO - Guard uses TerminalTitle to send notifications.
-20:33:21 - INFO - Running all tests
-20:33:23 - INFO - ..................
-> [#51616B16C20E]
-> [#51616B16C20E] Finished in 2 seconds
-> [#51616B16C20E] 18 tests, 43 assertions
-
-20:33:23 - INFO - Guard is now watching at '/var/www/StatsDClientBundle'
+    liuggio@liuggio:/var/repos/StatsDClientBundle$ guard
+    20:33:21 - INFO - Guard uses NotifySend to send notifications.
+    20:33:21 - INFO - Guard uses TerminalTitle to send notifications.
+    20:33:21 - INFO - Running all tests
+    20:33:23 - INFO - ..................
+    > [#51616B16C20E]
+    > [#51616B16C20E] Finished in 2 seconds
+    > [#51616B16C20E] 18 tests, 43 assertions
+    20:33:23 - INFO - Guard is now watching at '/var/www/StatsDClientBundle'
 ```
 
 
@@ -82,7 +78,7 @@ If you install `libnotify` with
 you will have an Icon next your top panel.
 
 
-### 4 **Trick** Guard on large directories
+### 4 `Trick` Guard on large directories
 
 If you have big project you need to increase the amount of watches of libnotify
 
@@ -90,33 +86,26 @@ see this page for more info: https://github.com/guard/listen/wiki/Increasing-the
 
 
 
-## **Inspect**  Guard!
+## `Inspect`  Guard!
 
 Another plugin that I suggest is Guard for code inspection:
 
 is easy to install
 
-
-
 ```bash
 sudo pear install PHP_CodeSniffer
 sudo gem install guard-phpcs
-
 ```
 
 and then add to your Guardfile
 
 ```ruby
-
 guard 'phpunit', :tests_path => 'Tests', :cli => '--colors' do
  # Watch tests files
  watch(%r{^.+Test\.php$})
-
  # Watch library files and run their tests
  watch(%r{^/(.+)/(.+)/(.+)\.php}) { |m| "Test/#{m[1]}/#{m[2]}/#{m[3]}Test.php" }
-
 end
-
 guard 'phpcs', :standard => 'PSR1' do
     watch(%r{.*\.php$})
 end
@@ -125,7 +114,7 @@ end
 This will detect all the camel case problems, and you will have to follow the standard PSR1 :D
 
 
-##  Guard  **Symfony2**
+##  Guard  `Symfony2`
 
 Unfortunately `guard-phpunit` does not work with symfony2 framework,
 
