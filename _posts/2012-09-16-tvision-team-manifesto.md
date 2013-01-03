@@ -3,7 +3,7 @@ layout: post
 title: "2013-Software Team Manifesto"
 description: ""
 category: "manifesto"
-tags: [tvision, team, coding]
+tags: [tvision, team, coding, php]
 date: 2012-09-16 16:09:12
 ---
 {% include JB/setup %}

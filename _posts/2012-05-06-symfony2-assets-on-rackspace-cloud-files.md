@@ -3,7 +3,7 @@ layout: post
 title: "Symfony2 assets on RackSpace Cloud files"
 description: ""
 category: "cloud"
-tags: [rackspace, symfony2, bundle, assetic, cdn]
+tags: [rackspace, symfony2, bundle, assetic, cdn, php]
 published: true
 ---
 {% include JB/setup %}

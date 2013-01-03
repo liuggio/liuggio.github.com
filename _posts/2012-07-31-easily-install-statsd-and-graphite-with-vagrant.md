@@ -3,7 +3,7 @@ layout: post
 title: "Easily install statsd and graphite with vagrant"
 description: "Monitor and react: monitorize your life env"
 category: statsd
-tags: [statsd, vagrant, graphite, tutorial]
+tags: [statsd, vagrant, graphite, tutorial, php]
 published: true
 ---
 
