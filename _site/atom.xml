@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-01-03T16:03:48+01:00</updated>
+ <updated>2013-01-03T16:15:54+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -111,7 +111,9 @@ end&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Unfortunately &lt;code&gt;guard-phpunit&lt;/code&gt; does not work with symfony2 framework,&lt;/p&gt;
 
-&lt;p&gt;so I forked that repo and I made guard-phpunit-sf2&lt;em&gt;Hurray!!&lt;/em&gt;&lt;em&gt;)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;so I forked that repo and I made &lt;a href='​​https://github.com/liuggio/guard-phpunit-sf2'&gt;guard-phpunit-sf2&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hurray!!&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;guard-phpunit-sf2 has not been pushed on RubyGems. If you want to try it, clone the repository, build the gem and install it.&lt;/p&gt;
 

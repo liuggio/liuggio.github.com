@@ -118,7 +118,9 @@ This will detect all the camel case problems, and you will have to follow the st
 
 Unfortunately `guard-phpunit` does not work with symfony2 framework,
 
-so I forked that repo and I made [guard-phpunit-sf2](​​https://github.com/liuggio/guard-phpunit-sf2 **Hurray!!**)
+so I forked that repo and I made [guard-phpunit-sf2](​​https://github.com/liuggio/guard-phpunit-sf2)
+
+**Hurray!!**
 
 guard-phpunit-sf2 has not been pushed on RubyGems. If you want to try it, clone the repository, build the gem and install it.
 
