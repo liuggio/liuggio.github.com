@@ -78,7 +78,7 @@ If you install `libnotify` with
 you will have an Icon next your top panel.
 
 
-### 4 `Trick` Guard on large directories
+### 4 Trick Guard on large directories
 
 If you have big project you need to increase the amount of watches of libnotify
 

@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-01-03T16:03:01+01:00</updated>
+ <updated>2013-01-03T16:03:48+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -78,7 +78,7 @@ end&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;you will have an Icon next your top panel.&lt;/p&gt;
 
-&lt;h3 id='4__guard_on_large_directories'&gt;4 &lt;code&gt;Trick&lt;/code&gt; Guard on large directories&lt;/h3&gt;
+&lt;h3 id='4_trick_guard_on_large_directories'&gt;4 Trick Guard on large directories&lt;/h3&gt;
 
 &lt;p&gt;If you have big project you need to increase the amount of watches of libnotify&lt;/p&gt;
 
