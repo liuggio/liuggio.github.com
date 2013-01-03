@@ -1,12 +1,11 @@
 
 http://welcometothebundle.com/index.html
 http://welcometothebundle.com/sitemap.txt
-http://welcometothebundle.com/index_d.html
-http://welcometothebundle.com/tags.html
 http://welcometothebundle.com/categories.html
+http://welcometothebundle.com/index_d.html
 http://welcometothebundle.com/atom.xml
+http://welcometothebundle.com/tags.html
 
-http://welcometothebundle.com/servergrove-stastdclientbundle-interesting-symfony-bundles
 http://welcometothebundle.com/symfony-day-5-october-turin-2012
 http://welcometothebundle.com/tvision-team-manifesto
 http://welcometothebundle.com/easily-install-statsd-and-graphite-with-vagrant

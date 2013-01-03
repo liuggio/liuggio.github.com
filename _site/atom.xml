@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2012-12-20T19:34:11+01:00</updated>
+ <updated>2013-01-03T01:48:26+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -13,36 +13,19 @@
 
  
  <entry>
-   <title>ServerGrove StastdClientBundle Interesting Symfony Bundles</title>
-   <link href="http://welcometothebundle.com/servergrove-stastdclientbundle-interesting-symfony-bundles"/>
-   <updated>2012-12-20T00:00:00+01:00</updated>
-   <id>http://welcometothebundle.com/servergrove-stastdclientbundle-interesting-symfony-bundles</id>
-   <content type="html">&lt;p&gt;Con lieto onore, @__leopro__&lt;img alt='@__leopro__' src='https://en.gravatar.com/avatar/26d90e88b1eb694cc1276b9ab8d7630f?s=30' /&gt; mi ha avvisato che c&amp;#8217;era del rumor su StatsDClientBundle&lt;/p&gt;
-
-&lt;p&gt;Congralundandosi dei risultati ottenuti con un bundle, cosi scoprii che ServerGrove aveva scelto &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;liuggio/StatsDClientBundle&lt;/a&gt; come Bundle interessante tra più di 1600.&lt;/p&gt;
-
-&lt;p&gt;cit. &lt;code&gt;There are well over 1600 public bundles at knpbundles.com, so sometimes really interesting and good bundles are hard time find. So we will revive the old series but this time we will do it with bundles.
-In our first installment of the series we will present StatsDClientBundle written by Giulio De Donato. &lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Chiunque segua una conferenza in europa di php conosce ServerGrove, vi ringrazio.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href='http://blog.servergrove.com/2012/10/09/interesting-symfony-bundles-statsdclientbundle/'&gt;continue reading Interesting Symfony Bundles: StatsDClientBundle on ServerGrove&lt;/a&gt;&lt;/p&gt;</content>
- </entry>
- 
- <entry>
    <title>Symfony Day 5 October, Turin 2012</title>
    <link href="http://welcometothebundle.com/symfony-day-5-october-turin-2012"/>
    <updated>2012-10-31T23:01:25+01:00</updated>
    <id>http://welcometothebundle.com/symfony-day-5-october-turin-2012</id>
    <content type="html">&lt;p&gt;On October 5th, I was the speaker at the symfony day, and I was lucky enough to be able to close the conference.&lt;/p&gt;
 
-&lt;p&gt;It was a very interesting experience, although excited I talked about what I know best: improving the performance of a web application.&lt;/p&gt;
+&lt;p&gt;It was a very interesting experience, although excited I talked about what I know best: &lt;strong&gt;improving the performance of a web application&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href='http://www.slideshare.net/liuggio/rationally-boost-your-symfony2-application-with-caching-tips-and-monitoring'&gt;liuggio/rationally-boost-your-symfony2-application-with-caching-tips-and-monitoring&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;[edit] Two months after the talk, visitors pass the 1,200 visits (December 2012).&lt;/p&gt;
 
-&lt;p&gt;There were a lot of other interesting talk:&lt;/p&gt;
+&lt;p&gt;There were a lot of other interesting topics:&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Symfony2 Security Layer&lt;/strong&gt; - by @K3A, explained in detail the most difficult part of the symfony documentation.&lt;/p&gt;
 
@@ -50,7 +33,9 @@ In our first installment of the series we will present StatsDClientBundle writte
 
 &lt;p&gt;&lt;strong&gt;Symfony CMF&lt;/strong&gt; of @jacoporomei described with an overwhelming sympathy a subject very dear to me the CMF and his architecture.&lt;/p&gt;
 
-&lt;p&gt;See you next year &lt;a href='http://www.symfonyday.it'&gt;symfonyday.it&lt;/a&gt;&lt;/p&gt;</content>
+&lt;p&gt;See you next year &lt;a href='http://www.symfonyday.it'&gt;symfonyday.it&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;a special thanks @cirpo&lt;/p&gt;</content>
  </entry>
  
  <entry>
