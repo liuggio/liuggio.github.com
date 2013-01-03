@@ -4,13 +4,21 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-01-03T01:48:26+01:00</updated>
+ <updated>2013-01-03T10:27:30+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
    <email>liuggio@liuggio</email>
  </author>
 
+ 
+ <entry>
+   <title>Automate Test and Code Inspection in PHP with Guard</title>
+   <link href="http://welcometothebundle.com/automate-test-and-code-inspection-in-php-with-guard"/>
+   <updated>2013-01-03T00:00:00+01:00</updated>
+   <id>http://welcometothebundle.com/automate-test-and-code-inspection-in-php-with-guard</id>
+   <content type="html"></content>
+ </entry>
  
  <entry>
    <title>Symfony Day 5 October, Turin 2012</title>

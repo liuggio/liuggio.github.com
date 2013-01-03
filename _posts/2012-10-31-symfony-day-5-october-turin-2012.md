@@ -5,6 +5,7 @@ description: "Speaker at Symfonyday in Turin"
 category: conference
 tags: [symfony, conference, speaker, cache, optimization]
 date: 2012-10-31 23:01:25
+publish: false
 ---
 {% include JB/setup %}
 

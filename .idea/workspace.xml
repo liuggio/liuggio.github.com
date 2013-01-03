@@ -2,8 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21d9821e-7f0c-4ddc-9ebc-e7e4dbadd7fc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_includes/themes/readable-liuggio/post.html" afterPath="$PROJECT_DIR$/_includes/themes/readable-liuggio/post.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/themes/readable-liuggio/css/style.css" afterPath="$PROJECT_DIR$/assets/themes/readable-liuggio/css/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_site/automate-test-and-code-inspection-in-php-with-guard/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-01-03-automate-test-and-code-inspection-in-php-with-guard.md" afterPath="$PROJECT_DIR$/_posts/2013-01-03-automate-test-and-code-inspection-in-php-with-guard-and-symfony2.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-10-31-symfony-day-5-october-turin-2012.md" afterPath="$PROJECT_DIR$/_posts/2012-10-31-symfony-day-5-october-turin-2012.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/atom.xml" afterPath="$PROJECT_DIR$/_site/atom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/categories.html" afterPath="$PROJECT_DIR$/_site/categories.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/easily-install-statsd-and-graphite-with-vagrant/index.html" afterPath="$PROJECT_DIR$/_site/easily-install-statsd-and-graphite-with-vagrant/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/index.html" afterPath="$PROJECT_DIR$/_site/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/index_d.html" afterPath="$PROJECT_DIR$/_site/index_d.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/sitemap.txt" afterPath="$PROJECT_DIR$/_site/sitemap.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/symfony-day-5-october-turin-2012/index.html" afterPath="$PROJECT_DIR$/_site/symfony-day-5-october-turin-2012/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/symfony2-assets-on-rackspace-cloud-files/index.html" afterPath="$PROJECT_DIR$/_site/symfony2-assets-on-rackspace-cloud-files/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/tags.html" afterPath="$PROJECT_DIR$/_site/tags.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/tvision-team-manifesto/index.html" afterPath="$PROJECT_DIR$/_site/tvision-team-manifesto/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/using-github-or-bitbucket-as-assets-container-for-symfony2/index.html" afterPath="$PROJECT_DIR$/_site/using-github-or-bitbucket-as-assets-container-for-symfony2/index.html" />
     </list>
     <ignored path="liuggio.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,6 +36,28 @@
   <component name="FavoritesManager">
     <favorites_list name="liuggio.github.com" />
   </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="2013-01-03-automate-test-and-code-inspection-in-php-with-guard-and-symfony2.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_posts/2013-01-03-automate-test-and-code-inspection-in-php-with-guard-and-symfony2.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="106" column="19" selection-start="3351" selection-end="3351" vertical-scroll-proportion="2.3043478">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2012-10-31-symfony-day-5-october-turin-2012.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2012-10-31-symfony-day-5-october-turin-2012.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="0" selection-start="60" selection-end="184" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
   <component name="FindManager">
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
@@ -41,14 +76,18 @@
         <option value="$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html" />
         <option value="$PROJECT_DIR$/assets/themes/readable-liuggio/bootstrap/css/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/assets/themes/readable-liuggio/css/style.css" />
+        <option value="$PROJECT_DIR$/_posts/2012-10-31-symfony-day-5-october-turin-2012.md" />
+        <option value="$PROJECT_DIR$/_posts/2013-01-03-automate-test-and-code-inspection-in-php-with-guard.md" />
+        <option value="$PROJECT_DIR$/_posts/2013-01-03-automate-test-and-code-inspection-in-php-with-guard-and-symfony2.md" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-2" />
+    <option name="y" value="25" />
     <option name="width" value="1444" />
-    <option name="height" value="876" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -94,6 +133,30 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="liuggio.github.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="liuggio.github.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="liuggio.github.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="liuggio.github.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="_posts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -119,14 +182,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="0" width="1444" height="876" extended-state="6" />
-    <editor active="false" />
+    <frame x="-2" y="25" width="1444" height="877" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.6706507" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25394547" sideWeight="0.6706507" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -236,11 +299,6 @@
         <state line="64" column="44" selection-start="2409" selection-end="2414" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/archive.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_layouts/page.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="34" selection-start="81" selection-end="81" vertical-scroll-proportion="0.0" />
@@ -256,17 +314,23 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="91" selection-end="91" vertical-scroll-proportion="-0.0" />
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/themes/readable-liuggio/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="0" selection-start="443" selection-end="443" vertical-scroll-proportion="0.04249292" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2012-10-31-symfony-day-5-october-turin-2012.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="60" selection-end="184" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-01-03-automate-test-and-code-inspection-in-php-with-guard-and-symfony2.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="106" column="19" selection-start="3351" selection-end="3351" vertical-scroll-proportion="2.3043478">
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

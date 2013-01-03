@@ -1,19 +1,21 @@
 ---
 layout: post
-title: "Automate Test and Code Inspection in PHP with Guard"
-description: ""
-category: 
-published: false
-tags: []
+title: "Automate Test and Code Inspection in PHP with Guard, and Symfony2"
+description: "Automate Test and Code Inspection with Guard and Symfony2"
+category: phpunit
+tags: [phpunit, symfony, guard, php, automate, code, inspection]
 ---
 {% include JB/setup %}
 
 
-In everyday life there are tools that can not only speed, but also lighten the workload of your mind, in that regard I wanted to share a useful library: [Guard](https://github.com/guard/guard).
+In everyday life there are tools that can not only speed, but also lighten the workload of your mind,
+in that regard I wanted to share a useful library: [Guard](https://github.com/guard/guard).
+
+## **Watch**  Guard!
 
 [Guard](https://github.com/guard/guard) is written in Ruby, it automates commands based on events that happen in the filesystem.
 
-[Guard](https://github.com/guard/guard) in a short time has become popular especially in the automate testing.  
+[Guard](https://github.com/guard/guard) in a short time has become popular especially in the automate testing.
 
 You can easily edit your files, having only the front window of your editor/IDE, each change will run the test, and you will be notified.
 
@@ -21,7 +23,7 @@ Indeed during these years of development, especially in PHP I overstimulated sho
 
 For years I had the tic CTRL+S, in fact in my life I have saved (for mistake) around 2000 pages browsing with Firefox.
 
-Before finding out Guard, I was using a crude one-line script, 
+Before finding out [Guard](https://github.com/guard/guard), I was using a crude one-line script,
 it runs each 3 seconds PHPUnit if error otherwise waits 10 seconds
 
 ``` bash
@@ -30,16 +32,18 @@ while true; do clear; phpunit; if [ ! $? ]; then sleep 10; else sleep 3;fi; done
 
 but it was not enough, I needed for something which could perform only the Test for the file that I had changed: [guard-phpunit](https://github.com/Maher4Ever/guard-phpunit)
 
-In the PHP world, [Guard](https://github.com/guard/guard) is not so popular but instead would require much more importance. 
+In the PHP world, [Guard](https://github.com/guard/guard) is not so popular but instead would require much more importance.
+
+## **Install** [guard-phpunit](https://github.com/Maher4Ever/guard-phpunit)!
 
 Simply follow the instructions of the README.md https://github.com/Maher4Ever/guard-phpunit
 
- 
-1. Install guard-phpunit
+
+### 1 Install guard-phpunit
 
 `gem install guard-phpunit`
 
-2. Step creare un file  Guardfile
+### 2 Step creare un file  Guardfile
 
 ```ruby
 
@@ -53,7 +57,7 @@ end
 
 ```
 
-3. run from the command line
+### 3 Run
 
 ```bash
 liuggio@liuggio:/var/repos/StatsDClientBundle$ guard
@@ -68,17 +72,31 @@ liuggio@liuggio:/var/repos/StatsDClientBundle$ guard
 20:33:23 - INFO - Guard is now watching at '/var/www/StatsDClientBundle'
 ```
 
+
 This will test the entire library for you, any changes will test only the files that have changed
 
 If you install `libnotify` with
 
 `gem install libnotify`
 
-you will have (screenshot)
+you will have an Icon next your top panel.
 
-Another plugin that I suggest is Guard for code inspection,
+
+### 4 **Trick** Guard on large directories
+
+If you have big project you need to increase the amount of watches of libnotify
+
+see this page for more info: https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers
+
+
+
+## **Inspect**  Guard!
+
+Another plugin that I suggest is Guard for code inspection:
 
 is easy to install
+
+
 
 ```bash
 sudo pear install PHP_CodeSniffer
@@ -104,5 +122,13 @@ guard 'phpcs', :standard => 'PSR1' do
 end
 ```
 
-This will detect all the camel case problem, and you will have to follow the standard PSR1 :D
+This will detect all the camel case problems, and you will have to follow the standard PSR1 :D
+
+
+##  Guard  **Symfony2**
+
+Unfortunately `guard-phpunit` does not work with symfony2 framework,
+
+so I forked that repo and I made ​​https://github.com/liuggio/guard-phpunit-sf2 **Hurray!!**
+
 
