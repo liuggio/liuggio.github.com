@@ -1,0 +1,23 @@
+---
+layout: post
+title: "ServerGrove StastdClientBundle Interesting Symfony Bundles"
+description: "Automate Test and Code Inspection with Guard and Symfony2"
+category: award
+tags: [servergrove, symfony2, php, bundle, statsd]
+date: 2012-10-20 06:01:25
+---
+{% include JB/setup %}
+
+I was contacted by [leopro](https://twitter.com/_leopro_) ![_leopro_](https://en.gravatar.com/avatar/26d90e88b1eb694cc1276b9ab8d7630f?s=30)
+who congratulated for the excellent results obtained with the [StatsDClientBundle](https://github.com/liuggio/StatsDClientBundle).
+
+In this way I discovered that [ServerGrove](http://blog.servergrove.com/2012/10/09/interesting-symfony-bundles-statsdclientbundle/) had chosen [StatsD Client Bundle](https://github.com/liuggio/StatsDClientBundle) as interesting Symfony2 project among more than 1600.
+
+cite
+
+    There are well over 1600 public bundles at knpbundles.com, so sometimes really interesting and good bundles are hard time find. So we will revive the old series but this time we will do it with bundles.
+    In our first installment of the series we will present StatsDClientBundle written by Giulio De Donato. `
+
+Anyone who follows a conference in europe about web developing or PHP knows [ServerGrove](http://blog.servergrove.com/2012/10/09/interesting-symfony-bundles-statsdclientbundle/), I thank them.
+
+[continue reading Interesting Symfony Bundles: StatsDClientBundle on ServerGrove](http://blog.servergrove.com/2012/10/09/interesting-symfony-bundles-statsdclientbundle/)
