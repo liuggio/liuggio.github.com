@@ -390,7 +390,27 @@ end
 
 <p>Unfortunately <code>guard-phpunit</code> does not work with symfony2 framework,</p>
 
-<p>so I forked that repo and I made ​​https://github.com/liuggio/guard-phpunit-sf2 <strong>Hurray!!</strong></p>
+<p>so I forked that repo and I made guard-phpunit-sf2<em>Hurray!!</em><em>)</em></p>
+
+<p>guard-phpunit-sf2 has not been pushed on RubyGems. If you want to try it, clone the repository, build the gem and install it.</p>
+
+<pre><code>git clone git@github.com:liuggio/guard-phpunit-sf2.git
+cd guard-phpunit-sf2
+gem build guard-phpunit-sf2.gemspec
+sudo gem instal guard-phpunit-sf2-0.1.4.gem</code></pre>
+
+<p>then create the Guardfile into the root of your Symfony2 project</p>
+
+<pre><code>guard &#39;phpunit&#39;, :cli =&gt; &#39;--colors -c app/&#39; do
+     # Watch tests files
+     watch(%r{^src\/.+Test\.php$})
+
+     # Watch src file and run its test,
+     # Test string: src/Tvision/Bundle/CartBundle/Repository/CartRepository.php
+     watch(%r{^src\/(.+)\/(.+)Bundle\/(.+)\.php$}) { |m| &quot;src/#{m[1]}/#{m[2]}Bundle/Tests/#{m[3]}Test.php&quot; } # Watch all files in your bundles and run the respective tests on change
+end</code></pre>
+
+<p>then lunch <code>guard</code> and start testing.</p>
     <hr>
     <div class="pagination">
       <ul>

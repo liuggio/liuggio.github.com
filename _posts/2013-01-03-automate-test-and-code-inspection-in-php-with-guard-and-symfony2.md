@@ -114,10 +114,31 @@ end
 This will detect all the camel case problems, and you will have to follow the standard PSR1 :D
 
 
-##  Guard  `Symfony2`
+##  Guard `Symfony2`
 
 Unfortunately `guard-phpunit` does not work with symfony2 framework,
 
-so I forked that repo and I made ​​https://github.com/liuggio/guard-phpunit-sf2 **Hurray!!**
+so I forked that repo and I made [guard-phpunit-sf2](​​https://github.com/liuggio/guard-phpunit-sf2 **Hurray!!**)
+
+guard-phpunit-sf2 has not been pushed on RubyGems. If you want to try it, clone the repository, build the gem and install it.
 
 
+    git clone git@github.com:liuggio/guard-phpunit-sf2.git
+    cd guard-phpunit-sf2
+    gem build guard-phpunit-sf2.gemspec
+    sudo gem instal guard-phpunit-sf2-0.1.4.gem
+
+
+then create the Guardfile into the root of your Symfony2 project
+
+    guard 'phpunit', :cli => '--colors -c app/' do
+         # Watch tests files
+         watch(%r{^src\/.+Test\.php$})
+
+         # Watch src file and run its test,
+         # Test string: src/Tvision/Bundle/CartBundle/Repository/CartRepository.php
+         watch(%r{^src\/(.+)\/(.+)Bundle\/(.+)\.php$}) { |m| "src/#{m[1]}/#{m[2]}Bundle/Tests/#{m[3]}Test.php" } # Watch all files in your bundles and run the respective tests on change
+    end
+
+
+then lunch `guard` and start testing.

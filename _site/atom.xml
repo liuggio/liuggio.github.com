@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-01-03T15:57:47+01:00</updated>
+ <updated>2013-01-03T16:01:21+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -119,7 +119,27 @@ end
 
 &lt;p&gt;Unfortunately &lt;code&gt;guard-phpunit&lt;/code&gt; does not work with symfony2 framework,&lt;/p&gt;
 
-&lt;p&gt;so I forked that repo and I made ​​https://github.com/liuggio/guard-phpunit-sf2 &lt;strong&gt;Hurray!!&lt;/strong&gt;&lt;/p&gt;</content>
+&lt;p&gt;so I forked that repo and I made guard-phpunit-sf2&lt;em&gt;Hurray!!&lt;/em&gt;&lt;em&gt;)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;guard-phpunit-sf2 has not been pushed on RubyGems. If you want to try it, clone the repository, build the gem and install it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:liuggio/guard-phpunit-sf2.git
+cd guard-phpunit-sf2
+gem build guard-phpunit-sf2.gemspec
+sudo gem instal guard-phpunit-sf2-0.1.4.gem&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;then create the Guardfile into the root of your Symfony2 project&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;guard &amp;#39;phpunit&amp;#39;, :cli =&amp;gt; &amp;#39;--colors -c app/&amp;#39; do
+     # Watch tests files
+     watch(%r{^src\/.+Test\.php$})
+
+     # Watch src file and run its test,
+     # Test string: src/Tvision/Bundle/CartBundle/Repository/CartRepository.php
+     watch(%r{^src\/(.+)\/(.+)Bundle\/(.+)\.php$}) { |m| &amp;quot;src/#{m[1]}/#{m[2]}Bundle/Tests/#{m[3]}Test.php&amp;quot; } # Watch all files in your bundles and run the respective tests on change
+end&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;then lunch &lt;code&gt;guard&lt;/code&gt; and start testing.&lt;/p&gt;</content>
  </entry>
  
  <entry>
