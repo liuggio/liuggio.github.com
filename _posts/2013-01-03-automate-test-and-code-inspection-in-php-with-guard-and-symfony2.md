@@ -8,6 +8,8 @@ tags: [phpunit, symfony2, guard, php, automate, code-inspection]
 {% include JB/setup %}
 
 
+## Hey PHPer do you automate your test?
+
 In everyday life there are tools that can not only speed, but also lighten the workload of your mind,
 in that regard I wanted to share a useful library: [Guard](https://github.com/guard/guard).
 
