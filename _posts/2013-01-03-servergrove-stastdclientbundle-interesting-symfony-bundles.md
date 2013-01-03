@@ -4,7 +4,7 @@ title: "ServerGrove StastdClientBundle Interesting Symfony Bundles"
 description: "Automate Test and Code Inspection with Guard and Symfony2"
 category: award
 tags: [servergrove, symfony2, php, bundle, statsd]
-date: 2012-10-20 06:01:25
+date: 2012-11-01 06:01:25
 ---
 {% include JB/setup %}
 

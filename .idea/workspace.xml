@@ -2,20 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21d9821e-7f0c-4ddc-9ebc-e7e4dbadd7fc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-10-31-symfony-day-5-october-turin-2012.md" afterPath="$PROJECT_DIR$/_posts/2012-10-31-symfony-day-5-october-turin-2012.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-01-03-servergrove-stastdclientbundle-interesting-symfony-bundles.md" afterPath="$PROJECT_DIR$/_posts/2013-01-03-servergrove-stastdclientbundle-interesting-symfony-bundles.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/atom.xml" afterPath="$PROJECT_DIR$/_site/atom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/automate-test-and-code-inspection-in-php-with-guard-and-symfony2/index.html" afterPath="$PROJECT_DIR$/_site/automate-test-and-code-inspection-in-php-with-guard-and-symfony2/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/categories.html" afterPath="$PROJECT_DIR$/_site/categories.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/easily-install-statsd-and-graphite-with-vagrant/index.html" afterPath="$PROJECT_DIR$/_site/easily-install-statsd-and-graphite-with-vagrant/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/index.html" afterPath="$PROJECT_DIR$/_site/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/index_d.html" afterPath="$PROJECT_DIR$/_site/index_d.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/servergrove-stastdclientbundle-interesting-symfony-bundles/index.html" afterPath="$PROJECT_DIR$/_site/servergrove-stastdclientbundle-interesting-symfony-bundles/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/sitemap.txt" afterPath="$PROJECT_DIR$/_site/sitemap.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/symfony-day-5-october-turin-2012/index.html" afterPath="$PROJECT_DIR$/_site/symfony-day-5-october-turin-2012/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/symfony2-assets-on-rackspace-cloud-files/index.html" afterPath="$PROJECT_DIR$/_site/symfony2-assets-on-rackspace-cloud-files/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/tags.html" afterPath="$PROJECT_DIR$/_site/tags.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/tvision-team-manifesto/index.html" afterPath="$PROJECT_DIR$/_site/tvision-team-manifesto/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/using-github-or-bitbucket-as-assets-container-for-symfony2/index.html" afterPath="$PROJECT_DIR$/_site/using-github-or-bitbucket-as-assets-container-for-symfony2/index.html" />
     </list>
     <ignored path="liuggio.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,7 +54,7 @@
       <file leaf-file-name="2013-01-03-servergrove-stastdclientbundle-interesting-symfony-bundles.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_posts/2013-01-03-servergrove-stastdclientbundle-interesting-symfony-bundles.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="0" selection-start="1506" selection-end="1506" vertical-scroll-proportion="0.5502392">
+            <state line="6" column="16" selection-start="241" selection-end="241" vertical-scroll-proportion="0.14354067">
               <folding />
             </state>
           </provider>
@@ -491,7 +487,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2013-01-03-servergrove-stastdclientbundle-interesting-symfony-bundles.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="1506" selection-end="1506" vertical-scroll-proportion="0.5502392">
+        <state line="6" column="16" selection-start="241" selection-end="241" vertical-scroll-proportion="0.14354067">
           <folding />
         </state>
       </provider>

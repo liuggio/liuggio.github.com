@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-01-03T17:57:04+01:00</updated>
+ <updated>2013-01-03T17:58:09+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -147,6 +147,25 @@ end&lt;/code&gt;&lt;/pre&gt;
  </entry>
  
  <entry>
+   <title>ServerGrove StastdClientBundle Interesting Symfony Bundles</title>
+   <link href="http://welcometothebundle.com/servergrove-stastdclientbundle-interesting-symfony-bundles"/>
+   <updated>2012-11-01T06:01:25+01:00</updated>
+   <id>http://welcometothebundle.com/servergrove-stastdclientbundle-interesting-symfony-bundles</id>
+   <content type="html">&lt;p&gt;I was contacted by &lt;a href='https://twitter.com/_leopro_'&gt;leopro&lt;/a&gt; &lt;img src='https://en.gravatar.com/avatar/26d90e88b1eb694cc1276b9ab8d7630f?s=30' alt='leopro' /&gt; who congratulated for the excellent results obtained with the &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;StatsDClientBundle&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In this way I discovered that &lt;a href='http://blog.servergrove.com/2012/10/09/interesting-symfony-bundles-statsdclientbundle/'&gt;ServerGrove&lt;/a&gt; had chosen &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;StatsD Client Bundle&lt;/a&gt; as interesting Symfony2 project among more than 1600.&lt;/p&gt;
+
+&lt;p&gt;cite&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;There are well over 1600 public bundles at knpbundles.com, so sometimes really interesting and good bundles are hard time find. So we will revive the old series but this time we will do it with bundles.
+In our first installment of the series we will present StatsDClientBundle written by Giulio De Donato. `&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Anyone who follows a conference in europe about web developing or PHP knows &lt;a href='http://blog.servergrove.com/2012/10/09/interesting-symfony-bundles-statsdclientbundle/'&gt;ServerGrove&lt;/a&gt;, I thank them.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://blog.servergrove.com/2012/10/09/interesting-symfony-bundles-statsdclientbundle/'&gt;continue reading Interesting Symfony Bundles: StatsDClientBundle on ServerGrove&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
    <title>Symfony Day 5 October, Turin 2012</title>
    <link href="http://welcometothebundle.com/symfony-day-5-october-turin-2012"/>
    <updated>2012-10-31T23:01:25+01:00</updated>
@@ -170,25 +189,6 @@ end&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;See you next year &lt;a href='http://www.symfonyday.it'&gt;symfonyday.it&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;a special thanks @cirpo&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>ServerGrove StastdClientBundle Interesting Symfony Bundles</title>
-   <link href="http://welcometothebundle.com/servergrove-stastdclientbundle-interesting-symfony-bundles"/>
-   <updated>2012-10-20T06:01:25+02:00</updated>
-   <id>http://welcometothebundle.com/servergrove-stastdclientbundle-interesting-symfony-bundles</id>
-   <content type="html">&lt;p&gt;I was contacted by &lt;a href='https://twitter.com/_leopro_'&gt;leopro&lt;/a&gt; &lt;img src='https://en.gravatar.com/avatar/26d90e88b1eb694cc1276b9ab8d7630f?s=30' alt='leopro' /&gt; who congratulated for the excellent results obtained with the &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;StatsDClientBundle&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;In this way I discovered that &lt;a href='http://blog.servergrove.com/2012/10/09/interesting-symfony-bundles-statsdclientbundle/'&gt;ServerGrove&lt;/a&gt; had chosen &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;StatsD Client Bundle&lt;/a&gt; as interesting Symfony2 project among more than 1600.&lt;/p&gt;
-
-&lt;p&gt;cite&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;There are well over 1600 public bundles at knpbundles.com, so sometimes really interesting and good bundles are hard time find. So we will revive the old series but this time we will do it with bundles.
-In our first installment of the series we will present StatsDClientBundle written by Giulio De Donato. `&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Anyone who follows a conference in europe about web developing or PHP knows &lt;a href='http://blog.servergrove.com/2012/10/09/interesting-symfony-bundles-statsdclientbundle/'&gt;ServerGrove&lt;/a&gt;, I thank them.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href='http://blog.servergrove.com/2012/10/09/interesting-symfony-bundles-statsdclientbundle/'&gt;continue reading Interesting Symfony Bundles: StatsDClientBundle on ServerGrove&lt;/a&gt;&lt;/p&gt;</content>
  </entry>
  
  <entry>
