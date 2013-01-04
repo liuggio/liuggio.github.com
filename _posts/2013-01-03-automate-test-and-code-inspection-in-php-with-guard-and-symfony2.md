@@ -28,9 +28,9 @@ For years I had the **CTRL+S** tic, in fact in my life I have saved (by mistake)
 Before finding out [Guard](https://github.com/guard/guard), I was using a crude one-line script,
 it runs each 3 seconds PHPUnit if error otherwise waits 10 seconds
 
-``` bash
-while true; do clear; phpunit; if [ ! $? ]; then sleep 10; else sleep 3;fi; done;
-```
+
+    while true; do clear; phpunit; if [ ! $? ]; then sleep 10; else sleep 3;fi; done;
+
 
 but it was not enough, I needed something which could perform only the Test for the file that I had changed: [guard-phpunit](https://github.com/Maher4Ever/guard-phpunit)
 
@@ -45,7 +45,7 @@ Simply follow the instructions of the README.md https://github.com/Maher4Ever/gu
 
 `gem install guard-phpunit`
 
-### 2 Step creare un file  Guardfile
+### 2 Step create a `Guardfile`
 
 
     guard 'phpunit', :tests_path => 'Tests', :cli => '--colors' do
@@ -56,7 +56,7 @@ Simply follow the instructions of the README.md https://github.com/Maher4Ever/gu
     end
 
 
-### 3 Run
+### 3 Run with `guard`
 
 
     liuggio@liuggio:/var/repos/StatsDClientBundle$ guard
