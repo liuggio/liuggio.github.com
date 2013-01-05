@@ -1,10 +1,10 @@
 
 http://welcometothebundle.com/index.html
 http://welcometothebundle.com/sitemap.txt
-http://welcometothebundle.com/index_d.html
-http://welcometothebundle.com/tags.html
 http://welcometothebundle.com/categories.html
+http://welcometothebundle.com/index_d.html
 http://welcometothebundle.com/atom.xml
+http://welcometothebundle.com/tags.html
 
 http://welcometothebundle.com/automate-test-and-code-inspection-in-php-with-guard-and-symfony2
 http://welcometothebundle.com/servergrove-stastdclientbundle-interesting-symfony-bundles

@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-01-03T18:05:45+01:00</updated>
+ <updated>2013-01-05T14:57:26+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -35,9 +35,7 @@
 
 &lt;p&gt;Before finding out &lt;a href='https://github.com/guard/guard'&gt;Guard&lt;/a&gt;, I was using a crude one-line script, it runs each 3 seconds PHPUnit if error otherwise waits 10 seconds&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;bash
-while true; do clear; phpunit; if [ ! $? ]; then sleep 10; else sleep 3;fi; done;
-&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;while true; do clear; phpunit; if [ ! $? ]; then sleep 10; else sleep 3;fi; done;&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;but it was not enough, I needed something which could perform only the Test for the file that I had changed: &lt;a href='https://github.com/Maher4Ever/guard-phpunit'&gt;guard-phpunit&lt;/a&gt;&lt;/p&gt;
 
@@ -51,7 +49,7 @@ while true; do clear; phpunit; if [ ! $? ]; then sleep 10; else sleep 3;fi; done
 
 &lt;p&gt;&lt;code&gt;gem install guard-phpunit&lt;/code&gt;&lt;/p&gt;
 
-&lt;h3 id='2_step_creare_un_file_guardfile'&gt;2 Step creare un file Guardfile&lt;/h3&gt;
+&lt;h3 id='2_step_create_a_'&gt;2 Step create a &lt;code&gt;Guardfile&lt;/code&gt;&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;guard &amp;#39;phpunit&amp;#39;, :tests_path =&amp;gt; &amp;#39;Tests&amp;#39;, :cli =&amp;gt; &amp;#39;--colors&amp;#39; do
  # Watch tests files
@@ -60,7 +58,7 @@ while true; do clear; phpunit; if [ ! $? ]; then sleep 10; else sleep 3;fi; done
  watch(%r{^Object/(.+)\.php}) { |m| &amp;quot;Tests/#{m[1]}Test.php&amp;quot; }
 end&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id='3_run'&gt;3 Run&lt;/h3&gt;
+&lt;h3 id='3_run_with_'&gt;3 Run with &lt;code&gt;guard&lt;/code&gt;&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;liuggio@liuggio:/var/repos/StatsDClientBundle$ guard
 20:33:21 - INFO - Guard uses NotifySend to send notifications.
