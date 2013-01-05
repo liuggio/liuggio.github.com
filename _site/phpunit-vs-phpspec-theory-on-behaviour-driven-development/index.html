@@ -3,9 +3,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>liuggio's blog :: 2013-Software Team Manifesto</title>
+    <title>liuggio's blog :: PHPUnit vs PHPSpec: theory on Behaviour Driven Development 1/3</title>
     
-        <meta name="description" content="">
+        <meta name="description" content="PHPUnit vs PHPSpec: theory on Behaviour Driven Development 1/3">
     
     <meta name="author" content="liuggio">
     <!-- Le styles -->
@@ -144,7 +144,7 @@
     
       
       	
-      	<li><a href="/phpunit-vs-phpspec-theory-on-behaviour-driven-development">PHPUnit vs PHPSpec: theory on Behaviour Driven Development 1/3</a></li>
+      	<li class="active"><a href="/phpunit-vs-phpspec-theory-on-behaviour-driven-development" class="active">PHPUnit vs PHPSpec: theory on Behaviour Driven Development 1/3</a></li>
       	
       
     
@@ -184,7 +184,7 @@
     
       
       	
-      	<li class="active"><a href="/tvision-team-manifesto" class="active">2013-Software Team Manifesto</a></li>
+      	<li><a href="/tvision-team-manifesto">2013-Software Team Manifesto</a></li>
       	
       
     
@@ -293,11 +293,11 @@
 
   <div class="span9">
      <div class="page-header">
-       <h1>2013-Software Team Manifesto </h1>
+       <h1>PHPUnit vs PHPSpec: theory on Behaviour Driven Development 1/3 </h1>
   
        <div class="row">
         <div class="span4">
-           <div class="date"><span>16 September 2012</span></div> 
+           <div class="date"><span>05 January 2013</span></div> 
         </div>
 
         <div class="span5">
@@ -309,13 +309,17 @@
 
   
      
-    	<li><a href="/tags.html#tvision-ref">tvision <span>1</span></a></li>
+    	<li><a href="/tags.html#phpunit-ref">phpunit <span>2</span></a></li>
      
-    	<li><a href="/tags.html#team-ref">team <span>1</span></a></li>
+    	<li><a href="/tags.html#tdd-ref">tdd <span>1</span></a></li>
      
-    	<li><a href="/tags.html#coding-ref">coding <span>1</span></a></li>
+    	<li><a href="/tags.html#bdd-ref">bdd <span>1</span></a></li>
      
     	<li><a href="/tags.html#php-ref">php <span>7</span></a></li>
+     
+    	<li><a href="/tags.html#test-ref">test <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#phpspec-ref">phpspec <span>1</span></a></li>
     
   
 
@@ -328,30 +332,116 @@
 
      </div>
      
-    <h2 id='abstract'>Abstract</h2>
+    <p>The first part of a series of articles(maybe three) where I&#8217;d like to share my personal experience with BDD and in particular with PHPSpec.</p>
 
-<p>In the chaos of the implicit, a programmer who joins a team must have a common language and some rules in order to have an integration without friction.</p>
+<h2 id='phpunit_vs_phpspec_a_word_on_behaviour_testing'>PHPUnit vs <a href='https://github.com/phpspec/phpspec2'>PHPSpec</a>: A word on behaviour testing</h2>
 
-<p>There is a level 0, a common and accepted (or imposed by the architect) knowledge.</p>
+<p>I recently discovered that there is an alternative to PHPUnit, and I really like this new approach.</p>
 
-<p>This document defines the concepts and guidelines to follow in order to be a developer who can work in a software team in 2013.</p>
+<p><strong>Q:</strong> But why an alternative if PHPUnit does everything I need?</p>
 
-<p>I think that you are already proficient with this notions.</p>
+<p><strong>A:</strong> What could be changed is the way to do testing,</p>
 
-<p>We use PHP as language and Symofony2 as framework.</p>
-<script src='https://gist.github.com/4339207.js'> </script>
-<p>Any comment or help is really appreciated,</p>
+<p>If you&#8217;ve ever worked in TDD, you know it&#8217;s very time consuming</p>
 
-<p>please help me to improve this document forking this <a href='https://gist.github.com/4339207'>gist</a>.</p>
+<ol>
+<li>
+<p>create - create or modify the test</p>
+</li>
+
+<li>
+<p>fail - see it fail</p>
+</li>
+
+<li>
+<p>pass - code the minimum to get the test passed</p>
+</li>
+
+<li>
+<p>refactor - Refactoring</p>
+</li>
+
+<li>
+<p>go to step 1</p>
+</li>
+</ol>
+
+<h2 id='the_difference_in_a_sentence'>The difference in a sentence</h2>
+
+<p>If the story is a key of the development, the behaviour is the differrence between TDD and BDD.</p>
+
+<p>If you need to test the addition of an object in a collection and this is represented by an array, with xUnit you should test that the collection contains in that array the object, but if the collection is changed to another type of container, graph for example the xUnit will fail, even if the behaviour is unchanged.</p>
+
+<h2 id='bdd'>BDD</h2>
+
+<p>There are several BDD frameworks on PHP depending on what you want to test.</p>
+
+<h4 id='external_behaviour'>External behaviour</h4>
+
+<p>Behat deals to have specifications that reflects the environment from the outside.</p>
+
+<h4 id='internal_behaviour'>Internal behaviour</h4>
+
+<p><a href='https://github.com/phpspec/phpspec2'>PHPSpec</a> responds to the behaviour in the lower level, from the internal of the classes.</p>
+
+<p><a href='https://github.com/phpspec/phpspec2'>PHPSpec</a> is considered a tool that helps you to develop.</p>
+
+<h2 id='summary'>Summary</h2>
+
+<p>So the BDD tests what the object to do instead of what it is, and what it does is much more important.</p>
+
+<p>We have to say that Ruby community helps a lot the evolution of BDD, RSpec is a standard-de-facto, in Ruby world.</p>
+
+<h2 id='faq'>FAQ</h2>
+
+<p><strong>Q:</strong> When I should use PHPUnit and when to use <a href='https://github.com/phpspec/phpspec2'>PHPSpec</a>?</p>
+
+<p><strong>A:</strong> There isn&#8217;t a better way between the two, depending on how you want to approach the problem, if you want to follow the behaviour or a unit test the code.</p>
+
+<p><strong>Q:</strong> With PHPUnit I could do the same things as I could do with <a href='https://github.com/phpspec/phpspec2'>PHPSpec</a>?</p>
+
+<p><strong>A:</strong> Absolutely, in fact there is a mapping between the two</p>
+
+<p>• Assertion Becomes expectation.</p>
+
+<p>• Test method Becomes code example</p>
+
+<p>• Test case example Becomes group</p>
+
+<p><strong>BUT</strong> linguistically you would be more look at the code that the result, so you might miss the concept of behaviour.</p>
+
+<h2 id='phpspec_advantages'><a href='https://github.com/phpspec/phpspec2'>PHPSpec</a> advantages</h2>
+
+<p>xSpec is context specific, expectation, the output is the documentation and it is for this reason that the language is used because the same syntax you guide you to focus in behaviour, and the importance of documentation.</p>
+
+<p>If you want to test and see the documentation:</p>
+
+<pre><code>bin/phpspec run -f prettify -v</code></pre>
+
+<p>So big change is on how you write test code.</p>
+
+<p><strong>In the next post I will show some examples on how you could use <a href='https://github.com/phpspec/phpspec2'>PHPSpec</a> to test some (in)famous design pattern.</strong></p>
+
+<h2 id='bibliography'>Bibliography</h2>
+
+<ol>
+<li>
+<p><a href='http://pragprog.com/book/achbd/the-rspec-book'>The RSpec Book Behaviour-Driven Development with RSpec, Cucumber, and Friends</a> by David Chelimsky, Dave Astels, Zach Dennis, Aslak Hellesøy, Bryan Helmkamp, Dan North</p>
+</li>
+
+<li>
+<p>Test Driven Development. By Example di Kent Beck (dic. 2002)</p>
+</li>
+</ol>
     <hr>
     <div class="pagination">
       <ul>
       
-        <li class="prev"><a href="/easily-install-statsd-and-graphite-with-vagrant" title="Easily install statsd and graphite with vagrant">&larr; Previous</a></li>
+        <li class="prev"><a href="/automate-test-and-code-inspection-in-php-with-guard-and-symfony2" title="Automate Test and Code Inspection in PHP with Guard, and Symfony2">&larr; Previous</a></li>
       
         <li><a href="/index.html">Archive</a></li>
       
-        <li class="next"><a href="/symfony-day-5-october-turin-2012" title="Symfony Day 5 October, Turin 2012">Next &rarr;</a></li>
+        <li class="next disabled"><a>Next &rarr;</a>
       
       </ul>
     </div>
