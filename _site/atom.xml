@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-01-05T21:34:23+01:00</updated>
+ <updated>2013-01-05T21:42:30+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -25,7 +25,7 @@
 
 &lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; But why an alternative if PHPUnit does everything I need?&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; What could be changed is the way to do testing,&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; What could be changed is the way of doing test,&lt;/p&gt;
 
 &lt;p&gt;If you&amp;#8217;ve ever worked in TDD, you know it&amp;#8217;s very time consuming&lt;/p&gt;
 
@@ -99,11 +99,9 @@
 
 &lt;p&gt;xSpec is context specific, expectation, the output is the documentation and it is for this reason that the language is used because the same syntax you guide you to focus in behaviour, and the importance of documentation.&lt;/p&gt;
 
-&lt;p&gt;If you want to test and see the documentation:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;bin/phpspec run -f prettify -v&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;So big change is on how you write test code.&lt;/p&gt;
+&lt;p&gt;So the big change is on how you write test code.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;In the next post I will show some examples on how you could use &lt;a href='https://github.com/phpspec/phpspec2'&gt;PHPSpec&lt;/a&gt; to test some (in)famous design pattern.&lt;/strong&gt;&lt;/p&gt;
 

@@ -16,7 +16,7 @@ I recently discovered that there is an alternative to PHPUnit, and I really like
 
 **Q:** But why an alternative if PHPUnit does everything I need?
 
-**A:** What could be changed is the way to do testing,
+**A:** What could be changed is the way of doing test,
 
 If you've ever worked in TDD, you know it's very time consuming
 
@@ -83,11 +83,9 @@ We have to say that Ruby community helped a lot the evolution of BDD, RSpec is a
 xSpec is context specific, expectation, the output is the documentation
 and it is for this reason that the language is used because the same syntax you guide you to focus in behaviour, and the importance of documentation.
 
-If you want to test and see the documentation:
-
     bin/phpspec run -f prettify -v
 
-So big change is on how you write test code.
+So the big change is on how you write test code.
  
 
 **In the next post I will show some examples on how you could use [PHPSpec](https://github.com/phpspec/phpspec2) to test some (in)famous design pattern.**
