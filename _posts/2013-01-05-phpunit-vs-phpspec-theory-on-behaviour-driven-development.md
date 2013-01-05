@@ -8,7 +8,7 @@ published: true
 ---
 {% include JB/setup %}
 
-The first part of a series of short articles (maybe three) where I'd like to share my personal experience with BDD and in particular with PHPSpec.
+The first part of a series of short articles (maybe three) where I'd like to share my tiny experience with BDD and in particular with PHPSpec.
 
 ## PHPUnit vs [PHPSpec](https://github.com/phpspec/phpspec2): A word on behaviour testing
 

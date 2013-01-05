@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-01-05T21:54:40+01:00</updated>
+ <updated>2013-01-05T21:57:17+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -17,7 +17,7 @@
    <link href="http://welcometothebundle.com/phpunit-vs-phpspec-theory-on-behaviour-driven-development"/>
    <updated>2013-01-05T00:00:00+01:00</updated>
    <id>http://welcometothebundle.com/phpunit-vs-phpspec-theory-on-behaviour-driven-development</id>
-   <content type="html">&lt;p&gt;The first part of a series of short articles (maybe three) where I&amp;#8217;d like to share my personal experience with BDD and in particular with PHPSpec.&lt;/p&gt;
+   <content type="html">&lt;p&gt;The first part of a series of short articles (maybe three) where I&amp;#8217;d like to share my tiny experience with BDD and in particular with PHPSpec.&lt;/p&gt;
 
 &lt;h2 id='phpunit_vs_phpspec_a_word_on_behaviour_testing'&gt;PHPUnit vs &lt;a href='https://github.com/phpspec/phpspec2'&gt;PHPSpec&lt;/a&gt;: A word on behaviour testing&lt;/h2&gt;
 
