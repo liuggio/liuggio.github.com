@@ -3,7 +3,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>liuggio's blog :: All posts (since 2012)</title>
+    <title>liuggio's blog :: PHPUnit vs PHPSpec: theory on Behaviour Driven Development</title>
+    
+        <meta name="description" content="">
     
     <meta name="author" content="liuggio">
     <!-- Le styles -->
@@ -142,7 +144,7 @@
     
       
       	
-      	<li><a href="/phpunit-vs-phpspec-theory-on-behaviour-driven-development">PHPUnit vs PHPSpec: theory on Behaviour Driven Development</a></li>
+      	<li class="active"><a href="/phpunit-vs-phpspec-theory-on-behaviour-driven-development" class="active">PHPUnit vs PHPSpec: theory on Behaviour Driven Development</a></li>
       	
       
     
@@ -289,167 +291,169 @@
         
 
 
-  <div class="span8">
-  	 <div class="page-header">
-	     <h1>All posts (since 2012) </h1>
-	   </div>
-    
+  <div class="span9">
+     <div class="page-header">
+       <h1>PHPUnit vs PHPSpec: theory on Behaviour Driven Development </h1>
+  
+       <div class="row">
+        <div class="span4">
+           <div class="date"><span>05 January 2013</span></div> 
+        </div>
 
-
-
+        <div class="span5">
+        
+          <ul class="tag_box">
+          
+          
 
 
   
-    
-    
-    
+     
+    	<li><a href="/tags.html#phpunit-ref">phpunit <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#tdd-ref">tdd <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#bdd-ref">bdd <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#php-ref">php <span>7</span></a></li>
+     
+    	<li><a href="/tags.html#test-ref">test <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#phpspec-ref">phpspec <span>1</span></a></li>
     
   
-    
-      <h2>2013</h2>
-      <h3>January</h3>
+
+
+
+          </ul>
+          
+        </div>
+      </div>
+
+     </div>
+     
+    <h2 id='phpunit_vs_phpspec_a_word_on_behaviour_testing'>PHPUnit vs PHPSpec: A word on behaviour testing</h2>
+
+<p>I recently discovered that there is an alternative to PHPUnit.</p>
+
+<p><strong>Q:</strong> But what&#8217;s the alternative if a PHPUnit does everything it needs to do?</p>
+
+<p><strong>A:</strong> What could be improved is the way to do testing.</p>
+
+<p>If you&#8217;ve ever worked in TDD, you know it&#8217;s very expensive</p>
+
+<ol>
+<li>
+<p>create - create or modify the test</p>
+</li>
+
+<li>
+<p>fail - see it fail</p>
+</li>
+
+<li>
+<p>pass - code the minimum to get the test passed</p>
+</li>
+
+<li>
+<p>refactor - Refactoring</p>
+</li>
+
+<li>
+<p>go to step 1</p>
+</li>
+</ol>
+
+<p>and BDD?</p>
+
+<h3 id='todo_here'>todo here</h3>
+
+<p>dire che il bdd è differente, the BDD recommended a different way of doing test, oriented driven behaviour that a class should have and not what it should do.</p>
+
+<h2 id='the_difference_in_a_sentence'>The difference in a sentence</h2>
+
+<p>If the story is a key of the development, the behaviour is the differrence between TDD and BDD.</p>
+
+<p>If you need to test the addition of an object in a collection and this is represented by an array, with xUnit you should test that the collection contains in that array the object, but if the collection is changed to another type of container, graph for example the xUnit will fail, even if the behaviour is unchanged.</p>
+
+<h2 id='bdd'>BDD</h2>
+
+<p>There are several BDD frameworks on PHP depending on what you want to test.</p>
+
+<h4 id='external_behaviour'>External behaviour</h4>
+
+<p>Behat deals to have specifications that reflects the environment from the outside.</p>
+
+<h4 id='internal_behaviour'>Internal behaviour</h4>
+
+<p>PHPSpec responds to the behaviour in the lower level, from the internal of the classes.</p>
+
+<p>PHPSpec is considered a tool that helps you to develop.</p>
+
+<h2 id='summary'>Summary</h2>
+
+<p>So the BDD tests what the object to do instead of what it is, and what it does is much more important.</p>
+
+<h2 id='faq'>FAQ</h2>
+
+<p><strong>Q:</strong> When I should use PHPUnit and when to use PHPSpec?</p>
+
+<p><strong>A:</strong> There isn&#8217;t a better way between the two, depending on how you want to approach the problem, if you want to follow the behaviour or a unit test the code.</p>
+
+<p><strong>Q:</strong> With PHPUnit I could do the same things you write about PHPSpec</p>
+
+<p><strong>A:</strong> Absolutely, in fact there is a mapping between the two</p>
+
+<p>• Assertion Becomes expectation.</p>
+
+<p>• Test method Becomes code example</p>
+
+<p>• Test case example Becomes group</p>
+
+<p><strong>BUT</strong> linguistically you would be more look at the code that the result, so you might miss the concept of behaviour.</p>
+
+<h2 id='phpspec_advantages'>PHPSpec advantages</h2>
+
+<p>xSpec is context specific, expectation, the output is the documentation and it is for this reason that the language is used because the same syntax you guide you to focus in behaviour, and the importance of documentation.</p>
+
+<p><code>bin/phpspec run -f prettify -v</code></p>
+    <hr>
+    <div class="pagination">
       <ul>
-    
-  
-    <li><span>January  5, 2013</span> &raquo; <a href="/phpunit-vs-phpspec-theory-on-behaviour-driven-development">PHPUnit vs PHPSpec: theory on Behaviour Driven Development</a></li>
-  
-    
-          
-        
       
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>January  3, 2013</span> &raquo; <a href="/automate-test-and-code-inspection-in-php-with-guard-and-symfony2">Automate Test and Code Inspection in PHP with Guard, and Symfony2</a></li>
-  
-    
+        <li class="prev"><a href="/automate-test-and-code-inspection-in-php-with-guard-and-symfony2" title="Automate Test and Code Inspection in PHP with Guard, and Symfony2">&larr; Previous</a></li>
       
-        </ul>
-        <h2>2012</h2>
-        <h3>November</h3>
-        <ul>
+        <li><a href="/index.html">Archive</a></li>
       
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>November  1, 2012</span> &raquo; <a href="/servergrove-stastdclientbundle-interesting-symfony-bundles">ServerGrove StastdClientBundle Interesting Symfony Bundles</a></li>
-  
-    
-          
-        
-          </ul>
-          <h3>October</h3>
-          <ul>
-        
+        <li class="next disabled"><a>Next &rarr;</a>
       
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>October 31, 2012</span> &raquo; <a href="/symfony-day-5-october-turin-2012">Symfony Day 5 October, Turin 2012</a></li>
-  
-    
-          
-        
-          </ul>
-          <h3>September</h3>
-          <ul>
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>September 16, 2012</span> &raquo; <a href="/tvision-team-manifesto">2013-Software Team Manifesto</a></li>
-  
-    
-          
-        
-          </ul>
-          <h3>July</h3>
-          <ul>
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July 31, 2012</span> &raquo; <a href="/easily-install-statsd-and-graphite-with-vagrant">Easily install statsd and graphite with vagrant</a></li>
-  
-    
-          
-        
-          </ul>
-          <h3>May</h3>
-          <ul>
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>May  6, 2012</span> &raquo; <a href="/symfony2-assets-on-rackspace-cloud-files">Symfony2 assets on RackSpace Cloud files</a></li>
-  
-    
-          
-        
-          </ul>
-          <h3>April</h3>
-          <ul>
-        
-      
-    
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>April 20, 2012</span> &raquo; <a href="/using-github-or-bitbucket-as-assets-container-for-symfony2">Using Github or Bitbucket as Assets container for Symfony2</a></li>
-  
-    
       </ul>
+    </div>
+    <hr>
     
-  
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'welcometothebundle'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
 
 
   </div>
-
-
+  
+ 
 
 
    
