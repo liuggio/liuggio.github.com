@@ -8,7 +8,7 @@ published: true
 ---
 {% include JB/setup %}
 
-The first part of a series of articles(maybe three) where I'd like to share my personal experience with BDD and in particular with PHPSpec.
+The first part of a series of short articles (maybe three) where I'd like to share my personal experience with BDD and in particular with PHPSpec.
 
 ## PHPUnit vs [PHPSpec](https://github.com/phpspec/phpspec2): A word on behaviour testing
 
@@ -36,7 +36,7 @@ If you've ever worked in TDD, you know it's very time consuming
 
 If the story is a key of the development, the behaviour is the differrence between TDD and BDD.
 
-If you need to test the addition of an object in a collection and this is represented by an array, with xUnit you should test that the collection contains in that array the object, but if the collection is changed to another type of container, graph for example the xUnit will fail, even if the behaviour is unchanged.
+If you need to test the insertion of an object into a collection and the collection is represented by an Array, with xUnit you should assert that the collection contains the object in the Array, but if the collection will change to another type of container, graph for example, the xUnit will fail, even if the behaviour is unchanged.
 
 
 ## BDD
@@ -45,7 +45,7 @@ There are several BDD frameworks on PHP depending on what you want to test.
 
 #### External behaviour
 
-Behat deals to have specifications that reflects the environment from the outside.
+[Behat](http://behat.org/) deals to have specifications that reflects the environment from the outside.
 
 #### Internal behaviour
 
@@ -55,18 +55,16 @@ Behat deals to have specifications that reflects the environment from the outsid
 
 ## Summary
 
-So the BDD tests what the object to do instead of what it is,
+The BDD tests what the object does instead of what it is,
 and what it does is much more important.
 
-We have to say that Ruby community helps a lot the evolution of BDD, RSpec is a standard-de-facto, in Ruby world.
-
+We have to say that Ruby community helped a lot the evolution of BDD, RSpec is a standard-de-facto, in Ruby world.
 
 ## FAQ
 
 **Q:** When I should use PHPUnit and when to use [PHPSpec](https://github.com/phpspec/phpspec2)?
 
 **A:** There isn't a better way between the two, depending on how you want to approach the problem, if you want to follow the behaviour or a unit test the code.
-
 
 **Q:** With PHPUnit I could do the same things as I could do with [PHPSpec](https://github.com/phpspec/phpspec2)?
 

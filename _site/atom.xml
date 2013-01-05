@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-01-05T21:21:21+01:00</updated>
+ <updated>2013-01-05T21:34:23+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -17,7 +17,7 @@
    <link href="http://welcometothebundle.com/phpunit-vs-phpspec-theory-on-behaviour-driven-development"/>
    <updated>2013-01-05T00:00:00+01:00</updated>
    <id>http://welcometothebundle.com/phpunit-vs-phpspec-theory-on-behaviour-driven-development</id>
-   <content type="html">&lt;p&gt;The first part of a series of articles(maybe three) where I&amp;#8217;d like to share my personal experience with BDD and in particular with PHPSpec.&lt;/p&gt;
+   <content type="html">&lt;p&gt;The first part of a series of short articles (maybe three) where I&amp;#8217;d like to share my personal experience with BDD and in particular with PHPSpec.&lt;/p&gt;
 
 &lt;h2 id='phpunit_vs_phpspec_a_word_on_behaviour_testing'&gt;PHPUnit vs &lt;a href='https://github.com/phpspec/phpspec2'&gt;PHPSpec&lt;/a&gt;: A word on behaviour testing&lt;/h2&gt;
 
@@ -55,7 +55,7 @@
 
 &lt;p&gt;If the story is a key of the development, the behaviour is the differrence between TDD and BDD.&lt;/p&gt;
 
-&lt;p&gt;If you need to test the addition of an object in a collection and this is represented by an array, with xUnit you should test that the collection contains in that array the object, but if the collection is changed to another type of container, graph for example the xUnit will fail, even if the behaviour is unchanged.&lt;/p&gt;
+&lt;p&gt;If you need to test the insertion of an object into a collection and the collection is represented by an Array, with xUnit you should assert that the collection contains the object in the Array, but if the collection will change to another type of container, graph for example, the xUnit will fail, even if the behaviour is unchanged.&lt;/p&gt;
 
 &lt;h2 id='bdd'&gt;BDD&lt;/h2&gt;
 
@@ -63,7 +63,7 @@
 
 &lt;h4 id='external_behaviour'&gt;External behaviour&lt;/h4&gt;
 
-&lt;p&gt;Behat deals to have specifications that reflects the environment from the outside.&lt;/p&gt;
+&lt;p&gt;&lt;a href='http://behat.org/'&gt;Behat&lt;/a&gt; deals to have specifications that reflects the environment from the outside.&lt;/p&gt;
 
 &lt;h4 id='internal_behaviour'&gt;Internal behaviour&lt;/h4&gt;
 
@@ -73,9 +73,9 @@
 
 &lt;h2 id='summary'&gt;Summary&lt;/h2&gt;
 
-&lt;p&gt;So the BDD tests what the object to do instead of what it is, and what it does is much more important.&lt;/p&gt;
+&lt;p&gt;The BDD tests what the object does instead of what it is, and what it does is much more important.&lt;/p&gt;
 
-&lt;p&gt;We have to say that Ruby community helps a lot the evolution of BDD, RSpec is a standard-de-facto, in Ruby world.&lt;/p&gt;
+&lt;p&gt;We have to say that Ruby community helped a lot the evolution of BDD, RSpec is a standard-de-facto, in Ruby world.&lt;/p&gt;
 
 &lt;h2 id='faq'&gt;FAQ&lt;/h2&gt;
 
