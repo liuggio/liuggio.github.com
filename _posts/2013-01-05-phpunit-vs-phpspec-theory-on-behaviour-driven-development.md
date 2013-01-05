@@ -32,7 +32,7 @@ If you've ever worked in TDD, you know it's very time consuming
 
 
 
-## The difference in a sentence
+## The differences in a sentence
 
 If the story is a key of the development, the behaviour is the differrence between TDD and BDD.
 

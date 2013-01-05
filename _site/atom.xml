@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-01-05T21:42:30+01:00</updated>
+ <updated>2013-01-05T21:54:40+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -51,7 +51,7 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id='the_difference_in_a_sentence'&gt;The difference in a sentence&lt;/h2&gt;
+&lt;h2 id='the_differences_in_a_sentence'&gt;The differences in a sentence&lt;/h2&gt;
 
 &lt;p&gt;If the story is a key of the development, the behaviour is the differrence between TDD and BDD.&lt;/p&gt;
 
