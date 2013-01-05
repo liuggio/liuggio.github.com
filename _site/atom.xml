@@ -4,105 +4,13 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-01-05T15:05:21+01:00</updated>
+ <updated>2013-01-05T15:07:12+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
    <email>liuggio@liuggio</email>
  </author>
 
- 
- <entry>
-   <title>PHPUnit vs PHPSpec: theory on Behaviour Driven Development</title>
-   <link href="http://welcometothebundle.com/phpunit-vs-phpspec-theory-on-behaviour-driven-development"/>
-   <updated>2013-01-05T00:00:00+01:00</updated>
-   <id>http://welcometothebundle.com/phpunit-vs-phpspec-theory-on-behaviour-driven-development</id>
-   <content type="html">&lt;h2 id='phpunit_vs_phpspec_a_word_on_behaviour_testing'&gt;PHPUnit vs PHPSpec: A word on behaviour testing&lt;/h2&gt;
-
-&lt;p&gt;I recently discovered that there is an alternative to PHPUnit.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; But what&amp;#8217;s the alternative if a PHPUnit does everything it needs to do?&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; What could be improved is the way to do testing.&lt;/p&gt;
-
-&lt;p&gt;If you&amp;#8217;ve ever worked in TDD, you know it&amp;#8217;s very expensive&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;create - create or modify the test&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;fail - see it fail&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;pass - code the minimum to get the test passed&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;refactor - Refactoring&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;go to step 1&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;and BDD?&lt;/p&gt;
-
-&lt;h3 id='todo_here'&gt;todo here&lt;/h3&gt;
-
-&lt;p&gt;dire che il bdd è differente, the BDD recommended a different way of doing test, oriented driven behaviour that a class should have and not what it should do.&lt;/p&gt;
-
-&lt;h2 id='the_difference_in_a_sentence'&gt;The difference in a sentence&lt;/h2&gt;
-
-&lt;p&gt;If the story is a key of the development, the behaviour is the differrence between TDD and BDD.&lt;/p&gt;
-
-&lt;p&gt;If you need to test the addition of an object in a collection and this is represented by an array, with xUnit you should test that the collection contains in that array the object, but if the collection is changed to another type of container, graph for example the xUnit will fail, even if the behaviour is unchanged.&lt;/p&gt;
-
-&lt;h2 id='bdd'&gt;BDD&lt;/h2&gt;
-
-&lt;p&gt;There are several BDD frameworks on PHP depending on what you want to test.&lt;/p&gt;
-
-&lt;h4 id='external_behaviour'&gt;External behaviour&lt;/h4&gt;
-
-&lt;p&gt;Behat deals to have specifications that reflects the environment from the outside.&lt;/p&gt;
-
-&lt;h4 id='internal_behaviour'&gt;Internal behaviour&lt;/h4&gt;
-
-&lt;p&gt;PHPSpec responds to the behaviour in the lower level, from the internal of the classes.&lt;/p&gt;
-
-&lt;p&gt;PHPSpec is considered a tool that helps you to develop.&lt;/p&gt;
-
-&lt;h2 id='summary'&gt;Summary&lt;/h2&gt;
-
-&lt;p&gt;So the BDD tests what the object to do instead of what it is, and what it does is much more important.&lt;/p&gt;
-
-&lt;h2 id='faq'&gt;FAQ&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; When I should use PHPUnit and when to use PHPSpec?&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; There isn&amp;#8217;t a better way between the two, depending on how you want to approach the problem, if you want to follow the behaviour or a unit test the code.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; With PHPUnit I could do the same things you write about PHPSpec&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; Absolutely, in fact there is a mapping between the two&lt;/p&gt;
-
-&lt;p&gt;• Assertion Becomes expectation.&lt;/p&gt;
-
-&lt;p&gt;• Test method Becomes code example&lt;/p&gt;
-
-&lt;p&gt;• Test case example Becomes group&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;BUT&lt;/strong&gt; linguistically you would be more look at the code that the result, so you might miss the concept of behaviour.&lt;/p&gt;
-
-&lt;h2 id='phpspec_advantages'&gt;PHPSpec advantages&lt;/h2&gt;
-
-&lt;p&gt;xSpec is context specific, expectation, the output is the documentation and it is for this reason that the language is used because the same syntax you guide you to focus in behaviour, and the importance of documentation.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;bin/phpspec run -f prettify -v&lt;/code&gt;&lt;/p&gt;</content>
- </entry>
  
  <entry>
    <title>Automate Test and Code Inspection in PHP with Guard, and Symfony2</title>
