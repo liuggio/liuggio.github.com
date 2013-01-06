@@ -37,6 +37,7 @@ If you've ever worked in TDD, you know it's very time consuming
 If the story is a key of the development, the behaviour is the differrence between TDD and BDD.
 
 If you need to test the insertion of an object into a collection and the collection is represented by an Array, with xUnit you should assert that the collection contains the object in the Array, but if the collection will change to another type of container, graph for example, the xUnit will fail, even if the behaviour is unchanged.
+In BDD you are not testing you are describing what that classes will do, and so you can continue creating the class (PHPSpec will create the class and the methods for you)
 
 
 ## BDD
@@ -76,7 +77,7 @@ We have to say that Ruby community helped a lot the evolution of BDD, RSpec is a
 
 • Test case example Becomes group
 
-**BUT** linguistically you would be more look at the code that the result, so you might miss the concept of behaviour.
+**BUT** linguistically you would be distracted by the code than the result, so you might miss the concept of behaviour. [EDITED 06-01-2012]
 
 ## [PHPSpec](https://github.com/phpspec/phpspec2) advantages
 
