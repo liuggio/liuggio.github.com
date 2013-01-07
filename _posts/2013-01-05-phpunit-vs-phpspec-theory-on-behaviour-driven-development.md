@@ -77,7 +77,8 @@ We have to say that Ruby community helped a lot the evolution of BDD, RSpec is a
 
 • Test case example Becomes group
 
-**BUT** linguistically you would be distracted by the code than the result, so you might miss the concept of behaviour. [EDITED 06-01-2012]
+**BUT** You would be distracted by the code loosing focus on the result, and you might miss the concept of behaviour. \[EDITED 07-01-2012 thanks to [euxpom ![exupom](http://gravatar.com/avatar/77014411a56fa9c746d6a89b7fd96121?size=20)](http://twitter.com/euxpom)\]
+
 
 ## [PHPSpec](https://github.com/phpspec/phpspec2) advantages
 
