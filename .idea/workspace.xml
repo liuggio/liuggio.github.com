@@ -7,6 +7,7 @@
     <ignored path="liuggio.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1361626642955" ignored="false" />
+    <file path="/2013-02-22-the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection.md" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1361628215968" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +30,7 @@
       <file leaf-file-name="2013-02-22-the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_posts/2013-02-22-the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="149" column="1" selection-start="6659" selection-end="6659" vertical-scroll-proportion="2.653558">
+            <state line="141" column="25" selection-start="5838" selection-end="5838" vertical-scroll-proportion="1.7865169">
               <folding />
             </state>
           </provider>
@@ -39,6 +40,11 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -115,7 +121,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="_site" />
+              <option name="myItemId" value="_posts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -129,7 +135,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="_posts" />
+              <option name="myItemId" value="_layouts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -239,7 +245,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/_posts/2013-02-22-the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="1" selection-start="6659" selection-end="6659" vertical-scroll-proportion="2.653558">
+        <state line="141" column="25" selection-start="5838" selection-end="5838" vertical-scroll-proportion="1.7865169">
           <folding />
         </state>
       </provider>

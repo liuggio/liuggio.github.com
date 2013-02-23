@@ -139,7 +139,7 @@ APC or Resid/Memcache(d)
 3. If you want to store variable contents or Objects use Redis, Memcache(d), or you could also use APC [apc-store](http://php.net/manual/en/function.apc-store.php) (suggested if you have a single web server)
 4. If you have provide some content use HTTP Cache always and in order to serve assets (file css, js, static content) use some famous CDN or Nginx or some free/cheap cdn service on the net.
 
-## Other Cache mechanism
+## Other Cache mechanisms
 
 - Pre-Caching/Cacheback, sometimes you need to have some data already available and you don't want that the first request wait some slow task [cacheback-asynchronous-cache-refreshing-for-django](http://codeinthehole.com/writing/cacheback-asynchronous-cache-refreshing-for-django)
 
@@ -147,4 +147,3 @@ APC or Resid/Memcache(d)
  I said **POST**, do not it seemed strange to you? If you jumped on the chair is ok, POST on cache is insane, unless you do not want to avoid double click.
 
 - Before there were static website in HTML, then dynamic languages ​​and databases, and we finally came to the static pages again, this blog has been developed with [jekyll](http://jekyllbootstrap.com/lessons/jekyll-introduction.html),
- 
