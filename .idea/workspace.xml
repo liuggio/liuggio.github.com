@@ -2,30 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21d9821e-7f0c-4ddc-9ebc-e7e4dbadd7fc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/themes/readable-liuggio/bootstrap/js/bootstrap-transition.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/themes/readable-liuggio/bootstrap/js/jquery-1.8.3.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html" afterPath="$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_includes/themes/readable-liuggio/post.html" afterPath="$PROJECT_DIR$/_includes/themes/readable-liuggio/post.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/css/style.css" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-04-20-using-github-or-bitbucket-as-assets-container-for-symfony2.md" afterPath="$PROJECT_DIR$/_posts/2012-04-20-using-github-or-bitbucket-as-assets-container-for-symfony2.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-05-06-symfony2-assets-on-rackspace-cloud-files.md" afterPath="$PROJECT_DIR$/_posts/2012-05-06-symfony2-assets-on-rackspace-cloud-files.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_config.yml" afterPath="$PROJECT_DIR$/_config.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/atom.xml" afterPath="$PROJECT_DIR$/_site/atom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/automate-test-and-code-inspection-in-php-with-guard-and-symfony2/index.html" afterPath="$PROJECT_DIR$/_site/automate-test-and-code-inspection-in-php-with-guard-and-symfony2/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/categories.html" afterPath="$PROJECT_DIR$/_site/categories.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/easily-install-statsd-and-graphite-with-vagrant/index.html" afterPath="$PROJECT_DIR$/_site/easily-install-statsd-and-graphite-with-vagrant/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html" afterPath="$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/index.html" afterPath="$PROJECT_DIR$/_site/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/index_d.html" afterPath="$PROJECT_DIR$/_site/index_d.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/automate-test-and-code-inspection-in-php-with-guard-and-symfony2/index.html" afterPath="$PROJECT_DIR$/_site/automate-test-and-code-inspection-in-php-with-guard-and-symfony2/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/easily-install-statsd-and-graphite-with-vagrant/index.html" afterPath="$PROJECT_DIR$/_site/easily-install-statsd-and-graphite-with-vagrant/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/phpunit-vs-phpspec-theory-on-behaviour-driven-development/index.html" afterPath="$PROJECT_DIR$/_site/phpunit-vs-phpspec-theory-on-behaviour-driven-development/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/servergrove-stastdclientbundle-interesting-symfony-bundles/index.html" afterPath="$PROJECT_DIR$/_site/servergrove-stastdclientbundle-interesting-symfony-bundles/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/sitemap.txt" afterPath="$PROJECT_DIR$/_site/sitemap.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/symfony-day-5-october-turin-2012/index.html" afterPath="$PROJECT_DIR$/_site/symfony-day-5-october-turin-2012/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/symfony2-assets-on-rackspace-cloud-files/index.html" afterPath="$PROJECT_DIR$/_site/symfony2-assets-on-rackspace-cloud-files/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/tags.html" afterPath="$PROJECT_DIR$/_site/tags.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/tvision-team-manifesto/index.html" afterPath="$PROJECT_DIR$/_site/tvision-team-manifesto/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/using-github-or-bitbucket-as-assets-container-for-symfony2/index.html" afterPath="$PROJECT_DIR$/_site/using-github-or-bitbucket-as-assets-container-for-symfony2/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/index_d.html" afterPath="$PROJECT_DIR$/_site/index_d.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_includes/themes/readable-liuggio/post.html" afterPath="$PROJECT_DIR$/_includes/themes/readable-liuggio/post.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_includes/JB/posts_collate" afterPath="$PROJECT_DIR$/_includes/JB/posts_collate" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/sitemap.txt" afterPath="$PROJECT_DIR$/_site/sitemap.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/css/style.css" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/themes/readable-liuggio/css/style.css" afterPath="$PROJECT_DIR$/assets/themes/readable-liuggio/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/tags.html" afterPath="$PROJECT_DIR$/_site/tags.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="liuggio.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
+    <file path="/Dummy.txt" changelist="21d9821e-7f0c-4ddc-9ebc-e7e4dbadd7fc" time="1361619499963" ignored="false" />
+    <file path="/default.html" changelist="21d9821e-7f0c-4ddc-9ebc-e7e4dbadd7fc" time="1361622714250" ignored="false" />
+    <file path="/2013-02-22-the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection.md" changelist="21d9821e-7f0c-4ddc-9ebc-e7e4dbadd7fc" time="1361626268964" ignored="false" />
+    <file path="/posts_collate" changelist="21d9821e-7f0c-4ddc-9ebc-e7e4dbadd7fc" time="1361622195988" ignored="false" />
+    <file path="/style.css" changelist="21d9821e-7f0c-4ddc-9ebc-e7e4dbadd7fc" time="1361622278285" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,41 +52,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="default.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html">
+      <file leaf-file-name="2013-02-22-the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_posts/2013-02-22-the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="34" selection-start="1229" selection-end="1229" vertical-scroll-proportion="-7.571429">
-              <folding>
-                <element signature="n#style#0;n#p#1;n#div#0;n#aside#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1357669186174" expanded="true" signature="7153:7215" placeholder="..." />
-                <marker date="1357669186174" expanded="true" signature="7296:7313" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bootstrap-transition.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/themes/readable-liuggio/bootstrap/js/bootstrap-transition.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="2" selection-start="475" selection-end="475" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="post.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/post.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="42" selection-start="752" selection-end="752" vertical-scroll-proportion="-3.6734693">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/assets/themes/readable-liuggio/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="13" selection-start="1260" selection-end="1260" vertical-scroll-proportion="0.22123894">
+            <state line="27" column="67" selection-start="1015" selection-end="1015" vertical-scroll-proportion="0.7196262">
               <folding />
             </state>
           </provider>
@@ -95,15 +71,15 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/assets/themes/readable-liuggio/bootstrap/css/bootstrap.min.css" />
-        <option value="$PROJECT_DIR$/_posts/2013-01-03-automate-test-and-code-inspection-in-php-with-guard.md" />
-        <option value="$PROJECT_DIR$/_posts/2012-09-16-tvision-team-manifesto.md" />
         <option value="$PROJECT_DIR$/_posts/2012-07-31-easily-install-statsd-and-graphite-with-vagrant.md" />
-        <option value="$PROJECT_DIR$/_posts/2012-05-06-symfony2-assets-on-rackspace-cloud-files.md" />
-        <option value="$PROJECT_DIR$/_posts/2012-04-20-using-github-or-bitbucket-as-assets-container-for-symfony2.md" />
         <option value="$PROJECT_DIR$/_posts/2013-01-03-automate-test-and-code-inspection-in-php-with-guard-and-symfony2.md" />
         <option value="$PROJECT_DIR$/_posts/2012-10-31-symfony-day-5-october-turin-2012.md" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -111,18 +87,23 @@
         <option value="$PROJECT_DIR$/assets/themes/readable-liuggio/bootstrap/js/transition.JS.js" />
         <option value="$PROJECT_DIR$/assets/themes/readable-liuggio/bootstrap/js/jquery-1.8.3.min.js" />
         <option value="$PROJECT_DIR$/assets/themes/readable-liuggio/bootstrap/js/bootswatch.js" />
+        <option value="$PROJECT_DIR$/_config.yml" />
         <option value="$PROJECT_DIR$/_includes/themes/readable-liuggio/post.html" />
-        <option value="$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html" />
+        <option value="$PROJECT_DIR$/_includes/JB/posts_collate" />
         <option value="$PROJECT_DIR$/assets/themes/readable-liuggio/css/style.css" />
+        <option value="$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html" />
+        <option value="$PROJECT_DIR$/_posts/2012-04-20-using-github-or-bitbucket-as-assets-container-for-symfony2.md" />
+        <option value="$PROJECT_DIR$/_posts/2012-05-06-symfony2-assets-on-rackspace-cloud-files.md" />
+        <option value="$PROJECT_DIR$/_posts/2013-02-22-the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection.md" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2" />
+    <option name="x" value="1920" />
     <option name="y" value="25" />
-    <option name="width" value="1444" />
-    <option name="height" value="877" />
+    <option name="width" value="1366" />
+    <option name="height" value="743" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -195,36 +176,6 @@
               <option name="myItemId" value="themes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="twitter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="liuggio.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="liuggio.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="twitter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bootstrap" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -284,63 +235,21 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="readable-liuggio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bootstrap" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="liuggio.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="liuggio.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="readable-liuggio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bootstrap" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="liuggio.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="liuggio.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="_posts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="liuggio.github.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="liuggio.github.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="_layouts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -407,7 +316,11 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="options.lastSelected" value="preferences.pluginManager" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -415,9 +328,9 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
       <JSDebuggerConfigurationSettings>
-        <option name="engineId" />
+        <option name="engineId" value="embedded" />
         <option name="fileUrl" />
       </JSDebuggerConfigurationSettings>
       <method />
@@ -425,6 +338,23 @@
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="21d9821e-7f0c-4ddc-9ebc-e7e4dbadd7fc" name="Default" comment="" />
@@ -434,13 +364,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="25" width="1444" height="877" extended-state="6" />
+    <frame x="1920" y="25" width="1366" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2815808" sideWeight="0.6706507" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1719697" sideWeight="0.6706507" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -489,6 +420,13 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
+    <option name="LIMIT_HISTORY" value="true" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
+    <option name="UPDATE_FILTER_SCOPE_NAME" />
+    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
+    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
+    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
     <option name="LAST_COMMIT_MESSAGE" />
@@ -502,6 +440,7 @@
     <option name="ACTIVE_VCS_NAME" />
     <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
   </component>
@@ -509,107 +448,117 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_posts/2012-09-16-tvision-team-manifesto.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="33" selection-start="126" selection-end="126" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2012-07-31-easily-install-statsd-and-graphite-with-vagrant.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="13" selection-start="157" selection-end="163" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="5" selection-start="5" selection-end="5" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2012-10-31-symfony-day-5-october-turin-2012.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="186" selection-end="211" vertical-scroll-proportion="0.14354067" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-01-03-automate-test-and-code-inspection-in-php-with-guard-and-symfony2.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="251" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-01-03-servergrove-stastdclientbundle-interesting-symfony-bundles.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="159" selection-start="552" selection-end="552" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_layouts/default.html">
+    <entry file="file://$PROJECT_DIR$/_layouts/post.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_includes/JB/tags_list">
+    <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="71" selection-start="511" selection-end="511" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_includes/JB/setup">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_includes/JB/liquid_raw">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_includes/JB/comments">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="53" selection-start="922" selection-end="922" vertical-scroll-proportion="0.42831215">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_includes/JB/categories_list">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="46" selection-start="213" selection-end="301" vertical-scroll-proportion="0.17069702">
+        <state line="8" column="38" selection-start="213" selection-end="301" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/themes/readable-liuggio/bootstrap/js/jquery-1.8.3.min.js">
+    <entry file="file://$PROJECT_DIR$/_includes/JB/posts_collate">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="41" selection-start="94" selection-end="94" vertical-scroll-proportion="0.02173913">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/themes/readable-liuggio/bootstrap/css/bootstrap-responsive.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/themes/readable-liuggio/bootstrap/js/bootstrap-transition.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="2" selection-start="475" selection-end="475" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="34" selection-start="1229" selection-end="1229" vertical-scroll-proportion="-7.571429">
-          <folding>
-            <element signature="n#style#0;n#p#1;n#div#0;n#aside#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1357669186174" expanded="true" signature="7153:7215" placeholder="..." />
-            <marker date="1357669186174" expanded="true" signature="7296:7313" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/post.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="42" selection-start="752" selection-end="752" vertical-scroll-proportion="-3.6734693">
+        <state line="35" column="157" selection-start="1472" selection-end="1472" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/themes/readable-liuggio/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="13" selection-start="1260" selection-end="1260" vertical-scroll-proportion="0.22123894">
+        <state line="79" column="18" selection-start="1243" selection-end="1243" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/post.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="67" selection-start="990" selection-end="990" vertical-scroll-proportion="0.5191257">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="119" selection-start="2350" selection-end="2350" vertical-scroll-proportion="0.33582088">
+          <folding>
+            <marker date="1361622684263" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1361622684263" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-01-05-phpunit-vs-phpspec-theory-on-behaviour-driven-development.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="89" selection-end="243" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2012-04-20-using-github-or-bitbucket-as-assets-container-for-symfony2.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="64" selection-start="174" selection-end="182" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2012-05-06-symfony2-assets-on-rackspace-cloud-files.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="61" selection-start="162" selection-end="162" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2012-07-31-easily-install-statsd-and-graphite-with-vagrant.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-02-22-the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="67" selection-start="1015" selection-end="1015" vertical-scroll-proportion="0.7196262">
           <folding />
         </state>
       </provider>

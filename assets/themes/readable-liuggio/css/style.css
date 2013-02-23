@@ -61,9 +61,31 @@ h2 {
 
 }
 
+h3 {
+
+    font-size: 16px;
+
+}
+
+p.archive-short-description {
+    font-size: 13px;
+    padding-top:5px;
+}
+p.archive-short-description a{
+   text-decoration: none;
+    color: #868686;
+}
+p.archive-short-description a:hover{
+    text-decoration: none;
+    color: #525252;
+}
+
+
 p {
     font-size: 16px;
 }
+
+
 
 #header {
     padding-top: 30px;

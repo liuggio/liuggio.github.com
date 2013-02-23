@@ -4,13 +4,166 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-01-08T19:19:58+01:00</updated>
+ <updated>2013-02-23T14:31:14+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
    <email>liuggio@liuggio</email>
  </author>
 
+ 
+ <entry>
+   <title>The meaning of Cache for a web developer no more too many connection</title>
+   <link href="http://welcometothebundle.com/the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection"/>
+   <updated>2013-02-22T00:00:00+01:00</updated>
+   <id>http://welcometothebundle.com/the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection</id>
+   <content type="html">&lt;p&gt;In the place of Mr. Obvious I&amp;#8217;m going to describe what really cache means, there is a lot of confusion between what the cache &lt;strong&gt;is&lt;/strong&gt;, what it &lt;strong&gt;does&lt;/strong&gt; and all the possible &lt;strong&gt;uses&lt;/strong&gt; and &lt;strong&gt;implementations&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;All the fuss comes from the use&lt;strong&gt;s&lt;/strong&gt; of that polysemous word.&lt;/p&gt;
+
+&lt;h2 id='definition'&gt;Definition:&lt;/h2&gt;
+
+&lt;p&gt;We should start from &lt;strong&gt;Wikipedia&lt;/strong&gt;, “Cache is a component that transparently stores data so that future requests for that data can be served faster.”&lt;/p&gt;
+
+&lt;p&gt;So instead of doing a time consuming calculation if you already &amp;#8216;remember&amp;#8217; the result answer it.&lt;/p&gt;
+
+&lt;p&gt;The concept seems simple, the problem is it could be used in a myriad of ways.&lt;/p&gt;
+
+&lt;p&gt;Important words:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;A &lt;strong&gt;Cache Hit&lt;/strong&gt; happens if the Cache contains the answer.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;A &lt;strong&gt;Cache Miss&lt;/strong&gt; happens if the Cache doesn’t contain the answer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id='some_standard_code'&gt;Some &amp;#8216;standard&amp;#8217; Code:&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Doctrine&lt;/strong&gt; defines the cache interface with &lt;a href='https://github.com/doctrine/cache/blob/master/lib/Doctrine/Common/Cache/Cache.php'&gt;Doctrine/Common/Cache/Cache.php&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function fetch($id);
+function contains($id);
+function save($id, $data, $lifeTime = 0);
+function delete($id);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;PHP fig-standards&lt;/strong&gt; proposed the cache with &lt;a href='https://github.com/php-fig/fig-standards/issues?labels=Cache&amp;amp;page=1&amp;amp;state=open'&gt;proposed/PSR-Cache.md&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id='implementations'&gt;Implementations:&lt;/h2&gt;
+
+&lt;p&gt;As web developers the cache is an essential tool, we have to divide the cache features from its implementations.&lt;/p&gt;
+
+&lt;h3 id='1_http_cache'&gt;1. HTTP Cache&lt;/h3&gt;
+
+&lt;h4 id='description'&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;OK - describing the HTTP Cache is a huge task, and heaps of great developers already did this (&lt;a href='https://www.google.com/search?q=http+cache'&gt;google&lt;/a&gt;, &lt;a href='http://www.slideshare.net/fabpot/caching-on-the-edge'&gt;fabpot/caching-on-the-edge&lt;/a&gt;), the concept in few lines is that you are a web developer, and the web works with the HTTP Protocol, so you HAVE to study the HTTP Protocol.&lt;/p&gt;
+
+&lt;p&gt;I won&amp;#8217;t go in depth with HTTP Protocol and Cache, but understanding the HTTP protocol turns a developer in a web developer.&lt;/p&gt;
+
+&lt;p&gt;The actors in the HTTP Cache are: your web-server, your reverse proxy (as Vagrant or Squid), the Shared cache server&lt;strong&gt;s&lt;/strong&gt; (more than one) and the client browser cache.&lt;/p&gt;
+
+&lt;p&gt;This is the best Cache and the most powerful, you could create many cache layers on your application, but if you set up the HTTP headers properly the first time, the next requests will be served for free. &lt;strong&gt;The least expensive query is the query you never had&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4 id='enemies'&gt;Enemies&lt;/h4&gt;
+
+&lt;p&gt;An enemy of your mental health is the &lt;strong&gt;invalidation&lt;/strong&gt;, do not waste time trying to find a solutions for invalidating cache, choose only the best validation.&lt;/p&gt;
+
+&lt;p&gt;The HTTP cache enemy? Cookies and Sessions (see how to solve it thanks to &lt;a href='https://www.google.it/search?client=ubuntu&amp;amp;channel=fs&amp;amp;q=ESI+cache&amp;amp;ie=utf-8&amp;amp;oe=utf-8&amp;amp;redir_esc=&amp;amp;ei=P6QnUbS5AsbKtAbdQQ'&gt;ESI&lt;/a&gt;)&lt;/p&gt;
+
+&lt;h4 id='best_tools'&gt;Best Tools&lt;/h4&gt;
+
+&lt;p&gt;Vagrant / Squid&lt;/p&gt;
+
+&lt;h3 id='2_opcode'&gt;2. Opcode&lt;/h3&gt;
+
+&lt;h4 id='description'&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;“APC is a performance-enhancing extension. It should not be confused with a magic pill, although having it around does provide a positive impact on performance! If configured incorrectly, APC can cause unexpected behaviour, however when implemented optimally APC can be a useful weapon in your arsenal.” &lt;a href='http://techportal.inviqa.com/2010/10/07/understanding-apc/'&gt;read more on understanding APC&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This should be a must for you my dear PHP developer.&lt;/p&gt;
+
+&lt;h4 id='best_tools'&gt;Best Tools&lt;/h4&gt;
+
+&lt;p&gt;APC o Zend Optimizer+.&lt;/p&gt;
+
+&lt;h3 id='3_the_cache_of_your_application__framework'&gt;3. The Cache of your application / framework&lt;/h3&gt;
+
+&lt;h4 id='description'&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;The framework is a tool that should helps you sort and easily create the logic of your domain, to do this it provides files and configurators, which are usually elaborated in PHP files, the cache is used to not process at each request.&lt;/p&gt;
+
+&lt;p&gt;For example with Symfony2 in the application cache folders you will find, Url creator files, Proxy Classes, Configuration files (ini, yml, xml) converted to PHP files, Annotations etc&amp;#8230;&lt;/p&gt;
+
+&lt;h4 id='best_tools'&gt;Best Tools&lt;/h4&gt;
+
+&lt;p&gt;Configuration file to PHP then any Opcode.&lt;/p&gt;
+
+&lt;h3 id='4_template_and_file_system_caching'&gt;4. Template and File System Caching&lt;/h3&gt;
+
+&lt;h4 id='description'&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;Good Template engines, Smarty and Twig provide a caching system using precompiled pieces of code already in a file into the file system.&lt;/p&gt;
+
+&lt;h4 id='best_tools'&gt;Best Tools&lt;/h4&gt;
+
+&lt;p&gt;There is no better cache then the Opcode for serving this type of file.&lt;/p&gt;
+
+&lt;p&gt;Recently a Pull Request has also been refused, it allows Twig to use any other type of cache &lt;a href='https://github.com/fabpot/Twig/issues/728'&gt;issue on github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id='5_query_results'&gt;5. Query Results&lt;/h3&gt;
+
+&lt;h4 id='description'&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;You are Object Oriented programmers, do not waste your time normalizing the database, if you have too many JOIN delegated the speed to the cache layer.&lt;/p&gt;
+
+&lt;p&gt;Queries can be large objects, better to put a centralized server, The enemy is the period of validity vs. freshness, and the size of the query.&lt;/p&gt;
+
+&lt;h4 id='best_tools'&gt;Best Tools&lt;/h4&gt;
+
+&lt;p&gt;Resid/Memcache(d), but &lt;a href='http://www.slideshare.net/uptimeforce/postgresql-query-cache-pqc'&gt;PostgreSQL-cache&lt;/a&gt; has a great internal cache layer, also MySQL has it.&lt;/p&gt;
+
+&lt;h3 id='6_query_caching'&gt;6. Query Caching&lt;/h3&gt;
+
+&lt;h4 id='description'&gt;Description&lt;/h4&gt;
+
+&lt;p&gt;Some ORM as Doctrine stores the query creation in order to not process it twice.&lt;/p&gt;
+
+&lt;h4 id='best_tools'&gt;Best Tools&lt;/h4&gt;
+
+&lt;p&gt;APC or Resid/Memcache(d)&lt;/p&gt;
+
+&lt;h2 id='simple_rules'&gt;Simple Rules&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;If you want to not process content of ini files or xml files or yml files, you could convert to PHP or you could store data see &lt;strong&gt;3.&lt;/strong&gt;&lt;/li&gt;
+
+&lt;li&gt;If you want to cache PHP files use Opcode caching.&lt;/li&gt;
+
+&lt;li&gt;If you want to store variable contents or Objects use Redis, Memcache(d), or you could also use APC &lt;a href='http://php.net/manual/en/function.apc-store.php'&gt;apc-store&lt;/a&gt; (suggested if you have a single web server)&lt;/li&gt;
+
+&lt;li&gt;If you have provide some content use HTTP Cache always and in order to serve assets (file css, js, static content) use some famous CDN or Nginx or some free/cheap cdn service on the net.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id='other_cache_mechanism'&gt;Other Cache mechanism&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Pre-Caching/Cacheback, sometimes you need to have some data already available and you don&amp;#8217;t want that the first request wait some slow task &lt;a href='http://codeinthehole.com/writing/cacheback-asynchronous-cache-refreshing-for-django'&gt;cacheback-asynchronous-cache-refreshing-for-django&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;a href='http://www.howtoforge.com/why-you-should-always-use-nginx-with-microcaching'&gt;Microcaching&lt;/a&gt;, few seconds of cache, useful for GET or &lt;strong&gt;POST&lt;/strong&gt;. I said &lt;strong&gt;POST&lt;/strong&gt;, do not it seemed strange to you? If you jumped on the chair is ok, POST on cache is insane, unless you do not want to avoid double click.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;Before there were static website in HTML, then dynamic languages ​​and databases, and we finally came to the static pages again, this blog has been developed with &lt;a href='http://jekyllbootstrap.com/lessons/jekyll-introduction.html'&gt;jekyll&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content>
+ </entry>
  
  <entry>
    <title>PHPUnit vs PHPSpec: theory on Behaviour Driven Development 1/3</title>
@@ -93,7 +246,7 @@
 
 &lt;p&gt;• Test case example Becomes group&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;BUT&lt;/strong&gt; You would be distracted by the code loosing focus on the result, and you might miss the concept of behaviour. [EDITED 07-01-2013 thanks to &lt;a href='http://twitter.com/euxpom'&gt;euxpom &lt;img src='http://gravatar.com/avatar/77014411a56fa9c746d6a89b7fd96121?size=20' alt='exupom' /&gt;&lt;/a&gt;]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;BUT&lt;/strong&gt; You would be distracted by the code loosing focus on the result, and you might miss the concept of behaviour. [EDITED 07-01-2013 thanks to &lt;a href='http://twitter.com/euxpom'&gt;euxpom &lt;img alt='exupom' src='http://gravatar.com/avatar/77014411a56fa9c746d6a89b7fd96121?size=20' /&gt;&lt;/a&gt;]&lt;/p&gt;
 
 &lt;h2 id='phpspec_advantages'&gt;&lt;a href='https://github.com/phpspec/phpspec2'&gt;PHPSpec&lt;/a&gt; advantages&lt;/h2&gt;
 
@@ -184,7 +337,7 @@ end&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;you will have an Icon next your top panel&lt;/p&gt;
 
-&lt;p&gt;&lt;img src='http://welcometothebundle.com/assets/themes/readable-liuggio/img/guard-phpunit-sf2.png' alt='liuggio-guard-phpunit-sf2-notifier' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt='liuggio-guard-phpunit-sf2-notifier' src='http://welcometothebundle.com/assets/themes/readable-liuggio/img/guard-phpunit-sf2.png' /&gt;&lt;/p&gt;
 
 &lt;h3 id='4_trick_guard_on_large_directories'&gt;4 Trick Guard on large directories&lt;/h3&gt;
 
@@ -255,7 +408,7 @@ end&lt;/code&gt;&lt;/pre&gt;
    <link href="http://welcometothebundle.com/servergrove-stastdclientbundle-interesting-symfony-bundles"/>
    <updated>2012-11-01T06:01:25+01:00</updated>
    <id>http://welcometothebundle.com/servergrove-stastdclientbundle-interesting-symfony-bundles</id>
-   <content type="html">&lt;p&gt;I was contacted by &lt;a href='https://twitter.com/_leopro_'&gt;leopro&lt;/a&gt; &lt;img src='https://en.gravatar.com/avatar/26d90e88b1eb694cc1276b9ab8d7630f?s=30' alt='leopro' /&gt; who congratulated me for the excellent results obtained with the &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;StatsDClientBundle&lt;/a&gt;.&lt;/p&gt;
+   <content type="html">&lt;p&gt;I was contacted by &lt;a href='https://twitter.com/_leopro_'&gt;leopro&lt;/a&gt; &lt;img alt='leopro' src='https://en.gravatar.com/avatar/26d90e88b1eb694cc1276b9ab8d7630f?s=30' /&gt; who congratulated me for the excellent results obtained with the &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;StatsDClientBundle&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Thanks to this comment I now know that &lt;a href='http://blog.servergrove.com/2012/10/09/interesting-symfony-bundles-statsdclientbundle/'&gt;ServerGrove&lt;/a&gt; chosen &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;StatsD Client Bundle&lt;/a&gt; as its top choice for Symfony2 project among more than 1600.&lt;/p&gt;
 
