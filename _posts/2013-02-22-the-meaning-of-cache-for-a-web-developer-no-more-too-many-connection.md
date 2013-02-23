@@ -120,7 +120,7 @@ The enemy is the period of validity vs. freshness, and the size of the query.
 
 #### Best Tools
 
-Resid/Memcache(d), but [PostgreSQL-cache](http://www.slideshare.net/uptimeforce/postgresql-query-cache-pqc) has a great internal cache layer, also MySQL has it.
+Redis/Memcache(d), but [PostgreSQL-cache](http://www.slideshare.net/uptimeforce/postgresql-query-cache-pqc) has a great internal cache layer, also MySQL has it.
 
 ### 6. Query Caching
 
@@ -130,7 +130,7 @@ Some ORM as Doctrine stores the query creation in order to not process it twice.
 
 #### Best Tools
 
-APC or Resid/Memcache(d)
+APC or Redis/Memcache(d)
 
 ## Simple Rules
 
