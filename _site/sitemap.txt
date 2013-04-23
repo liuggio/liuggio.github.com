@@ -1,11 +1,11 @@
 
-http://welcometothebundle.com/index.html
-http://welcometothebundle.com/sitemap.txt
-http://welcometothebundle.com/index_d.html
 http://welcometothebundle.com/tags.html
-http://welcometothebundle.com/categories.html
 http://welcometothebundle.com/atom.xml
+http://welcometothebundle.com/index.html
+http://welcometothebundle.com/categories.html
+http://welcometothebundle.com/sitemap.txt
 
+http://welcometothebundle.com/doctrine2-tracking-policy
 http://welcometothebundle.com/the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection
 http://welcometothebundle.com/phpunit-vs-phpspec-theory-on-behaviour-driven-development
 http://welcometothebundle.com/automate-test-and-code-inspection-in-php-with-guard-and-symfony2

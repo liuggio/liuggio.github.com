@@ -1,0 +1,204 @@
+/*this is a fix in order to have a little space between the text and the gist border*/
+.gist-syntax {
+    background-color: white;
+    color: #000000;
+    padding-left: 10px;
+}
+
+/* Override some defaults */
+body {
+    background: url("../img/almost-white.jpg") repeat scroll 0 0 #FFFFFF;
+    font-family: "Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+    border-top: 5px solid #D94D48;
+    color: #525252;
+    background-color: #FFFFFF;
+    font-size: 13px;
+    line-height: 18px;
+    margin: 0;
+}
+
+.sidebar .span4 {
+    border-right: 2px solid rgba(0, 0, 0, 0.05);
+    width: 298px
+
+}
+
+.clear-cache {
+    width: 126px;
+    height: 27px;
+}
+
+.twitter-cnt {
+    padding-top: 7px;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #D94D48;
+}
+
+a {
+    color: #9C2520;
+}
+
+code, pre {
+    font-size: 12px;
+}
+
+h1 a {
+    color: #D94D48;
+}
+
+h1 a:hover {
+    color: #9C2520;
+}
+
+h2 {
+    color: #525252;
+    font-size: 1.5em;
+    line-height: 1.8em;
+    padding: 20px 0;
+
+}
+
+h3 {
+
+    font-size: 16px;
+
+}
+
+p.archive-short-description {
+    font-size: 13px;
+    padding-top:5px;
+}
+p.archive-short-description a{
+   text-decoration: none;
+    color: #868686;
+}
+p.archive-short-description a:hover{
+    text-decoration: none;
+    color: #525252;
+}
+
+
+p {
+    font-size: 16px;
+}
+
+
+
+#header {
+    padding-top: 30px;
+    text-align: center;
+}
+
+#header h1 {
+    font-size: 42px;
+}
+
+#header h2 {
+    font-size: 20px;
+    color: #999999;
+    font-weight: normal;
+    padding: 0 0 20px;
+}
+
+#header .logo {
+    position: absolute;
+    top:-1px;
+}
+
+.page-header {
+    border-bottom: 0;
+    margin: 0 0 10px 0;
+    padding: 0;
+}
+
+.page-header h1 {
+    line-height: 36px;
+}
+
+
+
+
+.box {
+    min-height: 20px;
+    padding: 2px 5px 2px 5px;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.container  {
+    position:relative
+}
+
+.container > footer {
+    margin-top: 20px;
+}
+
+.container > footer p {
+    text-align: center; /* center align it with the container */
+}
+
+/* The white background content wrapper */
+.content {
+    padding: 20px;
+    margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+
+}
+
+/* Page header tweaks */
+.page-header {
+    /*  padding: 20px 20px 10px;
+      margin: -20px -20px 20px;*/
+}
+
+.topbar .btn {
+    border: 0;
+}
+
+/* tag_box ======================================================== */
+
+.tag_box {
+    list-style: none;
+    margin: 0;
+
+    overflow: hidden;
+}
+
+.tag_box li {
+    line-height: 28px;
+    display: inline;
+    list-style-type: none;
+}
+
+.tag_box.inline li {
+    float: left;
+}
+
+.tag_box a {
+    padding: 3px 6px;
+    margin: 2px;
+    background: #ffffff;
+
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+.tag_box a span {
+    vertical-align: super;
+    font-size: 0.8em;
+}
+
+.tag_box a.active {
+    background: #57A957;
+    border: 1px solid #4C964D;
+    color: #FFF;
+}
+
+.date {
+    color: gray;
+    padding: 10px;
+}
