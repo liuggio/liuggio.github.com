@@ -1,0 +1,480 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Giulio De Donato | liuggio :: Doctrine2 tracking policy</title>
+    
+    <meta name="description" content="Tracking policy">
+    
+    <meta name="author" content="Giulio De Donato">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="/assets/themes/readable-liuggio/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/readable-liuggio/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+
+    <link href="/assets/themes/readable-liuggio/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="/assets/themes/readable-liuggio/css/font-awesome.css">
+    <!-- Google Web Font-->
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
+          type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+
+
+</head>
+
+<body>
+<div class="container">
+    <header>
+        <div id="header">
+            <div class="logo span6"><img src="/assets/themes/readable-liuggio/img/welcometothebundle-logo.png"></div>
+            <h1><a title="Blog of Giulio De Donato" id="sitename" href="http://www.welcometothebundle.com/">Welcome to the bundle</a></h1>
+
+            <h2>Best Practice, symfony2, developing, and fluffs.</h2>
+        </div>
+    </header>
+
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+    <section id="content">
+        <div class="row">
+            <aside class="span3">
+                <div class="well">
+                    <p align="center"><img
+                            src="http://www.gravatar.com/avatar/662a52953053d94a145a00df9da9f0d2.png?size=48">
+                    </p>
+                    <p style="font-size:95%">I'm liuggio (aka <a href="https://plus.google.com/115690008178168800202?rel=author" rel="author" title="Giulio De Donato">Giulio De Donato</a>)
+                         tons of lines of code ago I took a degree in Computer Science, I'm the
+                        lead developer for Terravision and I love open source. I can't stop studying, you could find me in some conference, exactly now I'm in the center of Rome.</p>
+                </div>
+                <!-- start sticky section
+#################################################
+                -->
+                <div class="well">
+                    <div class="center" align="center">
+                        <a href="https://github.com/liuggio" title="Giulio De Donato github projects"
+                           target="_blank"><img src="/assets/themes/readable-liuggio/img/github_blue_black_cat_32.png"
+                                                alt="liuggio's gravatar"></a>
+                        <a href="http://twitter.com/liuggio" title="Giulio De Donato twitter page"
+                           target="_blank"><img
+                                src="/assets/themes/readable-liuggio/img/1345542601_Twitter_32x32.png"
+                                alt="liuggio twitter page"></a>
+                        <a href="http://www.linkedin.com/profile/view?id=94597934&"
+                           title="Giulio De Donato Linkedin profile" target="_blank"><img
+                                src="/assets/themes/readable-liuggio/img/1345542710_social_linkedin_box_blue.png"
+                                width=34
+                                alt="Giulio De Donato Linkedin profile"></a>
+                        <a href="http://www.slideshare.net/liuggio"
+                           title="Giulio De Donato slideshare presentations" target="_blank"><img
+                                src="/assets/themes/readable-liuggio/img/slideshare.png" width=34
+                                alt="Giulio De Donato slideshare presentations" width=30></a>
+                    </div>
+                    <div class="center">
+                        <div align="center" class="twitter-cnt">
+                            <a href="https://twitter.com/liuggio" class="twitter-follow-button"
+                               data-show-count="false" data-size="large" data-dnt="true" title="Follow Giulio De Donato">Follow
+                                @liuggio</a>
+                            <script>!function (d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0];
+                                if (!d.getElementById(id)) {
+                                    js = d.createElement(s);
+                                    js.id = id;
+                                    js.src = "//platform.twitter.com/widgets.js";
+                                    fjs.parentNode.insertBefore(js, fjs);
+                                }
+                            }(document, "script", "twitter-wjs");</script>
+                        </div>
+                        <div align="center">
+                            <a href="#">back to top</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- end sticky section
+                ================================================== -->
+                <div class="">
+                    <h2>Categories</h2>
+                    <ul>
+                        
+                        
+
+
+  
+     
+    	<li><a href="/categories.html#hack-ref">
+    		hack <span>1</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#cloud-ref">
+    		cloud <span>1</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#statsd-ref">
+    		statsd <span>1</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#manifesto-ref">
+    		manifesto <span>1</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#conference-ref">
+    		conference <span>1</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#award-ref">
+    		award <span>1</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#phpunit-ref">
+    		phpunit <span>1</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#BDD-ref">
+    		BDD <span>1</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#Cache-ref">
+    		Cache <span>1</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#Tips-ref">
+    		Tips <span>1</span>
+    	</a></li>
+    
+  
+
+
+                    </ul>
+
+                </div>
+                <div class="">
+                    <h2>Tags</h2>
+                    <ul class="tag_box">
+                        
+                        
+
+
+  
+     
+    	<li><a href="/tags.html#assetic-ref">assetic <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#symfony2-ref">symfony2 <span>5</span></a></li>
+     
+    	<li><a href="/tags.html#bundle-ref">bundle <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#github-ref">github <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#bitbucket-ref">bitbucket <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#php-ref">php <span>9</span></a></li>
+     
+    	<li><a href="/tags.html#assets-ref">assets <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#rackspace-ref">rackspace <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#cdn-ref">cdn <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#statsd-ref">statsd <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#vagrant-ref">vagrant <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#graphite-ref">graphite <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#tutorial-ref">tutorial <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#tvision-ref">tvision <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#team-ref">team <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#coding-ref">coding <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#conference-ref">conference <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#speaker-ref">speaker <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#cache-ref">cache <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#optimization-ref">optimization <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#servergrove-ref">servergrove <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#phpunit-ref">phpunit <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#guard-ref">guard <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#automate-ref">automate <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#code-inspection-ref">code-inspection <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#tdd-ref">tdd <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#bdd-ref">bdd <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#test-ref">test <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#phpspec-ref">phpspec <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#HTTP-ref">HTTP <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#APC-ref">APC <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#redis-ref">redis <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#doctrine2-ref">doctrine2 <span>1</span></a></li>
+    
+  
+
+
+
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- start content section
+            ================================================== -->
+            <div class="span9">
+                
+<div class="span9">
+    <div class="page-header">
+        <div class="row">
+            <h1 class="span8">Doctrine2 tracking policy 
+            </h1>
+          <div class="span1 right bottom sticky">
+               <a href="https://twitter.com/share" class="twitter-share-button" data-via="liuggio" data-size="large"
+                  data-count="none" data-dnt="true">Tweet</a>
+               <script>!function (d, s, id) {
+                   var js, fjs = d.getElementsByTagName(s)[0];
+                   if (!d.getElementById(id)) {
+                       js = d.createElement(s);
+                       js.id = id;
+                       js.src = "//platform.twitter.com/widgets.js";
+                       fjs.parentNode.insertBefore(js, fjs);
+                   }
+               }(document, "script", "twitter-wjs");</script>
+              <!-- todo:<div class="inner">back to the top</div>-->
+           </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="span4">
+                <div class="date"><span>23 April 2013</span></div>
+            </div>
+
+            <div class="span5">
+                
+                <ul class="tag_box">
+                    
+                    
+
+
+  
+     
+    	<li><a href="/tags.html#doctrine2-ref">doctrine2 <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#php-ref">php <span>9</span></a></li>
+    
+  
+
+
+
+                </ul>
+                
+            </div>
+        </div>
+
+    </div>
+
+    <article>
+
+
+        <h1 id='which_tracking_policy_are_you_using'>Which tracking policy are you using?</h1>
+
+<p>With doctrine you can change the tracking policy for each class?</p>
+
+<p>The tracking policy is the way in which Doctrine understands that a property of a class must be &#8216;stored&#8217; in the database.</p>
+
+<p>(doctrine/change-tracking-policies)<span>http://docs.doctrine-project.org/en/latest/reference/change-tracking-policies.html</span></p>
+
+<p>There are 3 tracking policies: Implicit, Explicit, Nofity.</p>
+
+<h2 id='implicit_tracking_the_default_one'>Implicit tracking (the default one)</h2>
+
+<p>The implicit is the default one and the slowest, you don&#8217;t need to explicit call &#8216;persist&#8217; eg.</p>
+
+<p><code> // $entity is not a new object, and has $entity-&gt;Title = &#39;liuggio loves tvision.github.io&#39;</code></p>
+
+<p><code> $entity-&gt;setTitle(&#39;liuggio loves symfony2&#39;);</code></p>
+
+<p><code> $entityManager-&gt;flush();</code></p>
+
+<p><code> echo $entity-&gt;getTitle();   // output &#39;liuggio loves symfony2&#39;</code></p>
+
+<p>Unit of work now has <strong>$entity.title=liuggio loves symfony2</strong></p>
+
+<p>Database has flushed without persist <strong>$entity.title=liuggio loves symfony2</strong></p>
+
+<p><strong>Pro</strong>: <code>$entityManager-&gt;persist($entity)</code> is not necessary</p>
+
+<p><strong>Cons</strong>: Slowness, Doctrine has to check property-by-property for all the object in the unit of work</p>
+
+<h2 id='the_explicit_tracking_the_suggested_one'>The explicit tracking (the suggested one)</h2>
+
+<p>You have to persist explicit wich object you want to persist.</p>
+
+<p><strong>Pro</strong>: Faster than implicit</p>
+
+<p><strong>Cons</strong>: dangerous the object in the unit of work could be different from the same in the db, not easy to debug.</p>
+
+<p>The example</p>
+
+<p><code> // $entity is not a new object, and has $entity-&gt;Title = &#39;liuggio loves tvision.github.io&#39;</code></p>
+
+<p><code> $entity-&gt;setTitle(&#39;liuggio loves symfony2&#39;);</code></p>
+
+<p><code> $entityManager-&gt;flush();</code></p>
+
+<p><code> echo $entity-&gt;getTitle();   // output &#39;liuggio loves symfony2&#39;</code></p>
+
+<p>Unit of work now has <strong>$entity.title=liuggio loves symfony2</strong></p>
+
+<p>Database has flushed without persist <strong>$entity.title=liuggio loves tvision.github.io</strong></p>
+
+<h2 id='notify_tracking'>Notify tracking</h2>
+
+<p>It&#8217;s not really a tracking policy, if you want to develop your own tracking policy, you have the tool for doing it, for more info http://docs.doctrine-project.org/en/latest/reference/change-tracking-policies.html</p>
+
+    </article>
+    <hr>
+    <div class="pagination">
+        <ul class="pager">
+            
+            <li class="prev"><a href="/the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection" title="The meaning of Cache for a web developer no more too many connection">&larr;
+                Previous - The meaning of Cache for a web developer no more too many connection</a></li>
+            
+            <li><a href="/index.html">Archive</a></li>
+            
+            <li class="next disabled"><a>Next &rarr;</a>
+                
+        </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'welcometothebundle'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+</div>
+  
+ 
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <hr>
+    <footer>
+        <p>&copy; liuggio 2012
+            <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll
+                Bootstrap</a>,
+            <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>,
+            <a href="http://github.com" target="_blank">GitHub</a>,
+            <a href="http://bootswatch.com/" target="_blank">Bootswatch</a>
+        </p>
+
+        <div id="footer"></div>
+    </footer>
+</div>
+</div>
+<!-- /container -->
+<script src="/assets/themes/readable-liuggio/bootstrap/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    var links = document.links;
+    for (var i = 0, linksLength = links.length; i < linksLength; i++) {
+        if (links[i].hostname != window.location.hostname) {
+            links[i].target = '_blank';
+        }
+    }
+    var links = document.links;
+    for (var i = 0, linksLength = links.length; i < linksLength; i++) {
+
+        if (links[i].href == 'http://www.slideshare.net/liuggio/rationally-boost-your-symfony2-application-with-caching-tips-and-monitoring') {
+
+            //dirty solution in order to add slideshare frame into github Jekyll
+            links[i].innerHTML = '<iframe src="http://www.slideshare.net/slideshow/embed_code/14625769?rel=0" width="512" height="421" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe><div style="margin-bottom:5px"> <strong> <a href="http://www.slideshare.net/liuggio/rationally-boost-your-symfony2-application-with-caching-tips-and-monitoring" title="Rationally boost your symfony2 application with caching tips and monitoring" target="_blank">Rationally boost your symfony2 application with caching tips and monitoring</a></div>';
+            break;
+        }
+    }
+
+</script>
+<script type="text/javascript">
+  var analytics=analytics||[];analytics.load=function(e){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+e+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);var r=function(e){return function(){analytics.push([e].concat(Array.prototype.slice.call(arguments,0)))}},i=["identify","track","trackLink","trackForm","trackClick","trackSubmit","pageview","ab","alias","ready"];for(var s=0;s<i.length;s++)analytics[i[s]]=r(i[s])};
+  analytics.load("wdoo4hzofo");
+</script>
+
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37195869-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+
+
+<script>
+    $(function () { // document ready
+        if (!!$('.sticky').offset()) { // make sure ".sticky" element exists
+            var stickyTop = $('.sticky').offset().top; // returns number
+            $(window).scroll(function () { // scroll event
+                var windowTop = $(window).scrollTop(); // returns number
+                if (stickyTop < windowTop) {
+                    $('.sticky').css({ position:'fixed', top:0, right:0 });
+                    $('.sticky').addClass("well");
+                    $('.sticky .inner').show();
+
+                }
+                else {
+                    $('.sticky').css('position', 'static');
+                    $('.sticky').removeClass("well").addClass("span1");
+                    $('.sticky .inner').hide();
+                }
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
+

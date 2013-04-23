@@ -2,59 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="346e13a3-6b20-4b44-822c-0eea8f28dc62" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/index_d.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/img/1345542601_Twitter_32x32.png" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/img/1345542601_Twitter_32x32.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/img/1345542710_social_linkedin_box_blue.png" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/img/1345542710_social_linkedin_box_blue.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/FontAwesome-Vectors.pdf" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/FontAwesome-Vectors.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/img/almost-white.jpg" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/img/almost-white.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/font/fontawesome-webfont.eot" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/font/fontawesome-webfont.eot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/font/fontawesome-webfont.ttf" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/font/fontawesome-webfont.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/font/fontawesome-webfont.woff" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/font/fontawesome-webfont.woff" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/img/github_blue_black_cat_32.png" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/img/github_blue_black_cat_32.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/bootstrap/img/glyphicons-halflings-white.png" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/bootstrap/img/glyphicons-halflings-white.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/twitter/bootstrap/img/glyphicons-halflings-white.png" afterPath="$PROJECT_DIR$/_site/assets/themes/twitter/bootstrap/img/glyphicons-halflings-white.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/bootstrap/img/glyphicons-halflings.png" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/bootstrap/img/glyphicons-halflings.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/twitter/bootstrap/img/glyphicons-halflings.png" afterPath="$PROJECT_DIR$/_site/assets/themes/twitter/bootstrap/img/glyphicons-halflings.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/img/guard-phpunit-sf2.png" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/img/guard-phpunit-sf2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/img/linkedin-icon-gif.gif" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/img/linkedin-icon-gif.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/img/pattern.png" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/img/pattern.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/img/slideshare.png" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/img/slideshare.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/img/welcometothebundle-liuggio.png" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/img/welcometothebundle-liuggio.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/img/welcometothebundle-logo.png" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/img/welcometothebundle-logo.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/atom.xml" afterPath="$PROJECT_DIR$/_site/atom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/bootstrap/css/bootstrap-responsive.min.css" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/bootstrap/css/bootstrap-responsive.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/bootstrap/js/bootstrap-transition.js" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/bootstrap/js/bootstrap-transition.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/bootstrap/css/bootstrap.min.css-old" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/bootstrap/css/bootstrap.min.css-old" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/bootstrap/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/bootstrap/css/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/twitter/bootstrap/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/_site/assets/themes/twitter/bootstrap/css/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/categories.html" afterPath="$PROJECT_DIR$/_site/categories.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html" afterPath="$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/css/font-awesome.css" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/css/font-awesome.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/font/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/font/fontawesome-webfont.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/index.html" afterPath="$PROJECT_DIR$/_site/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/automate-test-and-code-inspection-in-php-with-guard-and-symfony2/index.html" afterPath="$PROJECT_DIR$/_site/automate-test-and-code-inspection-in-php-with-guard-and-symfony2/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/easily-install-statsd-and-graphite-with-vagrant/index.html" afterPath="$PROJECT_DIR$/_site/easily-install-statsd-and-graphite-with-vagrant/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/phpunit-vs-phpspec-theory-on-behaviour-driven-development/index.html" afterPath="$PROJECT_DIR$/_site/phpunit-vs-phpspec-theory-on-behaviour-driven-development/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/servergrove-stastdclientbundle-interesting-symfony-bundles/index.html" afterPath="$PROJECT_DIR$/_site/servergrove-stastdclientbundle-interesting-symfony-bundles/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/symfony-day-5-october-turin-2012/index.html" afterPath="$PROJECT_DIR$/_site/symfony-day-5-october-turin-2012/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/symfony2-assets-on-rackspace-cloud-files/index.html" afterPath="$PROJECT_DIR$/_site/symfony2-assets-on-rackspace-cloud-files/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection/index.html" afterPath="$PROJECT_DIR$/_site/the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/tvision-team-manifesto/index.html" afterPath="$PROJECT_DIR$/_site/tvision-team-manifesto/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/using-github-or-bitbucket-as-assets-container-for-symfony2/index.html" afterPath="$PROJECT_DIR$/_site/using-github-or-bitbucket-as-assets-container-for-symfony2/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/bootstrap/js/jquery-1.8.3.min.js" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/bootstrap/js/jquery-1.8.3.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/sitemap.txt" afterPath="$PROJECT_DIR$/_site/sitemap.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/css/style.css" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/twitter/css/style.css" afterPath="$PROJECT_DIR$/_site/assets/themes/twitter/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/tags.html" afterPath="$PROJECT_DIR$/_site/tags.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-04-23-doctrine2-tracking-policy.md" afterPath="$PROJECT_DIR$/_posts/2013-04-23-doctrine2-tracking-policy.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="liuggio.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1366722528414" ignored="false" />
+    <file path="/Dummy.txt" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1366725710241" ignored="false" />
     <file path="/2013-02-22-the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection.md" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1361628404067" ignored="false" />
     <file path="/default.html" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1362058268461" ignored="false" />
     <file path="$USER_HOME$/PhpstormProjects/sf2/src/Acme/DemoBundle/Controller/DemoController.php" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1366722537141" ignored="false" />
-    <file path="/2013-04-23-doctrine2-tracking-policy.md" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1366723529872" ignored="false" />
+    <file path="/2013-04-23-doctrine2-tracking-policy.md" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1366726173683" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +61,7 @@
       <file leaf-file-name="default.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="33" selection-start="1781" selection-end="1781" vertical-scroll-proportion="-10.0">
+            <state line="44" column="33" selection-start="1781" selection-end="1781" vertical-scroll-proportion="0.0">
               <folding>
                 <marker date="1364649089298" expanded="false" signature="7554:7616" placeholder="..." />
                 <marker date="1364649089298" expanded="false" signature="7697:7714" placeholder="..." />
@@ -116,7 +73,7 @@
       <file leaf-file-name="2013-04-23-doctrine2-tracking-policy.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_posts/2013-04-23-doctrine2-tracking-policy.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="4" selection-start="2118" selection-end="2118" vertical-scroll-proportion="0.8957126">
+            <state line="42" column="26" selection-start="1376" selection-end="1376" vertical-scroll-proportion="0.33951333">
               <folding />
             </state>
           </provider>
@@ -151,6 +108,7 @@
       <list>
         <option value="$PROJECT_DIR$/_posts/2013-02-22-the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection.md" />
         <option value="$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/_posts/2013-04-23-doctrine2-tracking-policy.md" />
       </list>
     </option>
@@ -187,6 +145,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -289,7 +248,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -316,7 +274,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3089648" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31643543" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -392,6 +350,37 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/_layouts/post.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="33" selection-start="1781" selection-end="1781" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1364649089298" expanded="false" signature="7554:7616" placeholder="..." />
+            <marker date="1364649089298" expanded="false" signature="7697:7714" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-04-23-doctrine2-tracking-policy.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="82" selection-start="393" selection-end="393" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-02-22-the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="224" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/_layouts/default.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -453,7 +442,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="33" selection-start="1781" selection-end="1781" vertical-scroll-proportion="-10.0">
+        <state line="44" column="33" selection-start="1781" selection-end="1781" vertical-scroll-proportion="0.0">
           <folding>
             <marker date="1364649089298" expanded="false" signature="7554:7616" placeholder="..." />
             <marker date="1364649089298" expanded="false" signature="7697:7714" placeholder="..." />
@@ -468,9 +457,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="5" selection-start="5" selection-end="5" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2013-04-23-doctrine2-tracking-policy.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="4" selection-start="2118" selection-end="2118" vertical-scroll-proportion="0.8957126">
+        <state line="42" column="26" selection-start="1376" selection-end="1376" vertical-scroll-proportion="0.33951333">
           <folding />
         </state>
       </provider>
