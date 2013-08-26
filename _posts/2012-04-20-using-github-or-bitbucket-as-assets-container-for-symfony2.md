@@ -10,7 +10,7 @@ published: true
 
 I made the following changes to the config, deps and autoload in order to push all the assets directly into a github repository.
 
-** Why you should pay for CDN if you can use Github? **
+**Why you should pay for CDN if you can use Github?**
 
 ## Theory
 

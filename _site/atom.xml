@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-04-23T15:28:20+02:00</updated>
+ <updated>2013-08-26T11:11:34+02:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -19,11 +19,9 @@
    <id>http://welcometothebundle.com/doctrine2-tracking-policy</id>
    <content type="html">&lt;h1 id='which_tracking_policy_are_you_using'&gt;Which tracking policy are you using?&lt;/h1&gt;
 
-&lt;p&gt;With doctrine you can change the tracking policy for each class?&lt;/p&gt;
+&lt;p&gt;With doctrine you can change the tracking policy for each entity, the tracking policy is the way in which Doctrine understands if a entity property must be &amp;#8216;saved&amp;#8217; in the database.&lt;/p&gt;
 
-&lt;p&gt;The tracking policy is the way in which Doctrine understands that a property of a class must be &amp;#8216;stored&amp;#8217; in the database.&lt;/p&gt;
-
-&lt;p&gt;(doctrine/change-tracking-policies)&lt;span&gt;http://docs.doctrine-project.org/en/latest/reference/change-tracking-policies.html&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Doctrine definition: &amp;#8220;Change tracking is the process of determining what has changed in managed entities since the last time they were synchronized with the database.&amp;#8221;&lt;/p&gt;
 
 &lt;p&gt;There are 3 tracking policies: Implicit, Explicit, Nofity.&lt;/p&gt;
 
@@ -49,11 +47,11 @@
 
 &lt;h2 id='the_explicit_tracking_the_suggested_one'&gt;The explicit tracking (the suggested one)&lt;/h2&gt;
 
-&lt;p&gt;You have to persist explicit wich object you want to persist.&lt;/p&gt;
+&lt;p&gt;You have to explicit flag which object you want to persist, than Doctrine will check property-by-property in order to find with property has changed.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Pro&lt;/strong&gt;: Faster than implicit&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Pro&lt;/strong&gt;: Faster than implicit, must if you have a lot of entities.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Cons&lt;/strong&gt;: dangerous the object in the unit of work could be different from the same in the db, not easy to debug.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Cons&lt;/strong&gt;: the object in the unit of work could be different from that one in the db, not easy to debug.&lt;/p&gt;
 
 &lt;p&gt;The example&lt;/p&gt;
 
@@ -67,11 +65,17 @@
 
 &lt;p&gt;Unit of work now has &lt;strong&gt;$entity.title=liuggio loves symfony2&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Database has flushed without persist &lt;strong&gt;$entity.title=liuggio loves tvision.github.io&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Database has different state for that entity &lt;strong&gt;liuggio loves tvision.github.io&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h2 id='notify_tracking'&gt;Notify tracking&lt;/h2&gt;
 
-&lt;p&gt;It&amp;#8217;s not really a tracking policy, if you want to develop your own tracking policy, you have the tool for doing it, for more info http://docs.doctrine-project.org/en/latest/reference/change-tracking-policies.html&lt;/p&gt;</content>
+&lt;p&gt;It&amp;#8217;s not really a tracking policy, if you want to develop your own tracking policy, you have the tool for doing it.&lt;/p&gt;
+
+&lt;p&gt;Don&amp;#8217;t understimate this policy useful if you a domain logic.&lt;/p&gt;
+
+&lt;h2 id='link_to_doctrine_doc'&gt;Link to doctrine doc&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href='http://docs.doctrine-project.org/en/latest/reference/change-tracking-policies.html'&gt;doctrine/change-tracking-policies&lt;/a&gt;&lt;/p&gt;</content>
  </entry>
  
  <entry>
@@ -126,7 +130,7 @@ function delete($id);&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;I won&amp;#8217;t go in depth with HTTP Protocol and Cache, but understanding the HTTP protocol turns a developer in a web developer.&lt;/p&gt;
 
-&lt;p&gt;The actors in the HTTP Cache are: your web-server, your reverse proxy (as Vagrant or Squid), the Shared cache server&lt;strong&gt;s&lt;/strong&gt; (more than one) and the client browser cache.&lt;/p&gt;
+&lt;p&gt;The actors in the HTTP Cache are: your web-server, your reverse proxy (as Varnish or Squid), the Shared cache server&lt;strong&gt;s&lt;/strong&gt; (more than one) and the client browser cache.&lt;/p&gt;
 
 &lt;p&gt;This is the best Cache and the most powerful, you could create many cache layers on your application, but if you set up the HTTP headers properly the first time, the next requests will be served for free. &lt;strong&gt;The least expensive query is the query you never had&lt;/strong&gt;&lt;/p&gt;
 
@@ -138,7 +142,7 @@ function delete($id);&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id='best_tools'&gt;Best Tools&lt;/h4&gt;
 
-&lt;p&gt;Vagrant / Squid&lt;/p&gt;
+&lt;p&gt;Varnish / Squid&lt;/p&gt;
 
 &lt;h3 id='2_opcode'&gt;2. Opcode&lt;/h3&gt;
 
@@ -308,7 +312,7 @@ function delete($id);&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;• Test case example Becomes group&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;BUT&lt;/strong&gt; You would be distracted by the code loosing focus on the result, and you might miss the concept of behaviour. [EDITED 07-01-2013 thanks to &lt;a href='http://twitter.com/euxpom'&gt;euxpom &lt;img alt='exupom' src='http://gravatar.com/avatar/77014411a56fa9c746d6a89b7fd96121?size=20' /&gt;&lt;/a&gt;]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;BUT&lt;/strong&gt; You would be distracted by the code loosing focus on the result, and you might miss the concept of behaviour. [EDITED 07-01-2013 thanks to &lt;a href='http://twitter.com/euxpom'&gt;euxpom &lt;img src='http://gravatar.com/avatar/77014411a56fa9c746d6a89b7fd96121?size=20' alt='exupom' /&gt;&lt;/a&gt;]&lt;/p&gt;
 
 &lt;h2 id='phpspec_advantages'&gt;&lt;a href='https://github.com/phpspec/phpspec2'&gt;PHPSpec&lt;/a&gt; advantages&lt;/h2&gt;
 
@@ -399,7 +403,7 @@ end&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;you will have an Icon next your top panel&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='liuggio-guard-phpunit-sf2-notifier' src='http://welcometothebundle.com/assets/themes/readable-liuggio/img/guard-phpunit-sf2.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='http://welcometothebundle.com/assets/themes/readable-liuggio/img/guard-phpunit-sf2.png' alt='liuggio-guard-phpunit-sf2-notifier' /&gt;&lt;/p&gt;
 
 &lt;h3 id='4_trick_guard_on_large_directories'&gt;4 Trick Guard on large directories&lt;/h3&gt;
 
@@ -468,9 +472,9 @@ end&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>ServerGrove StastdClientBundle Interesting Symfony Bundles</title>
    <link href="http://welcometothebundle.com/servergrove-stastdclientbundle-interesting-symfony-bundles"/>
-   <updated>2012-11-01T07:01:25+01:00</updated>
+   <updated>2012-11-01T06:01:25+01:00</updated>
    <id>http://welcometothebundle.com/servergrove-stastdclientbundle-interesting-symfony-bundles</id>
-   <content type="html">&lt;p&gt;I was contacted by &lt;a href='https://twitter.com/_leopro_'&gt;leopro&lt;/a&gt; &lt;img alt='leopro' src='https://en.gravatar.com/avatar/26d90e88b1eb694cc1276b9ab8d7630f?s=30' /&gt; who congratulated me for the excellent results obtained with the &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;StatsDClientBundle&lt;/a&gt;.&lt;/p&gt;
+   <content type="html">&lt;p&gt;I was contacted by &lt;a href='https://twitter.com/_leopro_'&gt;leopro&lt;/a&gt; &lt;img src='https://en.gravatar.com/avatar/26d90e88b1eb694cc1276b9ab8d7630f?s=30' alt='leopro' /&gt; who congratulated me for the excellent results obtained with the &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;StatsDClientBundle&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Thanks to this comment I now know that &lt;a href='http://blog.servergrove.com/2012/10/09/interesting-symfony-bundles-statsdclientbundle/'&gt;ServerGrove&lt;/a&gt; chosen &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;StatsD Client Bundle&lt;/a&gt; as its top choice for Symfony2 project among more than 1600.&lt;/p&gt;
 
@@ -487,7 +491,7 @@ In our first installment of the series we will present StatsDClientBundle writte
  <entry>
    <title>Symfony Day 5 October, Turin 2012</title>
    <link href="http://welcometothebundle.com/symfony-day-5-october-turin-2012"/>
-   <updated>2012-11-01T00:01:25+01:00</updated>
+   <updated>2012-10-31T23:01:25+01:00</updated>
    <id>http://welcometothebundle.com/symfony-day-5-october-turin-2012</id>
    <content type="html">&lt;p&gt;On October 5th, I was the speaker at the symfony day, and I was lucky enough to be able to close the conference.&lt;/p&gt;
 
@@ -513,7 +517,7 @@ In our first installment of the series we will present StatsDClientBundle writte
  <entry>
    <title>2013-Software Team Manifesto</title>
    <link href="http://welcometothebundle.com/tvision-team-manifesto"/>
-   <updated>2012-09-16T18:09:12+02:00</updated>
+   <updated>2012-09-16T16:09:12+02:00</updated>
    <id>http://welcometothebundle.com/tvision-team-manifesto</id>
    <content type="html">&lt;h2 id='abstract'&gt;Abstract&lt;/h2&gt;
 
@@ -620,7 +624,7 @@ In our first installment of the series we will present StatsDClientBundle writte
    <id>http://welcometothebundle.com/using-github-or-bitbucket-as-assets-container-for-symfony2</id>
    <content type="html">&lt;p&gt;I made the following changes to the config, deps and autoload in order to push all the assets directly into a github repository.&lt;/p&gt;
 
-&lt;p&gt;** Why you should pay for CDN if you can use Github? **&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Why you should pay for CDN if you can use Github?&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h2 id='theory'&gt;Theory&lt;/h2&gt;
 

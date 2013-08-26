@@ -1,9 +1,9 @@
 
-http://welcometothebundle.com/tags.html
-http://welcometothebundle.com/atom.xml
-http://welcometothebundle.com/index.html
 http://welcometothebundle.com/categories.html
+http://welcometothebundle.com/atom.xml
+http://welcometothebundle.com/tags.html
 http://welcometothebundle.com/sitemap.txt
+http://welcometothebundle.com/index.html
 
 http://welcometothebundle.com/doctrine2-tracking-policy
 http://welcometothebundle.com/the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection
