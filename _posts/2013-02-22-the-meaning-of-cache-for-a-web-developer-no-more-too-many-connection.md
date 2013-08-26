@@ -52,7 +52,7 @@ the concept in few lines is that you are a web developer, and the web works with
 
 I won't go in depth with HTTP Protocol and Cache, but understanding the HTTP protocol turns a developer in a web developer.
 
-The actors in the HTTP Cache are: your web-server, your reverse proxy (as Vagrant or Squid), the Shared cache server**s**  (more than one) and the client browser cache.
+The actors in the HTTP Cache are: your web-server, your reverse proxy (as Varnish or Squid), the Shared cache server**s**  (more than one) and the client browser cache.
 
 This is the best Cache and the most powerful, you could create many cache layers on your application, but
 if you set up the HTTP headers properly the first time, the next requests will be served for free.
@@ -67,7 +67,7 @@ The HTTP cache enemy? Cookies and Sessions (see how to solve it thanks to [ESI](
 
 #### Best Tools
 
-Vagrant / Squid
+Varnish / Squid
 
 ### 2. Opcode
 
