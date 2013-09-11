@@ -4,7 +4,7 @@ title: "Design by contract behaviour"
 description: ""
 category: fluffy
 tags: [php-internal, php, interface]
-published: false
+published: true
 ---
 {% include JB/setup %}
 
