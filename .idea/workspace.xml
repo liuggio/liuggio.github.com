@@ -2,16 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="346e13a3-6b20-4b44-822c-0eea8f28dc62" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-04-23-doctrine2-tracking-policy.md" afterPath="$PROJECT_DIR$/_posts/2013-04-23-doctrine2-tracking-policy.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/atom.xml" afterPath="$PROJECT_DIR$/_site/atom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/categories.html" afterPath="$PROJECT_DIR$/_site/categories.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/index.html" afterPath="$PROJECT_DIR$/_site/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/automate-test-and-code-inspection-in-php-with-guard-and-symfony2/index.html" afterPath="$PROJECT_DIR$/_site/automate-test-and-code-inspection-in-php-with-guard-and-symfony2/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/doctrine2-tracking-policy/index.html" afterPath="$PROJECT_DIR$/_site/doctrine2-tracking-policy/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/easily-install-statsd-and-graphite-with-vagrant/index.html" afterPath="$PROJECT_DIR$/_site/easily-install-statsd-and-graphite-with-vagrant/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/phpunit-vs-phpspec-theory-on-behaviour-driven-development/index.html" afterPath="$PROJECT_DIR$/_site/phpunit-vs-phpspec-theory-on-behaviour-driven-development/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/servergrove-stastdclientbundle-interesting-symfony-bundles/index.html" afterPath="$PROJECT_DIR$/_site/servergrove-stastdclientbundle-interesting-symfony-bundles/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/symfony-day-5-october-turin-2012/index.html" afterPath="$PROJECT_DIR$/_site/symfony-day-5-october-turin-2012/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/symfony2-assets-on-rackspace-cloud-files/index.html" afterPath="$PROJECT_DIR$/_site/symfony2-assets-on-rackspace-cloud-files/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection/index.html" afterPath="$PROJECT_DIR$/_site/the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/tvision-team-manifesto/index.html" afterPath="$PROJECT_DIR$/_site/tvision-team-manifesto/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/using-github-or-bitbucket-as-assets-container-for-symfony2/index.html" afterPath="$PROJECT_DIR$/_site/using-github-or-bitbucket-as-assets-container-for-symfony2/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/sitemap.txt" afterPath="$PROJECT_DIR$/_site/sitemap.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/tags.html" afterPath="$PROJECT_DIR$/_site/tags.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="liuggio.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1366725710241" ignored="false" />
+    <file path="/Dummy.txt" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1378906264733" ignored="false" />
     <file path="/2013-02-22-the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection.md" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1361628404067" ignored="false" />
     <file path="/default.html" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1362058268461" ignored="false" />
     <file path="$USER_HOME$/PhpstormProjects/sf2/src/Acme/DemoBundle/Controller/DemoController.php" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1366722537141" ignored="false" />
     <file path="/2013-04-23-doctrine2-tracking-policy.md" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1366726173683" ignored="false" />
+    <file path="/2013-09-11-design-by-contract-behaviour.md" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1378911947720" ignored="false" />
+    <file path="/finite_state.yml" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1378911455264" ignored="false" />
+    <file path="$USER_HOME$/PhpstormProjects/sym/app/config/ecommerce/finite_state.yml" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1378911470528" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,18 +79,33 @@
         <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html">
           <provider selected="true" editor-type-id="text-editor">
             <state line="44" column="33" selection-start="1781" selection-end="1781" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1364649089298" expanded="false" signature="7554:7616" placeholder="..." />
-                <marker date="1364649089298" expanded="false" signature="7697:7714" placeholder="..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2013-04-23-doctrine2-tracking-policy.md" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="2013-04-23-doctrine2-tracking-policy.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/2013-04-23-doctrine2-tracking-policy.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="26" selection-start="1376" selection-end="1376" vertical-scroll-proportion="0.33951333">
+            <state line="4" column="8" selection-start="83" selection-end="136" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2013-09-11-design-by-contract-behaviour.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_posts/2013-09-11-design-by-contract-behaviour.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="65" column="0" selection-start="1570" selection-end="1570" vertical-scroll-proportion="0.4856787">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2012-04-20-using-github-or-bitbucket-as-assets-container-for-symfony2.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2012-04-20-using-github-or-bitbucket-as-assets-container-for-symfony2.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="203" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -82,7 +114,7 @@
       <file leaf-file-name="2013-02-22-the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/2013-02-22-the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="224" vertical-scroll-proportion="0.0">
+            <state line="29" column="0" selection-start="1017" selection-end="1017" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -110,14 +142,15 @@
         <option value="$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/_posts/2013-04-23-doctrine2-tracking-policy.md" />
+        <option value="$PROJECT_DIR$/_posts/2013-09-11-design-by-contract-behaviour.md" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2" />
-    <option name="y" value="25" />
-    <option name="width" value="1924" />
-    <option name="height" value="1057" />
+    <option name="x" value="1920" />
+    <option name="y" value="24" />
+    <option name="width" value="1920" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -145,7 +178,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -248,6 +280,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -267,14 +300,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="25" width="1924" height="1057" extended-state="6" />
+    <frame x="1920" y="24" width="1920" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31643543" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3216971" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -315,7 +348,7 @@
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
-    <option name="SHORT_DIFF_HORISONTALLY" value="true" />
+    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
     <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
     <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
     <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
@@ -350,23 +383,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_layouts/post.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="33" selection-start="1781" selection-end="1781" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1364649089298" expanded="false" signature="7554:7616" placeholder="..." />
-            <marker date="1364649089298" expanded="false" signature="7697:7714" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2013-04-23-doctrine2-tracking-policy.md">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="82" selection-start="393" selection-end="393" vertical-scroll-proportion="0.0">
@@ -405,10 +421,7 @@
     <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="23" selection-start="1161" selection-end="1161" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1364649089298" expanded="false" signature="7554:7616" placeholder="..." />
-            <marker date="1364649089298" expanded="false" signature="7697:7714" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -443,16 +456,6 @@
     <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="44" column="33" selection-start="1781" selection-end="1781" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1364649089298" expanded="false" signature="7554:7616" placeholder="..." />
-            <marker date="1364649089298" expanded="false" signature="7697:7714" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-02-22-the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="224" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -462,9 +465,30 @@
         <state line="0" column="5" selection-start="5" selection-end="5" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2012-04-20-using-github-or-bitbucket-as-assets-container-for-symfony2.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="203" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-02-22-the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="0" selection-start="1017" selection-end="1017" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2013-04-23-doctrine2-tracking-policy.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="26" selection-start="1376" selection-end="1376" vertical-scroll-proportion="0.33951333">
+        <state line="4" column="8" selection-start="83" selection-end="136" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-09-11-design-by-contract-behaviour.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="0" selection-start="1570" selection-end="1570" vertical-scroll-proportion="0.4856787">
           <folding />
         </state>
       </provider>

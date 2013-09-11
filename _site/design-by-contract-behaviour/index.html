@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Giulio De Donato | liuggio :: Symfony2 assets on RackSpace Cloud files</title>
+    <title>Giulio De Donato | liuggio :: Design by contract behaviour</title>
     
     <meta name="description" content="">
     
@@ -242,7 +242,7 @@
 <div class="span9">
     <div class="page-header">
         <div class="row">
-            <h1 class="span8">Symfony2 assets on RackSpace Cloud files 
+            <h1 class="span8">Design by contract behaviour 
             </h1>
           <div class="span1 right bottom sticky">
                <a href="https://twitter.com/share" class="twitter-share-button" data-via="liuggio" data-size="large"
@@ -262,37 +262,10 @@
         <hr>
         <div class="row">
             <div class="span4">
-                <div class="date"><span>06 May 2012</span></div>
+                <div class="date"><span>11 September 2013</span></div>
             </div>
 
             <div class="span5">
-                
-                <ul class="tag_box">
-                    
-                    
-
-
-  
-     
-    	<li><a href="/tags.html#rackspace-ref">rackspace <span>1</span></a></li>
-     
-    	<li><a href="/tags.html#symfony2-ref">symfony2 <span>5</span></a></li>
-     
-    	<li><a href="/tags.html#bundle-ref">bundle <span>3</span></a></li>
-     
-    	<li><a href="/tags.html#assetic-ref">assetic <span>2</span></a></li>
-     
-    	<li><a href="/tags.html#cdn-ref">cdn <span>1</span></a></li>
-     
-    	<li><a href="/tags.html#php-ref">php <span>9</span></a></li>
-     
-    	<li><a href="/tags.html#assets-ref">assets <span>3</span></a></li>
-    
-  
-
-
-
-                </ul>
                 
             </div>
         </div>
@@ -302,46 +275,93 @@
     <article>
 
 
-        <p>How to use assetic on rackspace with symfony2?</p>
+        <p>In recent years, Composer has given a breath of freshness to the dependencies, and framework such as Symfony2 make best practices and decoupling their pride.</p>
 
-<p>The problem is how to move the static files to the cloud files and get them from twig?</p>
+<p>The union of these two phenomena has made that especially in recent years has been used more and more the type hinting in order to have contracts with <code>Interfaces</code>.</p>
 
-<p>Following some tips from the forum <a href='http://groups.google.com/group/symfony2/browse_thread/thread/8e14c145683981d4'>Registering (s3) stream wrapper for AsseticBundle – Symfony2 | Google Gruppi</a></p>
+<h2 id='the_problem'>The problem</h2>
 
-<p>I created this bundle <a href='https://github.com/liuggio/RackspaceCloudFilesBundle'>RackspaceCloudFilesBundle</a> that handles the static files easily</p>
+<p>The problem comes when a library uses a functionality of a third library, but do not want to hard-code the third-part library.</p>
 
-<h2 id='installing'>Installing</h2>
+<h2 id='case_study'>Case Study</h2>
 
-<h3 id='step_1'>Step 1</h3>
+<p>I have a library that uses a logger:</p>
 
-<p>follow the README into the <a href='https://github.com/liuggio/RackspaceCloudFilesBundle
-'>RackspaceCloudFilesBundle</a></p>
+<pre><code>namespace MyLib\Service;
+class MyService
+   private $log;
+   public function __construct($log)
+   {
+     this-&gt;log = $log;
+   }
 
-<h3 id='step_2'>Step 2</h3>
+   public function doSomethig()
+   {
+      $this-&gt;log-&gt;info(&#39;log this&#39;);
+   }</code></pre>
 
-<p>modify the app/config/config.yml and the app/parameters.ini</p>
-<script src='https://gist.github.com/2420800.js'> </script>
-<h3 id='step_3'>Step 3</h3>
+<p>But I&#8217;m a good boy so I want to use an interface, I need an interface because I want the log type hinting because I&#8217;ll use that log dependency with <code>info</code>.</p>
 
-<p>when you will deploy a new image just run app/console assetic:dump –env=prod</p>
+<p>Then I add the type-hinting LoggerInterface, but which namespace to use? I can&#8217;t define mine LoggerInterface, so use the monolog one.</p>
 
-<p><strong>That’s it!!!!</strong></p>
+<pre><code>namespace MyLib\Service;
+use Monolog\LoggerInterface;
+class MyService
+   private $log;
+   public function __construct(LoggerInterface $log)
+   {
+     this-&gt;log = $log;
+   }
 
-<p>PLEASE FELL FREE TO CLONE AND SEND PULL REQUEST!</p>
+   public function doSomethig()
+   {
+      $this-&gt;log-&gt;info(&#39;log this&#39;);
+   }</code></pre>
+
+<p>By doing this I have hardcoded a <strong>dependency</strong> to Monolog.</p>
+
+<p>And what happen when I&#8217;ll find a better logger library that has got the same LoggerInterface and the function &#8216;info&#8217;? I&#8217;ve to change the namespace to the new LoggerInterface or the type hinting would fail, because the control for the type hinting is also on the namespace of the interface and not on the behaviour.</p>
+
+<h2 id='solution'>Solution?</h2>
+
+<p>Monolog had fixed this problem by putting a shared interface inside PSR http://www.php-fig.org/ repository, but not all cases can be put in the php-fig.</p>
+
+<p>One solution would be to permit the alias for namespaces.</p>
+
+<p>Another <code>naive</code> solution would be modify the <code>php-internal</code> of how type hinting works, maybe you could define the interface with a keyword <code>behaviour</code> that forces the engine to check that the type that you pass has the behavior (functions) and not forcing the namespace.</p>
+
+<pre><code>namespace MyLib;
+Behaviour Interface LoggerInterface
+{
+    public function info($string);
+}</code></pre>
+
+<h2 id='why'>Why?</h2>
+
+<p>Can you imagine a world where the libraries are decoupled but they respects the interfaces without sharing file but sharing <code>behaviour</code>?</p>
+
+<h2 id='phpfig'>PHP-fig</h2>
+
+<p>PHP-fig is a great tool but it&#8217;s democratic and democracy on internet is not always able to satisfy the minorities, and to be competitive with the times.</p>
+
+<h2 id='another_example'>Another example</h2>
+
+<p>Another example, if you want to use this library http://yohan.giarel.li/Finite/index.html, you have to put a dependency with Finite\StatefulInterface only because your class has to have the functions <code>getFiniteState</code> and <code>setFiniteState</code>, this is good and it works but hard-coding namespaces and dependencies is not the best option.</p>
+
+<h2 id='what_do_you_think_about_it'>What do you think about it?</h2>
 
     </article>
     <hr>
     <div class="pagination">
         <ul class="pager">
             
-            <li class="prev"><a href="/using-github-or-bitbucket-as-assets-container-for-symfony2" title="Using Github or Bitbucket as Assets container for Symfony2">&larr;
-                Previous - Using Github or Bitbucket as Assets container for Symfony2</a></li>
+            <li class="prev"><a href="/doctrine2-tracking-policy" title="Doctrine2 tracking policy">&larr;
+                Previous - Doctrine2 tracking policy</a></li>
             
             <li><a href="/index.html">Archive</a></li>
             
-            <li class="next"><a href="/easily-install-statsd-and-graphite-with-vagrant" title="Easily install statsd and graphite with vagrant">Next - Easily install statsd and graphite with vagrant &rarr;</a>
-            </li>
-            
+            <li class="next disabled"><a>Next &rarr;</a>
+                
         </ul>
     </div>
     <hr>
