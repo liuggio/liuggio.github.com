@@ -13,9 +13,12 @@ In recent years, [Composer](http://getcomposer.org) has given a breath of freshn
 
 The union of these two phenomena have moved the attentions to the type hinting in order to have contracts with `Interfaces`.
 
+PHP doesn't have the support for [Structural type system](http://en.wikipedia.org/wiki/Structural_type_system)
+
 ## The problem
 
 The problem comes when a library uses a functionality of a third library, but do not want to hard-code the third-part library in the namespace
+
 
 ## Case Study
 
@@ -75,7 +78,7 @@ I've to change the namespace to the new LoggerInterface or the type hinting woul
 
 ## Solution?
 
-Monolog have fixed this problem by putting a shared interface inside PSR http://www.php-fig.org/ repository, but not all cases can be put in the php-fig.
+Monolog have fixed this problem by putting a shared interface inside PSR [php-fig.org/](http://www.php-fig.org) repository, but not all cases can be put in the php-fig.
 
 One solution would be to permit the alias for namespaces.
 
@@ -113,5 +116,5 @@ but hard-coding namespaces and dependencies is not the best option.
 
 **That's a RFC for that**
 
-Giorgio told me about this RFC: https://wiki.php.net/rfc/protocol_type_hinting
+Giorgio told me about this RFC: [php.net/rfc/protocol_type_hinting](https://wiki.php.net/rfc/protocol_type_hinting).
 
