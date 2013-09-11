@@ -107,3 +107,11 @@ but hard-coding namespaces and dependencies is not the best option.
 
 
 ## What do you think about it?
+
+
+## EDIT
+
+**That's a RFC for that**
+
+Giorgio told me about this RFC: https://wiki.php.net/rfc/protocol_type_hinting
+
