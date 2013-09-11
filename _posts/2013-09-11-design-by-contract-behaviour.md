@@ -80,8 +80,8 @@ Monolog have fixed this problem by putting a shared interface inside PSR http://
 One solution would be to permit the alias for namespaces.
 
 Another `naive` solution would be modify the `php-internal` of how type hinting works,
-maybe you could define the interface with a keyword `behaviour` that forces the engine to check that
-the type that you pass has the behavior (functions) and not forcing the namespace.
+maybe defining an interface with a sort of keyword eg.`behaviour` that forces the engine to check that
+the type that you pass has the same behavior (functions) and not forcing the namespace.
 
 
     namespace MyLib;
