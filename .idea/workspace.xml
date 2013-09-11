@@ -11,7 +11,7 @@
     <file path="/default.html" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1362058268461" ignored="false" />
     <file path="$USER_HOME$/PhpstormProjects/sf2/src/Acme/DemoBundle/Controller/DemoController.php" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1366722537141" ignored="false" />
     <file path="/2013-04-23-doctrine2-tracking-policy.md" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1366726173683" ignored="false" />
-    <file path="/2013-09-11-design-by-contract-behaviour.md" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1378913315179" ignored="false" />
+    <file path="/2013-09-11-design-by-contract-behaviour.md" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1378913943955" ignored="false" />
     <file path="/finite_state.yml" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1378911455264" ignored="false" />
     <file path="$USER_HOME$/PhpstormProjects/sym/app/config/ecommerce/finite_state.yml" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1378911470528" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -81,7 +81,7 @@
       <file leaf-file-name="2013-09-11-design-by-contract-behaviour.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_posts/2013-09-11-design-by-contract-behaviour.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="113" column="25" selection-start="3412" selection-end="3412" vertical-scroll-proportion="0.9252802">
+            <state line="75" column="12" selection-start="2074" selection-end="2074" vertical-scroll-proportion="0.7085492">
               <folding />
             </state>
           </provider>
@@ -473,7 +473,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2013-09-11-design-by-contract-behaviour.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="25" selection-start="3412" selection-end="3412" vertical-scroll-proportion="0.9252802">
+        <state line="75" column="12" selection-start="2074" selection-end="2074" vertical-scroll-proportion="0.7085492">
           <folding />
         </state>
       </provider>

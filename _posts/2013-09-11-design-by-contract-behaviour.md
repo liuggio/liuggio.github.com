@@ -75,7 +75,7 @@ I've to change the namespace to the new LoggerInterface or the type hinting woul
 
 ## Solution?
 
-Monolog had fixed this problem by putting a shared interface inside PSR http://www.php-fig.org/ repository, but not all cases can be put in the php-fig.
+Monolog have fixed this problem by putting a shared interface inside PSR http://www.php-fig.org/ repository, but not all cases can be put in the php-fig.
 
 One solution would be to permit the alias for namespaces.
 
