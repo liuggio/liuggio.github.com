@@ -411,6 +411,9 @@ with `PUT`, `PATCH`, `POST`, `DELETE`, and how use other important HTTP headers.
 ## References:
 
 [symfony.com](http://www.symfony2.com)
+
 [Lukas Kahwe Smith ](http://www.youtube.com/watch?v=Kkby5fG89K0&feature=youtu.be)
+
 [williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way](http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/)
+
 [slide-dlondero-rest-in-practice](http://www.slideshare.net/dlondero/rest-in-practice-27335543)
