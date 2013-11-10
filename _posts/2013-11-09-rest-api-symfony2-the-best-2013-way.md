@@ -35,8 +35,7 @@ you could see the working code using the tag `article1` with
     cd blog-rest-symfony2
     git checkout -f article1
 
-All the tags fo the demo project at [tags](https://github.com/liuggio/rest-api-the-best-way-2013/releases)
-
+All the tags for the demo project at [tags](https://github.com/liuggio/rest-api-the-best-way-2013/releases)
 
 ## Step 1.A The application
 
