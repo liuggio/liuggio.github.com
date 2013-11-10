@@ -408,3 +408,8 @@ We understood the importance of Content Negotiation.
 In the next articles, how to use the page form as shared interface, we will create, modify, and delete Page and content resources,
 with `PUT`, `PATCH`, `POST`, `DELETE`, and how use other important HTTP headers.
 
+## References:
+
+[symfony.com](http://www.symfony2.com)
+[Lukas Kahwe Smith ](http://www.youtube.com/watch?v=Kkby5fG89K0&feature=youtu.be)
+[williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way](http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/)

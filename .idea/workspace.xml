@@ -14,7 +14,7 @@
     <file path="/2013-09-11-design-by-contract-behaviour.md" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1378914344328" ignored="false" />
     <file path="/finite_state.yml" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1378911455264" ignored="false" />
     <file path="$USER_HOME$/PhpstormProjects/sym/app/config/ecommerce/finite_state.yml" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1378911470528" ignored="false" />
-    <file path="/2013-11-09-rest-api-symfony2-the-best-2013-way.md" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384116301463" ignored="false" />
+    <file path="/2013-11-09-rest-api-symfony2-the-best-2013-way.md" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384116821055" ignored="false" />
     <file path="$USER_HOME$/PhpstormProjects/yeahcommerce/src/Acme/Bundle/BlogBundle/Entity/Post.php" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384000657061" ignored="false" />
     <file path="/Post.php" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384000656723" ignored="false" />
     <file path="$USER_HOME$/PhpstormProjects/yeahcommerce/app/AppKernel.php" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384000727982" ignored="false" />
@@ -113,7 +113,7 @@
       <file leaf-file-name="2013-11-09-rest-api-symfony2-the-best-2013-way.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_posts/2013-11-09-rest-api-symfony2-the-best-2013-way.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="0" selection-start="1412" selection-end="1412" vertical-scroll-proportion="0.37285903">
+            <state line="412" column="1" selection-start="14313" selection-end="14313" vertical-scroll-proportion="0.9209486">
               <folding />
             </state>
           </provider>
@@ -506,7 +506,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2013-11-09-rest-api-symfony2-the-best-2013-way.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="0" selection-start="1412" selection-end="1412" vertical-scroll-proportion="0.37285903">
+        <state line="412" column="1" selection-start="14313" selection-end="14313" vertical-scroll-proportion="0.9209486">
           <folding />
         </state>
       </provider>
