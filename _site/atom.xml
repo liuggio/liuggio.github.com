@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-11-10T21:11:40+01:00</updated>
+ <updated>2013-11-10T21:50:32+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -40,6 +40,16 @@
 
 &lt;li&gt;Form as API interface.&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;h2 id='the_github_repository'&gt;The github repository&lt;/h2&gt;
+
+&lt;p&gt;There&amp;#8217;s a repository at &lt;a href='https://github.com/liuggio/rest-api-the-best-way-2013/'&gt;liuggio/rest-api-the-best-way-2013&lt;/a&gt; you could see the working code using the tag &lt;code&gt;article1&lt;/code&gt; with&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;php composer.phar create-project liuggio/rest-api-the-best-way-2013 blog-rest-symfony2
+cd blog-rest-symfony2
+git checkout -f article1&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;All the tags for the demo project at &lt;a href='https://github.com/liuggio/rest-api-the-best-way-2013/releases'&gt;tags&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id='step_1a_the_application'&gt;Step 1.A The application&lt;/h2&gt;
 
@@ -347,7 +357,9 @@ protected function getOr404($id)
 
 &lt;p&gt;An important concept developing the REST API is the &lt;a href='http://en.wikipedia.org/wiki/Content_negotiation'&gt;Content Negotiation&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;If you think that anything is a resource, maybe you care also about the name of the resource, if the page &lt;code&gt;10&lt;/code&gt; is at &lt;code&gt;/api/v1/pages/10&lt;/code&gt;, you may want to retrieve the same resource with different content type, not specifying the &lt;code&gt;format&lt;/code&gt; explicitly in the extension &lt;code&gt;/api/v1/pages/10.hml&lt;/code&gt;, but instead using HTTP &lt;code&gt;Accept&lt;/code&gt; header:&lt;/p&gt;
+&lt;p&gt;If you think that anything is a resource, maybe you care also about the name of the resource, if the page &lt;code&gt;10&lt;/code&gt; is at &lt;code&gt;/api/v1/pages/10&lt;/code&gt;, you may want to retrieve the same resource with different content type, not specifying the &lt;code&gt;format&lt;/code&gt; explicitly in the extension &lt;code&gt;/api/v1/pages/10.hml&lt;/code&gt;, but instead using HTTP &lt;code&gt;Accept&lt;/code&gt; header.&lt;/p&gt;
+
+&lt;p&gt;You could play with the demo using the tag &lt;code&gt;git checkout -f article1-content-negotiation&lt;/code&gt;, also see the differences with the &lt;code&gt;article1&lt;/code&gt;s tag at &lt;a href='https://github.com/liuggio/rest-api-the-best-way-2013/compare/article1...article1-content-negotiation'&gt;compare/article1&amp;#8230;article1-content-negotiation&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Request: &lt;code&gt;curl -i localhost:8000/api/v1/pages/10&lt;/code&gt; No Accept header is sent so the fallback is &lt;code&gt;text/html&lt;/code&gt;&lt;/p&gt;
 
