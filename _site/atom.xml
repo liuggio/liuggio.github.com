@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-09-11T16:29:12+02:00</updated>
+ <updated>2013-11-10T21:11:40+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -13,25 +13,411 @@
 
  
  <entry>
+   <title>REST API Symfony2: the best 2013 way</title>
+   <link href="http://welcometothebundle.com/rest-api-symfony2-the-best-2013-way"/>
+   <updated>2013-11-09T00:00:00+01:00</updated>
+   <id>http://welcometothebundle.com/rest-api-symfony2-the-best-2013-way</id>
+   <content type="html">&lt;p&gt;Here&amp;#8217;s another nice guide on how to create an API with Symfony2.&lt;/p&gt;
+
+&lt;p&gt;I would like to be short and concise bringing practical examples.&lt;/p&gt;
+
+&lt;p&gt;I would not talk about the difference between REST and RESTful &lt;a href='http://martinfowler.com/articles/richardsonMaturityModel.html'&gt;Martin Fowler Maturity Model&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id='goal'&gt;GOAL&lt;/h2&gt;
+
+&lt;p&gt;We are going to create an application that serves API for Page content with &lt;code&gt;get&lt;/code&gt;, &lt;code&gt;put&lt;/code&gt;, &lt;code&gt;post&lt;/code&gt; and &lt;code&gt;patch&lt;/code&gt;, using Symfony2, the FOSRestBundle, the NelmioApiDocBundle, the JSMSerializerBundle, and Doctrine.&lt;/p&gt;
+
+&lt;p&gt;The real objective is create an application that shows some best practices and rules with Symfony2 and REST:&lt;/p&gt;
+
+&lt;h3 id='rules'&gt;Rules&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Interface as contracts.&lt;/li&gt;
+
+&lt;li&gt;Thin Controller, Fat Service.&lt;/li&gt;
+
+&lt;li&gt;The &lt;code&gt;Content Negotiation&lt;/code&gt; in the HTTP and REST.&lt;/li&gt;
+
+&lt;li&gt;Form as API interface.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id='step_1a_the_application'&gt;Step 1.A The application&lt;/h2&gt;
+
+&lt;p&gt;Create a Symfony application&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;php composer.phar create-project symfony/framework-standard-edition BlogRESTAPI/
+cd BlogRESTAPI
+php composer.phar require &amp;quot;friendsofsymfony/rest-bundle&amp;quot; &amp;quot;@dev&amp;quot;
+php composer.phar require &amp;quot;jms/serializer-bundle&amp;quot; &amp;quot;@dev&amp;quot;
+php composer.phar require &amp;quot;nelmio/api-doc-bundle&amp;quot; &amp;quot;@dev&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;then we had to configure the bundles properly and add to the appKernel.php&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// app/AppKernel.php
+$bundles = array(
+    //..
+    new FOS\RestBundle\FOSRestBundle(),
+    new JMS\SerializerBundle\JMSSerializerBundle(),
+    new Nelmio\ApiDocBundle\NelmioApiDocBundle(),&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='step_1b_the_blog_bundle'&gt;Step 1.B The Blog Bundle&lt;/h2&gt;
+
+&lt;p&gt;We are going to create a REST controller for the Page Entity, in your symfony2 standard application we need to create the bundle:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;app/console generate:bundle --namespace=Acme/BlogBundle --dir=src --no-interaction&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='step_1c_the_model'&gt;Step 1.C The Model&lt;/h2&gt;
+
+&lt;p&gt;We are going to create an Entity called &lt;code&gt;Page&lt;/code&gt; with &lt;code&gt;text&lt;/code&gt; and &lt;code&gt;body&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;php app/console doctrine:generate:entity --entity=AcmeBlogBundle:Page \
+  --format=annotation --fields=&amp;quot;title:string(255) body:text&amp;quot; \
+  --no-interaction
+php app/console doctrine:database:create
+php app/console doctrine:schema:create&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='step_1d_the_page_form'&gt;Step 1.D The Page Form&lt;/h2&gt;
+
+&lt;p&gt;Now we need the form for that entity, another generator command :)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;php app/console doctrine:generate:form AcmeBlogBundle:Page --no-interaction&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='step_2__start_with_rest'&gt;Step 2 - Start with Rest&lt;/h2&gt;
+
+&lt;h3 id='step_2a__the_functional_test'&gt;Step 2.A - The functional test&lt;/h3&gt;
+
+&lt;p&gt;We want to create a function that when it&amp;#8217;s called it returns the resource with the format requested.&lt;/p&gt;
+
+&lt;p&gt;Any good controller should start with a Functional test, but in order to reduce the verbosity I&amp;#8217;ll talk about functional test later, see the section 3.C below.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;1. /api/v1/pages/{id}.{_format}
+2. /api/v1/pages/{id}.json  # will return a json file
+3. /api/v1/pages/{id}.xml   # will return a xml file
+4. /api/v1/pages/{id} and /api/1/pages/{id}.html  # will return the web page file&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We&amp;#8217;ll see later how to not explicitly specify the format, and how to use and set-up correctly the content-negotiation using HTTP Headers.&lt;/p&gt;
+
+&lt;h3 id='step_2b__the_controller'&gt;Step 2.B - The controller&lt;/h3&gt;
+
+&lt;p&gt;We want to create the controller class&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// /src/Acme/BlogBundle/Controller/PageController.php
+class PageController extends FOSRestController&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and then we add a simple and dirty function (we&amp;#8217;ll refactor soon)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public function getPageAction($id)
+{
+    return $this-&amp;gt;container-&amp;gt;get(&amp;#39;doctrine.entity_manager&amp;#39;)-&amp;gt;getRepository(&amp;#39;Page&amp;#39;)-&amp;gt;find($id);
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id='step_2c__adding_the_routes'&gt;Step 2.C - Adding the routes&lt;/h3&gt;
+
+&lt;p&gt;Add to the route file&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# /app/config/routing.yml
+acme_blog:
+    type: rest
+    prefix: /api
+    resource: &amp;quot;@AcmeBlogBundle/Resources/config/routes.yml&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create a route file into the bundle:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# /src/Acme/BlogBundle/Resources/config/routes.yml
+acme_blog_Page:
+    type: rest
+    prefix: /v1
+    resource: &amp;quot;Acme\BlogBundle\Controller\PageController&amp;quot;
+    name_prefix:  api_1_ # naming collision&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;check all the API routes with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;app/console route:debug | grep api&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;it should contain the &lt;code&gt;api_1_get_page&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;So we now have a route, and a controller that responses to the get(id) with the Page resource, is that what we wanted?&lt;/p&gt;
+
+&lt;p&gt;Yes but we could do better.&lt;/p&gt;
+
+&lt;h2 id='step_3__refactoring'&gt;Step 3 - Refactoring&lt;/h2&gt;
+
+&lt;p&gt;OMG we have only created a little Controller, why we need to refactor?&lt;/p&gt;
+
+&lt;p&gt;As I said we are trying to do things at our best, in that controller there&amp;#8217;s a lot of business that we want to delegate to another service.&lt;/p&gt;
+
+&lt;h3 id='step_3a__interface_as_contract'&gt;Step 3.A - Interface as contract&lt;/h3&gt;
+
+&lt;p&gt;From symfony.com&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Type hinting the injected object means that you can be sure that a suitable dependency has been injected. By type-hinting, you&amp;#39;ll get a clear error immediately if an unsuitable dependency is injected. By type hinting using an interface rather than a class you can make the choice of dependency more flexible. And assuming you only use methods defined in the interface, you can gain that flexibility and still safely use the object.&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Following the first rule, we need to create an interface in &lt;code&gt;/src/Acme/BlogBundle/Model/PageInterface.php&lt;/code&gt; and then put &lt;code&gt;implements PageInterface&lt;/code&gt; in the entity &lt;code&gt;Page&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id='step_3b__the_handler'&gt;Step 3.B - The Handler&lt;/h3&gt;
+
+&lt;p&gt;In order to remove all the logic from the &lt;code&gt;PageController&lt;/code&gt;, we have to create the service, and we are going to call it &lt;code&gt;PageHandler&lt;/code&gt; in &lt;code&gt;/src/Acme/BlogBundle/Handler/PageHandler.php&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The test for the the &lt;code&gt;PageHandler&lt;/code&gt; looks something like:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// /src/Acme/BlogBundle/Tests/Handler/PageHandlerTest.php:45
+public function testGet()
+{
+    $id = 1;
+    $page = $this-&amp;gt;getPage();
+    $this-&amp;gt;repository-&amp;gt;expects($this-&amp;gt;once())-&amp;gt;method(&amp;#39;find&amp;#39;)
+        -&amp;gt;with($this-&amp;gt;equalTo($id))
+        -&amp;gt;will($this-&amp;gt;returnValue($page));
+
+    $this-&amp;gt;pageHandler-&amp;gt;get($id);
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So it uses &lt;code&gt;find&lt;/code&gt; to fetch an &lt;code&gt;id&lt;/code&gt; using the doctrine repository.&lt;/p&gt;
+
+&lt;p&gt;We are going to create the effective &amp;#8216;Manager&amp;#8217; that will handle all the transactions to the persistence layer:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// /src/Acme/BlogBundle/Handler/PageHandler.php:16
+class PageHandler implements PageHandlerInterface
+{
+    // ..
+    public function __construct(ObjectManager $om, $entityClass)
+    {
+        $this-&amp;gt;om = $om;
+        $this-&amp;gt;entityClass = $entityClass;
+        $this-&amp;gt;repository = $this-&amp;gt;om-&amp;gt;getRepository($this-&amp;gt;entityClass);
+    }
+
+    // ...
+    public function get($id)
+    {
+        return $this-&amp;gt;repository-&amp;gt;find($id);
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We need to make this class available as a service from the dependency injection:&lt;/p&gt;
+
+&lt;p&gt;/src/Acme/BlogBundle/Resources/config/services.xml&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;parameters&amp;gt;
+    &amp;lt;parameter key=&amp;quot;acme_blog.page.handler.class&amp;quot;&amp;gt;Acme\BlogBundle\Handler\PageHandler&amp;lt;/parameter&amp;gt;
+    &amp;lt;parameter key=&amp;quot;acme_blog.page.class&amp;quot;&amp;gt;Acme\BlogBundle\Entity\Page&amp;lt;/parameter&amp;gt;
+&amp;lt;/parameters&amp;gt;
+
+&amp;lt;services&amp;gt;
+    &amp;lt;service id=&amp;quot;acme_blog.page.handler&amp;quot; class=&amp;quot;%acme_blog.page.handler.class%&amp;quot;&amp;gt;
+        &amp;lt;argument type=&amp;quot;service&amp;quot; id=&amp;quot;doctrine.orm.entity_manager&amp;quot; /&amp;gt;
+        &amp;lt;argument&amp;gt;%acme_blog.page.class%&amp;lt;/argument&amp;gt;
+    &amp;lt;/service&amp;gt;
+&amp;lt;/services&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id='step_3c__thin_controller'&gt;Step 3.C - Thin Controller&lt;/h3&gt;
+
+&lt;p&gt;Now we have to refactor the controller in order to follow the modification above and use the &lt;code&gt;PageHandler&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h4 id='the_functional_test_for_the_controller'&gt;The functional test for the controller:&lt;/h4&gt;
+
+&lt;p&gt;first add to your &lt;code&gt;composer.json&lt;/code&gt; the require-dev section:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;quot;require-dev&amp;quot;: {
+    &amp;quot;doctrine/doctrine-fixtures-bundle&amp;quot;: &amp;quot;dev-master&amp;quot;,
+    &amp;quot;phpunit/phpunit&amp;quot;: &amp;quot;3.7.*&amp;quot;,
+    &amp;quot;liip/functional-test-bundle&amp;quot;:&amp;quot;dev-master&amp;quot;
+},&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;then we have to update the dependencies running &lt;code&gt;php composer.phar update&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;There&amp;#8217;s a lot to say about the functional test we are going to test that when the &lt;code&gt;api_1_get_page&lt;/code&gt; is called, it should return a response with &lt;code&gt;200&lt;/code&gt;, the type of the content should be &lt;code&gt;json&lt;/code&gt; &amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;liip/functional-test-bundle&lt;/code&gt; helps us to handle the fixtures data to the persistence layer before each test.&lt;/p&gt;
+
+&lt;p&gt;First we configure &lt;code&gt;fos_rest&lt;/code&gt; in order to handle correct format see: &lt;code&gt;/app/config/config.yml:69&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;We have to create the fixture class see &lt;code&gt;/src/Acme/BlogBundle/Tests/Fixtures/Entity/LoadPageData.php&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;and the test:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public function testGet()
+{
+    $fixtures = array(&amp;#39;Acme\BlogBundle\Tests\Fixtures\Entity\LoadPageData&amp;#39;);
+    $this-&amp;gt;customSetUp($fixtures);
+    $page = array_pop(LoadPageData::$pages);
+
+    $route =  $this-&amp;gt;getUrl(&amp;#39;api_1_get_page&amp;#39;, array(&amp;#39;id&amp;#39; =&amp;gt; $page-&amp;gt;getId(), &amp;#39;_format&amp;#39; =&amp;gt; &amp;#39;json&amp;#39;));
+    $this-&amp;gt;client-&amp;gt;request(&amp;#39;GET&amp;#39;, $route);
+    $response = $this-&amp;gt;client-&amp;gt;getResponse();
+    $this-&amp;gt;assertJsonResponse($response, 200);
+    $content = $response-&amp;gt;getContent();
+
+    $decoded = json_decode($content, true);
+    $this-&amp;gt;assertTrue(isset($decoded[&amp;#39;id&amp;#39;]));
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The assertJsonResponse function is well described here: &lt;a href='http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/#testing'&gt;williamdurand-rest-apis-with-symfony2-the-right-way/#testing&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;the full test is visible here: /src/Acme/BlogBundle/Tests/Controller/PageControllerTest.php&lt;/p&gt;
+
+&lt;p&gt;We have now to modify the function &lt;code&gt;getPage($id)&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// /src/Acme/BlogBundle/Controller/PageController.php
+public function getPageAction($id)
+{
+    $page = $this-&amp;gt;container
+        -&amp;gt;get(&amp;#39;acme_blog.blog_post.handler&amp;#39;)
+        -&amp;gt;get($id);
+
+    return $page;
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;executing the test:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;bin/phpunit -c app&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Woow green test!&lt;/p&gt;
+
+&lt;p&gt;The bundle looks like:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;src/Acme/BlogBundle/
+    ├── AcmeBlogBundle.php
+    ├── Controller
+    │   └── PageController.php
+    ├── DependencyInjection
+    ├── Entity
+    │   └── Page.php
+    ├── Form
+    │   └── PageType.php
+    ├── Handler
+    │   ├── PageHandlerInterface.php
+    │   └── PageHandler.php
+    ├── Model
+    │   └── PageInterface.php
+    ├── Resources
+    └── Tests
+        ├── Controller
+        │   └── PageControllerTest.php
+        ├── Fixtures
+        │   └── Entity
+        │       └── LoadPageData.php
+        └── Handler
+            └── PageHandlerTest.php&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='accessing_to_the_response'&gt;Accessing to the response&lt;/h2&gt;
+
+&lt;p&gt;Is time to see how the application responses, so executing the php http server&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;app/console server:run &amp;amp;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and then accessing to the the resource with &lt;code&gt;wget&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;wget -S  localhost:8000/api/v1/pages/0.html&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We will have a &lt;code&gt;500&lt;/code&gt; because the database is empty, and that resource doesn&amp;#8217;t exists:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;--2013-11-09 15:46:37--  http://localhost:8000/api/v1/pages/0.html
+Connecting to localhost (localhost)|127.0.0.1|:8000... connected.
+HTTP request sent, awaiting response... 
+  HTTP/1.0 500 Internal Server Error
+  Content-type: text/html
+2013-11-09 15:46:37 ERROR 500: Internal Server Error.&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The resource &amp;#8216;0&amp;#8217; doesn&amp;#8217;t exists, but if we want to follow the HTTP status code the application should return a &lt;code&gt;404&lt;/code&gt; resource not found.&lt;/p&gt;
+
+&lt;p&gt;We are going to create a private function that throws an Exception if the &lt;code&gt;Page&lt;/code&gt; is not found, the Exception will modify also automatically the Response Header.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/**
+ * Fetch the Page or throw a 404 exception.
+ *
+ * @param mixed $id
+ *
+ * @return PageInterface
+ *
+ * @throws NotFoundHttpException
+ */
+protected function getOr404($id)
+{
+    if (!($page = $this-&amp;gt;container-&amp;gt;get(&amp;#39;acme_blog.blog_post.handler&amp;#39;)-&amp;gt;get($id))) {
+        throw new NotFoundHttpException(sprintf(&amp;#39;The resource \&amp;#39;%s\&amp;#39; was not found.&amp;#39;,$id));
+    }
+
+    return $page;
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;now executing &lt;code&gt;wget -S  localhost:8000/api/v1/pages/0.html&lt;/code&gt;, we receive a &lt;code&gt;404&lt;/code&gt; and we are happy :)&lt;/p&gt;
+
+&lt;h2 id='content_negotiation'&gt;Content Negotiation&lt;/h2&gt;
+
+&lt;p&gt;An important concept developing the REST API is the &lt;a href='http://en.wikipedia.org/wiki/Content_negotiation'&gt;Content Negotiation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you think that anything is a resource, maybe you care also about the name of the resource, if the page &lt;code&gt;10&lt;/code&gt; is at &lt;code&gt;/api/v1/pages/10&lt;/code&gt;, you may want to retrieve the same resource with different content type, not specifying the &lt;code&gt;format&lt;/code&gt; explicitly in the extension &lt;code&gt;/api/v1/pages/10.hml&lt;/code&gt;, but instead using HTTP &lt;code&gt;Accept&lt;/code&gt; header:&lt;/p&gt;
+
+&lt;p&gt;Request: &lt;code&gt;curl -i localhost:8000/api/v1/pages/10&lt;/code&gt; No Accept header is sent so the fallback is &lt;code&gt;text/html&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;HTTP/1.1 200 OK
+Host: localhost:8000
+Content-Type: text/html; charset=UTF-8
+Allow: GET
+
+&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;&amp;lt;h1&amp;gt;10- title&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;body&amp;lt;/p&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So we retrieve the same resource changing the header:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -i -H &amp;quot;Accept: application/json&amp;quot;  localhost:8000/api/v1/pages/10&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Tadaaaam the response is a json file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;HTTP/1.1 200 OK
+Host: localhost:8000
+Content-Type: application/json
+Allow: GET
+
+{&amp;quot;id&amp;quot;:10,&amp;quot;title&amp;quot;:&amp;quot;title&amp;quot;,&amp;quot;body&amp;quot;:&amp;quot;body&amp;quot;}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We could also send different Content type accepted with different preferences eg:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -i -H &amp;quot;Accept: application/json; q=1.0, t/pages/10 q=0.8&amp;quot;  localhost:8000/api/v1/&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The response will be a json file as well:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;HTTP/1.1 200 OK
+Host: localhost:8000
+Content-Type: application/json
+Allow: GET
+
+{&amp;quot;id&amp;quot;:10,&amp;quot;title&amp;quot;:&amp;quot;title&amp;quot;,&amp;quot;body&amp;quot;:&amp;quot;body&amp;quot;}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='recap'&gt;Recap&lt;/h2&gt;
+
+&lt;p&gt;We have created a Doctrine entity called &lt;code&gt;Page&lt;/code&gt;, we have identified the methods of the interface that will be very useful later on. We first created a functional test, then the thin controller without logic. We have created unit test and then the service &lt;code&gt;PageHandler&lt;/code&gt; which instead of the controller, contains the logic to retrieve the information. We understood the importance of Content Negotiation.&lt;/p&gt;
+
+&lt;p&gt;In the next articles, how to use the page form as shared interface, we will create, modify, and delete Page and content resources, with &lt;code&gt;PUT&lt;/code&gt;, &lt;code&gt;PATCH&lt;/code&gt;, &lt;code&gt;POST&lt;/code&gt;, &lt;code&gt;DELETE&lt;/code&gt;, and how use other important HTTP headers.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
    <title>Design by contract behaviour</title>
    <link href="http://welcometothebundle.com/design-by-contract-behaviour"/>
    <updated>2013-09-11T00:00:00+02:00</updated>
    <id>http://welcometothebundle.com/design-by-contract-behaviour</id>
-   <content type="html">&lt;p&gt;In recent years, Composer has given a breath of freshness to the dependencies, and framework such as Symfony2 make best practices and decoupling their pride.&lt;/p&gt;
+   <content type="html">&lt;p&gt;In recent years, &lt;a href='http://getcomposer.org'&gt;Composer&lt;/a&gt; has given a breath of freshness to the dependencies, and framework such as &lt;a href='http://www.symfony.com'&gt;Symfony2&lt;/a&gt; have made best practices and decoupling their pride.&lt;/p&gt;
 
-&lt;p&gt;The union of these two phenomena has made that especially in recent years has been used more and more the type hinting in order to have contracts with &lt;code&gt;Interfaces&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The union of these two phenomena have moved the attentions to the type hinting in order to have contracts with &lt;code&gt;Interfaces&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;PHP doesn&amp;#8217;t have the support for &lt;a href='http://en.wikipedia.org/wiki/Structural_type_system'&gt;Structural type system&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id='the_problem'&gt;The problem&lt;/h2&gt;
 
-&lt;p&gt;The problem comes when a library uses a functionality of a third library, but do not want to hard-code the third-part library.&lt;/p&gt;
+&lt;p&gt;The problem comes when a library uses a functionality of a third library, but do not want to hard-code the third-part library in the namespace&lt;/p&gt;
 
 &lt;h2 id='case_study'&gt;Case Study&lt;/h2&gt;
 
 &lt;p&gt;I have a library that uses a logger:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;namespace MyLib\Service;
+&lt;pre&gt;&lt;code&gt;// src/Service/MyService
+namespace MyLib\Service;
+
 class MyService
+
    private $log;
+
    public function __construct($log)
    {
      this-&amp;gt;log = $log;
@@ -42,14 +428,19 @@ class MyService
       $this-&amp;gt;log-&amp;gt;info(&amp;#39;log this&amp;#39;);
    }&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;But I&amp;#8217;m a good boy so I want to use an interface, I need an interface because I want the log type hinting because I&amp;#8217;ll use that log dependency with &lt;code&gt;info&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;I want to use the type hinting because that dependency will be called with &lt;code&gt;info&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;Then I add the type-hinting LoggerInterface, but which namespace to use? I can&amp;#8217;t define mine LoggerInterface, so use the monolog one.&lt;/p&gt;
+&lt;p&gt;Then I add the type-hinting LoggerInterface, but which namespace to use? I can&amp;#8217;t define a new mine LoggerInterface, so use the Monolog one.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;namespace MyLib\Service;
+&lt;pre&gt;&lt;code&gt;// src/Service/MyService
+namespace MyLib\Service;
+
 use Monolog\LoggerInterface;
+
 class MyService
+
    private $log;
+
    public function __construct(LoggerInterface $log)
    {
      this-&amp;gt;log = $log;
@@ -60,17 +451,17 @@ class MyService
       $this-&amp;gt;log-&amp;gt;info(&amp;#39;log this&amp;#39;);
    }&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;By doing this I have hardcoded a &lt;strong&gt;dependency&lt;/strong&gt; to Monolog.&lt;/p&gt;
+&lt;p&gt;Doing this I have hardcoded a &lt;strong&gt;dependency&lt;/strong&gt; to the Monolog library, composer.json and this file &lt;code&gt;src/Service/MyService&lt;/code&gt; has to be maintained together, isn&amp;#8217;t smell to you?&lt;/p&gt;
 
 &lt;p&gt;And what happen when I&amp;#8217;ll find a better logger library that has got the same LoggerInterface and the function &amp;#8216;info&amp;#8217;? I&amp;#8217;ve to change the namespace to the new LoggerInterface or the type hinting would fail, because the control for the type hinting is also on the namespace of the interface and not on the behaviour.&lt;/p&gt;
 
 &lt;h2 id='solution'&gt;Solution?&lt;/h2&gt;
 
-&lt;p&gt;Monolog had fixed this problem by putting a shared interface inside PSR http://www.php-fig.org/ repository, but not all cases can be put in the php-fig.&lt;/p&gt;
+&lt;p&gt;Monolog have fixed this problem by putting a shared interface inside PSR &lt;a href='http://www.php-fig.org'&gt;php-fig.org/&lt;/a&gt; repository, but not all cases can be put in the php-fig.&lt;/p&gt;
 
 &lt;p&gt;One solution would be to permit the alias for namespaces.&lt;/p&gt;
 
-&lt;p&gt;Another &lt;code&gt;naive&lt;/code&gt; solution would be modify the &lt;code&gt;php-internal&lt;/code&gt; of how type hinting works, maybe you could define the interface with a keyword &lt;code&gt;behaviour&lt;/code&gt; that forces the engine to check that the type that you pass has the behavior (functions) and not forcing the namespace.&lt;/p&gt;
+&lt;p&gt;Another &lt;code&gt;naive&lt;/code&gt; solution would be modify the &lt;code&gt;php-internal&lt;/code&gt; of how type hinting works, maybe defining an interface with a sort of keyword eg.&lt;code&gt;behaviour&lt;/code&gt; that forces the engine to check that the type that you pass has the same behavior (functions) and not forcing the namespace.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;namespace MyLib;
 Behaviour Interface LoggerInterface
@@ -90,7 +481,13 @@ Behaviour Interface LoggerInterface
 
 &lt;p&gt;Another example, if you want to use this library http://yohan.giarel.li/Finite/index.html, you have to put a dependency with Finite\StatefulInterface only because your class has to have the functions &lt;code&gt;getFiniteState&lt;/code&gt; and &lt;code&gt;setFiniteState&lt;/code&gt;, this is good and it works but hard-coding namespaces and dependencies is not the best option.&lt;/p&gt;
 
-&lt;h2 id='what_do_you_think_about_it'&gt;What do you think about it?&lt;/h2&gt;</content>
+&lt;h2 id='what_do_you_think_about_it'&gt;What do you think about it?&lt;/h2&gt;
+
+&lt;h2 id='edit'&gt;EDIT&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;That&amp;#8217;s a RFC for that&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Giorgio told me about this RFC: &lt;a href='https://wiki.php.net/rfc/protocol_type_hinting'&gt;php.net/rfc/protocol_type_hinting&lt;/a&gt;.&lt;/p&gt;</content>
  </entry>
  
  <entry>

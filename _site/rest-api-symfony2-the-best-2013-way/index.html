@@ -1,0 +1,789 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Giulio De Donato | liuggio :: REST API Symfony2: the best 2013 way</title>
+    
+    <meta name="description" content="">
+    
+    <meta name="author" content="Giulio De Donato">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="/assets/themes/readable-liuggio/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/readable-liuggio/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+
+    <link href="/assets/themes/readable-liuggio/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="/assets/themes/readable-liuggio/css/font-awesome.css">
+    <!-- Google Web Font-->
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
+          type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+
+
+</head>
+
+<body>
+<div class="container">
+    <header>
+        <div id="header">
+            <div class="logo span6"><img src="/assets/themes/readable-liuggio/img/welcometothebundle-logo.png"></div>
+            <h1><a title="Blog of Giulio De Donato" id="sitename" href="http://www.welcometothebundle.com/">Welcome to the bundle</a></h1>
+
+            <h2>Best Practice, symfony2, developing, and fluffs.</h2>
+        </div>
+    </header>
+
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+    <section id="content">
+        <div class="row">
+            <aside class="span3">
+                <div class="well">
+                    <p align="center"><img
+                            src="http://www.gravatar.com/avatar/662a52953053d94a145a00df9da9f0d2.png?size=48">
+                    </p>
+                    <p style="font-size:95%">I'm liuggio (aka <a href="https://plus.google.com/115690008178168800202?rel=author" rel="author" title="Giulio De Donato">Giulio De Donato</a>)
+                         tons of lines of code ago I took a degree in Computer Science, I'm the
+                        lead developer for Terravision and I love open source. I can't stop studying, you could find me in some conference, exactly now I'm in the center of Rome.</p>
+                </div>
+                <!-- start sticky section
+#################################################
+                -->
+                <div class="well">
+                    <div class="center" align="center">
+                        <a href="https://github.com/liuggio" title="Giulio De Donato github projects"
+                           target="_blank"><img src="/assets/themes/readable-liuggio/img/github_blue_black_cat_32.png"
+                                                alt="liuggio's gravatar"></a>
+                        <a href="http://twitter.com/liuggio" title="Giulio De Donato twitter page"
+                           target="_blank"><img
+                                src="/assets/themes/readable-liuggio/img/1345542601_Twitter_32x32.png"
+                                alt="liuggio twitter page"></a>
+                        <a href="http://www.linkedin.com/profile/view?id=94597934&"
+                           title="Giulio De Donato Linkedin profile" target="_blank"><img
+                                src="/assets/themes/readable-liuggio/img/1345542710_social_linkedin_box_blue.png"
+                                width=34
+                                alt="Giulio De Donato Linkedin profile"></a>
+                        <a href="http://www.slideshare.net/liuggio"
+                           title="Giulio De Donato slideshare presentations" target="_blank"><img
+                                src="/assets/themes/readable-liuggio/img/slideshare.png" width=34
+                                alt="Giulio De Donato slideshare presentations" width=30></a>
+                    </div>
+                    <div class="center">
+                        <div align="center" class="twitter-cnt">
+                            <a href="https://twitter.com/liuggio" class="twitter-follow-button"
+                               data-show-count="false" data-size="large" data-dnt="true" title="Follow Giulio De Donato">Follow
+                                @liuggio</a>
+                            <script>!function (d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0];
+                                if (!d.getElementById(id)) {
+                                    js = d.createElement(s);
+                                    js.id = id;
+                                    js.src = "//platform.twitter.com/widgets.js";
+                                    fjs.parentNode.insertBefore(js, fjs);
+                                }
+                            }(document, "script", "twitter-wjs");</script>
+                        </div>
+                        <div align="center">
+                            <a href="#">back to top</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- end sticky section
+                ================================================== -->
+                <div class="">
+                    <h2>Categories</h2>
+                    <ul>
+                        
+                        
+
+
+  
+     
+    	<li><a href="/categories.html#conference-ref">
+    		conference <span>1</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#statsd-ref">
+    		statsd <span>1</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#manifesto-ref">
+    		manifesto <span>1</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#hack-ref">
+    		hack <span>1</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#cloud-ref">
+    		cloud <span>1</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#fluffy-ref">
+    		fluffy <span>1</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#phpunit-ref">
+    		phpunit <span>1</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#tips-ref">
+    		tips <span>1</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#bdd-ref">
+    		bdd <span>1</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#cache-ref">
+    		cache <span>1</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#award-ref">
+    		award <span>1</span>
+    	</a></li>
+    
+  
+
+
+                    </ul>
+
+                </div>
+                <div class="">
+                    <h2>Tags</h2>
+                    <ul class="tag_box">
+                        
+                        
+
+
+  
+     
+    	<li><a href="/tags.html#redis-ref">redis <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#conference-ref">conference <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#statsd-ref">statsd <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#rackspace-ref">rackspace <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#team-ref">team <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#tdd-ref">tdd <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#tvision-ref">tvision <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#vagrant-ref">vagrant <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#github-ref">github <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#symfony2-ref">symfony2 <span>5</span></a></li>
+     
+    	<li><a href="/tags.html#doctrine2-ref">doctrine2 <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#automate-ref">automate <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#APC-ref">APC <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#speaker-ref">speaker <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#HTTP-ref">HTTP <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#phpunit-ref">phpunit <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#optimization-ref">optimization <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#bundle-ref">bundle <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#assetic-ref">assetic <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#interface-ref">interface <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#coding-ref">coding <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#php-ref">php <span>10</span></a></li>
+     
+    	<li><a href="/tags.html#phpspec-ref">phpspec <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#test-ref">test <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#bdd-ref">bdd <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#servergrove-ref">servergrove <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#tutorial-ref">tutorial <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#cdn-ref">cdn <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#assets-ref">assets <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#php-internal-ref">php-internal <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#code-inspection-ref">code-inspection <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#guard-ref">guard <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#cache-ref">cache <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#graphite-ref">graphite <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#bitbucket-ref">bitbucket <span>1</span></a></li>
+    
+  
+
+
+
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- start content section
+            ================================================== -->
+            <div class="span9">
+                
+<div class="span9">
+    <div class="page-header">
+        <div class="row">
+            <h1 class="span8">REST API Symfony2: the best 2013 way 
+            </h1>
+          <div class="span1 right bottom sticky">
+               <a href="https://twitter.com/share" class="twitter-share-button" data-via="liuggio" data-size="large"
+                  data-count="none" data-dnt="true">Tweet</a>
+               <script>!function (d, s, id) {
+                   var js, fjs = d.getElementsByTagName(s)[0];
+                   if (!d.getElementById(id)) {
+                       js = d.createElement(s);
+                       js.id = id;
+                       js.src = "//platform.twitter.com/widgets.js";
+                       fjs.parentNode.insertBefore(js, fjs);
+                   }
+               }(document, "script", "twitter-wjs");</script>
+              <!-- todo:<div class="inner">back to the top</div>-->
+           </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="span4">
+                <div class="date"><span>09 November 2013</span></div>
+            </div>
+
+            <div class="span5">
+                
+            </div>
+        </div>
+
+    </div>
+
+    <article>
+
+
+        <p>Here&#8217;s another nice guide on how to create an API with Symfony2.</p>
+
+<p>I would like to be short and concise bringing practical examples.</p>
+
+<p>I would not talk about the difference between REST and RESTful <a href='http://martinfowler.com/articles/richardsonMaturityModel.html'>Martin Fowler Maturity Model</a>.</p>
+
+<h2 id='goal'>GOAL</h2>
+
+<p>We are going to create an application that serves API for Page content with <code>get</code>, <code>put</code>, <code>post</code> and <code>patch</code>, using Symfony2, the FOSRestBundle, the NelmioApiDocBundle, the JSMSerializerBundle, and Doctrine.</p>
+
+<p>The real objective is create an application that shows some best practices and rules with Symfony2 and REST:</p>
+
+<h3 id='rules'>Rules</h3>
+
+<ol>
+<li>Interface as contracts.</li>
+
+<li>Thin Controller, Fat Service.</li>
+
+<li>The <code>Content Negotiation</code> in the HTTP and REST.</li>
+
+<li>Form as API interface.</li>
+</ol>
+
+<h2 id='step_1a_the_application'>Step 1.A The application</h2>
+
+<p>Create a Symfony application</p>
+
+<pre><code>php composer.phar create-project symfony/framework-standard-edition BlogRESTAPI/
+cd BlogRESTAPI
+php composer.phar require &quot;friendsofsymfony/rest-bundle&quot; &quot;@dev&quot;
+php composer.phar require &quot;jms/serializer-bundle&quot; &quot;@dev&quot;
+php composer.phar require &quot;nelmio/api-doc-bundle&quot; &quot;@dev&quot;</code></pre>
+
+<p>then we had to configure the bundles properly and add to the appKernel.php</p>
+
+<pre><code>// app/AppKernel.php
+$bundles = array(
+    //..
+    new FOS\RestBundle\FOSRestBundle(),
+    new JMS\SerializerBundle\JMSSerializerBundle(),
+    new Nelmio\ApiDocBundle\NelmioApiDocBundle(),</code></pre>
+
+<h2 id='step_1b_the_blog_bundle'>Step 1.B The Blog Bundle</h2>
+
+<p>We are going to create a REST controller for the Page Entity, in your symfony2 standard application we need to create the bundle:</p>
+
+<pre><code>app/console generate:bundle --namespace=Acme/BlogBundle --dir=src --no-interaction</code></pre>
+
+<h2 id='step_1c_the_model'>Step 1.C The Model</h2>
+
+<p>We are going to create an Entity called <code>Page</code> with <code>text</code> and <code>body</code>:</p>
+
+<pre><code>php app/console doctrine:generate:entity --entity=AcmeBlogBundle:Page \
+  --format=annotation --fields=&quot;title:string(255) body:text&quot; \
+  --no-interaction
+php app/console doctrine:database:create
+php app/console doctrine:schema:create</code></pre>
+
+<h2 id='step_1d_the_page_form'>Step 1.D The Page Form</h2>
+
+<p>Now we need the form for that entity, another generator command :)</p>
+
+<pre><code>php app/console doctrine:generate:form AcmeBlogBundle:Page --no-interaction</code></pre>
+
+<h2 id='step_2__start_with_rest'>Step 2 - Start with Rest</h2>
+
+<h3 id='step_2a__the_functional_test'>Step 2.A - The functional test</h3>
+
+<p>We want to create a function that when it&#8217;s called it returns the resource with the format requested.</p>
+
+<p>Any good controller should start with a Functional test, but in order to reduce the verbosity I&#8217;ll talk about functional test later, see the section 3.C below.</p>
+
+<pre><code>1. /api/v1/pages/{id}.{_format}
+2. /api/v1/pages/{id}.json  # will return a json file
+3. /api/v1/pages/{id}.xml   # will return a xml file
+4. /api/v1/pages/{id} and /api/1/pages/{id}.html  # will return the web page file</code></pre>
+
+<p>We&#8217;ll see later how to not explicitly specify the format, and how to use and set-up correctly the content-negotiation using HTTP Headers.</p>
+
+<h3 id='step_2b__the_controller'>Step 2.B - The controller</h3>
+
+<p>We want to create the controller class</p>
+
+<pre><code>// /src/Acme/BlogBundle/Controller/PageController.php
+class PageController extends FOSRestController</code></pre>
+
+<p>and then we add a simple and dirty function (we&#8217;ll refactor soon)</p>
+
+<pre><code>public function getPageAction($id)
+{
+    return $this-&gt;container-&gt;get(&#39;doctrine.entity_manager&#39;)-&gt;getRepository(&#39;Page&#39;)-&gt;find($id);
+}</code></pre>
+
+<h3 id='step_2c__adding_the_routes'>Step 2.C - Adding the routes</h3>
+
+<p>Add to the route file</p>
+
+<pre><code># /app/config/routing.yml
+acme_blog:
+    type: rest
+    prefix: /api
+    resource: &quot;@AcmeBlogBundle/Resources/config/routes.yml&quot;</code></pre>
+
+<p>Create a route file into the bundle:</p>
+
+<pre><code># /src/Acme/BlogBundle/Resources/config/routes.yml
+acme_blog_Page:
+    type: rest
+    prefix: /v1
+    resource: &quot;Acme\BlogBundle\Controller\PageController&quot;
+    name_prefix:  api_1_ # naming collision</code></pre>
+
+<p>check all the API routes with:</p>
+
+<pre><code>app/console route:debug | grep api</code></pre>
+
+<p>it should contain the <code>api_1_get_page</code></p>
+
+<p>So we now have a route, and a controller that responses to the get(id) with the Page resource, is that what we wanted?</p>
+
+<p>Yes but we could do better.</p>
+
+<h2 id='step_3__refactoring'>Step 3 - Refactoring</h2>
+
+<p>OMG we have only created a little Controller, why we need to refactor?</p>
+
+<p>As I said we are trying to do things at our best, in that controller there&#8217;s a lot of business that we want to delegate to another service.</p>
+
+<h3 id='step_3a__interface_as_contract'>Step 3.A - Interface as contract</h3>
+
+<p>From symfony.com</p>
+
+<pre><code>Type hinting the injected object means that you can be sure that a suitable dependency has been injected. By type-hinting, you&#39;ll get a clear error immediately if an unsuitable dependency is injected. By type hinting using an interface rather than a class you can make the choice of dependency more flexible. And assuming you only use methods defined in the interface, you can gain that flexibility and still safely use the object.</code></pre>
+
+<p>Following the first rule, we need to create an interface in <code>/src/Acme/BlogBundle/Model/PageInterface.php</code> and then put <code>implements PageInterface</code> in the entity <code>Page</code>.</p>
+
+<h3 id='step_3b__the_handler'>Step 3.B - The Handler</h3>
+
+<p>In order to remove all the logic from the <code>PageController</code>, we have to create the service, and we are going to call it <code>PageHandler</code> in <code>/src/Acme/BlogBundle/Handler/PageHandler.php</code>.</p>
+
+<p>The test for the the <code>PageHandler</code> looks something like:</p>
+
+<pre><code>// /src/Acme/BlogBundle/Tests/Handler/PageHandlerTest.php:45
+public function testGet()
+{
+    $id = 1;
+    $page = $this-&gt;getPage();
+    $this-&gt;repository-&gt;expects($this-&gt;once())-&gt;method(&#39;find&#39;)
+        -&gt;with($this-&gt;equalTo($id))
+        -&gt;will($this-&gt;returnValue($page));
+
+    $this-&gt;pageHandler-&gt;get($id);
+}</code></pre>
+
+<p>So it uses <code>find</code> to fetch an <code>id</code> using the doctrine repository.</p>
+
+<p>We are going to create the effective &#8216;Manager&#8217; that will handle all the transactions to the persistence layer:</p>
+
+<pre><code>// /src/Acme/BlogBundle/Handler/PageHandler.php:16
+class PageHandler implements PageHandlerInterface
+{
+    // ..
+    public function __construct(ObjectManager $om, $entityClass)
+    {
+        $this-&gt;om = $om;
+        $this-&gt;entityClass = $entityClass;
+        $this-&gt;repository = $this-&gt;om-&gt;getRepository($this-&gt;entityClass);
+    }
+
+    // ...
+    public function get($id)
+    {
+        return $this-&gt;repository-&gt;find($id);
+    }
+}</code></pre>
+
+<p>We need to make this class available as a service from the dependency injection:</p>
+
+<p>/src/Acme/BlogBundle/Resources/config/services.xml</p>
+
+<pre><code>&lt;parameters&gt;
+    &lt;parameter key=&quot;acme_blog.page.handler.class&quot;&gt;Acme\BlogBundle\Handler\PageHandler&lt;/parameter&gt;
+    &lt;parameter key=&quot;acme_blog.page.class&quot;&gt;Acme\BlogBundle\Entity\Page&lt;/parameter&gt;
+&lt;/parameters&gt;
+
+&lt;services&gt;
+    &lt;service id=&quot;acme_blog.page.handler&quot; class=&quot;%acme_blog.page.handler.class%&quot;&gt;
+        &lt;argument type=&quot;service&quot; id=&quot;doctrine.orm.entity_manager&quot; /&gt;
+        &lt;argument&gt;%acme_blog.page.class%&lt;/argument&gt;
+    &lt;/service&gt;
+&lt;/services&gt;</code></pre>
+
+<h3 id='step_3c__thin_controller'>Step 3.C - Thin Controller</h3>
+
+<p>Now we have to refactor the controller in order to follow the modification above and use the <code>PageHandler</code>.</p>
+
+<h4 id='the_functional_test_for_the_controller'>The functional test for the controller:</h4>
+
+<p>first add to your <code>composer.json</code> the require-dev section:</p>
+
+<pre><code>&quot;require-dev&quot;: {
+    &quot;doctrine/doctrine-fixtures-bundle&quot;: &quot;dev-master&quot;,
+    &quot;phpunit/phpunit&quot;: &quot;3.7.*&quot;,
+    &quot;liip/functional-test-bundle&quot;:&quot;dev-master&quot;
+},</code></pre>
+
+<p>then we have to update the dependencies running <code>php composer.phar update</code></p>
+
+<p>There&#8217;s a lot to say about the functional test we are going to test that when the <code>api_1_get_page</code> is called, it should return a response with <code>200</code>, the type of the content should be <code>json</code> &#8230;</p>
+
+<p>The <code>liip/functional-test-bundle</code> helps us to handle the fixtures data to the persistence layer before each test.</p>
+
+<p>First we configure <code>fos_rest</code> in order to handle correct format see: <code>/app/config/config.yml:69</code></p>
+
+<p>We have to create the fixture class see <code>/src/Acme/BlogBundle/Tests/Fixtures/Entity/LoadPageData.php</code></p>
+
+<p>and the test:</p>
+
+<pre><code>public function testGet()
+{
+    $fixtures = array(&#39;Acme\BlogBundle\Tests\Fixtures\Entity\LoadPageData&#39;);
+    $this-&gt;customSetUp($fixtures);
+    $page = array_pop(LoadPageData::$pages);
+
+    $route =  $this-&gt;getUrl(&#39;api_1_get_page&#39;, array(&#39;id&#39; =&gt; $page-&gt;getId(), &#39;_format&#39; =&gt; &#39;json&#39;));
+    $this-&gt;client-&gt;request(&#39;GET&#39;, $route);
+    $response = $this-&gt;client-&gt;getResponse();
+    $this-&gt;assertJsonResponse($response, 200);
+    $content = $response-&gt;getContent();
+
+    $decoded = json_decode($content, true);
+    $this-&gt;assertTrue(isset($decoded[&#39;id&#39;]));
+}</code></pre>
+
+<p>The assertJsonResponse function is well described here: <a href='http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/#testing'>williamdurand-rest-apis-with-symfony2-the-right-way/#testing</a>.</p>
+
+<p>the full test is visible here: /src/Acme/BlogBundle/Tests/Controller/PageControllerTest.php</p>
+
+<p>We have now to modify the function <code>getPage($id)</code>:</p>
+
+<pre><code>// /src/Acme/BlogBundle/Controller/PageController.php
+public function getPageAction($id)
+{
+    $page = $this-&gt;container
+        -&gt;get(&#39;acme_blog.blog_post.handler&#39;)
+        -&gt;get($id);
+
+    return $page;
+}</code></pre>
+
+<p>executing the test:</p>
+
+<pre><code>bin/phpunit -c app</code></pre>
+
+<p>Woow green test!</p>
+
+<p>The bundle looks like:</p>
+
+<pre><code>src/Acme/BlogBundle/
+    ├── AcmeBlogBundle.php
+    ├── Controller
+    │   └── PageController.php
+    ├── DependencyInjection
+    ├── Entity
+    │   └── Page.php
+    ├── Form
+    │   └── PageType.php
+    ├── Handler
+    │   ├── PageHandlerInterface.php
+    │   └── PageHandler.php
+    ├── Model
+    │   └── PageInterface.php
+    ├── Resources
+    └── Tests
+        ├── Controller
+        │   └── PageControllerTest.php
+        ├── Fixtures
+        │   └── Entity
+        │       └── LoadPageData.php
+        └── Handler
+            └── PageHandlerTest.php</code></pre>
+
+<h2 id='accessing_to_the_response'>Accessing to the response</h2>
+
+<p>Is time to see how the application responses, so executing the php http server</p>
+
+<pre><code>app/console server:run &amp;</code></pre>
+
+<p>and then accessing to the the resource with <code>wget</code></p>
+
+<pre><code>wget -S  localhost:8000/api/v1/pages/0.html</code></pre>
+
+<p>We will have a <code>500</code> because the database is empty, and that resource doesn&#8217;t exists:</p>
+
+<pre><code>--2013-11-09 15:46:37--  http://localhost:8000/api/v1/pages/0.html
+Connecting to localhost (localhost)|127.0.0.1|:8000... connected.
+HTTP request sent, awaiting response... 
+  HTTP/1.0 500 Internal Server Error
+  Content-type: text/html
+2013-11-09 15:46:37 ERROR 500: Internal Server Error.</code></pre>
+
+<p>The resource &#8216;0&#8217; doesn&#8217;t exists, but if we want to follow the HTTP status code the application should return a <code>404</code> resource not found.</p>
+
+<p>We are going to create a private function that throws an Exception if the <code>Page</code> is not found, the Exception will modify also automatically the Response Header.</p>
+
+<pre><code>/**
+ * Fetch the Page or throw a 404 exception.
+ *
+ * @param mixed $id
+ *
+ * @return PageInterface
+ *
+ * @throws NotFoundHttpException
+ */
+protected function getOr404($id)
+{
+    if (!($page = $this-&gt;container-&gt;get(&#39;acme_blog.blog_post.handler&#39;)-&gt;get($id))) {
+        throw new NotFoundHttpException(sprintf(&#39;The resource \&#39;%s\&#39; was not found.&#39;,$id));
+    }
+
+    return $page;
+}</code></pre>
+
+<p>now executing <code>wget -S  localhost:8000/api/v1/pages/0.html</code>, we receive a <code>404</code> and we are happy :)</p>
+
+<h2 id='content_negotiation'>Content Negotiation</h2>
+
+<p>An important concept developing the REST API is the <a href='http://en.wikipedia.org/wiki/Content_negotiation'>Content Negotiation</a>.</p>
+
+<p>If you think that anything is a resource, maybe you care also about the name of the resource, if the page <code>10</code> is at <code>/api/v1/pages/10</code>, you may want to retrieve the same resource with different content type, not specifying the <code>format</code> explicitly in the extension <code>/api/v1/pages/10.hml</code>, but instead using HTTP <code>Accept</code> header:</p>
+
+<p>Request: <code>curl -i localhost:8000/api/v1/pages/10</code> No Accept header is sent so the fallback is <code>text/html</code></p>
+
+<pre><code>HTTP/1.1 200 OK
+Host: localhost:8000
+Content-Type: text/html; charset=UTF-8
+Allow: GET
+
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;10- title&lt;/h2&gt;
+&lt;p&gt;body&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</code></pre>
+
+<p>So we retrieve the same resource changing the header:</p>
+
+<pre><code>curl -i -H &quot;Accept: application/json&quot;  localhost:8000/api/v1/pages/10</code></pre>
+
+<p>Tadaaaam the response is a json file:</p>
+
+<pre><code>HTTP/1.1 200 OK
+Host: localhost:8000
+Content-Type: application/json
+Allow: GET
+
+{&quot;id&quot;:10,&quot;title&quot;:&quot;title&quot;,&quot;body&quot;:&quot;body&quot;}</code></pre>
+
+<p>We could also send different Content type accepted with different preferences eg:</p>
+
+<pre><code>curl -i -H &quot;Accept: application/json; q=1.0, t/pages/10 q=0.8&quot;  localhost:8000/api/v1/</code></pre>
+
+<p>The response will be a json file as well:</p>
+
+<pre><code>HTTP/1.1 200 OK
+Host: localhost:8000
+Content-Type: application/json
+Allow: GET
+
+{&quot;id&quot;:10,&quot;title&quot;:&quot;title&quot;,&quot;body&quot;:&quot;body&quot;}</code></pre>
+
+<h2 id='recap'>Recap</h2>
+
+<p>We have created a Doctrine entity called <code>Page</code>, we have identified the methods of the interface that will be very useful later on. We first created a functional test, then the thin controller without logic. We have created unit test and then the service <code>PageHandler</code> which instead of the controller, contains the logic to retrieve the information. We understood the importance of Content Negotiation.</p>
+
+<p>In the next articles, how to use the page form as shared interface, we will create, modify, and delete Page and content resources, with <code>PUT</code>, <code>PATCH</code>, <code>POST</code>, <code>DELETE</code>, and how use other important HTTP headers.</p>
+
+    </article>
+    <hr>
+    <div class="pagination">
+        <ul class="pager">
+            
+            <li class="prev"><a href="/design-by-contract-behaviour" title="Design by contract behaviour">&larr;
+                Previous - Design by contract behaviour</a></li>
+            
+            <li><a href="/index.html">Archive</a></li>
+            
+            <li class="next disabled"><a>Next &rarr;</a>
+                
+        </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'welcometothebundle'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+</div>
+  
+ 
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <hr>
+    <footer>
+        <p>&copy; liuggio 2012
+            <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll
+                Bootstrap</a>,
+            <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>,
+            <a href="http://github.com" target="_blank">GitHub</a>,
+            <a href="http://bootswatch.com/" target="_blank">Bootswatch</a>
+        </p>
+
+        <div id="footer"></div>
+    </footer>
+</div>
+</div>
+<!-- /container -->
+<script src="/assets/themes/readable-liuggio/bootstrap/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    var links = document.links;
+    for (var i = 0, linksLength = links.length; i < linksLength; i++) {
+        if (links[i].hostname != window.location.hostname) {
+            links[i].target = '_blank';
+        }
+    }
+    var links = document.links;
+    for (var i = 0, linksLength = links.length; i < linksLength; i++) {
+
+        if (links[i].href == 'http://www.slideshare.net/liuggio/rationally-boost-your-symfony2-application-with-caching-tips-and-monitoring') {
+
+            //dirty solution in order to add slideshare frame into github Jekyll
+            links[i].innerHTML = '<iframe src="http://www.slideshare.net/slideshow/embed_code/14625769?rel=0" width="512" height="421" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe><div style="margin-bottom:5px"> <strong> <a href="http://www.slideshare.net/liuggio/rationally-boost-your-symfony2-application-with-caching-tips-and-monitoring" title="Rationally boost your symfony2 application with caching tips and monitoring" target="_blank">Rationally boost your symfony2 application with caching tips and monitoring</a></div>';
+            break;
+        }
+    }
+
+</script>
+<script type="text/javascript">
+  var analytics=analytics||[];analytics.load=function(e){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+e+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);var r=function(e){return function(){analytics.push([e].concat(Array.prototype.slice.call(arguments,0)))}},i=["identify","track","trackLink","trackForm","trackClick","trackSubmit","pageview","ab","alias","ready"];for(var s=0;s<i.length;s++)analytics[i[s]]=r(i[s])};
+  analytics.load("wdoo4hzofo");
+</script>
+
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37195869-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+
+
+<script>
+    $(function () { // document ready
+        if (!!$('.sticky').offset()) { // make sure ".sticky" element exists
+            var stickyTop = $('.sticky').offset().top; // returns number
+            $(window).scroll(function () { // scroll event
+                var windowTop = $(window).scrollTop(); // returns number
+                if (stickyTop < windowTop) {
+                    $('.sticky').css({ position:'fixed', top:0, right:0 });
+                    $('.sticky').addClass("well");
+                    $('.sticky .inner').show();
+
+                }
+                else {
+                    $('.sticky').css('position', 'static');
+                    $('.sticky').removeClass("well").addClass("span1");
+                    $('.sticky .inner').hide();
+                }
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
+

@@ -2,11 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="346e13a3-6b20-4b44-822c-0eea8f28dc62" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-09-11-design-by-contract-behaviour.md" afterPath="$PROJECT_DIR$/_posts/2013-09-11-design-by-contract-behaviour.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/atom.xml" afterPath="$PROJECT_DIR$/_site/atom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/categories.html" afterPath="$PROJECT_DIR$/_site/categories.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/index.html" afterPath="$PROJECT_DIR$/_site/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/automate-test-and-code-inspection-in-php-with-guard-and-symfony2/index.html" afterPath="$PROJECT_DIR$/_site/automate-test-and-code-inspection-in-php-with-guard-and-symfony2/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/design-by-contract-behaviour/index.html" afterPath="$PROJECT_DIR$/_site/design-by-contract-behaviour/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/doctrine2-tracking-policy/index.html" afterPath="$PROJECT_DIR$/_site/doctrine2-tracking-policy/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/easily-install-statsd-and-graphite-with-vagrant/index.html" afterPath="$PROJECT_DIR$/_site/easily-install-statsd-and-graphite-with-vagrant/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/phpunit-vs-phpspec-theory-on-behaviour-driven-development/index.html" afterPath="$PROJECT_DIR$/_site/phpunit-vs-phpspec-theory-on-behaviour-driven-development/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/servergrove-stastdclientbundle-interesting-symfony-bundles/index.html" afterPath="$PROJECT_DIR$/_site/servergrove-stastdclientbundle-interesting-symfony-bundles/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/symfony-day-5-october-turin-2012/index.html" afterPath="$PROJECT_DIR$/_site/symfony-day-5-october-turin-2012/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/symfony2-assets-on-rackspace-cloud-files/index.html" afterPath="$PROJECT_DIR$/_site/symfony2-assets-on-rackspace-cloud-files/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection/index.html" afterPath="$PROJECT_DIR$/_site/the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/tvision-team-manifesto/index.html" afterPath="$PROJECT_DIR$/_site/tvision-team-manifesto/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/using-github-or-bitbucket-as-assets-container-for-symfony2/index.html" afterPath="$PROJECT_DIR$/_site/using-github-or-bitbucket-as-assets-container-for-symfony2/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/sitemap.txt" afterPath="$PROJECT_DIR$/_site/sitemap.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/tags.html" afterPath="$PROJECT_DIR$/_site/tags.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="liuggio.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1378906264733" ignored="false" />
+    <file path="/Dummy.txt" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384111184553" ignored="false" />
     <file path="/2013-02-22-the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection.md" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1361628404067" ignored="false" />
     <file path="/default.html" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1362058268461" ignored="false" />
     <file path="$USER_HOME$/PhpstormProjects/sf2/src/Acme/DemoBundle/Controller/DemoController.php" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1366722537141" ignored="false" />
@@ -14,6 +30,29 @@
     <file path="/2013-09-11-design-by-contract-behaviour.md" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1378914344328" ignored="false" />
     <file path="/finite_state.yml" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1378911455264" ignored="false" />
     <file path="$USER_HOME$/PhpstormProjects/sym/app/config/ecommerce/finite_state.yml" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1378911470528" ignored="false" />
+    <file path="/2013-11-09-rest-api-symfony2-the-best-2013-way.md" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384116226659" ignored="false" />
+    <file path="$USER_HOME$/PhpstormProjects/yeahcommerce/src/Acme/Bundle/BlogBundle/Entity/Post.php" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384000657061" ignored="false" />
+    <file path="/Post.php" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384000656723" ignored="false" />
+    <file path="$USER_HOME$/PhpstormProjects/yeahcommerce/app/AppKernel.php" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384000727982" ignored="false" />
+    <file path="$USER_HOME$/PhpstormProjects/yeahcommerce/app/config/routing.yml" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384000790226" ignored="false" />
+    <file path="$USER_HOME$/PhpstormProjects/yeahcommerce/app/cache/dev/appDevDebugProjectContainer.xml" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384000789155" ignored="false" />
+    <file path="$USER_HOME$/PhpstormProjects/yeahcommerce/app/config/config.yml" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384001203951" ignored="false" />
+    <file path="/config.yml" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384114126962" ignored="false" />
+    <file path="$USER_HOME$/PhpstormProjects/BlogRESTAPI/app/AppKernel.php" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384002006739" ignored="false" />
+    <file path="$USER_HOME$/PhpstormProjects/leaphly-sandbox/app/AppKernel.php" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384001817127" ignored="false" />
+    <file path="$USER_HOME$/PhpstormProjects/BlogRESTAPI/app/cache/dev/appDevDebugProjectContainer.xml" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384002125917" ignored="false" />
+    <file path="/routes.yml" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384109123704" ignored="false" />
+    <file path="$USER_HOME$/PhpstormProjects/BlogRESTAPI/src/Acme/BlogBundle/Resources/config/routes.yml" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384109124601" ignored="false" />
+    <file path="$USER_HOME$/PhpstormProjects/BlogRESTAPI/app/config/config.yml" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384114126962" ignored="false" />
+    <file path="/a.dummy" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384112683202" ignored="false" />
+    <file path="$USER_HOME$/PhpstormProjects/BlogRESTAPI/src/Acme/BlogBundle/Controller/PageController.php" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384112668142" ignored="false" />
+    <file path="$USER_HOME$/PhpstormProjects/BlogRESTAPI/src/Acme/BlogBundle/Form/PageType.php" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384112702337" ignored="false" />
+    <file path="$USER_HOME$/PhpstormProjects/BlogRESTAPI/src/Acme/BlogBundle/Tests/Controller/PageControllerTest.php" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384113150664" ignored="false" />
+    <file path="/PageControllerTest.php" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384113130504" ignored="false" />
+    <file path="$USER_HOME$/PhpstormProjects/BlogRESTAPI/app/cache/test/appTestDebugProjectContainer.xml" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384113293268" ignored="false" />
+    <file path="$USER_HOME$/PhpstormProjects/BlogRESTAPI/README.md" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384114257868" ignored="false" />
+    <file path="/README.md" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384113919916" ignored="false" />
+    <file path="$USER_HOME$/PhpstormProjects/BlogRESTAPI/composer.json" changelist="346e13a3-6b20-4b44-822c-0eea8f28dc62" time="1384113985839" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,10 +117,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2013-09-11-design-by-contract-behaviour.md" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="2013-09-11-design-by-contract-behaviour.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/2013-09-11-design-by-contract-behaviour.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="74" selection-start="2263" selection-end="2263" vertical-scroll-proportion="0.106217615">
+            <state line="0" column="0" selection-start="0" selection-end="168" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2013-11-09-rest-api-symfony2-the-best-2013-way.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_posts/2013-11-09-rest-api-symfony2-the-best-2013-way.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="58" column="0" selection-start="2057" selection-end="2057" vertical-scroll-proportion="0.9604743">
               <folding />
             </state>
           </provider>
@@ -128,13 +176,14 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/_posts/2013-04-23-doctrine2-tracking-policy.md" />
         <option value="$PROJECT_DIR$/_posts/2013-09-11-design-by-contract-behaviour.md" />
+        <option value="$PROJECT_DIR$/_posts/2013-11-09-rest-api-symfony2-the-best-2013-way.md" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1920" />
+    <option name="x" value="65" />
     <option name="y" value="24" />
-    <option name="width" value="1920" />
+    <option name="width" value="1855" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -270,7 +319,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../BookingSandbox" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <list size="0" />
@@ -285,14 +334,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="24" width="1920" height="1056" extended-state="6" />
+    <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3216971" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33166388" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -368,13 +417,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_posts/2013-04-23-doctrine2-tracking-policy.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="82" selection-start="393" selection-end="393" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2013-02-22-the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection.md">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="224" vertical-scroll-proportion="0.0">
@@ -473,7 +515,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2013-09-11-design-by-contract-behaviour.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="74" selection-start="2263" selection-end="2263" vertical-scroll-proportion="0.106217615">
+        <state line="0" column="0" selection-start="0" selection-end="168" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-11-09-rest-api-symfony2-the-best-2013-way.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="0" selection-start="2057" selection-end="2057" vertical-scroll-proportion="0.9604743">
           <folding />
         </state>
       </provider>

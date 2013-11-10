@@ -5,6 +5,7 @@ http://welcometothebundle.com/tags.html
 http://welcometothebundle.com/sitemap.txt
 http://welcometothebundle.com/index.html
 
+http://welcometothebundle.com/rest-api-symfony2-the-best-2013-way
 http://welcometothebundle.com/design-by-contract-behaviour
 http://welcometothebundle.com/doctrine2-tracking-policy
 http://welcometothebundle.com/the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection
