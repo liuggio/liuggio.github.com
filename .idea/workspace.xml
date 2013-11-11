@@ -3,10 +3,28 @@
   <component name="ChangeListManager">
     <list default="true" id="2476ae60-ec3a-4959-85a2-a6673668d2c0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-11-09-symfony2-rest-api-the-best-2013-way.md" afterPath="$PROJECT_DIR$/_posts/2013-11-09-symfony2-rest-api-the-best-2013-way.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/atom.xml" afterPath="$PROJECT_DIR$/_site/atom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/categories.html" afterPath="$PROJECT_DIR$/_site/categories.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/index.html" afterPath="$PROJECT_DIR$/_site/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/automate-test-and-code-inspection-in-php-with-guard-and-symfony2/index.html" afterPath="$PROJECT_DIR$/_site/automate-test-and-code-inspection-in-php-with-guard-and-symfony2/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/design-by-contract-behaviour/index.html" afterPath="$PROJECT_DIR$/_site/design-by-contract-behaviour/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/doctrine2-tracking-policy/index.html" afterPath="$PROJECT_DIR$/_site/doctrine2-tracking-policy/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/easily-install-statsd-and-graphite-with-vagrant/index.html" afterPath="$PROJECT_DIR$/_site/easily-install-statsd-and-graphite-with-vagrant/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/it-is-all-about-behaviour-also-in-php/index.html" afterPath="$PROJECT_DIR$/_site/it-is-all-about-behaviour-also-in-php/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/phpunit-vs-phpspec-theory-on-behaviour-driven-development/index.html" afterPath="$PROJECT_DIR$/_site/phpunit-vs-phpspec-theory-on-behaviour-driven-development/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/servergrove-stastdclientbundle-interesting-symfony-bundles/index.html" afterPath="$PROJECT_DIR$/_site/servergrove-stastdclientbundle-interesting-symfony-bundles/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/symfony-day-5-october-turin-2012/index.html" afterPath="$PROJECT_DIR$/_site/symfony-day-5-october-turin-2012/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/symfony2-assets-on-rackspace-cloud-files/index.html" afterPath="$PROJECT_DIR$/_site/symfony2-assets-on-rackspace-cloud-files/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/symfony2-rest-api-the-best-2013-way/index.html" afterPath="$PROJECT_DIR$/_site/symfony2-rest-api-the-best-2013-way/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection/index.html" afterPath="$PROJECT_DIR$/_site/the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/tvision-team-manifesto/index.html" afterPath="$PROJECT_DIR$/_site/tvision-team-manifesto/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/using-github-or-bitbucket-as-assets-container-for-symfony2/index.html" afterPath="$PROJECT_DIR$/_site/using-github-or-bitbucket-as-assets-container-for-symfony2/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/tags.html" afterPath="$PROJECT_DIR$/_site/tags.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="liuggio.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384179714549" ignored="false" />
+    <file path="/Dummy.txt" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384186144442" ignored="false" />
     <file path="/2013-11-09-rest-api-symfony2-the-best-2013-way.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384170140249" ignored="false" />
     <file path="/2013-02-26-it-is-all-about-behaviour-also-in-php" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384173111878" ignored="false" />
     <file path="/2012-10-31-symfony-day-5-october-turin-2012.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384170705876" ignored="false" />
@@ -14,7 +32,12 @@
     <file path="/2013-03-10-it-is-all-about-behaviour-also-in-php.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384174812441" ignored="false" />
     <file path="/default.html" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384174795534" ignored="false" />
     <file path="/2013-11-09-symfony2-rest-api-the-best-2013-way.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384183609604" ignored="false" />
-    <file path="$PROJECT_DIR$/_site/atom.xml" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384183607402" ignored="false" />
+    <file path="/2013-11-11-symfony2-rest-api-the-best-way-2013-article-2.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384187580739" ignored="false" />
+    <file path="$USER_HOME$/PhpstormProjects/BlogRESTAPI/composer.json" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384187255793" ignored="false" />
+    <file path="$USER_HOME$/PhpstormProjects/BlogRESTAPI/README.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384187255794" ignored="false" />
+    <file path="$USER_HOME$/PhpstormProjects/BlogRESTAPI/src/Acme/BlogBundle/Controller/PageController.php" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384187255794" ignored="false" />
+    <file path="$USER_HOME$/PhpstormProjects/BlogRESTAPI/app/config/config.yml" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384187451821" ignored="false" />
+    <file path="/config.yml" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384187451821" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +60,7 @@
       <file leaf-file-name="default.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_layouts/default.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -46,7 +69,7 @@
       <file leaf-file-name="default.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="121" column="53" selection-start="6123" selection-end="6123" vertical-scroll-proportion="-34.24528">
+            <state line="121" column="53" selection-start="6123" selection-end="6123" vertical-scroll-proportion="-0.625">
               <folding>
                 <marker date="1384174795258" expanded="false" signature="7320:7382" placeholder="..." />
                 <marker date="1384174795258" expanded="false" signature="7463:7480" placeholder="..." />
@@ -60,7 +83,61 @@
       <file leaf-file-name="2013-11-09-symfony2-rest-api-the-best-2013-way.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_posts/2013-11-09-symfony2-rest-api-the-best-2013-way.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="409" column="38" selection-start="14243" selection-end="14243" vertical-scroll-proportion="0.7597254">
+            <state line="361" column="92" selection-start="12712" selection-end="12712" vertical-scroll-proportion="0.35565478">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2013-11-11-symfony2-rest-api-the-best-way-2013-part-2.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2013-11-11-symfony2-rest-api-the-best-way-2013-part-2.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="57" selection-start="625" selection-end="625" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2012-09-16-tvision-team-manifesto.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2012-09-16-tvision-team-manifesto.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2012-10-31-symfony-day-5-october-turin-2012.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2012-10-31-symfony-day-5-october-turin-2012.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="0" selection-start="209" selection-end="234" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2013-01-03-servergrove-stastdclientbundle-interesting-symfony-bundles.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2013-01-03-servergrove-stastdclientbundle-interesting-symfony-bundles.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2013-01-05-phpunit-vs-phpspec-theory-on-behaviour-driven-development.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2013-01-05-phpunit-vs-phpspec-theory-on-behaviour-driven-development.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="50" selection-start="724" selection-end="724" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2013-02-22-the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2013-02-22-the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="0" selection-start="209" selection-end="224" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -91,15 +168,17 @@
         <option value="$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html" />
         <option value="$PROJECT_DIR$/_posts/2013-03-10-it-is-all-about-behaviour-also-in-php.md" />
         <option value="$PROJECT_DIR$/assets/themes/readable-liuggio/css/style.css" />
+        <option value="$PROJECT_DIR$/_posts/2013-11-11-symfony2-rest-api-the-best-way-2013-article-2.md" />
+        <option value="$PROJECT_DIR$/_posts/2013-11-11-symfony2-rest-api-the-best-way-2013-part-2.md" />
         <option value="$PROJECT_DIR$/_posts/2013-11-09-symfony2-rest-api-the-best-2013-way.md" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="64" />
-    <option name="y" value="-11" />
-    <option name="width" value="1857" />
-    <option name="height" value="1092" />
+    <option name="x" value="65" />
+    <option name="y" value="24" />
+    <option name="width" value="1855" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -356,6 +435,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/PhpstormProjects/BlogRESTAPI" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -375,26 +455,26 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40122426" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40734556" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -458,43 +538,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/themes/readable-liuggio/bootstrap/js/bootstrap-transition.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2012-10-31-symfony-day-5-october-turin-2012.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="209" selection-end="234" vertical-scroll-proportion="0.11392405">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-03-10-it-is-all-about-behaviour-also-in-php.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="3" selection-start="221" selection-end="221" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-01-05-phpunit-vs-phpspec-theory-on-behaviour-driven-development.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="50" selection-start="724" selection-end="724" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/themes/readable-liuggio/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="16" selection-start="230" selection-end="230" vertical-scroll-proportion="0.15219842">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_layouts/default.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -504,7 +547,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="53" selection-start="6123" selection-end="6123" vertical-scroll-proportion="-34.24528">
+        <state line="121" column="53" selection-start="6123" selection-end="6123" vertical-scroll-proportion="0.0">
           <folding>
             <marker date="1384174795258" expanded="false" signature="7320:7382" placeholder="..." />
             <marker date="1384174795258" expanded="false" signature="7463:7480" placeholder="..." />
@@ -516,7 +559,97 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2013-11-09-symfony2-rest-api-the-best-2013-way.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="409" column="38" selection-start="14243" selection-end="14243" vertical-scroll-proportion="0.7597254">
+        <state line="0" column="0" selection-start="0" selection-end="176" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-11-11-symfony2-rest-api-the-best-way-2013-part-2.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="708" selection-end="708" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/themes/readable-liuggio/bootstrap/js/bootstrap-transition.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-03-10-it-is-all-about-behaviour-also-in-php.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="3" selection-start="221" selection-end="221" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/themes/readable-liuggio/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="16" selection-start="230" selection-end="230" vertical-scroll-proportion="0.15219842" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_layouts/default.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="121" column="53" selection-start="6123" selection-end="6123" vertical-scroll-proportion="-0.625">
+          <folding>
+            <marker date="1384174795258" expanded="false" signature="7320:7382" placeholder="..." />
+            <marker date="1384174795258" expanded="false" signature="7463:7480" placeholder="..." />
+            <marker date="1384174795258" expanded="false" signature="8140:8202" placeholder="..." />
+            <marker date="1384174795258" expanded="false" signature="8283:8300" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2012-09-16-tvision-team-manifesto.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2012-10-31-symfony-day-5-october-turin-2012.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="209" selection-end="234" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-01-03-servergrove-stastdclientbundle-interesting-symfony-bundles.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-01-05-phpunit-vs-phpspec-theory-on-behaviour-driven-development.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="50" selection-start="724" selection-end="724" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-02-22-the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="209" selection-end="224" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-11-11-symfony2-rest-api-the-best-way-2013-part-2.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="57" selection-start="625" selection-end="625" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-11-09-symfony2-rest-api-the-best-2013-way.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="361" column="92" selection-start="12712" selection-end="12712" vertical-scroll-proportion="0.35565478">
           <folding />
         </state>
       </provider>

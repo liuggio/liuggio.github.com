@@ -29,11 +29,11 @@ The real objective is create an application that shows some best practices and r
 ## The github repository
 
 There's a repository at [liuggio/rest-api-the-best-way-2013](https://github.com/liuggio/rest-api-the-best-way-2013/)
-you could see the working code using the tag `article1` with
+you could see the working code using the tag `part1` with
 
     php composer.phar create-project liuggio/rest-api-the-best-way-2013 blog-rest-symfony2
     cd blog-rest-symfony2
-    git checkout -f article1
+    git checkout -f part1
 
 All the tags for the demo project at [tags](https://github.com/liuggio/rest-api-the-best-way-2013/releases)
 
@@ -358,8 +358,8 @@ If you think that anything is a resource, maybe you care also about the name of 
 if the page `10` is at `/api/v1/pages/10`, you may want to retrieve the same resource with different content type,
 not specifying the `format` explicitly in the extension `/api/v1/pages/10.hml`, but instead using HTTP `Accept` header.
 
-You could play with the demo using the tag `git checkout -f article1-content-negotiation`,
-also see the differences with the `article1`s tag at [compare/article1...article1-content-negotiation](https://github.com/liuggio/rest-api-the-best-way-2013/compare/article1...article1-content-negotiation)
+You could play with the demo using the tag `git checkout -f part1-content-negotiation`,
+also see the differences with the `part1`s tag at [compare/part1-content-negotiation...part1](https://github.com/liuggio/rest-api-the-best-way-2013/compare/part1...part1-content-negotiation)
 
 Request: `curl -i localhost:8000/api/v1/pages/10`
 No Accept header is sent so the fallback is `text/html`
