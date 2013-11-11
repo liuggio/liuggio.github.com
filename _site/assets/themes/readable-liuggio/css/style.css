@@ -23,6 +23,11 @@ body {
 p {
   font-family: 'Lato',Helvetica,Arial,sans-serif;
 }
+
+article li {
+    font-size: 17px;
+}
+
 .sidebar .span4 {
     border-right: 2px solid rgba(0, 0, 0, 0.05);
     width: 298px
