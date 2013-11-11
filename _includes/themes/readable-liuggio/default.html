@@ -2,27 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Giulio De Donato | liuggio :: {{ page.title }}</title>
+    <title>{{ page.title }} </title>
     {% if page.description %}
     <meta name="description" content="{{ page.description }}">
     {% endif %}
     <meta name="author" content="Giulio De Donato">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-
-
     <link href="{{ ASSET_PATH }}/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
-    <link rel="stylesheet" href="{{ ASSET_PATH }}/css/font-awesome.css">
     <!-- Google Web Font-->
-    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
-          type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
-
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,400italic,900italic,300' rel='stylesheet' type='text/css'>
 
 </head>
 
@@ -31,9 +24,8 @@
     <header>
         <div id="header">
             <div class="logo span6"><img src="{{ ASSET_PATH }}/img/welcometothebundle-logo.png"></div>
-            <h1><a title="Blog of Giulio De Donato" id="sitename" href="http://www.welcometothebundle.com/">{{ site.title }}</a></h1>
-
-            <h2>{% if site.tagline %}{{ site.tagline }}{% endif %}</h2>
+            <h2><a title="Blog of Giulio De Donato" id="sitename" href="http://www.welcometothebundle.com/">{{ site.title }}</a></h2>
+            <p>{% if site.tagline %}{{ site.tagline }}{% endif %}</p>
         </div>
     </header>
 
@@ -49,7 +41,7 @@
                     </p>
                     <p style="font-size:95%">I'm liuggio (aka <a href="https://plus.google.com/115690008178168800202?rel=author" rel="author" title="Giulio De Donato">Giulio De Donato</a>)
                          tons of lines of code ago I took a degree in Computer Science, I'm the
-                        lead developer for Terravision and I love open source. I can't stop studying, you could find me in some conference, exactly now I'm in the center of Rome.</p>
+                        lead developer for Terravision and I love open source. I can't stop studying, you could find me in some conferences, exactly now I'm in the center of Rome.</p>
                 </div>
                 <!-- start sticky section
 #################################################
