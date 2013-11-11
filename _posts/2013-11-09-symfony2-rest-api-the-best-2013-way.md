@@ -264,6 +264,29 @@ the full test is visible here: /src/Acme/BlogBundle/Tests/Controller/PageControl
 We have now to modify the function `getPage($id)`:
     
     // /src/Acme/BlogBundle/Controller/PageController.php
+
+    /**
+     * Get single Page,
+     *
+     * @ApiDoc(
+     *   resource = true,
+     *   description = "Gets a Page for a given id",
+     *   output = "Acme\BlogBundle\Entity\Page",
+     *   statusCodes = {
+     *     200 = "Returned when successful",
+     *     404 = "Returned when the page is not found"
+     *   }
+     * )
+     *
+     * @Annotations\View(templateVar="page")
+     *
+     * @param Request $request the request object
+     * @param int     $id      the page id
+     *
+     * @return array
+     *
+     * @throws NotFoundHttpException when page not exist
+     */
     public function getPageAction($id)
     {
         $page = $this->container
@@ -325,7 +348,7 @@ We will have a `500` because the database is empty, and that resource doesn't ex
     2013-11-09 15:46:37 ERROR 500: Internal Server Error.
 
 The resource '0' doesn't exists,
-but if we want to follow the HTTP status code the application should return a `404` resource not found.
+but we want that the status codes reflect the application, so it should return a `404` resource not found.
 
 We are going to create a private function that throws an Exception if the `Page` is not found,
 the Exception will modify also automatically the Response Header.

@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-11-11T17:36:27+01:00</updated>
+ <updated>2013-11-12T00:04:26+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -269,6 +269,29 @@ class PageHandler implements PageHandlerInterface
 &lt;p&gt;We have now to modify the function &lt;code&gt;getPage($id)&lt;/code&gt;:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;// /src/Acme/BlogBundle/Controller/PageController.php
+
+/**
+ * Get single Page,
+ *
+ * @ApiDoc(
+ *   resource = true,
+ *   description = &amp;quot;Gets a Page for a given id&amp;quot;,
+ *   output = &amp;quot;Acme\BlogBundle\Entity\Page&amp;quot;,
+ *   statusCodes = {
+ *     200 = &amp;quot;Returned when successful&amp;quot;,
+ *     404 = &amp;quot;Returned when the page is not found&amp;quot;
+ *   }
+ * )
+ *
+ * @Annotations\View(templateVar=&amp;quot;page&amp;quot;)
+ *
+ * @param Request $request the request object
+ * @param int     $id      the page id
+ *
+ * @return array
+ *
+ * @throws NotFoundHttpException when page not exist
+ */
 public function getPageAction($id)
 {
     $page = $this-&amp;gt;container
@@ -329,7 +352,7 @@ HTTP request sent, awaiting response...
   Content-type: text/html
 2013-11-09 15:46:37 ERROR 500: Internal Server Error.&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The resource &amp;#8216;0&amp;#8217; doesn&amp;#8217;t exists, but if we want to follow the HTTP status code the application should return a &lt;code&gt;404&lt;/code&gt; resource not found.&lt;/p&gt;
+&lt;p&gt;The resource &amp;#8216;0&amp;#8217; doesn&amp;#8217;t exists, but we want that the status codes reflect the application, so it should return a &lt;code&gt;404&lt;/code&gt; resource not found.&lt;/p&gt;
 
 &lt;p&gt;We are going to create a private function that throws an Exception if the &lt;code&gt;Page&lt;/code&gt; is not found, the Exception will modify also automatically the Response Header.&lt;/p&gt;
 
@@ -826,7 +849,7 @@ function delete($id);&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;• Test case example Becomes group&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;BUT&lt;/strong&gt; You would be distracted by the code loosing focus on the result, and you might miss the concept of behaviour. [EDITED 07-01-2013 thanks to &lt;a href='http://twitter.com/euxpom'&gt;euxpom &lt;img src='http://gravatar.com/avatar/77014411a56fa9c746d6a89b7fd96121?size=20' alt='exupom' /&gt;&lt;/a&gt;]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;BUT&lt;/strong&gt; You would be distracted by the code loosing focus on the result, and you might miss the concept of behaviour. [EDITED 07-01-2013 thanks to &lt;a href='http://twitter.com/euxpom'&gt;euxpom &lt;img alt='exupom' src='http://gravatar.com/avatar/77014411a56fa9c746d6a89b7fd96121?size=20' /&gt;&lt;/a&gt;]&lt;/p&gt;
 
 &lt;h2 id='phpspec_advantages'&gt;&lt;a href='https://github.com/phpspec/phpspec2'&gt;PHPSpec&lt;/a&gt; advantages&lt;/h2&gt;
 
@@ -917,7 +940,7 @@ end&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;you will have an Icon next your top panel&lt;/p&gt;
 
-&lt;p&gt;&lt;img src='http://welcometothebundle.com/assets/themes/readable-liuggio/img/guard-phpunit-sf2.png' alt='liuggio-guard-phpunit-sf2-notifier' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt='liuggio-guard-phpunit-sf2-notifier' src='http://welcometothebundle.com/assets/themes/readable-liuggio/img/guard-phpunit-sf2.png' /&gt;&lt;/p&gt;
 
 &lt;h3 id='4_trick_guard_on_large_directories'&gt;4 Trick Guard on large directories&lt;/h3&gt;
 
@@ -988,7 +1011,7 @@ end&lt;/code&gt;&lt;/pre&gt;
    <link href="http://welcometothebundle.com/servergrove-stastdclientbundle-interesting-symfony-bundles"/>
    <updated>2012-11-01T06:01:25+01:00</updated>
    <id>http://welcometothebundle.com/servergrove-stastdclientbundle-interesting-symfony-bundles</id>
-   <content type="html">&lt;p&gt;I was contacted by &lt;a href='https://twitter.com/_leopro_'&gt;leopro&lt;/a&gt; &lt;img src='https://en.gravatar.com/avatar/26d90e88b1eb694cc1276b9ab8d7630f?s=30' alt='leopro' /&gt; who congratulated me for the excellent results obtained with the &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;StatsDClientBundle&lt;/a&gt;.&lt;/p&gt;
+   <content type="html">&lt;p&gt;I was contacted by &lt;a href='https://twitter.com/_leopro_'&gt;leopro&lt;/a&gt; &lt;img alt='leopro' src='https://en.gravatar.com/avatar/26d90e88b1eb694cc1276b9ab8d7630f?s=30' /&gt; who congratulated me for the excellent results obtained with the &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;StatsDClientBundle&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Thanks to this comment I now know that &lt;a href='http://blog.servergrove.com/2012/10/09/interesting-symfony-bundles-statsdclientbundle/'&gt;ServerGrove&lt;/a&gt; chosen &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;StatsD Client Bundle&lt;/a&gt; as its top choice for Symfony2 project among more than 1600.&lt;/p&gt;
 
