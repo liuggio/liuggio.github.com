@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "REST API Symfony2: the best 2013 way"
+title: "Symfony2 REST API: the best way"
 description: "REST API tutorial on symfony2"
 category: tutorial
 tags: [rest, api, symfony2]
