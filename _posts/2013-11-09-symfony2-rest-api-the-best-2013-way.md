@@ -407,7 +407,7 @@ We understood the importance of Content Negotiation.
 
 ## Next
 
-In the next articles, we will be described how to use the page form as shared interface, we will create, modify, and delete Page and content resources,
+In the next articles, we will describe how to use the page form as shared interface, we will create, modify, and delete Page and content resources,
 with `PUT`, `PATCH`, `POST`, `DELETE`, and how use other important HTTP headers.
 
 ## References:
