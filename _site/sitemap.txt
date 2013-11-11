@@ -8,6 +8,7 @@ http://welcometothebundle.com/index.html
 http://welcometothebundle.com/rest-api-symfony2-the-best-2013-way
 http://welcometothebundle.com/design-by-contract-behaviour
 http://welcometothebundle.com/doctrine2-tracking-policy
+http://welcometothebundle.com/it-is-all-about-behaviour-also-in-php
 http://welcometothebundle.com/the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection
 http://welcometothebundle.com/phpunit-vs-phpspec-theory-on-behaviour-driven-development
 http://welcometothebundle.com/automate-test-and-code-inspection-in-php-with-guard-and-symfony2

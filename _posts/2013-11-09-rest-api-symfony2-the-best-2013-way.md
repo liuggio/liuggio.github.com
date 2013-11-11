@@ -145,8 +145,8 @@ Yes but we could do better.
 
 OMG we have only created a little Controller, why we need to refactor?
 
-As I said we are trying to do things at our best, in that controller there's a lot of business that we want to delegate
-to another service.
+As I said we are trying to do things at our best, se questo puoò sembrare over-engineering, negli articoli successivi vedremo come
+sfruttare le modifiche fatte, e come ci tornerà utile, avere controller senza logica e servizi che lavorano con le interfacce.
 
 ### Step 3.A - Interface as contract
 
@@ -412,7 +412,7 @@ with `PUT`, `PATCH`, `POST`, `DELETE`, and how use other important HTTP headers.
 
 [symfony.com](http://www.symfony2.com)
 
-[Lukas Kahwe Smith ](http://www.youtube.com/watch?v=Kkby5fG89K0&feature=youtu.be)
+[Lukas Kahwe Smith: resting with Sf2](http://www.youtube.com/watch?v=Kkby5fG89K0&feature=youtu.be&from=www.welcometothebundle.com)
 
 [williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way](http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/)
 

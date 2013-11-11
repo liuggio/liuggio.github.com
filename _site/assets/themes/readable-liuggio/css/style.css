@@ -7,7 +7,7 @@
 
 /* Override some defaults */
 body {
-    background: url("../img/almost-white.jpg") repeat scroll 0 0 #FFFFFF;
+    background: #FFFFFF;
     font-family: 'Lato',Helvetica,Arial,sans-serif;
     font-size: 14px;
     line-height: 1.231;

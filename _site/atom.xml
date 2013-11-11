@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-11-11T01:55:37+01:00</updated>
+ <updated>2013-11-11T14:01:26+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -154,7 +154,7 @@ acme_blog_Page:
 
 &lt;p&gt;OMG we have only created a little Controller, why we need to refactor?&lt;/p&gt;
 
-&lt;p&gt;As I said we are trying to do things at our best, in that controller there&amp;#8217;s a lot of business that we want to delegate to another service.&lt;/p&gt;
+&lt;p&gt;As I said we are trying to do things at our best, se questo puoò sembrare over-engineering, negli articoli successivi vedremo come sfruttare le modifiche fatte, e come ci tornerà utile, avere controller senza logica e servizi che lavorano con le interfacce.&lt;/p&gt;
 
 &lt;h3 id='step_3a__interface_as_contract'&gt;Step 3.A - Interface as contract&lt;/h3&gt;
 
@@ -407,7 +407,7 @@ Allow: GET
 
 &lt;p&gt;&lt;a href='http://www.symfony2.com'&gt;symfony.com&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href='http://www.youtube.com/watch?v=Kkby5fG89K0&amp;amp;feature=youtu.be'&gt;Lukas Kahwe Smith&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href='http://www.youtube.com/watch?v=Kkby5fG89K0&amp;amp;feature=youtu.be&amp;amp;from=www.welcometothebundle.com'&gt;Lukas Kahwe Smith: resting with Sf2&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href='http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/'&gt;williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way&lt;/a&gt;&lt;/p&gt;
 
@@ -576,6 +576,18 @@ Behaviour Interface LoggerInterface
 &lt;h2 id='link_to_doctrine_doc'&gt;Link to doctrine doc&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href='http://docs.doctrine-project.org/en/latest/reference/change-tracking-policies.html'&gt;doctrine/change-tracking-policies&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>It is all about behaviour also in php</title>
+   <link href="http://welcometothebundle.com/it-is-all-about-behaviour-also-in-php"/>
+   <updated>2013-03-10T00:00:00+01:00</updated>
+   <id>http://welcometothebundle.com/it-is-all-about-behaviour-also-in-php</id>
+   <content type="html">&lt;p&gt;It is a shame I never had energy to continue the BDD saga started with: &lt;a href='http://welcometothebundle.com/phpunit-vs-phpspec-theory-on-behaviour-driven-development'&gt;phpunit-vs-phpspec-theory-on-behaviour-driven-development 1/3&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;During our monthly meeting at &lt;a href='http://roma.grusp.org/2013/03/incontro-di-febbraio-2013/'&gt;Pug Roma&lt;/a&gt;, I have talked about php-spec and behaviour driven development.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://www.slideshare.net/liuggio/its-all-about-behaviour-also-in-php'&gt;phpspec/It is all about behaviour also in php&lt;/a&gt;&lt;/p&gt;</content>
  </entry>
  
  <entry>
@@ -812,7 +824,7 @@ function delete($id);&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;• Test case example Becomes group&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;BUT&lt;/strong&gt; You would be distracted by the code loosing focus on the result, and you might miss the concept of behaviour. [EDITED 07-01-2013 thanks to &lt;a href='http://twitter.com/euxpom'&gt;euxpom &lt;img alt='exupom' src='http://gravatar.com/avatar/77014411a56fa9c746d6a89b7fd96121?size=20' /&gt;&lt;/a&gt;]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;BUT&lt;/strong&gt; You would be distracted by the code loosing focus on the result, and you might miss the concept of behaviour. [EDITED 07-01-2013 thanks to &lt;a href='http://twitter.com/euxpom'&gt;euxpom &lt;img src='http://gravatar.com/avatar/77014411a56fa9c746d6a89b7fd96121?size=20' alt='exupom' /&gt;&lt;/a&gt;]&lt;/p&gt;
 
 &lt;h2 id='phpspec_advantages'&gt;&lt;a href='https://github.com/phpspec/phpspec2'&gt;PHPSpec&lt;/a&gt; advantages&lt;/h2&gt;
 
@@ -903,7 +915,7 @@ end&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;you will have an Icon next your top panel&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='liuggio-guard-phpunit-sf2-notifier' src='http://welcometothebundle.com/assets/themes/readable-liuggio/img/guard-phpunit-sf2.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='http://welcometothebundle.com/assets/themes/readable-liuggio/img/guard-phpunit-sf2.png' alt='liuggio-guard-phpunit-sf2-notifier' /&gt;&lt;/p&gt;
 
 &lt;h3 id='4_trick_guard_on_large_directories'&gt;4 Trick Guard on large directories&lt;/h3&gt;
 
@@ -974,7 +986,7 @@ end&lt;/code&gt;&lt;/pre&gt;
    <link href="http://welcometothebundle.com/servergrove-stastdclientbundle-interesting-symfony-bundles"/>
    <updated>2012-11-01T06:01:25+01:00</updated>
    <id>http://welcometothebundle.com/servergrove-stastdclientbundle-interesting-symfony-bundles</id>
-   <content type="html">&lt;p&gt;I was contacted by &lt;a href='https://twitter.com/_leopro_'&gt;leopro&lt;/a&gt; &lt;img alt='leopro' src='https://en.gravatar.com/avatar/26d90e88b1eb694cc1276b9ab8d7630f?s=30' /&gt; who congratulated me for the excellent results obtained with the &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;StatsDClientBundle&lt;/a&gt;.&lt;/p&gt;
+   <content type="html">&lt;p&gt;I was contacted by &lt;a href='https://twitter.com/_leopro_'&gt;leopro&lt;/a&gt; &lt;img src='https://en.gravatar.com/avatar/26d90e88b1eb694cc1276b9ab8d7630f?s=30' alt='leopro' /&gt; who congratulated me for the excellent results obtained with the &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;StatsDClientBundle&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Thanks to this comment I now know that &lt;a href='http://blog.servergrove.com/2012/10/09/interesting-symfony-bundles-statsdclientbundle/'&gt;ServerGrove&lt;/a&gt; chosen &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;StatsD Client Bundle&lt;/a&gt; as its top choice for Symfony2 project among more than 1600.&lt;/p&gt;
 
@@ -989,7 +1001,7 @@ In our first installment of the series we will present StatsDClientBundle writte
  </entry>
  
  <entry>
-   <title>Symfony Day 5 October, Turin 2012</title>
+   <title>Improving the performance of a Symfony2 web application.</title>
    <link href="http://welcometothebundle.com/symfony-day-5-october-turin-2012"/>
    <updated>2012-10-31T23:01:25+01:00</updated>
    <id>http://welcometothebundle.com/symfony-day-5-october-turin-2012</id>

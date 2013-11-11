@@ -3,9 +3,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Doctrine2 tracking policy </title>
+    <title>It is all about behaviour also in php </title>
     
-    <meta name="description" content="Tracking policy">
+    <meta name="description" content="PHPUnit vs PHPSpec: theory on Behaviour Driven Development 2/3">
     
     <meta name="author" content="Giulio De Donato">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -250,7 +250,7 @@
 <div class="span9">
     <div class="page-header">
         <div class="row">
-            <h1 class="span8">Doctrine2 tracking policy 
+            <h1 class="span8">It is all about behaviour also in php 
             </h1>
           <div class="span1 right bottom sticky">
                <a href="https://twitter.com/share" class="twitter-share-button" data-via="liuggio" data-size="large"
@@ -270,7 +270,7 @@
         <hr>
         <div class="row">
             <div class="span4">
-                <div class="date"><span>23 April 2013</span></div>
+                <div class="date"><span>10 March 2013</span></div>
             </div>
 
             <div class="span5">
@@ -282,9 +282,17 @@
 
   
      
-    	<li><a href="/tags.html#doctrine2-ref">doctrine2 <span>1</span></a></li>
+    	<li><a href="/tags.html#phpunit-ref">phpunit <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#tdd-ref">tdd <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#bdd-ref">bdd <span>2</span></a></li>
      
     	<li><a href="/tags.html#php-ref">php <span>11</span></a></li>
+     
+    	<li><a href="/tags.html#test-ref">test <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#phpspec-ref">phpspec <span>2</span></a></li>
     
   
 
@@ -300,77 +308,23 @@
     <article>
 
 
-        <h1 id='which_tracking_policy_are_you_using'>Which tracking policy are you using?</h1>
+        <p>It is a shame I never had energy to continue the BDD saga started with: <a href='http://welcometothebundle.com/phpunit-vs-phpspec-theory-on-behaviour-driven-development'>phpunit-vs-phpspec-theory-on-behaviour-driven-development 1/3</a></p>
 
-<p>With doctrine you can change the tracking policy for each entity, the tracking policy is the way in which Doctrine understands if a entity property must be &#8216;saved&#8217; in the database.</p>
+<p>During our monthly meeting at <a href='http://roma.grusp.org/2013/03/incontro-di-febbraio-2013/'>Pug Roma</a>, I have talked about php-spec and behaviour driven development.</p>
 
-<p>Doctrine definition: &#8220;Change tracking is the process of determining what has changed in managed entities since the last time they were synchronized with the database.&#8221;</p>
-
-<p>There are 3 tracking policies: Implicit, Explicit, Nofity.</p>
-
-<h2 id='implicit_tracking_the_default_one'>Implicit tracking (the default one)</h2>
-
-<p>The implicit is the default one and the slowest, you don&#8217;t need to explicit call &#8216;persist&#8217; eg.</p>
-
-<p><code> // $entity is not a new object, and has $entity-&gt;Title = &#39;liuggio loves tvision.github.io&#39;</code></p>
-
-<p><code> $entity-&gt;setTitle(&#39;liuggio loves symfony2&#39;);</code></p>
-
-<p><code> $entityManager-&gt;flush();</code></p>
-
-<p><code> echo $entity-&gt;getTitle();   // output &#39;liuggio loves symfony2&#39;</code></p>
-
-<p>Unit of work now has <strong>$entity.title=liuggio loves symfony2</strong></p>
-
-<p>Database has flushed without persist <strong>$entity.title=liuggio loves symfony2</strong></p>
-
-<p><strong>Pro</strong>: <code>$entityManager-&gt;persist($entity)</code> is not necessary</p>
-
-<p><strong>Cons</strong>: Slowness, Doctrine has to check property-by-property for all the object in the unit of work</p>
-
-<h2 id='the_explicit_tracking_the_suggested_one'>The explicit tracking (the suggested one)</h2>
-
-<p>You have to explicit flag which object you want to persist, than Doctrine will check property-by-property in order to find with property has changed.</p>
-
-<p><strong>Pro</strong>: Faster than implicit, must if you have a lot of entities.</p>
-
-<p><strong>Cons</strong>: the object in the unit of work could be different from that one in the db, not easy to debug.</p>
-
-<p>The example</p>
-
-<p><code> // $entity is not a new object, and has $entity-&gt;Title = &#39;liuggio loves tvision.github.io&#39;</code></p>
-
-<p><code> $entity-&gt;setTitle(&#39;liuggio loves symfony2&#39;);</code></p>
-
-<p><code> $entityManager-&gt;flush();</code></p>
-
-<p><code> echo $entity-&gt;getTitle();   // output &#39;liuggio loves symfony2&#39;</code></p>
-
-<p>Unit of work now has <strong>$entity.title=liuggio loves symfony2</strong></p>
-
-<p>Database has different state for that entity <strong>liuggio loves tvision.github.io</strong></p>
-
-<h2 id='notify_tracking'>Notify tracking</h2>
-
-<p>It&#8217;s not really a tracking policy, if you want to develop your own tracking policy, you have the tool for doing it.</p>
-
-<p>Don&#8217;t understimate this policy useful if you a domain logic.</p>
-
-<h2 id='link_to_doctrine_doc'>Link to doctrine doc</h2>
-
-<p><a href='http://docs.doctrine-project.org/en/latest/reference/change-tracking-policies.html'>doctrine/change-tracking-policies</a></p>
+<p><a href='http://www.slideshare.net/liuggio/its-all-about-behaviour-also-in-php'>phpspec/It is all about behaviour also in php</a></p>
 
     </article>
     <hr>
     <div class="pagination">
         <ul class="pager">
             
-            <li class="prev"><a href="/it-is-all-about-behaviour-also-in-php" title="It is all about behaviour also in php">&larr;
-                Previous - It is all about behaviour also in php</a></li>
+            <li class="prev"><a href="/the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection" title="The meaning of Cache for a web developer no more too many connection">&larr;
+                Previous - The meaning of Cache for a web developer no more too many connection</a></li>
             
             <li><a href="/index.html">Archive</a></li>
             
-            <li class="next"><a href="/design-by-contract-behaviour" title="Design by contract behaviour">Next - Design by contract behaviour &rarr;</a>
+            <li class="next"><a href="/doctrine2-tracking-policy" title="Doctrine2 tracking policy">Next - Doctrine2 tracking policy &rarr;</a>
             </li>
             
         </ul>
