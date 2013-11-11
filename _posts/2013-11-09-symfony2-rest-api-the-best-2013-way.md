@@ -405,7 +405,9 @@ We first created a functional test, then the thin controller without logic.
 We have created unit test and then the service `PageHandler` which instead of the controller, contains the logic to retrieve the information.
 We understood the importance of Content Negotiation.
 
-In the next articles, how to use the page form as shared interface, we will create, modify, and delete Page and content resources,
+## Next
+
+In the next articles, we will be described how to use the page form as shared interface, we will create, modify, and delete Page and content resources,
 with `PUT`, `PATCH`, `POST`, `DELETE`, and how use other important HTTP headers.
 
 ## References:
