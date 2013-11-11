@@ -359,7 +359,7 @@ if the page `10` is at `/api/v1/pages/10`, you may want to retrieve the same res
 not specifying the `format` explicitly in the extension `/api/v1/pages/10.hml`, but instead using HTTP `Accept` header.
 
 You could play with the demo using the tag `git checkout -f part1-content-negotiation`,
-also see the differences with the `part1`s tag at [compare/part1-content-negotiation...part1](https://github.com/liuggio/rest-api-the-best-way-2013/compare/part1...part1-content-negotiation)
+also see the differences with the `part1`s tag at [compare/part1-content-negotiation...part1](https://github.com/liuggio/rest-api-the-best-way-2013/compare/part1-content-negotiation...part1)
 
 Request: `curl -i localhost:8000/api/v1/pages/10`
 No Accept header is sent so the fallback is `text/html`
