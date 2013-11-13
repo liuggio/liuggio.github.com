@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-11-12T00:40:57+01:00</updated>
+ <updated>2013-11-13T22:19:28+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -23,9 +23,11 @@
 
 &lt;p&gt;I would not talk about the difference between REST and RESTful &lt;a href='http://martinfowler.com/articles/richardsonMaturityModel.html'&gt;Martin Fowler Maturity Model&lt;/a&gt;.&lt;/p&gt;
 
+&lt;p&gt;The title of this series is just because I&amp;#8217;ve found a lot of great ideas from the &lt;a href='http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/'&gt;William Durand: rest-apis-with-symfony2-the-right-way&lt;/a&gt; blog written in 2012, so this is a revisited version, talking more about form, and services.&lt;/p&gt;
+
 &lt;h2 id='goal'&gt;GOAL&lt;/h2&gt;
 
-&lt;p&gt;We are going to create an application that serves API for Page content with &lt;code&gt;get&lt;/code&gt;, &lt;code&gt;put&lt;/code&gt;, &lt;code&gt;post&lt;/code&gt; and &lt;code&gt;patch&lt;/code&gt;, using Symfony2, the FOSRestBundle, the NelmioApiDocBundle, the JSMSerializerBundle, and Doctrine.&lt;/p&gt;
+&lt;p&gt;We are going to create an application that serves API for Page content with &lt;code&gt;get&lt;/code&gt;, &lt;code&gt;put&lt;/code&gt;, &lt;code&gt;post&lt;/code&gt; and &lt;code&gt;patch&lt;/code&gt;, using &lt;a href='http://www.symfony2.com'&gt;Symfony2&lt;/a&gt;, the &lt;a href='https://github.com/FriendsOfSymfony/FOSRestBundle'&gt;FOSRestBundle&lt;/a&gt;, the &lt;a href='https://github.com/nelmio/NelmioApiDocBundle'&gt;NelmioApiDocBundle&lt;/a&gt;, the &lt;a href='https://github.com/schmittjoh/JMSSerializerBundle'&gt;JSMSerializerBundle&lt;/a&gt;, and &lt;a href='http://www.doctrine-project.org'&gt;Doctrine&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;The real objective is create an application that shows some best practices and rules with Symfony2 and REST:&lt;/p&gt;
 
@@ -43,13 +45,13 @@
 
 &lt;h2 id='the_github_repository'&gt;The github repository&lt;/h2&gt;
 
-&lt;p&gt;There&amp;#8217;s a repository at &lt;a href='https://github.com/liuggio/rest-api-the-best-way-2013/'&gt;liuggio/rest-api-the-best-way-2013&lt;/a&gt; you could see the working code using the tag &lt;code&gt;part1&lt;/code&gt; with&lt;/p&gt;
+&lt;p&gt;There&amp;#8217;s a repository at &lt;a href='https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/'&gt;liuggio/symfony2-rest-api-the-best-2013-way&lt;/a&gt; you could see the working code using the tag &lt;code&gt;part1&lt;/code&gt; with&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;php composer.phar create-project liuggio/rest-api-the-best-way-2013 blog-rest-symfony2
+&lt;pre&gt;&lt;code&gt;php composer.phar create-project liuggio/symfony2-rest-api-the-best-2013-way blog-rest-symfony2
 cd blog-rest-symfony2
 git checkout -f part1&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;All the tags for the demo project at &lt;a href='https://github.com/liuggio/rest-api-the-best-way-2013/releases'&gt;tags&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;All the tags for the demo project at &lt;a href='https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/releases'&gt;tags&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id='step_1a_the_application'&gt;Step 1.A The application&lt;/h2&gt;
 
@@ -382,7 +384,7 @@ protected function getOr404($id)
 
 &lt;p&gt;If you think that anything is a resource, maybe you care also about the name of the resource, if the page &lt;code&gt;10&lt;/code&gt; is at &lt;code&gt;/api/v1/pages/10&lt;/code&gt;, you may want to retrieve the same resource with different content type, not specifying the &lt;code&gt;format&lt;/code&gt; explicitly in the extension &lt;code&gt;/api/v1/pages/10.hml&lt;/code&gt;, but instead using HTTP &lt;code&gt;Accept&lt;/code&gt; header.&lt;/p&gt;
 
-&lt;p&gt;You could play with the demo using the tag &lt;code&gt;git checkout -f part1-content-negotiation&lt;/code&gt;, also see the differences with the &lt;code&gt;part1&lt;/code&gt;s tag at &lt;a href='https://github.com/liuggio/rest-api-the-best-way-2013/compare/part1-content-negotiation...part1'&gt;compare/part1-content-negotiation&amp;#8230;part1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You could play with the demo using the tag &lt;code&gt;git checkout -f part1-content-negotiation&lt;/code&gt;, also see the differences with the &lt;code&gt;part1&lt;/code&gt;s tag at &lt;a href='https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/compare/part1-content-negotiation...part1'&gt;compare/part1-content-negotiation&amp;#8230;part1&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Request: &lt;code&gt;curl -i localhost:8000/api/v1/pages/10&lt;/code&gt; No Accept header is sent so the fallback is &lt;code&gt;text/html&lt;/code&gt;&lt;/p&gt;
 

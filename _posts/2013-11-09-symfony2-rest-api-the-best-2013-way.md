@@ -13,9 +13,11 @@ I would like to be short and concise bringing practical examples.
 
 I would not talk about the difference between REST and RESTful [Martin Fowler Maturity Model](http://martinfowler.com/articles/richardsonMaturityModel.html).
 
+The title of this series is just because I've found a lot of great ideas from the  [William Durand: rest-apis-with-symfony2-the-right-way](http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/) blog written in 2012, so this is a revisited version, talking more about form, and services.
+
 ## GOAL
 
-We are going to create an application that serves API for Page content with `get`, `put`, `post` and `patch`, using Symfony2, the FOSRestBundle, the NelmioApiDocBundle, the JSMSerializerBundle, and Doctrine.
+We are going to create an application that serves API for Page content with `get`, `put`, `post` and `patch`, using [Symfony2](http://www.symfony2.com), the [FOSRestBundle](https://github.com/FriendsOfSymfony/FOSRestBundle), the [NelmioApiDocBundle](https://github.com/nelmio/NelmioApiDocBundle), the [JSMSerializerBundle](https://github.com/schmittjoh/JMSSerializerBundle), and [Doctrine](http://www.doctrine-project.org).
 
 The real objective is create an application that shows some best practices and rules with Symfony2 and REST:
 
@@ -28,14 +30,14 @@ The real objective is create an application that shows some best practices and r
 
 ## The github repository
 
-There's a repository at [liuggio/rest-api-the-best-way-2013](https://github.com/liuggio/rest-api-the-best-way-2013/)
+There's a repository at [liuggio/symfony2-rest-api-the-best-2013-way](https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/)
 you could see the working code using the tag `part1` with
 
-    php composer.phar create-project liuggio/rest-api-the-best-way-2013 blog-rest-symfony2
+    php composer.phar create-project liuggio/symfony2-rest-api-the-best-2013-way blog-rest-symfony2
     cd blog-rest-symfony2
     git checkout -f part1
 
-All the tags for the demo project at [tags](https://github.com/liuggio/rest-api-the-best-way-2013/releases)
+All the tags for the demo project at [tags](https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/releases)
 
 ## Step 1.A The application
 
@@ -382,7 +384,7 @@ if the page `10` is at `/api/v1/pages/10`, you may want to retrieve the same res
 not specifying the `format` explicitly in the extension `/api/v1/pages/10.hml`, but instead using HTTP `Accept` header.
 
 You could play with the demo using the tag `git checkout -f part1-content-negotiation`,
-also see the differences with the `part1`s tag at [compare/part1-content-negotiation...part1](https://github.com/liuggio/rest-api-the-best-way-2013/compare/part1-content-negotiation...part1)
+also see the differences with the `part1`s tag at [compare/part1-content-negotiation...part1](https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/compare/part1-content-negotiation...part1)
 
 Request: `curl -i localhost:8000/api/v1/pages/10`
 No Accept header is sent so the fallback is `text/html`
