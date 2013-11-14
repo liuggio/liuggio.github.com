@@ -147,8 +147,8 @@ Yes but we could do better.
 
 OMG we have only created a little Controller, why we need to refactor?
 
-As I said we are trying to do things at our best, se questo puoò sembrare over-engineering, negli articoli successivi vedremo come
-sfruttare le modifiche fatte, e come ci tornerà utile, avere controller senza logica e servizi che lavorano con le interfacce.
+As I said we are trying to do things at our best, while this may seem over-engineering, 
+in later articles we will see how take advantage of the changes made.
 
 ### Step 3.A - Interface as contract
 

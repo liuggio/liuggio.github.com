@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-11-13T22:19:28+01:00</updated>
+ <updated>2013-11-14T10:21:14+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -156,7 +156,7 @@ acme_blog_Page:
 
 &lt;p&gt;OMG we have only created a little Controller, why we need to refactor?&lt;/p&gt;
 
-&lt;p&gt;As I said we are trying to do things at our best, se questo puoò sembrare over-engineering, negli articoli successivi vedremo come sfruttare le modifiche fatte, e come ci tornerà utile, avere controller senza logica e servizi che lavorano con le interfacce.&lt;/p&gt;
+&lt;p&gt;As I said we are trying to do things at our best, while this may seem over-engineering, in later articles we will see how take advantage of the changes made.&lt;/p&gt;
 
 &lt;h3 id='step_3a__interface_as_contract'&gt;Step 3.A - Interface as contract&lt;/h3&gt;
 

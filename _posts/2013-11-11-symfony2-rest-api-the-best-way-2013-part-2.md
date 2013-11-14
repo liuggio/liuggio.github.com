@@ -64,7 +64,7 @@ Il primo step è creare un test che rispetti il comportamento, e successivamente
 
 La funzione processForm ha la responsabilità di creare e validare and Hydratation di un oggetto di tipo Page, con il giusto HTTP method:
 
-Avrete sicuramente usato già form->handle(Response), ma in questo caso non avete la Request ma solo i valori in array dei campi da riempire quindi invece di handle dovremo utilizzare `submit` e poi il check su `isValid`.
+Avrete sicuramente usato già `form->bind(Response)`, ma in questo caso non avete la Request ma solo i valori in array dei campi da riempire quindi invece di `bind` dovremo utilizzare `submit` e poi il check su `isValid`.
 
     /**
      * Processes the form.
@@ -94,22 +94,75 @@ Avrete sicuramente usato già form->handle(Response), ma in questo caso non avet
     }
 
 Questa funzione ritorna un oggetto di tipo PageInterface, ma se i paramtrei non sono validi
-lancia una eccezione di tipo InvalidFormException che poi potrà essere `catch`ed e $e->getForm
+lancia una eccezione di tipo InvalidFormException che poi potrà essere `catch`ed and handled with `$e->getForm`
 
-For the test see `src/Acme/BlogBundle/Tests/Handler/PageHandlerTest.php:63`
+The test is at `src/Acme/BlogBundle/Tests/Handler/PageHandlerTest.php:63`
 
-### Why dont' use injecting the request?
+### Why don't inject the request?
 
-La vera domanda è perche usare la Request?
+The real question is do we really need the request?
 
-A noi non serve la request, la funzionalità della classe PageHandler, è quello di creare, prendere modificare,
-oggetti di tipo page, a partire da richieste il più semplice possibile.
-Per esempio volete utilizzare PageHandler da un altro servizio, si dovrà creare una finta Request?
+We don't need the request here, the main responsability of `PageHandler` class is that `handle` (creating, editing, showing) the `Page` entity, given some parameters.
+In this way you could use `PageHandler` from another service, without injecting or faking a Request.
 
-PageHandler conterrà le API da usare tramite service container.
+`PageHandler` will contain the API for the other services of the `service.container`.
 
 ### The Post Controller
 
 The post controller is easy all the domain logic is demanded to the PageHandler:
 
+    /**
+     * @Annotations\View(statusCode = Codes::HTTP_BAD_REQUEST)
+     */
+    public function postPageAction()
+    {
+        try {
+            $newPage = $this->container->get('acme_blog.page.handler')->post(
+                    $this->container->get('request')->request->all()
+            );
+
+            $routeOptions = array(
+                'id' => $newPage->getId(),
+                '_format' => $this->container->get('request')->get('_format')
+            );
+
+            return $this->routeRedirectView('api_1_get_page', $routeOptions, Codes::HTTP_CREATED);
+
+        } catch (InvalidFormException $exception) {
+
+            return $this->view(array('errors' => $exception->getForm()), Codes::HTTP_BAD_REQUEST);
+        }
+    }
+
+
+A new page is created by the `PageHandler`, then the helper `routeRedirectView`  add to the http header 
+the Location: http://localhost:8000/api/v1/pages/47.json.
+
+If something the invalid form application
+
+
+### test the application
+
+	curl -X POST -d '{"title":"title","body":"body"}' http://localhost:8000/api/v1/pages.json --header "Content-Type:application/json" 
+
+it will return 
+
+	< HTTP/1.1 201 Created
+	< Host: localhost:8000
+	< Location: http://localhost:8000/api/v1/pages/50.json
+	< Allow: POST
+	< Content-Type: application/json
+
+This is great status code `201` resource created, and location tells to the consumers where to get this resource.
+and see what's happen if we try to send bad content:
+
+	curl -X POST -d '{"tilde":"title","bold":"body"}' http://localhost:8000/api/v1/pages.json --header "Content-Type:application/json" -v
+
+the Response will be `400`
+
+	< HTTP/1.1 400 Bad Request
+	< Host: localhost:8000
+	< Content-Type: application/json
+	< 
+	< {"form":{"errors":["This form should not contain extra fields."],"children":{"title":[],"body":[]}}}
 
