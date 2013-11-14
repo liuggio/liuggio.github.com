@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-11-14T14:47:08+01:00</updated>
+ <updated>2013-11-14T15:17:43+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -129,7 +129,7 @@ class PageController extends FOSRestController&lt;/code&gt;&lt;/pre&gt;
     return $this-&amp;gt;container-&amp;gt;get(&amp;#39;doctrine.entity_manager&amp;#39;)-&amp;gt;getRepository(&amp;#39;Page&amp;#39;)-&amp;gt;find($id);
 }&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;span&gt;EDIT-14/11/2013&lt;/span&gt;&lt;/strong&gt; Samuel Gordalina suggests:&lt;/p&gt;
+&lt;h4 id='edit14112013_samuel_gordalina_suggests'&gt;&lt;strong&gt;&lt;span&gt;EDIT-14/11/2013&lt;/span&gt;&lt;/strong&gt; Samuel Gordalina suggests:&lt;/h4&gt;
 
 &lt;p&gt;You can use ParamConverter which fetches an entity from database or returns a 404 exception. For more info see &lt;a href='https://github.com/gordalina/sample-twitter-api-symfony2/blob/master/src/Twitter/ApiBundle/Controller/TweetController.php#L37'&gt;sample-twitter-api-symfony2:37&lt;/a&gt;&lt;/p&gt;
 
