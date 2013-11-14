@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-11-14T12:47:39+01:00</updated>
+ <updated>2013-11-14T14:47:08+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -128,6 +128,10 @@ class PageController extends FOSRestController&lt;/code&gt;&lt;/pre&gt;
 {
     return $this-&amp;gt;container-&amp;gt;get(&amp;#39;doctrine.entity_manager&amp;#39;)-&amp;gt;getRepository(&amp;#39;Page&amp;#39;)-&amp;gt;find($id);
 }&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;span&gt;EDIT-14/11/2013&lt;/span&gt;&lt;/strong&gt; Samuel Gordalina suggests:&lt;/p&gt;
+
+&lt;p&gt;You can use ParamConverter which fetches an entity from database or returns a 404 exception. For more info see &lt;a href='https://github.com/gordalina/sample-twitter-api-symfony2/blob/master/src/Twitter/ApiBundle/Controller/TweetController.php#L37'&gt;sample-twitter-api-symfony2:37&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id='step_2c__adding_the_routes'&gt;Step 2.C - Adding the routes&lt;/h3&gt;
 
@@ -419,7 +423,7 @@ Allow: GET
 
 &lt;p&gt;We could also send different Content type accepted with different preferences eg:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;curl -i -H &amp;quot;Accept: application/json; q=1.0, t/pages/10 q=0.8&amp;quot;  localhost:8000/api/v1/&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;curl -i -H &amp;quot;Accept: application/json; q=1.0, t/pages/10 q=0.8&amp;quot; localhost:8000/api/v1/&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;The response will be a json file as well:&lt;/p&gt;
 
@@ -446,9 +450,11 @@ Allow: GET
 
 &lt;p&gt;&lt;a href='http://www.youtube.com/watch?v=Kkby5fG89K0&amp;amp;feature=youtu.be&amp;amp;from=www.welcometothebundle.com'&gt;Lukas Kahwe Smith: resting with Sf2 - video&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href='http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/'&gt;William Durand: rest-apis-with-symfony2-the-right-way&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href='http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/'&gt;William Durand: rest-apis-with-symfony2-the-right-way - blog&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href='http://www.slideshare.net/dlondero/rest-in-practice-27335543'&gt;Daniel Londero: Rest in practice -slide&lt;/a&gt;&lt;/p&gt;</content>
+&lt;p&gt;&lt;a href='https://speakerdeck.com/gordalina/rest-apis-made-easy-with-symfony2'&gt;Samuel Gordalina: REST APIs made easy with Symfony2 - slide&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://www.slideshare.net/dlondero/rest-in-practice-27335543'&gt;Daniel Londero: Rest in practice - slide&lt;/a&gt;&lt;/p&gt;</content>
  </entry>
  
  <entry>
@@ -861,7 +867,7 @@ function delete($id);&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;• Test case example Becomes group&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;BUT&lt;/strong&gt; You would be distracted by the code loosing focus on the result, and you might miss the concept of behaviour. [EDITED 07-01-2013 thanks to &lt;a href='http://twitter.com/euxpom'&gt;euxpom &lt;img alt='exupom' src='http://gravatar.com/avatar/77014411a56fa9c746d6a89b7fd96121?size=20' /&gt;&lt;/a&gt;]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;BUT&lt;/strong&gt; You would be distracted by the code loosing focus on the result, and you might miss the concept of behaviour. [EDITED 07-01-2013 thanks to &lt;a href='http://twitter.com/euxpom'&gt;euxpom &lt;img src='http://gravatar.com/avatar/77014411a56fa9c746d6a89b7fd96121?size=20' alt='exupom' /&gt;&lt;/a&gt;]&lt;/p&gt;
 
 &lt;h2 id='phpspec_advantages'&gt;&lt;a href='https://github.com/phpspec/phpspec2'&gt;PHPSpec&lt;/a&gt; advantages&lt;/h2&gt;
 
@@ -952,7 +958,7 @@ end&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;you will have an Icon next your top panel&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt='liuggio-guard-phpunit-sf2-notifier' src='http://welcometothebundle.com/assets/themes/readable-liuggio/img/guard-phpunit-sf2.png' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src='http://welcometothebundle.com/assets/themes/readable-liuggio/img/guard-phpunit-sf2.png' alt='liuggio-guard-phpunit-sf2-notifier' /&gt;&lt;/p&gt;
 
 &lt;h3 id='4_trick_guard_on_large_directories'&gt;4 Trick Guard on large directories&lt;/h3&gt;
 
@@ -1023,7 +1029,7 @@ end&lt;/code&gt;&lt;/pre&gt;
    <link href="http://welcometothebundle.com/servergrove-stastdclientbundle-interesting-symfony-bundles"/>
    <updated>2012-11-01T06:01:25+01:00</updated>
    <id>http://welcometothebundle.com/servergrove-stastdclientbundle-interesting-symfony-bundles</id>
-   <content type="html">&lt;p&gt;I was contacted by &lt;a href='https://twitter.com/_leopro_'&gt;leopro&lt;/a&gt; &lt;img alt='leopro' src='https://en.gravatar.com/avatar/26d90e88b1eb694cc1276b9ab8d7630f?s=30' /&gt; who congratulated me for the excellent results obtained with the &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;StatsDClientBundle&lt;/a&gt;.&lt;/p&gt;
+   <content type="html">&lt;p&gt;I was contacted by &lt;a href='https://twitter.com/_leopro_'&gt;leopro&lt;/a&gt; &lt;img src='https://en.gravatar.com/avatar/26d90e88b1eb694cc1276b9ab8d7630f?s=30' alt='leopro' /&gt; who congratulated me for the excellent results obtained with the &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;StatsDClientBundle&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Thanks to this comment I now know that &lt;a href='http://blog.servergrove.com/2012/10/09/interesting-symfony-bundles-statsdclientbundle/'&gt;ServerGrove&lt;/a&gt; chosen &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;StatsD Client Bundle&lt;/a&gt; as its top choice for Symfony2 project among more than 1600.&lt;/p&gt;
 

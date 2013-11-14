@@ -119,6 +119,12 @@ and then we add a simple and dirty function (we'll refactor soon)
         return $this->container->get('doctrine.entity_manager')->getRepository('Page')->find($id);
     }
 
+**[EDIT-14/11/2013]** Samuel Gordalina suggests:
+
+You can use ParamConverter which fetches an entity from database or returns a 404 exception.
+For more info see [sample-twitter-api-symfony2:37](https://github.com/gordalina/sample-twitter-api-symfony2/blob/master/src/Twitter/ApiBundle/Controller/TweetController.php#L37)
+
+
 ### Step 2.C - Adding the routes
 
 Add to the route file 
@@ -422,7 +428,7 @@ Tadaaaam the response is a json file:
 
 We could also send different Content type accepted with different preferences eg:
 
-    curl -i -H "Accept: application/json; q=1.0, t/pages/10 q=0.8"  localhost:8000/api/v1/
+    curl -i -H "Accept: application/json; q=1.0, t/pages/10 q=0.8" localhost:8000/api/v1/
 
 The response will be a json file as well:
 
@@ -452,6 +458,8 @@ Thanks to:
 
 [Lukas Kahwe Smith: resting with Sf2 - video](http://www.youtube.com/watch?v=Kkby5fG89K0&feature=youtu.be&from=www.welcometothebundle.com)
 
-[William Durand: rest-apis-with-symfony2-the-right-way](http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/)
+[William Durand: rest-apis-with-symfony2-the-right-way - blog](http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/)
 
-[Daniel Londero: Rest in practice -slide](http://www.slideshare.net/dlondero/rest-in-practice-27335543)
+[Samuel Gordalina: REST APIs made easy with Symfony2 - slide](https://speakerdeck.com/gordalina/rest-apis-made-easy-with-symfony2)
+
+[Daniel Londero: Rest in practice - slide](http://www.slideshare.net/dlondero/rest-in-practice-27335543)
