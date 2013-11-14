@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-11-14T12:02:03+01:00</updated>
+ <updated>2013-11-14T12:47:39+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -17,13 +17,19 @@
    <link href="http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way"/>
    <updated>2013-11-09T00:00:00+01:00</updated>
    <id>http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way</id>
-   <content type="html">&lt;p&gt;Here&amp;#8217;s another nice guide on how to create an API with Symfony2, this is the &lt;strong&gt;part 1&lt;/strong&gt; of a series of articles.&lt;/p&gt;
+   <content type="html">&lt;h4 id='part_1__the_'&gt;Part 1 - the &lt;code&gt;get&lt;/code&gt;&lt;/h4&gt;
+
+&lt;p&gt;Here&amp;#8217;s another nice guide on how to create an API with Symfony2, this is the &lt;strong&gt;part 1&lt;/strong&gt; of a series of articles.&lt;/p&gt;
 
 &lt;p&gt;I would like to be short and concise bringing practical examples.&lt;/p&gt;
 
 &lt;p&gt;I would not talk about the difference between REST and RESTful &lt;a href='http://martinfowler.com/articles/richardsonMaturityModel.html'&gt;Martin Fowler Maturity Model&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;The title of this series is just because I&amp;#8217;ve found a lot of great ideas from the &lt;a href='http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/'&gt;William Durand: rest-apis-with-symfony2-the-right-way&lt;/a&gt; blog written in 2012, so this is a revisited version, talking more about form, and services.&lt;/p&gt;
+
+&lt;h2 id='motivation'&gt;Motivation&lt;/h2&gt;
+
+&lt;p&gt;Writing Leaphly &lt;a href='http://leaphly.org'&gt;symfony cart rest&lt;/a&gt; we had few problems finding a tutorial or a blog post that could show us how to properly use the rest with symfony2 with forms and doctrine.&lt;/p&gt;
 
 &lt;h2 id='goal'&gt;GOAL&lt;/h2&gt;
 
