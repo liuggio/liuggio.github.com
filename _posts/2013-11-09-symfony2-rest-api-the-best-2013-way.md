@@ -156,12 +156,12 @@ From symfony.com
 
     Type hinting the injected object means that you can be sure that a suitable dependency has been injected. By type-hinting, you'll get a clear error immediately if an unsuitable dependency is injected. By type hinting using an interface rather than a class you can make the choice of dependency more flexible. And assuming you only use methods defined in the interface, you can gain that flexibility and still safely use the object.
 
-Following the first rule, we need to create an interface in `/src/Acme/BlogBundle/Model/PageInterface.php` and then put `implements PageInterface` in the entity `Page`.
+Following this as first rule, we need to create an interface in `/src/Acme/BlogBundle/Model/PageInterface.php` and then put `implements PageInterface` in the entity `Page`.
 
-### Step 3.B - The Handler
+### Step 3.B - The Page Handler
 
 In order to remove all the logic from the `PageController`,
-we have to create the service, and we are going to call it `PageHandler` in `/src/Acme/BlogBundle/Handler/PageHandler.php`.
+we have to create a service, we call it `PageHandler` in `/src/Acme/BlogBundle/Handler/PageHandler.php`.
 
 The test for the the `PageHandler` looks something like:
 
@@ -169,17 +169,19 @@ The test for the the `PageHandler` looks something like:
     public function testGet()
     {
         $id = 1;
-        $page = $this->getPage();
-        $this->repository->expects($this->once())->method('find')
+        $page = $this->getPage(); // create a Page object
+        // I expect that the Page repository is called with find(1)
+        $this->repository->expects($this->once())
+            ->method('find')
             ->with($this->equalTo($id))
             ->will($this->returnValue($page));
 
-        $this->pageHandler->get($id);
+        $this->pageHandler->get($id); // call the get.
     }
 
 So it uses `find` to fetch an `id` using the doctrine repository.
 
-We are going to create the effective 'Manager' that will handle all the transactions to the persistence layer:
+We are going to create the effective 'Handler' that will manage all the transactions to the persistence layer:
 
     // /src/Acme/BlogBundle/Handler/PageHandler.php:16
     class PageHandler implements PageHandlerInterface
@@ -231,8 +233,8 @@ first add to your `composer.json` the require-dev section:
 
 then we have to update the dependencies running `php composer.phar update`
 
-There's a lot to say about the functional test we are going to test that when the `api_1_get_page` is called,
-it should return a response with `200`, the type of the content should be `json` ...
+There's a lot to say about the functional test, we are going to test that when the `api_1_get_page` is called,
+it should return a response with `200`, the type of the content should be `json`.
 
 The `liip/functional-test-bundle` helps us
 to handle the fixtures data to the persistence layer before each test.
@@ -350,7 +352,8 @@ We will have a `500` because the database is empty, and that resource doesn't ex
     2013-11-09 15:46:37 ERROR 500: Internal Server Error.
 
 The resource '0' doesn't exists,
-but we want that the status codes reflect the application, so it should return a `404` resource not found.
+but we want that the status codes reflects the application behaviour,
+so it should return a `404` resource not found.
 
 We are going to create a private function that throws an Exception if the `Page` is not found,
 the Exception will modify also automatically the Response Header.
@@ -373,13 +376,14 @@ the Exception will modify also automatically the Response Header.
         return $page;
     }
 
-now executing `wget -S  localhost:8000/api/v1/pages/0.html`, we receive a `404` and we are happy :)
+The controller now should use this function and
+executing `wget -S  localhost:8000/api/v1/pages/0.html`, we receive a `404` and we are happy :)
 
 ## Content Negotiation
 
 An important concept developing the REST API is the [Content Negotiation](http://en.wikipedia.org/wiki/Content_negotiation).
 
-If you think that anything is a resource, maybe you care also about the name of the resource,
+If you think that everything is a resource, maybe you care also about the name of the resource,
 if the page `10` is at `/api/v1/pages/10`, you may want to retrieve the same resource with different content type,
 not specifying the `format` explicitly in the extension `/api/v1/pages/10.hml`, but instead using HTTP `Accept` header.
 
@@ -432,8 +436,7 @@ We understood the importance of Content Negotiation.
 
 ## Next
 
-In the next articles, we will describe how to use the page form as shared interface, we will create, modify, and delete Page and content resources,
-with `PUT`, `PATCH`, `POST`, `DELETE`, and how use other important HTTP headers.
+In the next articles, we will describe how to use the page form as shared interface, we will create, modify, and delete Pages, with `PUT`, `PATCH`, `POST`, `DELETE`, and we will detail how use other important HTTP headers.
 
 ## References:
 
