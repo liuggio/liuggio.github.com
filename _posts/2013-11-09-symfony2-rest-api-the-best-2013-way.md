@@ -7,6 +7,8 @@ tags: [rest, api, symfony2]
 ---
 {% include JB/setup %}
 
+#### Part 1 - the `get`
+
 Here's another nice guide on how to create an API with Symfony2, this is the **part 1** of a series of articles.
 
 I would like to be short and concise bringing practical examples.
@@ -14,6 +16,10 @@ I would like to be short and concise bringing practical examples.
 I would not talk about the difference between REST and RESTful [Martin Fowler Maturity Model](http://martinfowler.com/articles/richardsonMaturityModel.html).
 
 The title of this series is just because I've found a lot of great ideas from the  [William Durand: rest-apis-with-symfony2-the-right-way](http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/) blog written in 2012, so this is a revisited version, talking more about form, and services.
+
+## Motivation
+
+Writing Leaphly [symfony cart rest](http://leaphly.org) we had few problems finding a tutorial or a blog post that could show us how to properly use the rest with symfony2 with forms and doctrine.
 
 ## GOAL
 
