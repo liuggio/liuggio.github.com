@@ -7,7 +7,7 @@ tags: [rest, api, symfony2]
 ---
 {% include JB/setup %}
 
-Here's another nice guide on how to create an API with Symfony2.
+Here's another nice guide on how to create an API with Symfony2, this is the **part 1** of a series of articles.
 
 I would like to be short and concise bringing practical examples.
 
@@ -439,6 +439,8 @@ We understood the importance of Content Negotiation.
 In the next articles, we will describe how to use the page form as shared interface, we will create, modify, and delete Pages, with `PUT`, `PATCH`, `POST`, `DELETE`, and we will detail how use other important HTTP headers.
 
 ## References:
+
+Thanks to:
 
 [Symfony.com](http://www.symfony2.com)
 
