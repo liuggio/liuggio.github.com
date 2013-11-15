@@ -4,10 +4,11 @@ title: "Symfony2 REST API: the best way"
 description: "REST API tutorial on symfony2"
 category: tutorial
 tags: [rest, api, symfony2]
+date: 2013-11-13 13:00:00
 ---
 {% include JB/setup %}
 
-#### Part 1 - the `get`
+### Part 1 - the `GET`
 
 Here's another nice guide on how to create an API with Symfony2, this is the **part 1** of a series of articles.
 
@@ -123,7 +124,6 @@ and then we add a simple and dirty function (we'll refactor soon)
 
 You can use ParamConverter which fetches an entity from database or returns a 404 exception.
 For more info see [sample-twitter-api-symfony2:37](https://github.com/gordalina/sample-twitter-api-symfony2/blob/master/src/Twitter/ApiBundle/Controller/TweetController.php#L37)
-
 
 ### Step 2.C - Adding the routes
 
@@ -397,7 +397,7 @@ An important concept developing the REST API is the [Content Negotiation](http:/
 
 If you think that everything is a resource, maybe you care also about the name of the resource,
 if the page `10` is at `/api/v1/pages/10`, you may want to retrieve the same resource with different content type,
-not specifying the `format` explicitly in the extension `/api/v1/pages/10.hml`, but instead using HTTP `Accept` header.
+not specifying the `format` explicitly in the extension `/api/v1/pages/10.html`, but instead using HTTP `Accept` header.
 
 You could play with the demo using the tag `git checkout -f part1-content-negotiation`,
 also see the differences with the `part1`s tag at [compare/part1-content-negotiation...part1](https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/compare/part1-content-negotiation...part1)

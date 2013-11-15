@@ -52,6 +52,14 @@ a {
     color: #9C2520;
 }
 
+h4 code {
+    font-size: 20px;
+}
+
+code {
+    color: #525252;
+}
+
 code, pre {
     font-size: 12px;
 }

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Symfony2 REST API: the best way - 2013 - article 2"
+title: "Symfony2 REST API: the best way - 2013 - part 2 - POST"
 description: "REST API tutorial on symfony2 second part"
 category: tutorial
 tags: [rest, api, symfony2]
@@ -8,20 +8,32 @@ published: false
 ---
 {% include JB/setup %}
 
-## Nelle puntate precedenti
+### Part 2 - the `POST`
 
-Questo è il secondo articolo che descrive come creare una applicazione REST usando Symfony2.
-Nella prima parte [Symfony2 REST API: the best way](http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way)
-abbiamo creato le basi costruendo l'applicazione il bundle, l'entità `Page`, un Handler che gestisce la logica e un controller rest,
-per ora il controller gestisce solo una get dato un `id`.
+In the '[Symfony2 REST part 1](http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way/)' we created the application, the bundle, we talked about the `GET` method, we also talked about the importance of the Interfaces, the content negotiation, and we gave an example of dumb controllers and brain services.
 
-In questa articolo andremo a completare le funzionalità di creazione, modifica, e cancellazione of a `Page`.
+In this blog post we are going to create a new `Page` via REST API: the form is the protagonist of this article.
 
-## La creazione Post
+## The github repository
 
-Dobbiamo creare una API REST che permetta la creazione di una risorsa di tipo Page, 
-vogliamo che chiamando la risorsa con il metodo POST all'indirizzo `/api/v1/pages.json` 
-e dando come contenuto tutta risorsa serializzata otteniamo una risposta json con un 201.
+There's a repository at [liuggio/symfony2-rest-api-the-best-2013-way](https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/)
+you could see the working code using the tag `part2` with
+
+    php composer.phar create-project liuggio/symfony2-rest-api-the-best-2013-way blog-rest-symfony2
+    cd blog-rest-symfony2
+    git checkout -f part2
+
+All the tags for the demo project are at [tags](https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/releases), and also you could compare the first 2 articles with [compare/part1...part2](https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/compare/part1...part2)
+
+## The creation
+
+We need to create a REST API that allows the creation of a Page.
+
+The story:  calling the resource `/api/v1/pages.json` with POST method, 
+and giving the whole serialized content of a `Page` entity,
+the response should have the status code `201`, and should be a json response.
+
+We could easily write this story into a functional test:
 	
 	// src\Acme\BlogBundle\Tests\Controller\PageControllerTest
     public function testJsonPostPageAction()
@@ -39,33 +51,104 @@ e dando come contenuto tutta risorsa serializzata otteniamo una risposta json co
         $this->assertJsonResponse($this->client->getResponse(), 201, false);
     }
 
-Naturalmente i test sono rossi, andiamo subito ad agire aggiungendo la funzione post nel `PageHandler`.
+and there is another story:
 
-Stiamo per creare una funzione `post` che prende dei parametri come array contenenti tutti i campi dell'entità page,
-i parametri vengono validati, e un oggetto di tipo Pagina viene prima idratato e poi viene utilizzato l'object manager per salvare i contenuti con una persist:
+calling the resource `/api/v1/pages.json` with the POST method, 
+and giving a not correct serialized content of the `Page` entity,
+the response should have the status code `400`.
 
-Il primo step è creare un test che rispetti il comportamento, e successivamente scriveremo la funzione che assomiglierà anche nel nome alla funzione del controller.
-
-
-    /**
-     * Create a new Page.
-     *
-     * @param array $parameters
-     *
-     * @return PageInterface
-     */
-    public function post(array $parameters)
+    public function testJsonPostPageActionShouldReturn400WithBadParameters()
     {
-        $page = $this->createPage();
+        $this->client = static::createClient();
+        $this->client->request(
+            'POST',
+            '/api/v1/pages.json',
+            array(),
+            array(),
+            array('CONTENT_TYPE' => 'application/json'),
+            '{"ninja":"turtles"}'
+        );
 
-        return $this->processForm($page, $parameters, 'POST');
+        $this->assertJsonResponse($this->client->getResponse(), 400, false);
     }
 
+Of course the tests are red, we had to add the `post` function in `PageHandler` then the `postPageAction` in the Controller.
 
-La funzione processForm ha la responsabilità di creare e validare and Hydratation di un oggetto di tipo Page, con il giusto HTTP method:
+We are going to create a `post` function that takes the parameters (as an array) containing all the fields of the entity `Page`,
+the form is responsible to validate and hydrate the new `Page` object,
+then this object is persisted to the Object Manager.
 
-Avrete sicuramente usato già `form->bind(Response)`, ma in questo caso non avete la Request ma solo i valori in array dei campi da riempire quindi invece di `bind` dovremo utilizzare `submit` e poi il check su `isValid`.
+## The validation
 
+We have to add a Validation Layer that the form will perform automatically:
+
+	# src/Acme/BlogBundle/Resources/config/validation.yml
+	Acme\BlogBundle\Entity\Page:
+	    properties:
+	        title:
+	            - NotBlank: ~
+	            - NotNull: ~
+	            - Length:
+	                min: 2
+	                max: 50
+	                minMessage: "Your title must be at least {{ limit }} characters length"
+	                maxMessage: "Your title name cannot be longer than {{ limit }} characters length"
+
+## The PageHandler::post
+
+As always the first step shoul be create a test that respects the behavior,
+and after should be written the function that will look like even in the name to the controller's function.
+
+	// src/Acme/BlogBundle/Handler/PageHandler.php
+	/**
+	 * Create a new Page.
+	 *
+	 * @param array $parameters
+	 *
+	 * @return PageInterface
+	 */
+	public function post(array $parameters)
+	{
+	    $page = $this->createPage(); // factory method create an empty Page
+
+	    // Process form does all the magic, validate and hydrate the Page Object.
+	    return $this->processForm($page, $parameters, 'POST');
+	}
+
+In order to play with the form we need the `form.factory` injected into the service:
+	
+	// src\Acme\BlogBundle\Handler\PageHandler.php
+	use Symfony\Component\Form\FormFactoryInterface;
+	// ...
+	class PageHandler implements PageHandlerInterface
+	// ...
+	private $formFactory;
+	// ...
+	public function __construct(ObjectManager $om, $entityClass, FormFactoryInterface $formFactory)
+	{
+	    $this->om = $om;
+	    $this->entityClass = $entityClass;
+	    $this->repository = $this->om->getRepository($this->entityClass);
+	    $this->formFactory = $formFactory;
+	}
+
+and then we have to add a new argument into the page handler service at `/src/Acme/BlogBundle/Resources/config/services.xml`
+	
+	<?xml version="1.0" ?>
+    <services>
+        <service id="acme_blog.page.handler" class="%acme_blog.page.handler.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument>%acme_blog.page.class%</argument>
+            <argument type="service" id="form.factory"></argument>
+        </service>
+    </services>
+
+It's time to back to `\Acme\BlogBundle\Handler\PageHandler` and create the `processForm` function, the hearth of the write functions.
+
+You have surely already used [form->handleRequest($request)](http://api.symfony.com/2.3/Symfony/Component/Form/FormInterface.html),
+but in this case we don't have the Request but only the values ​​
+in an array, so instead of `handleRequest`, we are going to `submit` the form.
+    
     /**
      * Processes the form.
      *
@@ -75,48 +158,71 @@ Avrete sicuramente usato già `form->bind(Response)`, ma in questo caso non avet
      *
      * @return PageInterface
      *
-     * @throws \Acme\BlogBundle\Exception\InvalidFormException
+     * @throws Acme\BlogBundle\Exception\InvalidFormException
      */
-    private function processForm(PageInterface $page, array $parameters, $method = "PUT")
+    private function processForm(PageInterface $page, array $parameters, $method = 'PUT')
     {
         $form = $this->formFactory->create(new PageType(), $page, array('method' => $method));
-        $form->submit($parameters, false);
+        $form->submit($parameters, 'PATCH' !== $method);
         if ($form->isValid()) {
-
+        	// get the Hydrated Page
             $page = $form->getData();
+            // persistance layer
             $this->om->persist($page);
             $this->om->flush($page);
 
             return $page;
         }
-
+        // custom exception :)
         throw new InvalidFormException('Invalid submitted data', $form);
     }
 
-Questa funzione ritorna un oggetto di tipo PageInterface, ma se i paramtrei non sono validi
-lancia una eccezione di tipo InvalidFormException che poi potrà essere `catch`ed and handled with `$e->getForm`
+This function returns an object of `PageInterface` type, but if the parameters are not valid it
+throws an `InvalidFormException` then will be handled and caught by the controller.
 
-The test is at `src/Acme/BlogBundle/Tests/Handler/PageHandlerTest.php:63`
+The test class is at [part2-src/Acme/BlogBundle/Tests/Handler/PageHandlerTest.php](https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/blob/part2/src/Acme/BlogBundle/Tests/Handler/PageHandlerTest.php/)
 
-### Why don't inject the request?
+### Why don't use the request?
 
-The real question is do we really need the request?
+The real question is: do we really need the request here?
 
-We don't need the request here, the main responsability of `PageHandler` class is that `handle` (creating, editing, showing) the `Page` entity, given some parameters.
+The answer is **no**, the main responsibility of `PageHandler` class is to `handle` (creating, editing, showing)
+the `Page` entity, given some parameters, it doesn't care about Request.
+
 In this way you could use `PageHandler` from another service, without injecting or faking a Request.
 
-`PageHandler` will contain the API for the other services of the `service.container`.
+In the end of this series of articles you will have an application that serves REST API,
 
-### The Post Controller
+but the PageHandler is itself an API, usable for other services of your application via service container.
 
-The post controller is easy all the domain logic is demanded to the PageHandler:
+## The POST and the Controller
+
+The postPageAction is easy, all the domain logic is demanded to the `PageHandler`.
 
     /**
-     * @Annotations\View(statusCode = Codes::HTTP_BAD_REQUEST)
+     * Create a Page from the submitted data.
+     *
+     * @ApiDoc(
+     *   resource = true,
+     *   description = "Creates a new page from the submitted data.",
+     *   input = "Acme\BlogBundle\Form\PageType",
+     *   statusCodes = {
+     *     200 = "Returned when successful",
+     *     400 = "Returned when the form has errors"
+     *   }
+     * )
+     *
+     * @Annotations\View(
+     *  template = "AcmeBlogBundle:Page:newPage.html.twig",
+     *  statusCode = Codes::HTTP_BAD_REQUEST
+     * )
+     *
+     * @return FormTypeInterface|RouteRedirectView
      */
     public function postPageAction()
     {
         try {
+        	// Hey handler create a page for me.
             $newPage = $this->container->get('acme_blog.page.handler')->post(
                     $this->container->get('request')->request->all()
             );
@@ -126,6 +232,7 @@ The post controller is easy all the domain logic is demanded to the PageHandler:
                 '_format' => $this->container->get('request')->get('_format')
             );
 
+            // return HTTP_CREATED, and add location header
             return $this->routeRedirectView('api_1_get_page', $routeOptions, Codes::HTTP_CREATED);
 
         } catch (InvalidFormException $exception) {
@@ -134,18 +241,49 @@ The post controller is easy all the domain logic is demanded to the PageHandler:
         }
     }
 
+Remember to create the template newPage.html.twig.
 
-A new page is created by the `PageHandler`, then the helper `routeRedirectView`  add to the http header 
-the Location: http://localhost:8000/api/v1/pages/47.json.
+#### The Location 
 
-If something the invalid form application
+A new page is created by the `PageHandler`, then the helper `routeRedirectView` adds to the http header
+ the Location: `http://localhost:8000/api/v1/pages/47.json`.
 
+## For human - the newPage action
 
-### test the application
+We are providing a REST API for `json`, `xml`, and `html` formats,
+so a user could be able to create a correct request, we should provide also a web page to create a form:
+
+    /**
+     * Presents the form to use to create a new page.
+     *
+     * @ApiDoc(
+     *   resource = true,
+     *   statusCodes = {
+     *     200 = "Returned when successful"
+     *   }
+     * )
+     *
+     * @Annotations\View()
+     *
+     * @return FormTypeInterface
+     */
+    public function newPageAction()
+    {
+        return $this->createForm(new PageType());
+    }
+
+Automatically a new route is added at `/api/v1/pages/new.{_format}
+` you could check with `app/console router:debug | grep api`
+
+Accessing to the the page with `curl  localhost:8000/api/v1/pages/new -S` we will obtain a working html form.
+
+## Manually test the application
+
+### Checking the happy path
 
 	curl -X POST -d '{"title":"title","body":"body"}' http://localhost:8000/api/v1/pages.json --header "Content-Type:application/json" 
 
-it will return 
+It will return 
 
 	< HTTP/1.1 201 Created
 	< Host: localhost:8000
@@ -153,12 +291,15 @@ it will return
 	< Allow: POST
 	< Content-Type: application/json
 
-This is great status code `201` resource created, and location tells to the consumers where to get this resource.
-and see what's happen if we try to send bad content:
+This is great! HTTP Status code `201` resource created, and location tells to the consumers where to get this resource.
 
-	curl -X POST -d '{"tilde":"title","bold":"body"}' http://localhost:8000/api/v1/pages.json --header "Content-Type:application/json" -v
+### Bad parameters
 
-the Response will be `400`
+Let's try to send a bad content:
+
+	curl -X POST -d '{"ninja":"title","turtles":"body"}' http://localhost:8000/api/v1/pages.json --header "Content-Type:application/json" -v
+
+The Response will be `400`
 
 	< HTTP/1.1 400 Bad Request
 	< Host: localhost:8000
@@ -166,3 +307,104 @@ the Response will be `400`
 	< 
 	< {"form":{"errors":["This form should not contain extra fields."],"children":{"title":[],"body":[]}}}
 
+## The form type name
+
+One thing that seems very obscure in the eyes of those doing the rest with the form is the `getName`,
+
+in all the examples above we sent all the data with an empty name ` return '';` but if we'd change to:
+
+	// src/Acme/BlogBundle/Form/PageType.php
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return 'page';
+    }
+
+The data should sent in a different manner:
+
+	curl -X POST -d '{"page":{"title":"title1","body":"body1"}}' http://localhost:8000/api/v1/pages.json --header "Content-Type:application/json" -v
+
+and the controller should look something like
+
+	public function postPageAction()
+    {
+        try {
+            $form = new PageType();
+            $newPage = $this->container->get('acme_blog.page.handler')->post(
+                    $this->container->get('request')->request->get($form->getName())
+            );
+    // ...
+
+## Things to know (and not always to do)
+
+There are simple steps that could improve a little bit the project,
+in few cases this could be considered as [over-engineering anti-pattern](http://en.wikipedia.org/wiki/Overengineering).
+
+If the form type needs extra powers or we want to remove all the hard-coding and explicit classes:
+	
+	// src\Acme\BlogBundle\Handler\PageHandler::$formFactory
+	$form = $this->formFactory->create(new PageType(), $page, array('method' => $method));
+
+and
+
+	// src/Acme/BlogBundle/Form/PageType.php
+	'data_class' => 'Acme\BlogBundle\Entity\Page',
+
+we could create the PageType as service, and use the name of the service from the PageHandler.
+	
+	<parameter key="acme_blog.page.type.class">Acme\BlogBundle\Form\PageType</parameter>
+    <parameter key="acme_blog.page.type.name"></parameter>
+    <parameter key="acme_blog.page.type.alias">leaphly_cart</parameter>
+
+    <service id="leaphly_cart.cart.form.type" class="Leaphly\CartBundle\Form\Type\CartFormType">
+        <argument>%leaphly_cart.model.cart.class%</argument>
+        <tag name="form.type" alias="%acme_blog.page.type.alias%" />
+    </service>
+
+and then in the `Page handler` do something like:
+
+	$this->formFactory->createNamed(
+
+the code given on github **doesn't cover** the form type as service.
+
+## The documentation as bonus
+
+With [NelmioApiDocBundle](https://github.com/nelmio/NelmioApiDocBundle) we will have a documentation **for free**
+
+adding a route:
+	
+	# app/config/routing.yml
+	NelmioApiDocBundle:
+	    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+	    prefix:   /api/doc
+
+then modifying the PostAction annotations
+
+	/**
+     * @ApiDoc(
+     *   resource = true,
+     *   description = "Creates a new page from the submitted data.",
+     *   input = "Acme\BlogBundle\Form\PageType",
+     *   statusCodes = {
+     *     200 = "Returned when successful",
+     *     400 = "Returned when the form has errors"
+     *   }
+     * )
+     */
+    public function postPageAction()
+
+And thanks to [this guys](https://github.com/nelmio/NelmioApiDocBundle/graphs/contributors) you will have something like:
+
+![NelmioApiDocBundle screen-shot]({{ ASSET_PATH }}/readable-liuggio/img/screenshot-nelmio.png)
+
+## References
+
+[symfony.com/doc/current/cookbook/form/direct_submit.html](http://symfony.com/doc/current/cookbook/form/direct_submit.html)
+
+[symfony.com/doc/current/cookbook/form/create_custom_field_type.html](http://symfony.com/doc/current/cookbook/form/create_custom_field_type.html)
+
+[NelmioApiDocBundle](https://github.com/nelmio/NelmioApiDocBundle)
+
+[lsmith77/symfony-rest-edition/](https://github.com/lsmith77/symfony-rest-edition/)
