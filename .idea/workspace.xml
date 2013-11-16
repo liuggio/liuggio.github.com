@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2476ae60-ec3a-4959-85a2-a6673668d2c0" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_site/index.html.1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/index.html.1" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-11-09-symfony2-rest-api-the-best-2013-way.md" afterPath="$PROJECT_DIR$/_posts/2013-11-09-symfony2-rest-api-the-best-2013-way.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-11-11-symfony2-rest-api-the-best-way-2013-part-2.md" afterPath="$PROJECT_DIR$/_posts/2013-11-11-symfony2-rest-api-the-best-way-2013-part-2.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/atom.xml" afterPath="$PROJECT_DIR$/_site/atom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/categories.html" afterPath="$PROJECT_DIR$/_site/categories.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html" afterPath="$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/index.html" afterPath="$PROJECT_DIR$/_site/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/automate-test-and-code-inspection-in-php-with-guard-and-symfony2/index.html" afterPath="$PROJECT_DIR$/_site/automate-test-and-code-inspection-in-php-with-guard-and-symfony2/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/design-by-contract-behaviour/index.html" afterPath="$PROJECT_DIR$/_site/design-by-contract-behaviour/index.html" />
@@ -23,6 +21,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection/index.html" afterPath="$PROJECT_DIR$/_site/the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/tvision-team-manifesto/index.html" afterPath="$PROJECT_DIR$/_site/tvision-team-manifesto/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/using-github-or-bitbucket-as-assets-container-for-symfony2/index.html" afterPath="$PROJECT_DIR$/_site/using-github-or-bitbucket-as-assets-container-for-symfony2/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_layouts/post.html" afterPath="$PROJECT_DIR$/_layouts/post.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/sitemap.txt" afterPath="$PROJECT_DIR$/_site/sitemap.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/css/style.css" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/themes/readable-liuggio/css/style.css" afterPath="$PROJECT_DIR$/assets/themes/readable-liuggio/css/style.css" />
@@ -45,7 +44,7 @@
     <file path="$USER_HOME$/PhpstormProjects/BlogRESTAPI/src/Acme/BlogBundle/Controller/PageController.php" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384550191290" ignored="false" />
     <file path="$USER_HOME$/PhpstormProjects/BlogRESTAPI/app/config/config.yml" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384550191290" ignored="false" />
     <file path="/config.yml" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384187451821" ignored="false" />
-    <file path="/2013-11-11-symfony2-rest-api-the-best-way-2013-part-2.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384542500560" ignored="false" />
+    <file path="/2013-11-11-symfony2-rest-api-the-best-way-2013-part-2.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384552547133" ignored="false" />
     <file path="$USER_HOME$/PhpstormProjects/BlogRESTAPI/src/Acme/BlogBundle/Tests/Controller/PageControllerTest.php" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384550191290" ignored="false" />
     <file path="$USER_HOME$/PhpstormProjects/BlogRESTAPI/src/Acme/BlogBundle/Resources/config/validation.yml" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384550191290" ignored="false" />
     <file path="$USER_HOME$/PhpstormProjects/BlogRESTAPI/src/Acme/BlogBundle/Entity/Page.php" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384550191290" ignored="false" />
@@ -77,7 +76,7 @@
       <file leaf-file-name="2013-11-11-symfony2-rest-api-the-best-way-2013-part-2.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_posts/2013-11-11-symfony2-rest-api-the-best-way-2013-part-2.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="359" column="0" selection-start="12895" selection-end="12895" vertical-scroll-proportion="0.12426036">
+            <state line="7" column="15" selection-start="216" selection-end="216" vertical-scroll-proportion="0.14201184">
               <folding />
             </state>
           </provider>
@@ -396,7 +395,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -557,7 +556,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2013-11-11-symfony2-rest-api-the-best-way-2013-part-2.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="359" column="0" selection-start="12895" selection-end="12895" vertical-scroll-proportion="0.12426036">
+        <state line="7" column="15" selection-start="216" selection-end="216" vertical-scroll-proportion="0.14201184">
           <folding />
         </state>
       </provider>

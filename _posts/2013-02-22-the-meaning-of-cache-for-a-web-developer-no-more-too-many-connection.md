@@ -2,7 +2,7 @@
 layout: post
 title: "The meaning of Cache for a web developer no more too many connection"
 description: "Cache definitions and implementations"
-category: Cache
+category: post
 tags: [HTTP, cache, php, APC, redis, assets]
 published: true
 ---

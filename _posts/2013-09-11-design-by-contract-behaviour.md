@@ -2,7 +2,7 @@
 layout: post
 title: "Design by contract behaviour"
 description: ""
-category: fluffy
+category: blah-blah-blah
 tags: [php-internal, php, interface]
 published: true
 ---

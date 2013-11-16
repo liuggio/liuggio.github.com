@@ -90,20 +90,34 @@
                 <!-- end sticky section
                 ================================================== -->
                 <div class="">
-                    <h2>Categories</h2>
+                    <h3>Categories</h3>
                     <ul>
                         {% assign categories_list = site.categories %}
                         {% include JB/categories_list %}
                     </ul>
-
                 </div>
+                
                 <div class="">
-                    <h2>Tags</h2>
+                    <h3>Tags</h3>
                     <ul class="tag_box">
                         {% assign tags_list = site.tags %}
                         {% include JB/tags_list %}
                     </ul>
                 </div>
+
+                {% if site.related_posts %}
+                    <div id="related">
+                    <h3>Related Posts</h3>
+                    <ul class="posts">
+                    {% for post in site.related_posts limit:5 %}
+                    <li>
+                      <span>{{ post.date | date_to_string }} &raquo;</span>
+                      </br><a href="{{ post.url }}">{{ post.title }}</a>
+                    </li>
+                    {% endfor %}
+                    </ul>
+                    </div>
+                {% endif %}
             </aside>
 
             <!-- start content section
@@ -152,6 +166,10 @@
             break;
         } else if (links[i].href == 'http://www.slideshare.net/liuggio/its-all-about-behaviour-also-in-php') {
             links[i].innerHTML = '<iframe src="http://www.slideshare.net/slideshow/embed_code/27465974?rel=0" width="512" height="421" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe><div style="margin-bottom:5px"> <strong> <a href="http://www.slideshare.net/liuggio/its-all-about-behaviour-also-in-php/?no" title="It is all about behaviour also in php. PHP loves BDD." target="_blank">It is all about behaviour also in php. PHP loves BDD.</a></div>';
+        } else if (links[i].href == 'http://www.slideshare.net/liuggio/design-pattern-symfony2') {
+            links[i].innerHTML = '<div class="centered center"><iframe src="http://www.slideshare.net/slideshow/embed_code/27449969?rel=0" width="512" height="421" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe><div style="margin-bottom:5px"> <strong> <a href="http://www.slideshare.net/liuggio/design-pattern-symfony2/?no" title="Design pattern symfony2 - Nanos gigantium humeris insidentes" target="_blank">Design pattern Symfony2 - Nanos gigantium humeris insidentes</a></div></div>';
+        } else if (links[i].href == 'http://www.slideshare.net/liuggio/caching-and-data-analysis-will-move-your-symfony2-application-to-the-next-level') {
+            links[i].innerHTML = '<div class="centered center"><iframe src="http://www.slideshare.net/slideshow/embed_code/21395241?rel=0" width="512" height="421" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe><div style="margin-bottom:5px"> <strong> <a href="http://www.slideshare.net/liuggio/caching-and-data-analysis-will-move-your-symfony2-application-to-the-next-level?no" title="Caching and data analysis will move your Symfony2 application to the next level" target="_blank">Caching and data analysis will move your Symfony2 application to the next level</a></div></div>';
         }
     }
 

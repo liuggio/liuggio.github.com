@@ -2,7 +2,7 @@
 layout: post
 title: "Symfony2 assets on RackSpace Cloud files"
 description: ""
-category: "cloud"
+category: "tutorial"
 tags: [rackspace, symfony2, bundle, assetic, cdn, php, assets]
 published: true
 ---

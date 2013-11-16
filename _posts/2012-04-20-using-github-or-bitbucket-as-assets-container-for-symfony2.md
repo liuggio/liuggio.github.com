@@ -2,7 +2,7 @@
 layout: post
 title: "Using Github or Bitbucket as Assets container for Symfony2"
 description: ""
-category: "hack"
+category: post
 tags: [assetic, symfony2, bundle, github, bitbucket, php, assets]
 published: true
 ---

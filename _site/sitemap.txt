@@ -1,12 +1,15 @@
 
 http://welcometothebundle.com/categories.html
 http://welcometothebundle.com/atom.xml
+http://welcometothebundle.com/new-page.html
 http://welcometothebundle.com/tags.html
 http://welcometothebundle.com/sitemap.txt
 http://welcometothebundle.com/index.html
 
 http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way
+http://welcometothebundle.com/symfony2-design-patterns
 http://welcometothebundle.com/design-by-contract-behaviour
+http://welcometothebundle.com/caching-and-data-analysis-will-move-your-application-to-the-next-level
 http://welcometothebundle.com/doctrine2-tracking-policy
 http://welcometothebundle.com/it-is-all-about-behaviour-also-in-php
 http://welcometothebundle.com/the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection

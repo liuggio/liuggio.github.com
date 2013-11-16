@@ -32,7 +32,7 @@ Usage:
       <ul>
     {% endif %}
 
-    <li><span>{{ post.date | date: "%B %e, %Y" }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}" title="{{ post.title }} written in {{this_year}} {{this_month}}">{{ post.title }}</a>
+    <li> [<a href="{{ BASE_PATH }}{{ site.JB.categories_path }}#{{  post.category }}-ref">{{ post.category  | join: "/" }}</a>] <span>{{ post.date | date: "%B %e, %Y" }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}" title="{{ post.title }} written in {{this_year}} {{this_month}}">{{ post.title }}</a>
        <p class="archive-short-description"><a href="{{ BASE_PATH }}{{ post.url }}" title="{{ post.title }}"> {{ post.content | strip_html | truncatewords: 35}}</a></p>
 
     </li>

@@ -2,7 +2,7 @@
 layout: post
 title: "2013-Software Team Manifesto"
 description: ""
-category: "manifesto"
+category: post
 tags: [tvision, team, coding, php]
 date: 2012-09-16 16:09:12
 ---

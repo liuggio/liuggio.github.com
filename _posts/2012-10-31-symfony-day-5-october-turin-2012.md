@@ -2,7 +2,7 @@
 layout: post
 title: "Improving the performance of a Symfony2 web application."
 description: "Speaker at Symfonyday in Turin"
-category: conference
+category: talk
 tags: [symfony2, conference, speaker, cache, optimization]
 date: 2012-10-31 23:01:25
 ---

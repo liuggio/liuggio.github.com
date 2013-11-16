@@ -10,7 +10,7 @@ pygments: true
 # so be sure to set them if your theme uses them.
 #
 title : Welcome to the bundle
-tagline: Best Practice, symfony2, developing, and fluffs.
+tagline: "Best Practices, Symfony2, developing, and blah blah blah."
 author :
   name : liuggio
   email : liuggio@liuggio
@@ -91,7 +91,7 @@ JB :
       num_posts: 5
       width: 580
       colorscheme: light
-   
+
   # Settings for analytics helper
   # Set 'provider' to the analytics provider you want to use.
   # Set 'provider' to false to turn analytics off globally.

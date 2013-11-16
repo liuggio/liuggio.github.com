@@ -2,7 +2,7 @@
 layout: post
 title: "Doctrine2 tracking policy"
 description: "Tracking policy"
-category: Tips
+category: post
 tags: [doctrine2, php]
 published: true
 ---
