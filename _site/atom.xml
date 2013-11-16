@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-11-16T12:04:50+01:00</updated>
+ <updated>2013-11-16T18:21:10+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -29,7 +29,7 @@
 
 &lt;h2 id='motivation'&gt;Motivation&lt;/h2&gt;
 
-&lt;p&gt;Writing Leaphly &lt;a href='http://leaphly.org'&gt;symfony cart rest&lt;/a&gt; we had few problems finding a tutorial or a blog post that could show us how to properly use the rest with symfony2 with forms and doctrine.&lt;/p&gt;
+&lt;p&gt;Writing Leaphly &lt;a href='http://leaphly.org'&gt;symfony cart rest&lt;/a&gt; we had few problems finding a tutorial or a blog post that could show us how to properly use REST and symfony2 with forms and doctrine.&lt;/p&gt;
 
 &lt;h2 id='goal'&gt;GOAL&lt;/h2&gt;
 
@@ -53,11 +53,12 @@
 
 &lt;p&gt;There&amp;#8217;s a repository at &lt;a href='https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/'&gt;liuggio/symfony2-rest-api-the-best-2013-way&lt;/a&gt; you could see the working code using the tag &lt;code&gt;part1&lt;/code&gt; with&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;php composer.phar create-project liuggio/symfony2-rest-api-the-best-2013-way blog-rest-symfony2
+&lt;pre&gt;&lt;code&gt;php composer.phar create-project liuggio/symfony2-rest-api-the-best-2013-way blog-rest-symfony2 -sdev
 cd blog-rest-symfony2
-git checkout -f part1&lt;/code&gt;&lt;/pre&gt;
+git checkout -f part1
+bin/phpunit -c app&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;All the tags for the demo project at &lt;a href='https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/releases'&gt;tags&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;All the tags for the demo project at &lt;a href='https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/tags'&gt;tags&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id='step_1a_the_application'&gt;Step 1.A The application&lt;/h2&gt;
 
@@ -170,10 +171,13 @@ acme_blog_Page:
 
 &lt;h3 id='step_3a__interface_as_contract'&gt;Step 3.A - Interface as contract&lt;/h3&gt;
 
-&lt;p&gt;From symfony.com&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Type hinting the injected object means that you can be sure that a suitable dependency has been injected. By type-hinting, you&amp;#39;ll get a clear error immediately if an unsuitable dependency is injected. By type hinting using an interface rather than a class you can make the choice of dependency more flexible. And assuming you only use methods defined in the interface, you can gain that flexibility and still safely use the object.&lt;/code&gt;&lt;/pre&gt;
-
+&lt;p&gt;From &lt;a href='http://symfony.com'&gt;symfony.com&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+Type hinting the injected object means that you can be sure that a suitable dependency has been injected.
+By type-hinting, you'll get a clear error immediately if an unsuitable dependency is injected.
+By type hinting using an interface rather than a class you can make the choice of dependency more flexible.
+And assuming you only use methods defined in the interface, you can gain that flexibility and still safely use the object.
+&lt;/blockquote&gt;
 &lt;p&gt;Following this as first rule, we need to create an interface in &lt;code&gt;/src/Acme/BlogBundle/Model/PageInterface.php&lt;/code&gt; and then put &lt;code&gt;implements PageInterface&lt;/code&gt; in the entity &lt;code&gt;Page&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h3 id='step_3b__the_page_handler'&gt;Step 3.B - The Page Handler&lt;/h3&gt;
@@ -396,7 +400,7 @@ protected function getOr404($id)
 
 &lt;p&gt;If you think that everything is a resource, maybe you care also about the name of the resource, if the page &lt;code&gt;10&lt;/code&gt; is at &lt;code&gt;/api/v1/pages/10&lt;/code&gt;, you may want to retrieve the same resource with different content type, not specifying the &lt;code&gt;format&lt;/code&gt; explicitly in the extension &lt;code&gt;/api/v1/pages/10.html&lt;/code&gt;, but instead using HTTP &lt;code&gt;Accept&lt;/code&gt; header.&lt;/p&gt;
 
-&lt;p&gt;You could play with the demo using the tag &lt;code&gt;git checkout -f part1-content-negotiation&lt;/code&gt;, also see the differences with the &lt;code&gt;part1&lt;/code&gt;s tag at &lt;a href='https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/compare/part1-content-negotiation...part1'&gt;compare/part1-content-negotiation&amp;#8230;part1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span&gt;EDIT&lt;/span&gt; removed the tags content-negotiation. If you want to play with the rest application without the extension, set false to &lt;code&gt;prefer_extension&lt;/code&gt; here:&lt;code&gt;https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/blob/master/app/config/config.yml#L102&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;Request: &lt;code&gt;curl -i localhost:8000/api/v1/pages/10&lt;/code&gt; No Accept header is sent so the fallback is &lt;code&gt;text/html&lt;/code&gt;&lt;/p&gt;
 
@@ -442,9 +446,7 @@ Allow: GET
 
 &lt;p&gt;In the next articles, we will describe how to use the page form as shared interface, we will create, modify, and delete Pages, with &lt;code&gt;PUT&lt;/code&gt;, &lt;code&gt;PATCH&lt;/code&gt;, &lt;code&gt;POST&lt;/code&gt;, &lt;code&gt;DELETE&lt;/code&gt;, and we will detail how use other important HTTP headers.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href='/symfony2-rest-api-the-best-way-2013-part-2/'&gt;&amp;#187; symfony rest api - part 2 - the post&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id='references'&gt;References:&lt;/h2&gt;
+&lt;h3 id='references'&gt;References:&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href='http://www.symfony2.com'&gt;Symfony.com&lt;/a&gt;&lt;/p&gt;
 

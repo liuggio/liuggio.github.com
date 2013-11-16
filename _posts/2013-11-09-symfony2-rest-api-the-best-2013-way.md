@@ -16,11 +16,11 @@ I would like to be short and concise bringing practical examples.
 
 I would not talk about the difference between REST and RESTful [Martin Fowler Maturity Model](http://martinfowler.com/articles/richardsonMaturityModel.html).
 
-The title of this series is just because I've found a lot of great ideas from the  [William Durand: rest-apis-with-symfony2-the-right-way](http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/) blog written in 2012, so this is a revisited version, talking more about form, and services.
+The title of this series is just because I've found a lot of great ideas from the [William Durand: rest-apis-with-symfony2-the-right-way](http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/) blog written in 2012, so this is a revisited version, talking more about form, and services.
 
 ## Motivation
 
-Writing Leaphly [symfony cart rest](http://leaphly.org) we had few problems finding a tutorial or a blog post that could show us how to properly use the rest with symfony2 with forms and doctrine.
+Writing Leaphly [symfony cart rest](http://leaphly.org) we had few problems finding a tutorial or a blog post that could show us how to properly use REST and symfony2 with forms and doctrine.
 
 ## GOAL
 
@@ -40,11 +40,12 @@ The real objective is create an application that shows some best practices and r
 There's a repository at [liuggio/symfony2-rest-api-the-best-2013-way](https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/)
 you could see the working code using the tag `part1` with
 
-    php composer.phar create-project liuggio/symfony2-rest-api-the-best-2013-way blog-rest-symfony2
+    php composer.phar create-project liuggio/symfony2-rest-api-the-best-2013-way blog-rest-symfony2 -sdev
     cd blog-rest-symfony2
     git checkout -f part1
+    bin/phpunit -c app
 
-All the tags for the demo project at [tags](https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/releases)
+All the tags for the demo project at [tags](https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/tags)
 
 ## Step 1.A The application
 
@@ -164,9 +165,15 @@ in later articles we will see how take advantage of the changes made.
 
 ### Step 3.A - Interface as contract
 
-From symfony.com
 
-    Type hinting the injected object means that you can be sure that a suitable dependency has been injected. By type-hinting, you'll get a clear error immediately if an unsuitable dependency is injected. By type hinting using an interface rather than a class you can make the choice of dependency more flexible. And assuming you only use methods defined in the interface, you can gain that flexibility and still safely use the object.
+From [symfony.com](http://symfony.com)
+
+<blockquote>
+Type hinting the injected object means that you can be sure that a suitable dependency has been injected.
+By type-hinting, you'll get a clear error immediately if an unsuitable dependency is injected.
+By type hinting using an interface rather than a class you can make the choice of dependency more flexible.
+And assuming you only use methods defined in the interface, you can gain that flexibility and still safely use the object.
+</blockquote>
 
 Following this as first rule, we need to create an interface in `/src/Acme/BlogBundle/Model/PageInterface.php` and then put `implements PageInterface` in the entity `Page`.
 
@@ -399,8 +406,8 @@ If you think that everything is a resource, maybe you care also about the name o
 if the page `10` is at `/api/v1/pages/10`, you may want to retrieve the same resource with different content type,
 not specifying the `format` explicitly in the extension `/api/v1/pages/10.html`, but instead using HTTP `Accept` header.
 
-You could play with the demo using the tag `git checkout -f part1-content-negotiation`,
-also see the differences with the `part1`s tag at [compare/part1-content-negotiation...part1](https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/compare/part1-content-negotiation...part1)
+[EDIT] removed the tags content-negotiation.
+If you want to play with the rest application without the extension, set false to `prefer_extension` here:`https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/blob/master/app/config/config.yml#L102`.
 
 Request: `curl -i localhost:8000/api/v1/pages/10`
 No Accept header is sent so the fallback is `text/html`
@@ -450,10 +457,8 @@ We understood the importance of Content Negotiation.
 
 In the next articles, we will describe how to use the page form as shared interface, we will create, modify, and delete Pages, with `PUT`, `PATCH`, `POST`, `DELETE`, and we will detail how use other important HTTP headers.
 
-[>> symfony rest api - part 2 - the post](/symfony2-rest-api-the-best-way-2013-part-2/)
 
-
-## References:
+### References:
 
 [Symfony.com](http://www.symfony2.com)
 
