@@ -3,7 +3,7 @@ layout: post
 title: "Caching and data analysis will move your application to the next level"
 description: "If you don't ignore data you could find a business value."
 category: talk
-tags: [symfony2, cache, statsd, doctrine]
+tags: [symfony2, cache, statsd, doctrine, talk]
 ---
 {% include JB/setup %}
 

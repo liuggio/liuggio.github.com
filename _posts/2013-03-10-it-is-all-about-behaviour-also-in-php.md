@@ -3,7 +3,7 @@ layout: post
 title: "It is all about behaviour also in php"
 description: "PHPUnit vs PHPSpec: theory on Behaviour Driven Development 2/3"
 category: talk
-tags: [phpunit, tdd, bdd, php, test, phpspec]
+tags: [phpunit, tdd, bdd, php, test, phpspec, talk]
 published: true
 ---
 {% include JB/setup %}

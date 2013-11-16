@@ -3,7 +3,7 @@ layout: post
 title: "Symfony2 design patterns @ symfonyday"
 description: "Speaker at Symfonyday in Rome"
 category: talk
-tags: [symfony2, conference, speaker, design-patterns]
+tags: [symfony2, conference, design-patterns, talk]
 ---
 {% include JB/setup %}
 

@@ -146,6 +146,7 @@
 <!-- /container -->
 <script src="{{ ASSET_PATH }}/bootstrap/js/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script src="{{ ASSET_PATH }}/js/highlight.pack.js" type="text/javascript"></script>
+<script src="{{ ASSET_PATH }}/js/cloud.js" type="text/javascript"></script>
 
 {% include JB/analytics %}
 <script type="text/javascript">
@@ -225,6 +226,15 @@
             $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
         });
     </script>
+<script type="text/javascript">
+    $.fn.tagcloud.defaults = {
+      size: {start: 10, end: 20, unit: 'px'},
+      color: {start: '#CD4540', end: '9C2520'}
+    };
 
+    $(function () {
+      $('ul.tag_box li a').tagcloud();
+    });
+</script>
 </body>
 </html>

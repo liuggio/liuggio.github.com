@@ -3,7 +3,7 @@ layout: post
 title: "Improving the performance of a Symfony2 web application."
 description: "Speaker at Symfonyday in Turin"
 category: talk
-tags: [symfony2, conference, speaker, cache, optimization]
+tags: [symfony2, conference, talk, cache, optimization]
 date: 2012-10-31 23:01:25
 ---
 {% include JB/setup %}
