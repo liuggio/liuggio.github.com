@@ -4,7 +4,7 @@ title: "part2 - Web API REST with Symfony2: the best way - The POST method"
 description: "REST API tutorial on symfony2 second part"
 category: tutorial
 tags: [rest, api, symfony2]
-published: true
+published: false
 date: 2013-11-16 13:00:00
 ---
 {% include JB/setup %}
