@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Web API REST with Symfony2: the best way - part 2 - The POST method"
+title: "part2 - Web API REST with Symfony2: the best way - The POST method"
 description: "REST API tutorial on symfony2 second part"
 category: tutorial
 tags: [rest, api, symfony2]
-published: false
+published: true
 date: 2013-11-16 13:00:00
 ---
 {% include JB/setup %}
@@ -30,6 +30,107 @@ All the tags for the demo project are at [tags](https://github.com/liuggio/symfo
 ## The creation
 
 We need a REST API that allows the creation of a Page.
+
+### The verbs
+
+Since you want to follow the REST methodology, you should create a web interface,
+which will make use of the HTTP verbs that are available.
+
+The good practices suggests to use **nouns** not verbs, the verbs should used into the header for the HTTP request (this is not really always true we'll see in the third part).
+
+The convention also imposes to use plurals nouns, `pages` instead page, is simpler and coherent.
+
+The following table shoo
+
+<table class="table">
+<thead>
+<tr>
+    <th>Resource</th>
+    <th>GET</th>
+    <th>POST</th>
+    <th>PUT</th>
+    <th>PATCH</th>
+    <th>DELETE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td><b>pages</b></td>
+    <td>List of Pages</td>
+    <td>Create a new Page</td>
+    <td>-</td>
+    <td>-</td>
+    <td>[Delete all the pages]*</td>
+</tr>
+<tr>
+    <td><b>pages/{id}</b></td>
+    <td>Show pages/10</td>
+    <td>-</td>
+    <td>Update a specific page <br>[and create if not exists]*</td>
+    <td>Partial update a specific page</td>
+    <td>Delete a specific page</td>
+</tr>
+</tbody>
+</table>
+
+The `POST` should create a new resource, the `PUT` should modify an entity.
+
+The `PUT` should also create the resource if it not exists, please see the definition of `safe` and `idempotent`.
+But in some web API the objective of the PUT is only to update a given resource, because is just simpler separate the creation with `POST` and the update with `PUT`.
+
+### The actions
+
+The table below, describes the name of the actions, on the head of the table the HTTP verbs.
+
+<table class="table">
+<thead>
+<tr>
+    <th>Resource</th>
+    <th>GET</th>
+    <th>POST</th>
+    <th>PUT</th>
+    <th>PATCH</th>
+    <th>DELETE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td><b>pages</b></td>
+    <td>List of Pages
+<br>
+    getPagesAction()
+    </td>
+    <td>Create a new Page<br>
+    postPagesAction()
+    </td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+</tr>
+<tr>
+    <td><b>pages/{id}</b></td>
+    <td>Show
+<br>
+    getPageAction($id)</td>
+    <td>-</td>
+    <td>Update
+<br>
+    putPageAction($id) </td>
+    <td>Partial update
+<br>
+    patchPageAction($id)</td>
+    <td>Delete
+<br>deletePageAction($id)
+    </td>
+</tr>
+</tbody>
+</table>
+
+So just creating the action properly we will have automatically configured the routes, with the proper HTTP verbs.
+
+More info at [rest-action fosRestBundle](https://github.com/FriendsOfSymfony/FOSRestBundle/blob/master/Resources/doc/5-automatic-route-generation_single-restful-controller.md#rest-actions).
+
+### POST
 
 The story:  calling the resource `/api/v1/pages.json` with POST method, 
 and giving the whole serialized content of a `Page` entity,
@@ -98,10 +199,14 @@ We have to add a validation layer that will be invisible because the form will p
 
 ## The PageHandler::post
 
-The first step should be create a test that respects the behavior.
+In the first article we created a service called `PageHandler`, its objective is to respect the `PageHandlerInterface`, serving the `Page` entity with `get(id)` and `post()`: it could read and write a `Page` resource.
+
+The first step should be create a test that respects the behavior that we want for the post.
 
 Given parameters containing properties of the `Page` like `array('title'=>'title')`
 the function should return an already persisted object respecting the interface `PageInterface`. 
+
+### The post
 
 We are now going to create a function that look like even in the name to the controller's function.
 
@@ -120,6 +225,8 @@ We are now going to create a function that look like even in the name to the con
 	    // Process form does all the magic, validate and hydrate the Page Object.
 	    return $this->processForm($page, $parameters, 'POST');
 	}
+
+### The form factory
 
 In order to use the form we need the `form.factory` injected into the service:
 	
@@ -148,6 +255,8 @@ and then we have to add a new argument into the page handler service at `/src/Ac
             <argument type="service" id="form.factory"></argument>
         </service>
     </services>
+
+### The processForm
 
 It's time to back to `\Acme\BlogBundle\Handler\PageHandler` and create the `processForm` function, the hearth of the write functions.
 
@@ -229,6 +338,7 @@ The postPageAction is simple, all the domain logic is demanded to the `PageHandl
         try {
         	// Hey handler create a page for me.
             $newPage = $this->container->get('acme_blog.page.handler')->post(
+                    // this is the body of the request
                     $this->container->get('request')->request->all()
             );
 
@@ -303,14 +413,28 @@ and the controller should look something like
             );
     // ...
 
-## Rest is for human
+## Rest is (also) for human
 
-<blockquote>... There's a number of great technical reasons to move to an architecture like REST.
-In fact, there's a number of great reasons to implement SOAP, XML-RPC, or similar architecture on your app, the distinctions being less relevant for this post.
-But REST isn't just for API clients or web browsers: REST is for people, too.
-... from ZAC-1 </blockquote>
+The title `Rest is also for human` is self explanatory and the guys at Friends Of Symfony, explained how to create adding some `conventional actions` could increase the interaction with the REST process:
+
+### Conventional Actions
+
+<blockquote>
+HATEOAS, or Hypermedia as the Engine of Application State, is an aspect of REST which allows clients to interact with the REST service with hypertext - most commonly through an HTML page. There are 3 Conventional Action routings that are supported by this bundle: 
+
+<b>new</b>, <b>edit</b>, <b>remove</b> ... from FOSREST-1
+</blockquote>
+
+### People (and REST) got the power
+
+There are many protocols and each has its advantages and its reasons, SOAP, XML-RPC. The added value of REST is that it is not just for client API and web browser is **for people too**.
+
+In this article we are not going to provide the glory of rest, but only some tips,
+in order to create clean API and clean code. 
 
 ### The newPage action
+
+**new** - A hypermedia representation that acts as the engine to POST. Typically this is a form that allows the client to POST a new resource. Shown as PageController::newPagesAction()
 
 We are providing a REST API for `json`, `xml`, and `html` formats,
 so a user could be able to create a correct request, we should provide also a web page to create the form:
@@ -389,7 +513,7 @@ and do you remember how we created the PageType?
 	// src/Acme/BlogBundle/Form/PageType.php
 	'data_class' => 'Acme\BlogBundle\Entity\Page',
 
-We hardcoded the classes inside another class, we create a dependency.
+We hardcoded the classes inside another class, we create an hard dependency.
 
 ### The solution
 
@@ -414,7 +538,7 @@ the code given on github **doesn't cover** the form type as service.
 
 In few cases this could be considered an [over-engineered](http://en.wikipedia.org/wiki/Overengineering) task,
 
-but when the form type needs extra powers or when we want to remove all the hard-coding and explicit classes,
+but when the form type needs extra powers(eg. database access) or when we want to remove all the hard-coding and explicit classes,
 or if we want to centralize the parameters and the classes in order to be easily changed or renamed,
 the form type as service could be useful.
 
@@ -496,6 +620,8 @@ we will detail how use other important HTTP headers, we will play with `filter` 
 ### References
 
 [ZAC-1 - Zach Holman: The Human is a RESTful Client](http://zachholman.com/2010/03/the-human-is-a-restful-client/)
+
+[FOSREST-1](https://github.com/FriendsOfSymfony/FOSRestBundle/blob/master/Resources/doc/5-automatic-route-generation_single-restful-controller.md#conventional-actions)
 
 [symfony.com/doc/current/cookbook/form/direct_submit.html](http://symfony.com/doc/current/cookbook/form/direct_submit.html)
 

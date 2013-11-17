@@ -5,6 +5,16 @@
     padding-left: 10px;
 }
 
+a.headerlink {
+    color: #EEEEEE;
+    font-size: 60%;
+    padding: 2px;
+    text-decoration: none;
+    font-family: 'Lato',Helvetica,Arial,sans-serif;
+    padding: 0 0 2px 4px;
+    margin:0;
+}
+
 /* Override some defaults */
 body {
     background: #FFFFFF;

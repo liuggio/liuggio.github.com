@@ -236,5 +236,15 @@
       $('ul.tag_box li a').tagcloud();
     });
 </script>
+
+<script>
+$(document).ready(function() {
+    $('h2, h3').each(function(i, e) {
+        var a = '<a class="headerlink" href="#'+e.id+'" name="#'+e.id+'" title="Permalink to this headline">¶</a>';
+        $(e).append(a);
+    });
+});
+</script>
+
 </body>
 </html>
