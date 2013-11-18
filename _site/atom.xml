@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-11-17T19:19:15+01:00</updated>
+ <updated>2013-11-18T22:05:20+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -170,13 +170,12 @@ acme_blog_Page:
 &lt;p&gt;As I said we are trying to do things at our best, while this may seem over-engineering, in later articles we will see how take advantage of the changes made.&lt;/p&gt;
 
 &lt;h3 id='step_3a__interface_as_contract'&gt;Step 3.A - Interface as contract&lt;/h3&gt;
-
-&lt;p&gt;From &lt;a href='http://symfony.com'&gt;symfony.com&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 Type hinting the injected object means that you can be sure that a suitable dependency has been injected.
 By type-hinting, you'll get a clear error immediately if an unsuitable dependency is injected.
 By type hinting using an interface rather than a class you can make the choice of dependency more flexible.
 And assuming you only use methods defined in the interface, you can gain that flexibility and still safely use the object.
+ &lt;small&gt; from &lt;cite title='Source Title'&gt;sf2 - symfony.com&lt;/cite&gt;&lt;/small&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Following this as first rule, we need to create an interface in &lt;code&gt;/src/Acme/BlogBundle/Model/PageInterface.php&lt;/code&gt; and then put &lt;code&gt;implements PageInterface&lt;/code&gt; in the entity &lt;code&gt;Page&lt;/code&gt;.&lt;/p&gt;
 
@@ -448,15 +447,17 @@ Allow: GET
 
 &lt;h3 id='references'&gt;References:&lt;/h3&gt;
 
-&lt;p&gt;&lt;a href='http://www.symfony2.com'&gt;Symfony.com&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href='http://www.symfony2.com'&gt;sf2 - Symfony.com&lt;/a&gt;&lt;/li&gt;
 
-&lt;p&gt;&lt;a href='http://www.youtube.com/watch?v=Kkby5fG89K0&amp;amp;feature=youtu.be&amp;amp;from=www.welcometothebundle.com'&gt;Lukas Kahwe Smith: resting with Sf2 - video&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;a href='http://www.youtube.com/watch?v=Kkby5fG89K0&amp;amp;feature=youtu.be&amp;amp;from=www.welcometothebundle.com'&gt;Lukas Kahwe Smith: resting with Sf2 - video&lt;/a&gt;&lt;/li&gt;
 
-&lt;p&gt;&lt;a href='http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/'&gt;William Durand: rest-apis-with-symfony2-the-right-way - blog&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;a href='http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/'&gt;William Durand: rest-apis-with-symfony2-the-right-way - blog&lt;/a&gt;&lt;/li&gt;
 
-&lt;p&gt;&lt;a href='https://speakerdeck.com/gordalina/rest-apis-made-easy-with-symfony2'&gt;Samuel Gordalina: REST APIs made easy with Symfony2 - slide&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;a href='https://speakerdeck.com/gordalina/rest-apis-made-easy-with-symfony2'&gt;Samuel Gordalina: REST APIs made easy with Symfony2 - slide&lt;/a&gt;&lt;/li&gt;
 
-&lt;p&gt;&lt;a href='http://www.slideshare.net/dlondero/rest-in-practice-27335543'&gt;Daniel Londero: Rest in practice - slide&lt;/a&gt;&lt;/p&gt;</content>
+&lt;li&gt;&lt;a href='http://www.slideshare.net/dlondero/rest-in-practice-27335543'&gt;Daniel Londero: Rest in practice - slide&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content>
  </entry>
  
  <entry>
@@ -897,7 +898,7 @@ function delete($id);&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;• Test case example Becomes group&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;BUT&lt;/strong&gt; You would be distracted by the code loosing focus on the result, and you might miss the concept of behaviour. [EDITED 07-01-2013 thanks to &lt;a href='http://twitter.com/euxpom'&gt;euxpom &lt;img src='http://gravatar.com/avatar/77014411a56fa9c746d6a89b7fd96121?size=20' alt='exupom' /&gt;&lt;/a&gt;]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;BUT&lt;/strong&gt; You would be distracted by the code loosing focus on the result, and you might miss the concept of behaviour. [EDITED 07-01-2013 thanks to &lt;a href='http://twitter.com/euxpom'&gt;euxpom &lt;img alt='exupom' src='http://gravatar.com/avatar/77014411a56fa9c746d6a89b7fd96121?size=20' /&gt;&lt;/a&gt;]&lt;/p&gt;
 
 &lt;h2 id='phpspec_advantages'&gt;&lt;a href='https://github.com/phpspec/phpspec2'&gt;PHPSpec&lt;/a&gt; advantages&lt;/h2&gt;
 
@@ -988,7 +989,7 @@ end&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;you will have an Icon next your top panel&lt;/p&gt;
 
-&lt;p&gt;&lt;img src='http://welcometothebundle.com/assets/themes/readable-liuggio/img/guard-phpunit-sf2.png' alt='liuggio-guard-phpunit-sf2-notifier' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt='liuggio-guard-phpunit-sf2-notifier' src='http://welcometothebundle.com/assets/themes/readable-liuggio/img/guard-phpunit-sf2.png' /&gt;&lt;/p&gt;
 
 &lt;h3 id='4_trick_guard_on_large_directories'&gt;4 Trick Guard on large directories&lt;/h3&gt;
 
@@ -1059,7 +1060,7 @@ end&lt;/code&gt;&lt;/pre&gt;
    <link href="http://welcometothebundle.com/servergrove-stastdclientbundle-interesting-symfony-bundles"/>
    <updated>2012-11-01T06:01:25+01:00</updated>
    <id>http://welcometothebundle.com/servergrove-stastdclientbundle-interesting-symfony-bundles</id>
-   <content type="html">&lt;p&gt;I was contacted by &lt;a href='https://twitter.com/_leopro_'&gt;leopro&lt;/a&gt; &lt;img src='https://en.gravatar.com/avatar/26d90e88b1eb694cc1276b9ab8d7630f?s=30' alt='leopro' /&gt; who congratulated me for the excellent results obtained with the &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;StatsDClientBundle&lt;/a&gt;.&lt;/p&gt;
+   <content type="html">&lt;p&gt;I was contacted by &lt;a href='https://twitter.com/_leopro_'&gt;leopro&lt;/a&gt; &lt;img alt='leopro' src='https://en.gravatar.com/avatar/26d90e88b1eb694cc1276b9ab8d7630f?s=30' /&gt; who congratulated me for the excellent results obtained with the &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;StatsDClientBundle&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Thanks to this comment I now know that &lt;a href='http://blog.servergrove.com/2012/10/09/interesting-symfony-bundles-statsdclientbundle/'&gt;ServerGrove&lt;/a&gt; chosen &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;StatsD Client Bundle&lt;/a&gt; as its top choice for Symfony2 project among more than 1600.&lt;/p&gt;
 

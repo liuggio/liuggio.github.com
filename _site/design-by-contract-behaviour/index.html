@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Design by contract behaviour </title>
+    <title>Design by contract behaviour</title>
     
     <meta name="description" content="">
     
@@ -16,56 +16,51 @@
     <link href="/assets/themes/readable-liuggio/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="/assets/themes/readable-liuggio/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
     <link href="/assets/themes/readable-liuggio/js/styles/github.css" rel="stylesheet">
+    <link href="/assets/themes/readable-liuggio/js/uitotop-jquery-plugin.css" rel="stylesheet">
     <!-- Google Web Font-->
     <link href='http://fonts.googleapis.com/css?family=Lato:400,400italic,900italic,300' rel='stylesheet' type='text/css'>
-
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 </head>
-
 <body>
 <div class="container">
     <header>
         <div id="header">
             <div class="logo span6"><img src="/assets/themes/readable-liuggio/img/welcometothebundle-logo.png"></div>
-            <h2><a title="Blog of Giulio De Donato" id="sitename" href="http://www.welcometothebundle.com/">Welcome to the bundle</a></h2>
+            <h2><a title="Blog of Giulio De Donato" id="sitename" href="http://www.welcometothebundle.com/">Welcome to the bundle</a></h2>  
+            
             <p>Best Practices, Symfony2, developing, and blah blah blah.</p>
+            
         </div>
     </header>
-
-
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
     <section id="content">
         <div class="row">
             <aside class="span3">
-                <div class="well">
+                <div class="well boxed profile">
                     <p align="center"><img
-                            src="http://www.gravatar.com/avatar/662a52953053d94a145a00df9da9f0d2.png?size=48">
+                            src="http://www.gravatar.com/avatar/662a52953053d94a145a00df9da9f0d2.png?size=48" class="img-rounded">
                     </p>
-                    <p style="font-size:95%">I'm liuggio (aka <a href="https://plus.google.com/115690008178168800202?rel=author" rel="author" title="Giulio De Donato">Giulio De Donato</a>)
+                    <p style="font-size:95%">I'm liuggio (aka Giulio De Donato)
                          tons of lines of code ago I took a degree in Computer Science, I'm the
-                        lead developer for Terravision and I love open source. I can't stop studying, you could find me in some conferences, exactly now I'm in the center of Rome.</p>
+                        lead developer at Terravision. I can't stop studying, you could find me in some conferences, I'm a proud member of <a href="http://roma.grusp.org/">PHP user group</a>, and exactly now I'm in the center of Rome.</p>
+                        <p><strong>ps: I love open-source.</strong></p>
                 </div>
                 <!-- start sticky section
 #################################################
                 -->
-                <div class="well">
+                <div class="well social boxed">
                     <div class="center" align="center">
                         <a href="https://github.com/liuggio" title="Giulio De Donato github projects"
-                           target="_blank"><img src="/assets/themes/readable-liuggio/img/icon-github.png"
-                                                alt="liuggio's gravatar"></a>
+                           target="_blank"><img src="/assets/themes/readable-liuggio/img/github.png" width="32"></a>
                         <a href="http://twitter.com/liuggio" title="Giulio De Donato twitter page"
-                           target="_blank"><img
-                                src="/assets/themes/readable-liuggio/img/icon-twitter.png"
-                                alt="liuggio twitter page"></a>
-                        <a href="http://www.linkedin.com/profile/view?id=94597934&"
-                           title="Giulio De Donato Linkedin profile" target="_blank"><img
-                                src="/assets/themes/readable-liuggio/img/icon-linkedin.png"
-                                width=34
-                                alt="Giulio De Donato Linkedin profile"></a>
+                           target="_blank"><i class="icon-twitter"></i></a>
+                        <a href="http://www.linkedin.com/profile/view?id=94597934"
+                           title="Giulio De Donato Linkedin profile" target="_blank">
+                           <i class="icon-linkedin"></i></a>
                         <a href="http://www.slideshare.net/liuggio"
-                           title="Giulio De Donato slideshare presentations" target="_blank"><img
-                                src="/assets/themes/readable-liuggio/img/icon-slideshare.png" width=34
-                                alt="Giulio De Donato slideshare presentations" width=30></a>
+                           title="Giulio De Donato slideshare presentations" target="_blank">
+                           <img src="/assets/themes/readable-liuggio/img/slide.png" width="32">
+                           </a>
                     </div>
                     <div class="center">
                         <div align="center" class="twitter-cnt">
@@ -82,37 +77,34 @@
                                 }
                             }(document, "script", "twitter-wjs");</script>
                         </div>
-                        <div align="center">
-                            <a href="#">back to top</a>
-                        </div>
                     </div>
                 </div>
 
                 <!-- end sticky section
                 ================================================== -->
-                <div class="">
-                    <h3>Categories</h3>
-                    <ul>
+                <div class="boxed categories">
+                    
+                    <ul class="nav nav-tabs nav-stacked">
                         
                         
 
 
   
      
-    	<li><a href="/categories.html#tutorial-ref">
-    		tutorial <span>4</span>
-    	</a></li>
-     
     	<li><a href="/categories.html#blah-blah-blah-ref">
     		blah-blah-blah <span>1</span>
     	</a></li>
      
-    	<li><a href="/categories.html#post-ref">
-    		post <span>6</span>
-    	</a></li>
-     
     	<li><a href="/categories.html#talk-ref">
     		talk <span>4</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#tutorial-ref">
+    		tutorial <span>4</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#post-ref">
+    		post <span>6</span>
     	</a></li>
     
   
@@ -121,7 +113,7 @@
                     </ul>
                 </div>
                 
-                <div class="">
+                <div class="boxed cloud">
                     <h3>Tags</h3>
                     <ul class="tag_box">
                         
@@ -134,79 +126,79 @@
      
     	<li class="tag-list tag-size-1"><a href="/tags.html#redis-ref" rel="1">redis <span>1</span></a></li>
      
-    	<li class="tag-list tag-size-2"><a href="/tags.html#bdd-ref" rel="2">bdd <span>2</span></a></li>
-     
-    	<li class="tag-list tag-size-1"><a href="/tags.html#servergrove-ref" rel="1">servergrove <span>1</span></a></li>
+    	<li class="tag-list tag-size-1"><a href="/tags.html#APC-ref" rel="1">APC <span>1</span></a></li>
      
     	<li class="tag-list tag-size-1"><a href="/tags.html#team-ref" rel="1">team <span>1</span></a></li>
      
-    	<li class="tag-list tag-size-1"><a href="/tags.html#cdn-ref" rel="1">cdn <span>1</span></a></li>
-     
-    	<li class="tag-list tag-size-1"><a href="/tags.html#bitbucket-ref" rel="1">bitbucket <span>1</span></a></li>
-     
-    	<li class="tag-list tag-size-2"><a href="/tags.html#assetic-ref" rel="2">assetic <span>2</span></a></li>
-     
-    	<li class="tag-list tag-size-1"><a href="/tags.html#HTTP-ref" rel="1">HTTP <span>1</span></a></li>
-     
     	<li class="tag-list tag-size-2"><a href="/tags.html#phpspec-ref" rel="2">phpspec <span>2</span></a></li>
-     
-    	<li class="tag-list tag-size-1"><a href="/tags.html#code-inspection-ref" rel="1">code-inspection <span>1</span></a></li>
-     
-    	<li class="tag-list tag-size-3"><a href="/tags.html#phpunit-ref" rel="3">phpunit <span>3</span></a></li>
-     
-    	<li class="tag-list tag-size-1"><a href="/tags.html#api-ref" rel="1">api <span>1</span></a></li>
-     
-    	<li class="tag-list tag-size-1"><a href="/tags.html#design-patterns-ref" rel="1">design-patterns <span>1</span></a></li>
-     
-    	<li class="tag-list tag-size-1"><a href="/tags.html#php-internal-ref" rel="1">php-internal <span>1</span></a></li>
-     
-    	<li class="tag-list tag-size-1"><a href="/tags.html#doctrine2-ref" rel="1">doctrine2 <span>1</span></a></li>
-     
-    	<li class="tag-list tag-size-3"><a href="/tags.html#cache-ref" rel="3">cache <span>3</span></a></li>
-     
-    	<li class="tag-list tag-size-1"><a href="/tags.html#tutorial-ref" rel="1">tutorial <span>1</span></a></li>
-     
-    	<li class="tag-list tag-size-1"><a href="/tags.html#APC-ref" rel="1">APC <span>1</span></a></li>
-     
-    	<li class="tag-list tag-size-1"><a href="/tags.html#doctrine-ref" rel="1">doctrine <span>1</span></a></li>
-     
-    	<li class="tag-list tag-size-2"><a href="/tags.html#tdd-ref" rel="2">tdd <span>2</span></a></li>
-     
-    	<li class="tag-list tag-size-1"><a href="/tags.html#optimization-ref" rel="1">optimization <span>1</span></a></li>
-     
-    	<li class="tag-list tag-size-2"><a href="/tags.html#conference-ref" rel="2">conference <span>2</span></a></li>
-     
-    	<li class="tag-list tag-size-1"><a href="/tags.html#interface-ref" rel="1">interface <span>1</span></a></li>
-     
-    	<li class="tag-list tag-size-1"><a href="/tags.html#automate-ref" rel="1">automate <span>1</span></a></li>
-     
-    	<li class="tag-list tag-size-1"><a href="/tags.html#coding-ref" rel="1">coding <span>1</span></a></li>
-     
-    	<li class="tag-list tag-size-1"><a href="/tags.html#graphite-ref" rel="1">graphite <span>1</span></a></li>
-     
-    	<li class="tag-list tag-size-3"><a href="/tags.html#statsd-ref" rel="3">statsd <span>3</span></a></li>
      
     	<li class="tag-list tag-size-2"><a href="/tags.html#test-ref" rel="2">test <span>2</span></a></li>
      
-    	<li class="tag-list tag-size-1"><a href="/tags.html#tvision-ref" rel="1">tvision <span>1</span></a></li>
+    	<li class="tag-list tag-size-3"><a href="/tags.html#phpunit-ref" rel="3">phpunit <span>3</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#rackspace-ref" rel="1">rackspace <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#doctrine2-ref" rel="1">doctrine2 <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#coding-ref" rel="1">coding <span>1</span></a></li>
      
     	<li class="tag-list tag-size-1"><a href="/tags.html#vagrant-ref" rel="1">vagrant <span>1</span></a></li>
      
+    	<li class="tag-list tag-size-2"><a href="/tags.html#bdd-ref" rel="2">bdd <span>2</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#cdn-ref" rel="1">cdn <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-11"><a href="/tags.html#php-ref" rel="11">php <span>11</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#servergrove-ref" rel="1">servergrove <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-3"><a href="/tags.html#bundle-ref" rel="3">bundle <span>3</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#php-internal-ref" rel="1">php-internal <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#automate-ref" rel="1">automate <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#bitbucket-ref" rel="1">bitbucket <span>1</span></a></li>
+     
     	<li class="tag-list tag-size-8"><a href="/tags.html#symfony2-ref" rel="8">symfony2 <span>8</span></a></li>
      
-    	<li class="tag-list tag-size-1"><a href="/tags.html#guard-ref" rel="1">guard <span>1</span></a></li>
+    	<li class="tag-list tag-size-1"><a href="/tags.html#interface-ref" rel="1">interface <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#doctrine-ref" rel="1">doctrine <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#code-inspection-ref" rel="1">code-inspection <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-4"><a href="/tags.html#talk-ref" rel="4">talk <span>4</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#tutorial-ref" rel="1">tutorial <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#graphite-ref" rel="1">graphite <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-3"><a href="/tags.html#cache-ref" rel="3">cache <span>3</span></a></li>
+     
+    	<li class="tag-list tag-size-2"><a href="/tags.html#conference-ref" rel="2">conference <span>2</span></a></li>
      
     	<li class="tag-list tag-size-3"><a href="/tags.html#assets-ref" rel="3">assets <span>3</span></a></li>
      
     	<li class="tag-list tag-size-1"><a href="/tags.html#github-ref" rel="1">github <span>1</span></a></li>
      
-    	<li class="tag-list tag-size-4"><a href="/tags.html#talk-ref" rel="4">talk <span>4</span></a></li>
+    	<li class="tag-list tag-size-1"><a href="/tags.html#HTTP-ref" rel="1">HTTP <span>1</span></a></li>
      
-    	<li class="tag-list tag-size-1"><a href="/tags.html#rackspace-ref" rel="1">rackspace <span>1</span></a></li>
+    	<li class="tag-list tag-size-3"><a href="/tags.html#statsd-ref" rel="3">statsd <span>3</span></a></li>
      
-    	<li class="tag-list tag-size-11"><a href="/tags.html#php-ref" rel="11">php <span>11</span></a></li>
+    	<li class="tag-list tag-size-2"><a href="/tags.html#assetic-ref" rel="2">assetic <span>2</span></a></li>
      
-    	<li class="tag-list tag-size-3"><a href="/tags.html#bundle-ref" rel="3">bundle <span>3</span></a></li>
+    	<li class="tag-list tag-size-2"><a href="/tags.html#tdd-ref" rel="2">tdd <span>2</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#guard-ref" rel="1">guard <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#api-ref" rel="1">api <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#design-patterns-ref" rel="1">design-patterns <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#optimization-ref" rel="1">optimization <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#tvision-ref" rel="1">tvision <span>1</span></a></li>
     
   
 
@@ -216,33 +208,28 @@
                 </div>
 
                 
-                    <div id="related">
+                    <div id="related" class="boxed">
                     <h3>Related Posts</h3>
                     <ul class="posts">
                     
                     <li>
-                      <span>13 Nov 2013 &raquo;</span>
-                      </br><a href="/symfony2-rest-api-the-best-2013-way">Symfony2 REST API: the best way</a>
+                      <a href="/symfony2-rest-api-the-best-2013-way">Symfony2 REST API: the best way</a>
                     </li>
                     
                     <li>
-                      <span>18 Oct 2013 &raquo;</span>
-                      </br><a href="/symfony2-design-patterns">Symfony2 design patterns @ symfonyday</a>
+                      <a href="/symfony2-design-patterns">Symfony2 design patterns @ symfonyday</a>
                     </li>
                     
                     <li>
-                      <span>17 May 2013 &raquo;</span>
-                      </br><a href="/caching-and-data-analysis-will-move-your-application-to-the-next-level">Caching and data analysis will move your application to the next level</a>
+                      <a href="/caching-and-data-analysis-will-move-your-application-to-the-next-level">Caching and data analysis will move your application to the next level</a>
                     </li>
                     
                     <li>
-                      <span>23 Apr 2013 &raquo;</span>
-                      </br><a href="/doctrine2-tracking-policy">Doctrine2 tracking policy</a>
+                      <a href="/doctrine2-tracking-policy">Doctrine2 tracking policy</a>
                     </li>
                     
                     <li>
-                      <span>10 Mar 2013 &raquo;</span>
-                      </br><a href="/it-is-all-about-behaviour-also-in-php">It is all about behaviour also in php</a>
+                      <a href="/it-is-all-about-behaviour-also-in-php">It is all about behaviour also in php</a>
                     </li>
                     
                     </ul>
@@ -304,12 +291,8 @@
                 
             </div>
         </div>
-
     </div>
-
     <article>
-
-
         <p>In recent years, <a href='http://getcomposer.org'>Composer</a> has given a breath of freshness to the dependencies, and framework such as <a href='http://www.symfony.com'>Symfony2</a> have made best practices and decoupling their pride.</p>
 
 <p>The union of these two phenomena have moved the attentions to the type hinting in order to have contracts with <code>Interfaces</code>.</p>
@@ -401,21 +384,38 @@ Behaviour Interface LoggerInterface
 <p><strong>That&#8217;s a RFC for that</strong></p>
 
 <p>Giorgio told me about this RFC: <a href='https://wiki.php.net/rfc/protocol_type_hinting'>php.net/rfc/protocol_type_hinting</a>.</p>
-
     </article>
     <hr>
     <div class="pagination">
-        <ul class="pager">
+        <ul class="pager span12">
             
-            <li class="prev"><a href="/caching-and-data-analysis-will-move-your-application-to-the-next-level" title="Caching and data analysis will move your application to the next level">&larr;
+            <li class="prev span4"><a href="/caching-and-data-analysis-will-move-your-application-to-the-next-level" title="Caching and data analysis will move your application to the next level">&larr;
                 Previous - Caching and data analysis will move your application to the next level</a></li>
             
-            <li><a href="/index.html">Archive</a></li>
+            <li  class="span2"><a href="/index.html">Archive</a></li>
             
-            <li class="next"><a href="/symfony2-design-patterns" title="Symfony2 design patterns @ symfonyday">Next - Symfony2 design patterns @ symfonyday &rarr;</a>
+            <li class="next span4"><a href="/symfony2-design-patterns" title="Symfony2 design patterns @ symfonyday">Next - Symfony2 design patterns @ symfonyday &rarr;</a>
             </li>
             
         </ul>
+    </div>
+    <div id="related">
+      <h3>Related Posts</h3>
+      <ul class="posts">
+      
+      <li>
+       <span>13 Nov 2013 &raquo;</span> <a href="/symfony2-rest-api-the-best-2013-way">Symfony2 REST API: the best way</a>
+      </li>
+      
+      <li>
+       <span>18 Oct 2013 &raquo;</span> <a href="/symfony2-design-patterns">Symfony2 design patterns @ symfonyday</a>
+      </li>
+      
+      <li>
+       <span>17 May 2013 &raquo;</span> <a href="/caching-and-data-analysis-will-move-your-application-to-the-next-level">Caching and data analysis will move your application to the next level</a>
+      </li>
+      
+      </ul>
     </div>
     <hr>
     
@@ -444,47 +444,79 @@ Behaviour Interface LoggerInterface
  
 
 
-<div id="related">
-  <h3>Related Posts</h3>
-  <ul class="posts">
-    
-    <li>
-      <span>13 Nov 2013 &raquo;</span> <a href="/symfony2-rest-api-the-best-2013-way">Symfony2 REST API: the best way</a>
-    </li>
-    
-    <li>
-      <span>18 Oct 2013 &raquo;</span> <a href="/symfony2-design-patterns">Symfony2 design patterns @ symfonyday</a>
-    </li>
-    
-    <li>
-      <span>17 May 2013 &raquo;</span> <a href="/caching-and-data-analysis-will-move-your-application-to-the-next-level">Caching and data analysis will move your application to the next level</a>
-    </li>
-    
-  </ul>
-</div>
 
             </div>
         </div>
     </section>
+</div>
+
+<footer class="footer">
+      <div class="container">
+        <div class="span3 offset1">
+            <ul class="nav nav-pills nav-stacked"> 
+                <li class="nav-header">Open Source</li>                
+                <li><a href="http://leaphly.org">leaphly <small>cart built around REST specs.</small></a></li>
+                <li><a href="https://poser.pugx.org/">badge-poser <small>badges for composer</small></a></li>
+                <li><a href="https://github.com/PUGX/godfather">godfather <small>php strategy pattern</small></a></li>
+                <li><a href="https://github.com/liuggio/statsd-php-client">statsd-php-client <img class="pull-right" style="max-width:80px;margin-right:30px"  alt="Total Downloads" src="https://poser.pugx.org/liuggio/statsd-php-client/downloads.png"></a></li>
+                <li><a href="https://github.com/liuggio/ExcelBundle">sf2 Excel bundle <img class="pull-right" style="max-width:80px;margin-right:30px" alt="Total Downloads" src="https://poser.pugx.org/liuggio/ExcelBundle/downloads.png"></a></li>
+                 <li><a href="https://github.com/liuggio?tab=repositories"><small>more...</small></a></li>
+            </ul>
+
+        </div>
 
 
-    <hr>
-    <footer>
-        <p>&copy; liuggio 2012
-            <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll
-                Bootstrap</a>,
-            <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>,
-            <a href="http://github.com" target="_blank">GitHub</a>,
-            <a href="http://bootswatch.com/" target="_blank">Bootswatch</a>
-        </p>
 
-        <div id="footer"></div>
+        <div  class="span2 offset1" >
+            <ul class="nav nav-pills nav-stacked left">
+            <li class="nav-header">Categories</li>
+                <li><a href="/categories.html#tutorial-ref">
+                    Tutorial <span>4</span>
+                </a></li>
+
+                <li><a href="/categories.html#blah-blah-blah-ref">
+                    Blah-blah-blah <span>1</span>
+                </a></li>
+
+                <li><a href="/categories.html#post-ref">
+                    Post <span>6</span>
+                </a></li>
+
+                <li><a href="/categories.html#talk-ref">
+                    Talk <span>4</span>
+                </a></li>
+            </ul>
+        </div>
+
+        <div  class="span2 offset1" >
+            <ul class="nav nav-pills nav-stacked"> 
+            <li class="nav-header">Connect</li>
+                <li><a href="https://github.com/liuggio" title="Giulio De Donato github projects"
+                       target="_blank"
+                       class="social"><img src="/assets/themes/readable-liuggio/img/github.png" width="13"> github</a></li>
+                <li><a href="http://twitter.com/liuggio" title="Giulio De Donato twitter page"
+                       target="_blank"
+                       class="social"><i class="icon-twitter"></i> twitter</a></li>
+                <li><a href="http://www.linkedin.com/profile/view?id=94597934"
+                       title="Giulio De Donato Linkedin profile" target="_blank"
+                       class="social">
+                       <i class="icon-linkedin"></i> linkedin</a></li>
+                <li><a href="http://www.slideshare.net/liuggio"
+                       title="Giulio De Donato slideshare presentations" target="_blank"
+                       class="social">
+                       <img src="/assets/themes/readable-liuggio/img/slide.png" width="13"> slideshare
+                       </a></li>
+            </ul>
+        </div>     
+      </div>
+
+      <p>@liuggio's blog, made by <a href="http://jekyllrb.com/">jekyll.</a></p>
     </footer>
-</div>
-</div>
+
 <!-- /container -->
 <script src="/assets/themes/readable-liuggio/bootstrap/js/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script src="/assets/themes/readable-liuggio/js/highlight.pack.js" type="text/javascript"></script>
+<script src="/assets/themes/readable-liuggio/js/uitotop-jquery-plugin.js" type="text/javascript"></script>
 <script src="/assets/themes/readable-liuggio/js/cloud.js" type="text/javascript"></script>
 
 
@@ -578,12 +610,16 @@ Behaviour Interface LoggerInterface
 
 <script>
 $(document).ready(function() {
-    $('h2, h3').each(function(i, e) {
+    $('h2, h3, h4, h5').each(function(i, e) {
         var a = '<a class="headerlink" href="#'+e.id+'" name="#'+e.id+'" title="Permalink to this headline">¶</a>';
         $(e).append(a);
     });
 });
+
+$().UItoTop();
+
 </script>
+
 
 </body>
 </html>

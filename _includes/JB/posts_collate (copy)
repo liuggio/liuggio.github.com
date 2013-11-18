@@ -27,24 +27,14 @@ Usage:
     {% capture next_month %}{{ post.previous.date | date: "%B" }}{% endcapture %}
 
     {% if forloop.first %}
-      <h4>{{this_year}}</h4>
-      <ul class="posts span9">
+      <h2>{{this_year}}</h2>
+      <h3>{{this_month}}</h3>
+      <ul>
     {% endif %}
 
-    <li class="span9">
-        <div class="span2">
-          <time datetime="{{ post.date | date_to_xmlschema }}">
-              <meta itemprop="datePublished" content="{{ post.date | date_to_xmlschema }}" />
-              {{ post.date | date: '%d %b' }}
-          </time>
-          <span class="separator"> &raquo; </span>
-          <a href="{{ BASE_PATH }}{{ site.JB.categories_path }}#{{  post.category }}-ref">{{ post.category  | join: "/" }}</a>
-          <span class="separator"> &raquo; </span>
-        </div>
-        <div class="span6">
-          <a itemprop="name" href="{{ post.url }}" class="link">{{ post.title }}</a>
-          <p class="archive-short-description"><a href="{{ BASE_PATH }}{{ post.url }}" title="{{ post.title }}"> {{ post.content | strip_html | truncatewords: 35}}</a></p>
-        </div>
+    <li> [<a href="{{ BASE_PATH }}{{ site.JB.categories_path }}#{{  post.category }}-ref">{{ post.category  | join: "/" }}</a>] <span>{{ post.date | date: "%B %e, %Y" }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}" title="{{ post.title }} written in {{this_year}} {{this_month}}">{{ post.title }}</a>
+       <p class="archive-short-description"><a href="{{ BASE_PATH }}{{ post.url }}" title="{{ post.title }}"> {{ post.content | strip_html | truncatewords: 35}}</a></p>
+
     </li>
 
     {% if forloop.last %}
@@ -52,12 +42,14 @@ Usage:
     {% else %}
       {% if this_year != next_year %}
         </ul>
-        <h4>{{next_year}}</h4>
-        <ul class="posts span9">
+        <h2>{{next_year}}</h2>
+        <h3>{{next_month}}</h3>
+        <ul>
       {% else %}
         {% if this_month != next_month %}
           </ul>
-          <ul class="posts span9">
+          <h3>{{next_month}}</h3>
+          <ul>
         {% endif %}
       {% endif %}
     {% endif %}

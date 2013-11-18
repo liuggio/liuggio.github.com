@@ -166,13 +166,12 @@ in later articles we will see how take advantage of the changes made.
 ### Step 3.A - Interface as contract
 
 
-From [symfony.com](http://symfony.com)
-
 <blockquote>
 Type hinting the injected object means that you can be sure that a suitable dependency has been injected.
 By type-hinting, you'll get a clear error immediately if an unsuitable dependency is injected.
 By type hinting using an interface rather than a class you can make the choice of dependency more flexible.
 And assuming you only use methods defined in the interface, you can gain that flexibility and still safely use the object.
+ <small> from <cite title="Source Title">sf2 - symfony.com</cite></small>
 </blockquote>
 
 Following this as first rule, we need to create an interface in `/src/Acme/BlogBundle/Model/PageInterface.php` and then put `implements PageInterface` in the entity `Page`.
@@ -460,12 +459,9 @@ In the next articles, we will describe how to use the page form as shared interf
 
 ### References:
 
-[Symfony.com](http://www.symfony2.com)
+1. [sf2 - Symfony.com](http://www.symfony2.com)
+2. [Lukas Kahwe Smith: resting with Sf2 - video](http://www.youtube.com/watch?v=Kkby5fG89K0&feature=youtu.be&from=www.welcometothebundle.com)
+3. [William Durand: rest-apis-with-symfony2-the-right-way - blog](http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/)
+4. [Samuel Gordalina: REST APIs made easy with Symfony2 - slide](https://speakerdeck.com/gordalina/rest-apis-made-easy-with-symfony2)
+5. [Daniel Londero: Rest in practice - slide](http://www.slideshare.net/dlondero/rest-in-practice-27335543)
 
-[Lukas Kahwe Smith: resting with Sf2 - video](http://www.youtube.com/watch?v=Kkby5fG89K0&feature=youtu.be&from=www.welcometothebundle.com)
-
-[William Durand: rest-apis-with-symfony2-the-right-way - blog](http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/)
-
-[Samuel Gordalina: REST APIs made easy with Symfony2 - slide](https://speakerdeck.com/gordalina/rest-apis-made-easy-with-symfony2)
-
-[Daniel Londero: Rest in practice - slide](http://www.slideshare.net/dlondero/rest-in-practice-27335543)

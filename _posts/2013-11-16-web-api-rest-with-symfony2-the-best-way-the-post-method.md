@@ -27,20 +27,57 @@ you could see the working code using the tag `part2` with
 
 All the tags for the demo project are at [tags](https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/tags), and also you could compare the first 2 articles with [compare/part1...part2](https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/compare/part1...part2).
 
-## The creation
+## HTTP-bang theory
 
-We need a REST API that allows the creation of a Page.
+vorrei dare una base di concetti HTTP che dovrebbero essere capiti e appresi prima 
 
 ### The verbs
 
+The verbs are well described by [github v3 api](http://developer.github.com/v3/) 
+
+Where possible, API strives to use appropriate HTTP verbs for each action.
+
+ - HEAD Can be issued against any resource to get just the HTTP header info.
+
+ - GET  Used for retrieving resources.
+
+ - POST     Used for creating resources, or performing custom actions (such as merging a pull request).
+
+ - DELETE   Used for deleting resources.
+
+ - PATCH    Used for updating resources with partial JSON data. For instance, an Issue resource has title and body attributes. A PATCH request may accept one or more of the attributes to update the resource. PATCH is a relatively new and uncommon HTTP verb.
+
+ - PUT  Used for replacing resources or collections. For PUT requests with no body attribute, be sure to set the Content-Length header to zero.
+
+### Safe and idempotent:
+
+**Safe methods**
+
+<blockquote>
+    In particular, the convention has been established that the GET and HEAD methods SHOULD NOT have the significance of taking an action other than retrieval. These methods ought to be considered "safe". This allows user agents to represent other methods, such as POST, PUT and DELETE, in a special way, so that the user is made aware of the fact that a possibly unsafe action is being requested. 
+    <small> w3c.org <cite title="Source Title">w3c-1 w3.org protocols rfc2616-sec9</cite></small>
+</blockquote>
+
+**Idempotent methods**
+
+<blockquote>
+    Methods can also have the property of "idempotence" in that (aside from error or expiration issues) the side-effects of N > 0 identical requests is the same as for a single request. The methods GET, HEAD, PUT and DELETE share this property. Also, the methods OPTIONS and TRACE SHOULD NOT have side effects, and so are inherently idempotent.
+    <small> w3c.org <cite title="Source Title">w3c-1 w3.org protocols rfc2616-sec9</cite></small>
+</blockquote>
+
+### The response
+
+The response should be a http response, containing a valid HTTP CODE, and sometimes a message.
+
+### Verbs and nouns
+
 Since you want to follow the REST methodology, you should create a web interface,
-which will make use of the HTTP verbs that are available.
+which it will use of the HTTP verbs that are available.
 
 The good practices suggests to use **nouns** not verbs, the verbs should used into the header for the HTTP request (this is not really always true we'll see in the third part).
 
 The convention also imposes to use plurals nouns, `pages` instead page, is simpler and coherent.
 
-The following table shoo
 
 <table class="table">
 <thead>
@@ -130,9 +167,13 @@ So just creating the action properly we will have automatically configured the r
 
 More info at [rest-action fosRestBundle](https://github.com/FriendsOfSymfony/FOSRestBundle/blob/master/Resources/doc/5-automatic-route-generation_single-restful-controller.md#rest-actions).
 
+## The creation
+
+Back to our Page example, we need a REST API that allows the creation of a Page.
+
 ### POST
 
-The story:  calling the resource `/api/v1/pages.json` with POST method, 
+The story: calling the resource `/api/v1/pages.json` with POST method, 
 and giving the whole serialized content of a `Page` entity,
 the response should have the status code `201`, and should be a json response.
 
@@ -374,7 +415,7 @@ Remember to create the template newPage.html.twig something like
 
 ### The API
 
-Maybe it has gone unnoticed but the inputs to the post is not the `Page` object but a form type:
+Maybe it has gone unnoticed but in the annotation of the documentation, the input of the post is not the `Page` object but a form type:
 
     * @ApiDoc(
     *   ...
@@ -415,9 +456,14 @@ and the controller should look something like
 
 ## Rest is (also) for human
 
-The title `Rest is also for human` is self explanatory and the guys at Friends Of Symfony, explained how to create adding some `conventional actions` could increase the interaction with the REST process:
+### People (and REST) got the power
+
+There are many protocols and each has its advantages and its reasons, SOAP, XML-RPC. The added value of REST is that it is not just for client API and web browser is **for people too**.
 
 ### Conventional Actions
+
+The title `Rest is also for human` is self explanatory and the guys at Friends Of Symfony, 
+wrote how to increase the interaction with the REST process, adding some `conventional actions`:
 
 <blockquote>
 HATEOAS, or Hypermedia as the Engine of Application State, is an aspect of REST which allows clients to interact with the REST service with hypertext - most commonly through an HTML page. There are 3 Conventional Action routings that are supported by this bundle: 
@@ -425,14 +471,10 @@ HATEOAS, or Hypermedia as the Engine of Application State, is an aspect of REST 
 <b>new</b>, <b>edit</b>, <b>remove</b> ... from FOSREST-1
 </blockquote>
 
-### People (and REST) got the power
-
-There are many protocols and each has its advantages and its reasons, SOAP, XML-RPC. The added value of REST is that it is not just for client API and web browser is **for people too**.
-
-In this article we are not going to provide the glory of rest, but only some tips,
-in order to create clean API and clean code. 
 
 ### The newPage action
+
+We are going to create the new action:
 
 **new** - A hypermedia representation that acts as the engine to POST. Typically this is a form that allows the client to POST a new resource. Shown as PageController::newPagesAction()
 
@@ -613,15 +655,16 @@ We also have created another API usable via service container and the API are de
 ## Next
 
 In the next articles, we will describe how to delete, edit partially and totally a resource with `DELETE`, `PATCH`, `PUT`,
-we will detail how use other important HTTP headers, we will play with `filter` and a simple js integration.
-
+we will detail how use other important HTTP headers, we will play with `filter` and a simple js integration, authentication ...
 
 
 ### References
 
+[W3C-1  w3.org/Protocols/rfc2616/rfc2616-sec9](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
+
 [ZAC-1 - Zach Holman: The Human is a RESTful Client](http://zachholman.com/2010/03/the-human-is-a-restful-client/)
 
-[FOSREST-1](https://github.com/FriendsOfSymfony/FOSRestBundle/blob/master/Resources/doc/5-automatic-route-generation_single-restful-controller.md#conventional-actions)
+[FOSREST-1 conventional-actions](https://github.com/FriendsOfSymfony/FOSRestBundle/blob/master/Resources/doc/5-automatic-route-generation_single-restful-controller.md#conventional-actions)
 
 [symfony.com/doc/current/cookbook/form/direct_submit.html](http://symfony.com/doc/current/cookbook/form/direct_submit.html)
 
