@@ -12,6 +12,9 @@ date: 2013-11-13 13:00:00
 
 Here's another nice guide on how to create an API with Symfony2, this is the **part 1** of a series of articles.
 
+Here you could find the [Part2 - the 'POST'](/web-api-rest-with-symfony2-the-best-way-the-post-method/).
+
+
 I would like to be short and concise bringing practical examples.
 
 I would not talk about the difference between REST and RESTful [Martin Fowler Maturity Model](http://martinfowler.com/articles/richardsonMaturityModel.html).

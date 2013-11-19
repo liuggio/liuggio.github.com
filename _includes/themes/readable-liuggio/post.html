@@ -40,23 +40,6 @@
         {{ content }}
     </article>
     <hr>
-    <div class="pagination">
-        <ul class="pager span12">
-            {% if page.previous %}
-            <li class="prev span4"><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&larr;
-                Previous - {{ page.previous.title }}</a></li>
-            {% else %}
-            <li class="prev disabled span5"><a>&larr; Previous</a></li>
-            {% endif %}
-            <li  class="span2"><a href="{{ BASE_PATH }}{{ site.JB.archive_path }}">Archive</a></li>
-            {% if page.next %}
-            <li class="next span4"><a href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">Next - {{ page.next.title }} &rarr;</a>
-            </li>
-            {% else %}
-            <li class="next disabled span5"><a>Next &rarr;</a>
-                {% endif %}
-        </ul>
-    </div>
     <div id="related">
       <h3>Related Posts</h3>
       <ul class="posts">
@@ -67,6 +50,25 @@
       {% endfor %}
       </ul>
     </div>
+    
+    <div class="pagination">
+        <ul class="pager span9">
+            {% if page.previous %}
+            <li class="prev span3"><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&larr;<br>
+                Previous - {{ page.previous.title }}</a></li>
+            {% else %}
+            <li class="prev disabled span5"><a>&larr; Previous</a></li>
+            {% endif %}
+            <li  class="span2"><a href="{{ BASE_PATH }}{{ site.JB.archive_path }}"><br>Archive</a></li>
+            {% if page.next %}
+            <li class="next span3"><a href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">&rarr; <br>Next - {{ page.next.title }}</a>
+            </li>
+            {% else %}
+            <li class="next disabled span5"><a>Next &rarr;</a>
+                {% endif %}
+        </ul>
+    </div>
+    
     <hr>
     {% include JB/comments %}
 </div>

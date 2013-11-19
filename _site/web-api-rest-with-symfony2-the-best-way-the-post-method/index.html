@@ -1,0 +1,1189 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>part2 - Web API REST with Symfony2</title>
+    
+    <meta name="description" content="REST API tutorial on symfony2 second part">
+    
+    <meta name="author" content="Giulio De Donato">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="/assets/themes/readable-liuggio/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/readable-liuggio/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="/assets/themes/readable-liuggio/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/readable-liuggio/js/styles/github.css" rel="stylesheet">
+    <link href="/assets/themes/readable-liuggio/js/uitotop-jquery-plugin.css" rel="stylesheet">
+    <!-- Google Web Font-->
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,400italic,900italic,300' rel='stylesheet' type='text/css'>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <header>
+        <div id="header">
+            <div class="logo span6"><img src="/assets/themes/readable-liuggio/img/welcometothebundle-logo.png"></div>
+            <h2><a title="Blog of Giulio De Donato" id="sitename" href="http://www.welcometothebundle.com/">Welcome to the bundle</a></h2>  
+            
+            <p>Best Practices, Symfony2, developing, and blah blah blah.</p>
+            
+        </div>
+    </header>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+    <section id="content">
+        <div class="row">
+            <aside class="span3">
+                <div class="well boxed profile">
+                    <p align="center"><img
+                            src="http://www.gravatar.com/avatar/662a52953053d94a145a00df9da9f0d2.png?size=48" class="img-rounded">
+                    </p>
+                    <p style="font-size:95%">I'm liuggio (aka Giulio De Donato)
+                         tons of lines of code ago I took a degree in Computer Science, I'm the
+                        lead developer at Terravision. I can't stop studying, you could find me in some conferences, I'm a proud member of <a href="http://roma.grusp.org/">PHP user group</a>, and exactly now I'm in the center of Rome.</p>
+                        <p><strong>ps: I love open-source.</strong></p>
+                </div>
+                <!-- start sticky section
+#################################################
+                -->
+                <div class="well social boxed">
+                    <div class="center" align="center">
+                        <a href="https://github.com/liuggio" title="Giulio De Donato github projects"
+                           target="_blank"><img src="/assets/themes/readable-liuggio/img/github.png" width="32"></a>
+                        <a href="http://twitter.com/liuggio" title="Giulio De Donato twitter page"
+                           target="_blank"><i class="icon-twitter"></i></a>
+                        <a href="http://www.linkedin.com/profile/view?id=94597934"
+                           title="Giulio De Donato Linkedin profile" target="_blank">
+                           <i class="icon-linkedin"></i></a>
+                        <a href="http://www.slideshare.net/liuggio"
+                           title="Giulio De Donato slideshare presentations" target="_blank">
+                           <img src="/assets/themes/readable-liuggio/img/slide.png" width="32">
+                           </a>
+                    </div>
+                    <div class="center">
+                        <div align="center" class="twitter-cnt">
+                            <a href="https://twitter.com/liuggio" class="twitter-follow-button"
+                               data-show-count="false" data-size="large" data-dnt="true" title="Follow Giulio De Donato">Follow
+                                @liuggio</a>
+                            <script>!function (d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0];
+                                if (!d.getElementById(id)) {
+                                    js = d.createElement(s);
+                                    js.id = id;
+                                    js.src = "//platform.twitter.com/widgets.js";
+                                    fjs.parentNode.insertBefore(js, fjs);
+                                }
+                            }(document, "script", "twitter-wjs");</script>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- end sticky section
+                ================================================== -->
+                <div class="boxed categories">
+                    
+                    <ul class="nav nav-tabs nav-stacked">
+                        
+                        
+
+
+  
+     
+    	<li><a href="/categories.html#post-ref">
+    		post
+    	</a></li>
+     
+    	<li><a href="/categories.html#tutorial-ref">
+    		tutorial
+    	</a></li>
+     
+    	<li><a href="/categories.html#talk-ref">
+    		talk
+    	</a></li>
+     
+    	<li><a href="/categories.html#blah-blah-blah-ref">
+    		blah-blah-blah
+    	</a></li>
+    
+  
+
+
+                    </ul>
+                </div>
+                
+                <div class="boxed cloud">
+                    <h3>Tags</h3>
+                    <ul class="tag_box">
+                        
+                        
+
+
+  
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#php-internal-ref" rel="1">php-internal <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#doctrine-ref" rel="1">doctrine <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#tvision-ref" rel="1">tvision <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#graphite-ref" rel="1">graphite <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#github-ref" rel="1">github <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-2"><a href="/tags.html#bdd-ref" rel="2">bdd <span>2</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#coding-ref" rel="1">coding <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#cdn-ref" rel="1">cdn <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-2"><a href="/tags.html#test-ref" rel="2">test <span>2</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#code-inspection-ref" rel="1">code-inspection <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-3"><a href="/tags.html#bundle-ref" rel="3">bundle <span>3</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#design-patterns-ref" rel="1">design-patterns <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-3"><a href="/tags.html#cache-ref" rel="3">cache <span>3</span></a></li>
+     
+    	<li class="tag-list tag-size-3"><a href="/tags.html#phpunit-ref" rel="3">phpunit <span>3</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#redis-ref" rel="1">redis <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-2"><a href="/tags.html#phpspec-ref" rel="2">phpspec <span>2</span></a></li>
+     
+    	<li class="tag-list tag-size-2"><a href="/tags.html#tdd-ref" rel="2">tdd <span>2</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#optimization-ref" rel="1">optimization <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-3"><a href="/tags.html#statsd-ref" rel="3">statsd <span>3</span></a></li>
+     
+    	<li class="tag-list tag-size-3"><a href="/tags.html#assets-ref" rel="3">assets <span>3</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#team-ref" rel="1">team <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#tutorial-ref" rel="1">tutorial <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#rackspace-ref" rel="1">rackspace <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#bitbucket-ref" rel="1">bitbucket <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#interface-ref" rel="1">interface <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#servergrove-ref" rel="1">servergrove <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-4"><a href="/tags.html#talk-ref" rel="4">talk <span>4</span></a></li>
+     
+    	<li class="tag-list tag-size-2"><a href="/tags.html#conference-ref" rel="2">conference <span>2</span></a></li>
+     
+    	<li class="tag-list tag-size-9"><a href="/tags.html#symfony2-ref" rel="9">symfony2 <span>9</span></a></li>
+     
+    	<li class="tag-list tag-size-2"><a href="/tags.html#api-ref" rel="2">api <span>2</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#guard-ref" rel="1">guard <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#vagrant-ref" rel="1">vagrant <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-2"><a href="/tags.html#assetic-ref" rel="2">assetic <span>2</span></a></li>
+     
+    	<li class="tag-list tag-size-2"><a href="/tags.html#rest-ref" rel="2">rest <span>2</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#doctrine2-ref" rel="1">doctrine2 <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#APC-ref" rel="1">APC <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#HTTP-ref" rel="1">HTTP <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#automate-ref" rel="1">automate <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-11"><a href="/tags.html#php-ref" rel="11">php <span>11</span></a></li>
+    
+  
+
+
+
+                    </ul>
+                </div>
+
+                
+                    <div id="related" class="boxed">
+                    <h3>Related Posts</h3>
+                    <ul class="posts">
+                    
+                    <li>
+                      <a href="/symfony2-rest-api-the-best-2013-way">Symfony2 REST API: the best way</a>
+                    </li>
+                    
+                    <li>
+                      <a href="/symfony2-design-patterns">Symfony2 design patterns @ symfonyday</a>
+                    </li>
+                    
+                    <li>
+                      <a href="/design-by-contract-behaviour">Design by contract behaviour</a>
+                    </li>
+                    
+                    <li>
+                      <a href="/caching-and-data-analysis-will-move-your-application-to-the-next-level">Caching and data analysis will move your application to the next level</a>
+                    </li>
+                    
+                    <li>
+                      <a href="/doctrine2-tracking-policy">Doctrine2 tracking policy</a>
+                    </li>
+                    
+                    </ul>
+                    </div>
+                
+            </aside>
+
+            <!-- start content section
+            ================================================== -->
+            <div class="span9">
+                
+
+<div class="span9">
+    <div class="page-header">
+        <div class="row">
+            <h1 class="span8">part2 - Web API REST with Symfony2 
+            </h1>
+          <div class="span1 right bottom sticky">
+               <a href="https://twitter.com/share" class="twitter-share-button" data-via="liuggio" data-size="large"
+                  data-count="none">Tweet</a>
+               <script>!function (d, s, id) {
+                   var js, fjs = d.getElementsByTagName(s)[0];
+                   if (!d.getElementById(id)) {
+                       js = d.createElement(s);
+                       js.id = id;
+                       js.src = "//platform.twitter.com/widgets.js";
+                       fjs.parentNode.insertBefore(js, fjs);
+                   }
+               }(document, "script", "twitter-wjs");</script>
+              <!-- todo:<div class="inner">back to the top</div>-->
+           </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="span4">
+                <div class="date"><span>16 November 2013</span></div>
+            </div>
+
+            <div class="span5">
+                
+                <ul class="tag_box">
+                    
+                    
+
+
+  
+     
+    	<li class="tag-list tag-size-2"><a href="/tags.html#rest-ref">rest <span>2</span></a></li>
+     
+    	<li class="tag-list tag-size-2"><a href="/tags.html#api-ref">api <span>2</span></a></li>
+     
+    	<li class="tag-list tag-size-9"><a href="/tags.html#symfony2-ref">symfony2 <span>9</span></a></li>
+    
+  
+
+
+
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+    <article>
+        <h3 id='part_2__the_'>Part 2 - the <code>POST</code></h3>
+
+<p>In the &#8217;<a href='http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way/'>Symfony2 REST part 1</a>&#8217; we created the application, the bundle, we talked about the <code>GET</code> method, we also talked about the importance of the Interfaces, the content negotiation, and we gave an example of dumb controllers and brain services.</p>
+
+<p>In this blog post we are going to create a new <code>Page</code> via <strong>REST API</strong>: the form is the protagonist of this article.</p>
+
+<h2 id='the_github_repository'>The github repository</h2>
+
+<p>There&#8217;s a repository at <a href='https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/'>liuggio/symfony2-rest-api-the-best-2013-way</a> you could see the working code using the tag <code>part2</code> with</p>
+
+<pre><code>php composer.phar create-project liuggio/symfony2-rest-api-the-best-2013-way blog-rest-symfony2 -sdev
+cd blog-rest-symfony2
+git checkout -f part2
+bin/phpunit -c app</code></pre>
+
+<p>All the tags for the demo project are at <a href='https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/tags'>tags</a>, and also you could compare the first 2 articles with <a href='https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/compare/part1...part2'>compare/part1&#8230;part2</a>.</p>
+
+<h2 id='httpbang_theory'>HTTP-bang theory</h2>
+
+<p>Just few concepts to know before coding.</p>
+<blockquote>
+Miyagi: Wax on... wax off. Wax on... wax off.
+<small>Karate Kid</small>
+</blockquote>
+<h3 id='the_http_methods'>The HTTP Methods</h3>
+
+<p>The HTTP Methods are well described by <a href='http://developer.github.com/v3/'>github v3 api</a></p>
+
+<p>Where possible, API strives to use appropriate HTTP verbs for each action.</p>
+
+<ul>
+<li>
+<p>HEAD Can be issued against any resource to get just the HTTP header info.</p>
+</li>
+
+<li>
+<p>GET Used for retrieving resources.</p>
+</li>
+
+<li>
+<p>POST Used for creating resources, or performing custom actions (such as merging a pull request).</p>
+</li>
+
+<li>
+<p>DELETE Used for deleting resources.</p>
+</li>
+
+<li>
+<p>PATCH Used for updating resources with partial JSON data. For instance, an Issue resource has title and body attributes. A PATCH request may accept one or more of the attributes to update the resource. PATCH is a relatively new and uncommon HTTP Methods.</p>
+</li>
+
+<li>
+<p>PUT Used for replacing resources or collections.</p>
+</li>
+</ul>
+
+<h3 id='safe_and_idempotent'>Safe and idempotent:</h3>
+
+<p><strong>Safe methods</strong></p>
+<blockquote>
+    In particular, the convention has been established that the GET and HEAD methods SHOULD NOT have the significance of taking an action other than retrieval. These methods ought to be considered "safe". This allows user agents to represent other methods, such as POST, PUT and DELETE, in a special way, so that the user is made aware of the fact that a possibly unsafe action is being requested. 
+    <small> w3c.org <cite title='Source Title'>w3c-1 w3.org protocols rfc2616-sec9</cite></small>
+</blockquote>
+<p><strong>Idempotent methods</strong></p>
+<blockquote>
+    Methods can also have the property of "idempotence" in that (aside from error or expiration issues) the side-effects of N > 0 identical requests is the same as for a single request. The methods GET, HEAD, PUT and DELETE share this property. Also, the methods OPTIONS and TRACE SHOULD NOT have side effects, and so are inherently idempotent.
+    <small> w3c.org <cite title='Source Title'>w3c-1 w3.org protocols rfc2616-sec9</cite></small>
+</blockquote>
+<p>So idempotent is about the state of the system, if I create a new resource with POST, the state of the system change every time I call the same Post.</p>
+
+<p>If I delete a resource with $id=10, the system goes always to the same state, so for example multiples and concurrent requests with DELETE pages/10 are accepted without &#8216;side effect&#8217;.</p>
+
+<p>The Safe methods are very important for HTTP-Caching, and idempontent is about the Request, the response could be different, the code and the message could change.</p>
+
+<p>You&#8217;d see how the response is about communication and request is about action.</p>
+
+<h3 id='verbs_and_nouns'>Verbs and nouns</h3>
+
+<p>Since you want to follow the REST methodology, you should create a web interface, which it uses the HTTP Methods that are available.</p>
+
+<p>The good practices suggests to use <strong>nouns</strong> not verbs (this is not really always true we&#8217;ll see in the last part of this trilogy).</p>
+
+<p>The convention also imposes to use plurals nouns, <code>pages</code> instead <code>page</code>, is simpler and coherent.</p>
+<table class='table'>
+<thead>
+<tr>
+    <th>Resource</th>
+    <th>GET</th>
+    <th>POST</th>
+    <th>PUT</th>
+    <th>PATCH</th>
+    <th>DELETE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td><b>pages</b></td>
+    <td>List of Pages</td>
+    <td>Create a new Page</td>
+    <td>-</td>
+    <td>-</td>
+    <td>[Delete all the pages]*</td>
+</tr>
+<tr>
+    <td><b>pages/{id}</b></td>
+    <td>Show pages/10</td>
+    <td>-</td>
+    <td>Update a specific page <br />[and create if not exists]*</td>
+    <td>Partial update a specific page</td>
+    <td>Delete a specific page</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>POST</code> should create a new resource, the <code>PUT</code> should modify an entity.</p>
+
+<p>The <code>PUT</code> should also create the resource if it not exists, as the definition of <code>idempotent</code>.</p>
+
+<p>But some (quite a lot) web APIs simplify the objective of the PUT (usually they are rubist), giving to it only the update action of a given resource, because is simpler separate the create with <code>POST</code> and the update with <code>PUT</code>, but the real difference is well explained by the RFC:</p>
+<blockquote>
+    The fundamental difference between the POST and PUT requests is reflected in the different meaning of the Request-URI. The URI in a POST request identifies the resource that will handle the enclosed entity. That resource might be a data-accepting process, a gateway to some other protocol, or a separate entity that accepts annotations. In contrast, the URI in a PUT request identifies the entity enclosed with the request -- the user agent knows what URI is intended and the server MUST NOT attempt to apply the request to some other resource. If the server desires that the request be applied to a different URI,
+</blockquote>
+<h3 id='the_actions'>The actions</h3>
+
+<p>The table below, describes the name of the actions, on the head of the table the HTTP Methods.</p>
+<table class='table'>
+<thead>
+<tr>
+    <th>Resource</th>
+    <th>GET</th>
+    <th>POST</th>
+    <th>PUT</th>
+    <th>PATCH</th>
+    <th>DELETE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td><b>pages</b></td>
+    <td>List of Pages
+<br />
+    getPagesAction()
+    </td>
+    <td>Create a new Page<br />
+    postPagesAction()
+    </td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+</tr>
+<tr>
+    <td><b>pages/{id}</b></td>
+    <td>Show
+<br />
+    getPageAction($id)</td>
+    <td>-</td>
+    <td>Update
+<br />
+    putPageAction($id) </td>
+    <td>Partial update
+<br />
+    patchPageAction($id)</td>
+    <td>Delete
+<br />deletePageAction($id)
+    </td>
+</tr>
+</tbody>
+</table>
+<p>So just creating the action properly we will have automatically configured the routes, with the proper HTTP Methods.</p>
+
+<p>More info at <a href='https://github.com/FriendsOfSymfony/FOSRestBundle/blob/master/Resources/doc/5-automatic-route-generation_single-restful-controller.md#rest-actions'>rest-action fosRestBundle</a>.</p>
+
+<h2 id='the_creation'>The creation</h2>
+
+<p>Back to our Page example, we need a REST API that allows the creation of a Page.</p>
+
+<h2 id='step_1_writing_the_story'>Step 1 Writing the story</h2>
+
+<p>The story: calling the resource <code>/api/v1/pages.json</code> with POST method, and giving the whole serialized content of a <code>Page</code> entity, the response should have the status code <code>201</code>, and should be a json response.</p>
+
+<p>We could easily write this story into a functional test:</p>
+
+<pre><code>// src\Acme\BlogBundle\Tests\Controller\PageControllerTest
+public function testJsonPostPageAction()
+{
+    $this-&gt;client = static::createClient();
+    $this-&gt;client-&gt;request(
+        &#39;POST&#39;, 
+        &#39;/api/v1/pages.json&#39;,  
+        array(),
+        array(),
+        array(&#39;CONTENT_TYPE&#39; =&gt; &#39;application/json&#39;),
+        &#39;{&quot;title&quot;:&quot;title1&quot;,&quot;body&quot;:&quot;body1&quot;}&#39;
+    );
+    $this-&gt;assertJsonResponse($this-&gt;client-&gt;getResponse(), 201, false);
+}</code></pre>
+
+<p>and there is another story:</p>
+
+<p>calling the resource <code>/api/v1/pages.json</code> with the POST method, and giving a not valid serialized content of the <code>Page</code> entity, the response should have the status code <code>400</code>.</p>
+
+<pre><code>public function testJsonPostPageActionShouldReturn400WithBadParameters()
+{
+    $this-&gt;client = static::createClient();
+    $this-&gt;client-&gt;request(
+        &#39;POST&#39;,
+        &#39;/api/v1/pages.json&#39;,
+        array(),
+        array(),
+        array(&#39;CONTENT_TYPE&#39; =&gt; &#39;application/json&#39;),
+        &#39;{&quot;ninja&quot;:&quot;turtles&quot;}&#39;
+    );
+
+    $this-&gt;assertJsonResponse($this-&gt;client-&gt;getResponse(), 400, false);
+}</code></pre>
+
+<p>Of course the tests are red, we had to add the <code>post</code> function in <code>PageHandler</code> then the <code>postPageAction</code> in the Controller.</p>
+
+<p>We are going to create a <code>post</code> function that takes the parameters (as an array) containing all the fields of the entity <code>Page</code>,</p>
+
+<p>the <strong>form</strong> is responsible to validate and hydrate the new <code>Page</code> object, then this object is persisted to the Object Manager.</p>
+
+<h2 id='step_2_the_entity_validation'>Step 2 The Entity validation</h2>
+
+<p>We have to add the validation layer that will be invisible, the form will perform it automatically:</p>
+
+<pre><code># src/Acme/BlogBundle/Resources/config/validation.yml
+Acme\BlogBundle\Entity\Page:
+    properties:
+        title:
+            - NotBlank: ~
+            - NotNull: ~
+            - Length:
+                min: 2
+                max: 50
+                minMessage: &quot;Your title must be at least  characters length&quot;
+                maxMessage: &quot;Your title name cannot be longer than  characters length&quot;</code></pre>
+
+<h2 id='step_3_the_pagehandlerpost'>Step 3 The PageHandler::post</h2>
+
+<p>In the first article we created a service called <code>PageHandler</code>, its objective is to respect the <code>PageHandlerInterface</code>, serving the <code>Page</code> entity with <code>get(id)</code> and <code>post()</code>: it could read and write a <code>Page</code> resource.</p>
+
+<p>The first step should be create a test that respects the behavior that we want for the post.</p>
+
+<p>Given parameters containing properties of the <code>Page</code> like <code>array(&#39;title&#39;=&gt;&#39;title&#39;)</code> the function should return an already persisted object respecting the interface <code>PageInterface</code>.</p>
+
+<h3 id='step_3a_the_post_function'>Step 3.a The post function</h3>
+
+<p>We are now going to create a function that look like even in the name to the controller&#8217;s function.</p>
+
+<pre><code>// src/Acme/BlogBundle/Handler/PageHandler.php
+/**
+ * Create a new Page.
+ *
+ * @param array $parameters
+ *
+ * @return PageInterface
+ */
+public function post(array $parameters)
+{
+    $page = $this-&gt;createPage(); // factory method create an empty Page
+
+    // Process form does all the magic, validate and hydrate the Page Object.
+    return $this-&gt;processForm($page, $parameters, &#39;POST&#39;);
+}</code></pre>
+
+<h3 id='step_3b_the_form_factory'>Step 3.b The form factory</h3>
+
+<p>In order to use the form we need the <code>form.factory</code> injected into the service:</p>
+
+<pre><code>// src\Acme\BlogBundle\Handler\PageHandler.php
+use Symfony\Component\Form\FormFactoryInterface;
+// ...
+class PageHandler implements PageHandlerInterface
+// ...
+private $formFactory;
+// ...
+public function __construct(ObjectManager $om, $entityClass, FormFactoryInterface $formFactory)
+{
+    $this-&gt;om = $om;
+    $this-&gt;entityClass = $entityClass;
+    $this-&gt;repository = $this-&gt;om-&gt;getRepository($this-&gt;entityClass);
+    $this-&gt;formFactory = $formFactory;
+}</code></pre>
+
+<p>and then we have to add a new argument into the page handler service at <code>/src/Acme/BlogBundle/Resources/config/services.xml</code></p>
+
+<pre><code>&lt;?xml version=&quot;1.0&quot; ?&gt;
+&lt;services&gt;
+    &lt;service id=&quot;acme_blog.page.handler&quot; class=&quot;%acme_blog.page.handler.class%&quot;&gt;
+        &lt;argument type=&quot;service&quot; id=&quot;doctrine.orm.entity_manager&quot; /&gt;
+        &lt;argument&gt;%acme_blog.page.class%&lt;/argument&gt;
+        &lt;argument type=&quot;service&quot; id=&quot;form.factory&quot;&gt;&lt;/argument&gt;
+    &lt;/service&gt;
+&lt;/services&gt;</code></pre>
+
+<h3 id='step_3c_the_processform'>Step 3.c The processForm</h3>
+
+<p>It&#8217;s time to back to <code>\Acme\BlogBundle\Handler\PageHandler</code> and create the <code>processForm</code> function, the hearth of the write functions.</p>
+
+<p>You have surely already used <a href='http://api.symfony.com/2.3/Symfony/Component/Form/FormInterface.html'>form-&gt;handleRequest($request)</a>, but in this case we don&#8217;t have the Request but only the values ​​ in an array, so instead of <code>handleRequest</code>, we are going to <code>submit</code> the form.</p>
+
+<pre><code>/**
+ * Processes the form.
+ *
+ * @param PageInterface $page
+ * @param array         $parameters
+ * @param String        $method
+ *
+ * @return PageInterface
+ *
+ * @throws Acme\BlogBundle\Exception\InvalidFormException
+ */
+private function processForm(PageInterface $page, array $parameters, $method = &quot;PUT&quot;)
+{
+    $form = $this-&gt;formFactory-&gt;create(new PageType(), $page, array(&#39;method&#39; =&gt; $method));
+    $form-&gt;submit($parameters, &#39;PATCH&#39; !== $method);
+    if (!$form-&gt;isValid()) {
+        throw new InvalidFormException(&#39;Invalid submitted data&#39;, $form);
+    }
+    $page = $form-&gt;getData(); // get the hydrated Page object
+    $this-&gt;om-&gt;persist($page);// persistence layer
+    $this-&gt;om-&gt;flush($page);
+
+    return $page;
+}</code></pre>
+
+<p>This function returns an object of <code>PageInterface</code> type, but if the parameters are not valid it throws an <code>InvalidFormException</code> that will be handled and caught by the controller.</p>
+
+<p>The test class is at <a href='https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/blob/part2/src/Acme/BlogBundle/Tests/Handler/PageHandlerTest.php/'>part2-src/Acme/BlogBundle/Tests/Handler/PageHandlerTest.php</a></p>
+
+<h3 id='why_dont_use_the_request'>Why don&#8217;t use the request?</h3>
+
+<p>The real question is: do we really need the request here?</p>
+
+<p>The answer is <strong>no</strong>, the main responsibility of <code>PageHandler</code> class is to <code>handle</code> (creating, editing, showing) the <code>Page</code> entity, given some parameters, it doesn&#8217;t care about Request.</p>
+
+<p>In this way you could use <code>PageHandler</code> from container services, without injecting or faking the Request.</p>
+
+<p>In the end of this series of articles you will have an application that serves REST API,</p>
+
+<p>but the PageHandler is itself an API, usable by services of your application via service container.</p>
+
+<h2 id='step_4_the_post_and_the_controller'>Step 4 The POST and the Controller</h2>
+
+<h3 id='the_function'>The function</h3>
+
+<p>The postPageAction is simple, all the domain logic is demanded to the <code>PageHandler</code>.</p>
+
+<pre><code>/**
+ * Create a Page from the submitted data.
+ *
+ * @ApiDoc(
+ *   resource = true,
+ *   description = &quot;Creates a new page from the submitted data.&quot;,
+ *   input = &quot;Acme\BlogBundle\Form\PageType&quot;,
+ *   statusCodes = {
+ *     200 = &quot;Returned when successful&quot;,
+ *     400 = &quot;Returned when the form has errors&quot;
+ *   }
+ * )
+ *
+ * @Annotations\View(
+ *  template = &quot;AcmeBlogBundle:Page:newPage.html.twig&quot;,
+ *  statusCode = Codes::HTTP_BAD_REQUEST
+ * )
+ *
+ * @return FormTypeInterface|RouteRedirectView
+ */
+public function postPageAction()
+{
+    try {
+    	// Hey handler create a page for me.
+        $newPage = $this-&gt;container-&gt;get(&#39;acme_blog.page.handler&#39;)-&gt;post(
+                // this is the body of the request
+                $this-&gt;container-&gt;get(&#39;request&#39;)-&gt;request-&gt;all()
+        );
+
+        $routeOptions = array(
+            &#39;id&#39; =&gt; $newPage-&gt;getId(),
+            &#39;_format&#39; =&gt; $this-&gt;container-&gt;get(&#39;request&#39;)-&gt;get(&#39;_format&#39;)
+        );
+
+        // return HTTP_CREATED, and add location header
+        return $this-&gt;routeRedirectView(&#39;api_1_get_page&#39;, $routeOptions, Codes::HTTP_CREATED);
+
+    } catch (InvalidFormException $exception) {
+
+        return $this-&gt;view(array(&#39;errors&#39; =&gt; $exception-&gt;getForm()), Codes::HTTP_BAD_REQUEST);
+    }
+}</code></pre>
+
+<h3 id='the_location'>The location</h3>
+
+<p>A new page is created by the <code>PageHandler</code>, then the helper <code>routeRedirectView</code> adds to the http header the location: <code>http://localhost:8000/api/v1/pages/47.json</code>.</p>
+
+<h3 id='the_template'>The template</h3>
+
+<p>Remember to create the template newPage.html.twig something like</p>
+
+<pre><code>/src/Acme/BlogBundle/Resources/views/Page/newPage.html.twig
+&lt;h1&gt;Page Form&lt;/h1&gt;
+&lt;form action=&quot;{ { url(&#39;api_1_post_page&#39;) } }&quot; method=&quot;POST&quot; { { form_enctype(form) } }&gt;
+    { { form_widget(form) } }
+    &lt;input type=&quot;submit&quot; value=&quot;submit&quot;&gt;
+&lt;/form&gt;</code></pre>
+
+<h3 id='the_api'>The API</h3>
+
+<p>Maybe it has gone unnoticed but in the annotation of the documentation, the input of the post is not the <code>Page</code> object but a form type:</p>
+
+<pre><code>* @ApiDoc(
+*   ...
+*   input = &quot;Acme\BlogBundle\Form\PageType&quot;,
+*   ...</code></pre>
+
+<p>You&#8217;d see how much the form is important in our API application.</p>
+
+<h3 id='the_name_of_the_form_type'>The name of the Form type</h3>
+
+<p>One thing that seems very obscure in the eyes of those doing the rest with the form is the <code>getName</code>,</p>
+
+<p>in all the examples above we sent all the data with an empty <code>PageType::name</code> but if we&#8217;d change to:</p>
+
+<pre><code>// src/Acme/BlogBundle/Form/PageType.php
+/**
+ * @return string
+ */
+public function getName()
+{
+    return &#39;page&#39;;
+}</code></pre>
+
+<p>The data should be sent with a different syntax:</p>
+
+<pre><code>curl -X POST -d &#39;{&quot;page&quot;:{&quot;title&quot;:&quot;title1&quot;,&quot;body&quot;:&quot;body1&quot;}}&#39; http://localhost:8000/api/v1/pages.json --header &quot;Content-Type:application/json&quot; -v</code></pre>
+
+<p>and the controller should look something like</p>
+
+<pre><code>public function postPageAction()
+{
+    try {
+        $form = new PageType();
+        $newPage = $this-&gt;container-&gt;get(&#39;acme_blog.page.handler&#39;)-&gt;post(
+                $this-&gt;container-&gt;get(&#39;request&#39;)-&gt;request-&gt;get($form-&gt;getName())
+        );
+// ...</code></pre>
+
+<h2 id='rest_is_also_for_human'>Rest is (also) for human</h2>
+
+<h3 id='people_and_rest_got_the_power'>People (and REST) got the power</h3>
+
+<p>There are many protocols and each has its advantages and its reasons, SOAP, XML-RPC. The added value of REST is that it is not just for client API and web browser is <strong>for people too</strong>.</p>
+
+<h2 id='conventional_actions'>Conventional Actions</h2>
+
+<p>The title <code>Rest is also for human</code> is self explanatory and the guys at Friends Of Symfony, wrote how to increase the interaction with the REST process, adding some <code>conventional actions</code>:</p>
+<blockquote>
+HATEOAS, or Hypermedia as the Engine of Application State, is an aspect of REST which allows clients to interact with the REST service with hypertext - most commonly through an HTML page. There are 3 Conventional Action routings that are supported by this bundle: 
+
+<b>new</b>, <b>edit</b>, <b>remove</b> ... from FOSREST-1
+</blockquote>
+<h2 id='step_5_the_newpage_action'>Step 5 The newPage action</h2>
+
+<p>We are going to create the new action:</p>
+
+<p><strong>new</strong> - A hypermedia representation that acts as the engine to POST. Typically this is a form that allows the client to POST a new resource. Shown as PageController::newPagesAction()</p>
+
+<p>We are providing a REST API for <code>json</code>, <code>xml</code>, and <code>html</code> formats, so a user could be able to create a correct request, we should provide also a web page to create the form:</p>
+
+<pre><code>/**
+ * Presents the form to use to create a new page.
+ *
+ * @ApiDoc(
+ *   resource = true,
+ *   statusCodes = {
+ *     200 = &quot;Returned when successful&quot;
+ *   }
+ * )
+ *
+ * @Annotations\View()
+ *
+ * @return FormTypeInterface
+ */
+public function newPageAction()
+{
+    return $this-&gt;createForm(new PageType());
+}</code></pre>
+
+<p>Automatically a new route is added at <code>/api/v1/pages/new.{_format}</code> you could check it with</p>
+
+<p><code>app/console router:debug | grep api</code></p>
+
+<p>Accessing to the the page with <code>curl -S localhost:8000/api/v1/pages/new</code></p>
+
+<p>you will obtain a working html form.</p>
+
+<h2 id='manually_test_the_application'>Manually test the application</h2>
+
+<h3 id='the_happy_path_201'>The happy path 201</h3>
+
+<pre><code>curl -X POST -d &#39;{&quot;title&quot;:&quot;title&quot;,&quot;body&quot;:&quot;body&quot;}&#39; http://localhost:8000/api/v1/pages.json --header &quot;Content-Type:application/json&quot; </code></pre>
+
+<p>It will return</p>
+
+<pre><code>&lt; HTTP/1.1 201 Created
+&lt; Host: localhost:8000
+&lt; Location: http://localhost:8000/api/v1/pages/50.json
+&lt; Allow: POST
+&lt; Content-Type: application/json</code></pre>
+
+<p>This is great! HTTP Status code <code>201</code> resource created, and location tells to the consumers where to get this resource.</p>
+
+<h3 id='bad_parameters_400'>Bad parameters 400</h3>
+
+<p>Let&#8217;s try to send a bad content:</p>
+
+<pre><code>curl -X POST -d &#39;{&quot;ninja&quot;:&quot;title&quot;,&quot;turtles&quot;:&quot;body&quot;}&#39; http://localhost:8000/api/v1/pages.json --header &quot;Content-Type:application/json&quot; -v</code></pre>
+
+<p>The Response will be <code>400</code></p>
+
+<pre><code>&lt; HTTP/1.1 400 Bad Request
+&lt; Host: localhost:8000
+&lt; Content-Type: application/json
+&lt; 
+&lt; {&quot;form&quot;:{&quot;errors&quot;:[&quot;This form should not contain extra fields.&quot;],&quot;children&quot;:{&quot;title&quot;:[],&quot;body&quot;:[]}}}</code></pre>
+
+<h2 id='things_to_know_and_not_always_to_do'>Things to know (and not always to do)</h2>
+
+<p>There are simple steps that could improve a little bit the project:</p>
+
+<h3 id='the_nonproblem'>The non-problem</h3>
+
+<p>Do you remember how we used the formFactory in the PageHandler?</p>
+
+<pre><code>// src\Acme\BlogBundle\Handler\PageHandler::$formFactory
+$form = $this-&gt;formFactory-&gt;create(new PageType(), $page, array(&#39;method&#39; =&gt; $method));</code></pre>
+
+<p>and do you remember how we created the PageType?</p>
+
+<pre><code>// src/Acme/BlogBundle/Form/PageType.php
+&#39;data_class&#39; =&gt; &#39;Acme\BlogBundle\Entity\Page&#39;,</code></pre>
+
+<p>We hardcoded the classes inside another class, we create an hard dependency.</p>
+
+<h3 id='the_solution'>The solution</h3>
+
+<p>we could create the PageType as service, and use the name of the service from the PageHandler.</p>
+
+<pre><code>&lt;parameter key=&quot;acme_blog.page.type.class&quot;&gt;Acme\BlogBundle\Form\PageType&lt;/parameter&gt;
+&lt;parameter key=&quot;acme_blog.page.type.name&quot;&gt;&lt;/parameter&gt;
+&lt;parameter key=&quot;acme_blog.page.type.alias&quot;&gt;leaphly_cart&lt;/parameter&gt;
+
+&lt;service id=&quot;acme_blog.page.type&quot; class=&quot;Leaphly\CartBundle\Form\Type\CartFormType&quot;&gt;
+    &lt;argument&gt;%acme_blog.page.type.class%&lt;/argument&gt;
+    &lt;tag name=&quot;form.type&quot; alias=&quot;%acme_blog.page.type.alias%&quot; /&gt;
+&lt;/service&gt;</code></pre>
+
+<p>and then in the <code>Page handler</code> do something like:</p>
+
+<pre><code>$this-&gt;formFactory-&gt;createNamed ...</code></pre>
+
+<p>the code given on github <strong>doesn&#8217;t cover</strong> the form type as service.</p>
+
+<h3 id='justifying_this_extra_effort'>Justifying this extra effort</h3>
+
+<p>In few cases this could be considered an <a href='http://en.wikipedia.org/wiki/Overengineering'>over-engineered</a> task,</p>
+
+<p>but when the form type needs extra powers(eg. database access) or when we want to remove all the hard-coding and explicit classes, or if we want to centralize the parameters and the classes in order to be easily changed or renamed, the form type as service could be useful.</p>
+
+<h2 id='the_documentation_as_bonus'>The documentation as bonus</h2>
+
+<p>With <a href='https://github.com/nelmio/NelmioApiDocBundle'>NelmioApiDocBundle</a> we will have a documentation <strong>for free</strong></p>
+
+<p>adding a route:</p>
+
+<pre><code># app/config/routing.yml
+NelmioApiDocBundle:
+    resource: &quot;@NelmioApiDocBundle/Resources/config/routing.yml&quot;
+    prefix:   /api/doc</code></pre>
+
+<p>then modifying the PostAction annotations</p>
+
+<pre><code>/**
+ * @ApiDoc(
+ *   resource = true,
+ *   description = &quot;Creates a new page from the submitted data.&quot;,
+ *   input = &quot;Acme\BlogBundle\Form\PageType&quot;,
+ *   statusCodes = {
+ *     200 = &quot;Returned when successful&quot;,
+ *     400 = &quot;Returned when the form has errors&quot;
+ *   }
+ * )
+ */
+public function postPageAction()</code></pre>
+
+<p>And thanks to <a href='https://github.com/nelmio/NelmioApiDocBundle/graphs/contributors'>this guys</a> you will have something like:</p>
+
+<p><img alt='NelmioApiDocBundle screen-shot' src='/assets/themes//readable-liuggio/img/screenshot-nelmio.png' /></p>
+
+<h2 id='recap'>Recap</h2>
+
+<p>Now we could create and read a resource via HTTP REST, using those routes:</p>
+
+<pre><code>api_1_get_page           GET    ANY    ANY  /api/v1/pages/{id}.{_format}
+api_1_new_page           GET    ANY    ANY  /api/v1/pages/new.{_format}
+api_1_post_page          POST   ANY    ANY  /api/v1/pages.{_format}
+nelmio_api_doc_index     GET    ANY    ANY  /api/doc/</code></pre>
+
+<p>We also have created another API usable via service container and the API are defined into the <code>PageHandlerInterface</code>:</p>
+
+<pre><code>// src/Acme/BlogBundle/Handler/PageHandlerInterface.php
+interface PageHandlerInterface
+{
+    /**
+     * Get a Page given the identifier
+     *
+     * @api
+     *
+     * @param int $id
+     *
+     * @return PageInterface
+     */
+    public function get($id);
+
+    /**
+     * Post Page, creates a new Page.
+     *
+     * @api
+     *
+     * @param array $parameters
+     *
+     * @return PageInterface
+     */
+    public function post(array $parameters);
+}</code></pre>
+
+<h2 id='next'>Next</h2>
+
+<p>In the next articles, we will describe how to delete, edit partially and totally a resource with <code>DELETE</code>, <code>PATCH</code>, <code>PUT</code>, we will talk how use other important HTTP headers, we will play with <code>filter</code> authentication &#8230;</p>
+
+<h3 id='references'>References</h3>
+
+<ol>
+<li><a href='http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html'>W3C-1 w3.org/Protocols/rfc2616/rfc2616-sec9</a></li>
+
+<li><a href='http://zachholman.com/2010/03/the-human-is-a-restful-client/'>ZAC-1 - Zach Holman: The Human is a RESTful Client</a></li>
+
+<li><a href='https://github.com/FriendsOfSymfony/FOSRestBundle/blob/master/Resources/doc/5-automatic-route-generation_single-restful-controller.md#conventional-actions'>FOSREST-1 conventional-actions</a></li>
+
+<li><a href='http://symfony.com/doc/current/cookbook/form/direct_submit.html'>symfony.com/doc/current/cookbook/form/direct_submit.html</a></li>
+
+<li><a href='http://symfony.com/doc/current/cookbook/form/create_custom_field_type.html'>symfony.com/doc/current/cookbook/form/create_custom_field_type.html</a></li>
+
+<li><a href='https://github.com/nelmio/NelmioApiDocBundle'>NelmioApiDocBundle</a></li>
+
+<li><a href='https://github.com/lsmith77/symfony-rest-edition/'>lsmith77/symfony-rest-edition/</a></li>
+</ol>
+    </article>
+    <hr>
+    <div id="related">
+      <h3>Related Posts</h3>
+      <ul class="posts">
+      
+      <li>
+       <span>13 Nov 2013 &raquo;</span> <a href="/symfony2-rest-api-the-best-2013-way">Symfony2 REST API: the best way</a>
+      </li>
+      
+      <li>
+       <span>18 Oct 2013 &raquo;</span> <a href="/symfony2-design-patterns">Symfony2 design patterns @ symfonyday</a>
+      </li>
+      
+      <li>
+       <span>11 Sep 2013 &raquo;</span> <a href="/design-by-contract-behaviour">Design by contract behaviour</a>
+      </li>
+      
+      </ul>
+    </div>
+    
+    <div class="pagination">
+        <ul class="pager span9">
+            
+            <li class="prev span3"><a href="/symfony2-rest-api-the-best-2013-way" title="Symfony2 REST API: the best way">&larr;<br>
+                Previous - Symfony2 REST API: the best way</a></li>
+            
+            <li  class="span2"><a href="/index.html"><br>Archive</a></li>
+            
+            <li class="next disabled span5"><a>Next &rarr;</a>
+                
+        </ul>
+    </div>
+    
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'welcometothebundle'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+</div>
+  
+ 
+
+
+
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer class="footer">
+      <div class="container">
+        <div class="span3 offset1">
+            <ul class="nav nav-pills nav-stacked"> 
+                <li class="nav-header">Open Source</li>                
+                <li><a href="http://leaphly.org">leaphly <small>cart built around REST specs.</small></a></li>
+                <li><a href="https://poser.pugx.org/">badge-poser <small>badges for composer</small></a></li>
+                <li><a href="https://github.com/PUGX/godfather">godfather <small>php strategy pattern</small></a></li>
+                <li><a href="https://github.com/liuggio/statsd-php-client">statsd-php-client <img class="pull-right" style="max-width:80px;margin-right:30px"  alt="Total Downloads" src="https://poser.pugx.org/liuggio/statsd-php-client/downloads.png"></a></li>
+                <li><a href="https://github.com/liuggio/ExcelBundle">sf2 Excel bundle <img class="pull-right" style="max-width:80px;margin-right:30px" alt="Total Downloads" src="https://poser.pugx.org/liuggio/ExcelBundle/downloads.png"></a></li>
+                 <li><a href="https://github.com/liuggio?tab=repositories"><small>more...</small></a></li>
+            </ul>
+
+        </div>
+
+
+
+        <div  class="span2 offset1" >
+            <ul class="nav nav-pills nav-stacked left">
+            <li class="nav-header">Categories</li>
+                <li><a href="/categories.html#tutorial-ref">
+                    Tutorial
+                </a></li>
+                <li><a href="/categories.html#blah-blah-blah-ref">
+                    Blah-blah-blah
+                </a></li>
+                <li><a href="/categories.html#post-ref">
+                    Post
+                </a></li>
+                <li><a href="/categories.html#talk-ref">
+                    Talk
+                </a></li>
+            </ul>
+        </div>
+
+        <div  class="span2 offset1" >
+            <ul class="nav nav-pills nav-stacked"> 
+            <li class="nav-header">Connect</li>
+                <li><a href="https://github.com/liuggio" title="Giulio De Donato github projects"
+                       target="_blank"
+                       class="social"><img src="/assets/themes/readable-liuggio/img/github.png" width="13"> github</a></li>
+                <li><a href="http://twitter.com/liuggio" title="Giulio De Donato twitter page"
+                       target="_blank"
+                       class="social"><i class="icon-twitter"></i> twitter</a></li>
+                <li><a href="http://www.linkedin.com/profile/view?id=94597934"
+                       title="Giulio De Donato Linkedin profile" target="_blank"
+                       class="social">
+                       <i class="icon-linkedin"></i> linkedin</a></li>
+                <li><a href="http://www.slideshare.net/liuggio"
+                       title="Giulio De Donato slideshare presentations" target="_blank"
+                       class="social">
+                       <img src="/assets/themes/readable-liuggio/img/slide.png" width="13"> slideshare
+                       </a></li>
+            </ul>
+        </div>     
+      </div>
+      <p>© Giulio De Donato, 2013 — built with <a href="http://jekyllrb.com/">Jekyll.</a></p>
+    </footer>
+
+<!-- /container -->
+<script src="/assets/themes/readable-liuggio/bootstrap/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="/assets/themes/readable-liuggio/js/highlight.pack.js" type="text/javascript"></script>
+<script src="/assets/themes/readable-liuggio/js/uitotop-jquery-plugin.js" type="text/javascript"></script>
+<script src="/assets/themes/readable-liuggio/js/cloud.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+    var links = document.links;
+    for (var i = 0, linksLength = links.length; i < linksLength; i++) {
+        if (links[i].hostname.replace("www.", "") != window.location.hostname.replace("www.", "") ) {
+            links[i].target = '_blank';
+        }
+    }
+
+    var links = document.links;
+    for (var i = 0, linksLength = links.length; i < linksLength; i++) {
+
+        if (links[i].href == 'http://www.slideshare.net/liuggio/rationally-boost-your-symfony2-application-with-caching-tips-and-monitoring') {
+
+            //dirty solution in order to add slideshare frame into github Jekyll
+            links[i].innerHTML = '<iframe src="http://www.slideshare.net/slideshow/embed_code/14625769?rel=0" width="512" height="421" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe><div style="margin-bottom:5px"> <strong> <a href="http://www.slideshare.net/liuggio/rationally-boost-your-symfony2-application-with-caching-tips-and-monitoring/?no" title="Rationally boost your symfony2 application with caching tips and monitoring" target="_blank">Rationally boost your symfony2 application with caching tips and monitoring</a></div>';
+            break;
+        } else if (links[i].href == 'http://www.slideshare.net/liuggio/its-all-about-behaviour-also-in-php') {
+            links[i].innerHTML = '<iframe src="http://www.slideshare.net/slideshow/embed_code/27465974?rel=0" width="512" height="421" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe><div style="margin-bottom:5px"> <strong> <a href="http://www.slideshare.net/liuggio/its-all-about-behaviour-also-in-php/?no" title="It is all about behaviour also in php. PHP loves BDD." target="_blank">It is all about behaviour also in php. PHP loves BDD.</a></div>';
+        } else if (links[i].href == 'http://www.slideshare.net/liuggio/design-pattern-symfony2') {
+            links[i].innerHTML = '<div class="centered center"><iframe src="http://www.slideshare.net/slideshow/embed_code/27449969?rel=0" width="512" height="421" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe><div style="margin-bottom:5px"> <strong> <a href="http://www.slideshare.net/liuggio/design-pattern-symfony2/?no" title="Design pattern symfony2 - Nanos gigantium humeris insidentes" target="_blank">Design pattern Symfony2 - Nanos gigantium humeris insidentes</a></div></div>';
+        } else if (links[i].href == 'http://www.slideshare.net/liuggio/caching-and-data-analysis-will-move-your-symfony2-application-to-the-next-level') {
+            links[i].innerHTML = '<div class="centered center"><iframe src="http://www.slideshare.net/slideshow/embed_code/21395241?rel=0" width="512" height="421" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe><div style="margin-bottom:5px"> <strong> <a href="http://www.slideshare.net/liuggio/caching-and-data-analysis-will-move-your-symfony2-application-to-the-next-level?no" title="Caching and data analysis will move your Symfony2 application to the next level" target="_blank">Caching and data analysis will move your Symfony2 application to the next level</a></div></div>';
+        }
+    }
+
+</script>
+<script type="text/javascript">
+  var analytics=analytics||[];analytics.load=function(e){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+e+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);var r=function(e){return function(){analytics.push([e].concat(Array.prototype.slice.call(arguments,0)))}},i=["identify","track","trackLink","trackForm","trackClick","trackSubmit","pageview","ab","alias","ready"];for(var s=0;s<i.length;s++)analytics[i[s]]=r(i[s])};
+  analytics.load("wdoo4hzofo");
+</script>
+
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37195869-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+
+
+<script>
+    $(function () { // document ready
+        if (!!$('.sticky').offset()) { // make sure ".sticky" element exists
+            var stickyTop = $('.sticky').offset().top; // returns number
+            $(window).scroll(function () { // scroll event
+                var windowTop = $(window).scrollTop(); // returns number
+                if (stickyTop < windowTop) {
+                    $('.sticky').css({ position:'fixed', top:0, right:0 });
+                    $('.sticky').addClass("well");
+                    $('.sticky .inner').show();
+
+                }
+                else {
+                    $('.sticky').css('position', 'static');
+                    $('.sticky').removeClass("well").addClass("span1");
+                    $('.sticky .inner').hide();
+                }
+            });
+        }
+    });
+</script>
+
+ <script>
+        //syntax highlight
+        $(document).ready(function() {
+            $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+        });
+    </script>
+<script type="text/javascript">
+    $.fn.tagcloud.defaults = {
+      size: {start: 10, end: 20, unit: 'px'},
+      color: {start: '#CD4540', end: '9C2520'}
+    };
+
+    $(function () {
+      $('ul.tag_box li a').tagcloud();
+    });
+</script>
+
+<script>
+$(document).ready(function() {
+    $('h2, h3, h4, h5').each(function(i, e) {
+        var a = '<a class="headerlink" href="#'+e.id+'" name="#'+e.id+'" title="Permalink to this headline">¶</a>';
+        $(e).append(a);
+    });
+});
+
+$().UItoTop();
+
+</script>
+
+
+</body>
+</html>
+

@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "part2 - Web API REST with Symfony2: the best way - The POST method"
+title: "part2 - Web API REST with Symfony2"
 description: "REST API tutorial on symfony2 second part"
 category: tutorial
 tags: [rest, api, symfony2]
-published: false
+published: true
 date: 2013-11-16 13:00:00
 ---
 {% include JB/setup %}
@@ -13,7 +13,7 @@ date: 2013-11-16 13:00:00
 
 In the '[Symfony2 REST part 1](http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way/)' we created the application, the bundle, we talked about the `GET` method, we also talked about the importance of the Interfaces, the content negotiation, and we gave an example of dumb controllers and brain services.
 
-In this blog post we are going to create a new `Page` via REST API: the form is the protagonist of this article.
+In this blog post we are going to create a new `Page` via **REST API**: the form is the protagonist of this article.
 
 ## The github repository
 
@@ -29,11 +29,16 @@ All the tags for the demo project are at [tags](https://github.com/liuggio/symfo
 
 ## HTTP-bang theory
 
-vorrei dare una base di concetti HTTP che dovrebbero essere capiti e appresi prima 
+Just few concepts to know before coding.
 
-### The verbs
+<blockquote>
+Miyagi: Wax on... wax off. Wax on... wax off.
+<small>Karate Kid</small>
+</blockquote>
 
-The verbs are well described by [github v3 api](http://developer.github.com/v3/) 
+### The HTTP Methods
+
+The HTTP Methods are well described by [github v3 api](http://developer.github.com/v3/) 
 
 Where possible, API strives to use appropriate HTTP verbs for each action.
 
@@ -45,9 +50,9 @@ Where possible, API strives to use appropriate HTTP verbs for each action.
 
  - DELETE   Used for deleting resources.
 
- - PATCH    Used for updating resources with partial JSON data. For instance, an Issue resource has title and body attributes. A PATCH request may accept one or more of the attributes to update the resource. PATCH is a relatively new and uncommon HTTP verb.
+ - PATCH    Used for updating resources with partial JSON data. For instance, an Issue resource has title and body attributes. A PATCH request may accept one or more of the attributes to update the resource. PATCH is a relatively new and uncommon HTTP Methods.
 
- - PUT  Used for replacing resources or collections. For PUT requests with no body attribute, be sure to set the Content-Length header to zero.
+ - PUT  Used for replacing resources or collections.
 
 ### Safe and idempotent:
 
@@ -65,19 +70,23 @@ Where possible, API strives to use appropriate HTTP verbs for each action.
     <small> w3c.org <cite title="Source Title">w3c-1 w3.org protocols rfc2616-sec9</cite></small>
 </blockquote>
 
-### The response
+So idempotent is about the state of the system, if I create a new resource with POST, the state of the system change every time I call the same Post.
 
-The response should be a http response, containing a valid HTTP CODE, and sometimes a message.
+If I delete a resource with $id=10, the system goes always to the same state, so for example multiples and concurrent requests with DELETE pages/10 are accepted without 'side effect'. 
+
+The Safe methods are very important for HTTP-Caching, and 
+idempontent is about the Request, the response could be different, the code and the message could change. 
+
+You'd see how the response is about communication and request is about action.
 
 ### Verbs and nouns
 
 Since you want to follow the REST methodology, you should create a web interface,
-which it will use of the HTTP verbs that are available.
+which it uses the HTTP Methods that are available.
 
-The good practices suggests to use **nouns** not verbs, the verbs should used into the header for the HTTP request (this is not really always true we'll see in the third part).
+The good practices suggests to use **nouns** not verbs (this is not really always true we'll see in the last part of this trilogy).
 
-The convention also imposes to use plurals nouns, `pages` instead page, is simpler and coherent.
-
+The convention also imposes to use plurals nouns, `pages` instead `page`, is simpler and coherent.
 
 <table class="table">
 <thead>
@@ -112,12 +121,17 @@ The convention also imposes to use plurals nouns, `pages` instead page, is simpl
 
 The `POST` should create a new resource, the `PUT` should modify an entity.
 
-The `PUT` should also create the resource if it not exists, please see the definition of `safe` and `idempotent`.
-But in some web API the objective of the PUT is only to update a given resource, because is just simpler separate the creation with `POST` and the update with `PUT`.
+The `PUT` should also create the resource if it not exists, as the definition of `idempotent`.
+
+But some (quite a lot) web APIs simplify the objective of the PUT (usually they are rubist), giving to it only the update action of a given resource, because is simpler separate the create with `POST` and the update with `PUT`, but the real difference is well explained by the RFC:
+
+<blockquote>
+    The fundamental difference between the POST and PUT requests is reflected in the different meaning of the Request-URI. The URI in a POST request identifies the resource that will handle the enclosed entity. That resource might be a data-accepting process, a gateway to some other protocol, or a separate entity that accepts annotations. In contrast, the URI in a PUT request identifies the entity enclosed with the request -- the user agent knows what URI is intended and the server MUST NOT attempt to apply the request to some other resource. If the server desires that the request be applied to a different URI,
+</blockquote>
 
 ### The actions
 
-The table below, describes the name of the actions, on the head of the table the HTTP verbs.
+The table below, describes the name of the actions, on the head of the table the HTTP Methods.
 
 <table class="table">
 <thead>
@@ -163,7 +177,7 @@ The table below, describes the name of the actions, on the head of the table the
 </tbody>
 </table>
 
-So just creating the action properly we will have automatically configured the routes, with the proper HTTP verbs.
+So just creating the action properly we will have automatically configured the routes, with the proper HTTP Methods.
 
 More info at [rest-action fosRestBundle](https://github.com/FriendsOfSymfony/FOSRestBundle/blob/master/Resources/doc/5-automatic-route-generation_single-restful-controller.md#rest-actions).
 
@@ -171,7 +185,7 @@ More info at [rest-action fosRestBundle](https://github.com/FriendsOfSymfony/FOS
 
 Back to our Page example, we need a REST API that allows the creation of a Page.
 
-### POST
+## Step 1 Writing the story
 
 The story: calling the resource `/api/v1/pages.json` with POST method, 
 and giving the whole serialized content of a `Page` entity,
@@ -191,14 +205,13 @@ We could easily write this story into a functional test:
             array('CONTENT_TYPE' => 'application/json'),
             '{"title":"title1","body":"body1"}'
         );
-
         $this->assertJsonResponse($this->client->getResponse(), 201, false);
     }
 
 and there is another story:
 
 calling the resource `/api/v1/pages.json` with the POST method, 
-and giving a not correct serialized content of the `Page` entity,
+and giving a not valid serialized content of the `Page` entity,
 the response should have the status code `400`.
 
     public function testJsonPostPageActionShouldReturn400WithBadParameters()
@@ -219,12 +232,13 @@ the response should have the status code `400`.
 Of course the tests are red, we had to add the `post` function in `PageHandler` then the `postPageAction` in the Controller.
 
 We are going to create a `post` function that takes the parameters (as an array) containing all the fields of the entity `Page`,
-the form is responsible to validate and hydrate the new `Page` object,
+
+the **form** is responsible to validate and hydrate the new `Page` object,
 then this object is persisted to the Object Manager.
 
-## The validation
+## Step 2 The Entity validation
 
-We have to add a validation layer that will be invisible because the form will perform it automatically:
+We have to add the validation layer that will be invisible, the form will perform it automatically:
 
 	# src/Acme/BlogBundle/Resources/config/validation.yml
 	Acme\BlogBundle\Entity\Page:
@@ -238,7 +252,7 @@ We have to add a validation layer that will be invisible because the form will p
 	                minMessage: "Your title must be at least {{ limit }} characters length"
 	                maxMessage: "Your title name cannot be longer than {{ limit }} characters length"
 
-## The PageHandler::post
+## Step 3 The PageHandler::post
 
 In the first article we created a service called `PageHandler`, its objective is to respect the `PageHandlerInterface`, serving the `Page` entity with `get(id)` and `post()`: it could read and write a `Page` resource.
 
@@ -247,7 +261,7 @@ The first step should be create a test that respects the behavior that we want f
 Given parameters containing properties of the `Page` like `array('title'=>'title')`
 the function should return an already persisted object respecting the interface `PageInterface`. 
 
-### The post
+### Step 3.a The post function
 
 We are now going to create a function that look like even in the name to the controller's function.
 
@@ -267,7 +281,7 @@ We are now going to create a function that look like even in the name to the con
 	    return $this->processForm($page, $parameters, 'POST');
 	}
 
-### The form factory
+### Step 3.b The form factory
 
 In order to use the form we need the `form.factory` injected into the service:
 	
@@ -297,7 +311,7 @@ and then we have to add a new argument into the page handler service at `/src/Ac
         </service>
     </services>
 
-### The processForm
+### Step 3.c The processForm
 
 It's time to back to `\Acme\BlogBundle\Handler\PageHandler` and create the `processForm` function, the hearth of the write functions.
 
@@ -348,7 +362,7 @@ In the end of this series of articles you will have an application that serves R
 
 but the PageHandler is itself an API, usable by services of your application via service container.
 
-## The POST and the Controller
+## Step 4 The POST and the Controller
 
 ### The function
 
@@ -460,7 +474,7 @@ and the controller should look something like
 
 There are many protocols and each has its advantages and its reasons, SOAP, XML-RPC. The added value of REST is that it is not just for client API and web browser is **for people too**.
 
-### Conventional Actions
+## Conventional Actions
 
 The title `Rest is also for human` is self explanatory and the guys at Friends Of Symfony, 
 wrote how to increase the interaction with the REST process, adding some `conventional actions`:
@@ -472,7 +486,7 @@ HATEOAS, or Hypermedia as the Engine of Application State, is an aspect of REST 
 </blockquote>
 
 
-### The newPage action
+## Step 5 The newPage action
 
 We are going to create the new action:
 
@@ -655,21 +669,15 @@ We also have created another API usable via service container and the API are de
 ## Next
 
 In the next articles, we will describe how to delete, edit partially and totally a resource with `DELETE`, `PATCH`, `PUT`,
-we will detail how use other important HTTP headers, we will play with `filter` and a simple js integration, authentication ...
-
+we will talk how use other important HTTP headers, we will play with `filter` authentication ...
 
 ### References
 
-[W3C-1  w3.org/Protocols/rfc2616/rfc2616-sec9](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
+1. [W3C-1  w3.org/Protocols/rfc2616/rfc2616-sec9](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
+2. [ZAC-1 - Zach Holman: The Human is a RESTful Client](http://zachholman.com/2010/03/the-human-is-a-restful-client/)
+3. [FOSREST-1 conventional-actions](https://github.com/FriendsOfSymfony/FOSRestBundle/blob/master/Resources/doc/5-automatic-route-generation_single-restful-controller.md#conventional-actions)
+4. [symfony.com/doc/current/cookbook/form/direct_submit.html](http://symfony.com/doc/current/cookbook/form/direct_submit.html)
+5. [symfony.com/doc/current/cookbook/form/create_custom_field_type.html](http://symfony.com/doc/current/cookbook/form/create_custom_field_type.html)
+6. [NelmioApiDocBundle](https://github.com/nelmio/NelmioApiDocBundle)
+7. [lsmith77/symfony-rest-edition/](https://github.com/lsmith77/symfony-rest-edition/)
 
-[ZAC-1 - Zach Holman: The Human is a RESTful Client](http://zachholman.com/2010/03/the-human-is-a-restful-client/)
-
-[FOSREST-1 conventional-actions](https://github.com/FriendsOfSymfony/FOSRestBundle/blob/master/Resources/doc/5-automatic-route-generation_single-restful-controller.md#conventional-actions)
-
-[symfony.com/doc/current/cookbook/form/direct_submit.html](http://symfony.com/doc/current/cookbook/form/direct_submit.html)
-
-[symfony.com/doc/current/cookbook/form/create_custom_field_type.html](http://symfony.com/doc/current/cookbook/form/create_custom_field_type.html)
-
-[NelmioApiDocBundle](https://github.com/nelmio/NelmioApiDocBundle)
-
-[lsmith77/symfony-rest-edition/](https://github.com/lsmith77/symfony-rest-edition/)
