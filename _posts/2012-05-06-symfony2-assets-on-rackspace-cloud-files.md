@@ -5,6 +5,8 @@ description: ""
 category: "tutorial"
 tags: [rackspace, symfony2, bundle, assetic, cdn, php, assets]
 published: true
+edit-link: https://github.com/liuggio/liuggio.github.com/edit/master/_posts/2012-05-06-symfony2-assets-on-rackspace-cloud-files.md
+
 ---
 {% include JB/setup %}
 

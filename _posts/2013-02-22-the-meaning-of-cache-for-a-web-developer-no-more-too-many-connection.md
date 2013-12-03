@@ -5,6 +5,7 @@ description: "Cache definitions and implementations"
 category: post
 tags: [HTTP, cache, php, APC, redis, assets]
 published: true
+edit-link: https://github.com/liuggio/liuggio.github.com/edit/master/_posts/2013-02-22-the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection.md
 ---
 {% include JB/setup %}
 

@@ -5,6 +5,7 @@ description: "REST API tutorial on symfony2"
 category: tutorial
 tags: [rest, api, symfony2]
 date: 2013-11-13 13:00:00
+edit-link: https://github.com/liuggio/liuggio.github.com/edit/master/_posts/2013-11-09-symfony2-rest-api-the-best-2013-way.md
 ---
 {% include JB/setup %}
 

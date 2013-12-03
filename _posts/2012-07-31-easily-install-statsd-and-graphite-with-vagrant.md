@@ -5,6 +5,7 @@ description: "Monitor and react: monitorize your life env"
 category: tutorial
 tags: [statsd, vagrant, graphite, tutorial, php]
 published: true
+edit-link: https://github.com/liuggio/liuggio.github.com/edit/master/_posts/2012-07-31-easily-install-statsd-and-graphite-with-vagrant.md
 ---
 
 {% include JB/setup %}

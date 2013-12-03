@@ -374,3 +374,24 @@ footer.footer {
     color: #525252;
     text-decoration:underline;
 }
+
+#edit-github {
+    margin-bottom: 5px;
+    font: 11px/18px 'Helvetica Neue',Arial,sans-serif;
+}
+
+#edit-github a {
+    height: 25px;
+    width: 60px;
+}
+
+#edit-github a i {
+    font-size: 16px;
+    padding-top: 3px;
+}
+
+#edit-github a b {
+    line-height: 1.3em;
+    font-size: 13px;
+    font-weight: 700;
+}

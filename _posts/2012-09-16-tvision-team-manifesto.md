@@ -5,6 +5,7 @@ description: ""
 category: post
 tags: [tvision, team, coding, php]
 date: 2012-09-16 16:09:12
+edit-link: https://github.com/liuggio/liuggio.github.com/edit/master/_posts/2012-09-16-tvision-team-manifesto.md
 ---
 {% include JB/setup %}
 

@@ -5,6 +5,7 @@ description: "PHPUnit vs PHPSpec: theory on Behaviour Driven Development 2/3"
 category: talk
 tags: [phpunit, tdd, bdd, php, test, phpspec, talk]
 published: true
+edit-link: https://github.com/liuggio/liuggio.github.com/edit/master/_posts/2013-03-10-it-is-all-about-behaviour-also-in-php.md
 ---
 {% include JB/setup %}
 

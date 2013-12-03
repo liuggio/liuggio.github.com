@@ -4,6 +4,7 @@ title: "Symfony2 design patterns @ symfonyday"
 description: "Speaker at Symfonyday in Rome"
 category: talk
 tags: [symfony2, conference, design-patterns, talk]
+edit-link: https://github.com/liuggio/liuggio.github.com/edit/master/_posts/2013-10-18-symfony2-design-patterns.md
 ---
 {% include JB/setup %}
 

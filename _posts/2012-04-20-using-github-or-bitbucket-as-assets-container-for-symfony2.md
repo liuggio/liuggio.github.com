@@ -5,6 +5,7 @@ description: ""
 category: post
 tags: [assetic, symfony2, bundle, github, bitbucket, php, assets]
 published: true
+edit-link: https://github.com/liuggio/liuggio.github.com/edit/master/_posts/
 ---
 {% include JB/setup %}
 

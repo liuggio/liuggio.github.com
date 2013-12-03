@@ -4,6 +4,7 @@ title: "Automate Test and Code Inspection in PHP with Guard, and Symfony2"
 description: "Automate Test and Code Inspection with Guard and Symfony2"
 category: tutorial
 tags: [phpunit, symfony2, guard, php, automate, code-inspection]
+edit-link: https://github.com/liuggio/liuggio.github.com/edit/master/_posts/2013-01-03-automate-test-and-code-inspection-in-php-with-guard-and-symfony2.md
 ---
 {% include JB/setup %}
 

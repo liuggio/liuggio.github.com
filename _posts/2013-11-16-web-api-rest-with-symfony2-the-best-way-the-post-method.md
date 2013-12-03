@@ -6,6 +6,7 @@ category: tutorial
 tags: [rest, api, symfony2]
 published: true
 date: 2013-11-16 13:00:00
+edit-link: https://github.com/liuggio/liuggio.github.com/edit/master/_posts/2013-11-16-web-api-rest-with-symfony2-the-best-way-the-post-method.md
 ---
 {% include JB/setup %}
 

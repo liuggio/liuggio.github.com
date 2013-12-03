@@ -5,7 +5,12 @@
                 <small>{{ page.tagline }}</small>
                 {% endif %}
             </h1>
-          <div class="span1 right bottom sticky">
+          <div class="span1 right bottom sticky center">
+              {% if page.edit-link %}
+              <div id="edit-github">
+                  <a class="btn btn-mini" target="_blank" href="{{ page.edit-link }}" title="Found a typo? Please edit it on Github"><i class="icon-edit pull-left"></i><b>Edit</b></a>
+              </div>
+              {% endif %}
                <a href="https://twitter.com/share" class="twitter-share-button" data-via="liuggio" data-size="large"
                   data-count="none">Tweet</a>
                <script>!function (d, s, id) {
@@ -17,7 +22,6 @@
                        fjs.parentNode.insertBefore(js, fjs);
                    }
                }(document, "script", "twitter-wjs");</script>
-              <!-- todo:<div class="inner">back to the top</div>-->
            </div>
         </div>
         <hr>

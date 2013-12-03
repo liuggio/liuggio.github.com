@@ -5,6 +5,7 @@ description: ""
 category: tutorial
 published: false
 tags: []
+edit-link: https://github.com/liuggio/liuggio.github.com/edit/master/_posts/2012-04-20-using-github-or-bitbucket-as-assets-container-for-symfony2.md
 ---
 {% include JB/setup %}
 
