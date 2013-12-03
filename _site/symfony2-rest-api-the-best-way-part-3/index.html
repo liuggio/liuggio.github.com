@@ -3,9 +3,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Doctrine2 tracking policy</title>
+    <title>part 3 - Symfony2 API: the rest of REST</title>
     
-    <meta name="description" content="Tracking policy">
+    <meta name="description" content="REST API tutorial on symfony2 with best practices">
     
     <meta name="author" content="Giulio De Donato">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -213,10 +213,6 @@
                     <ul class="posts">
                     
                     <li>
-                      <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
-                    </li>
-                    
-                    <li>
                       <a href="/web-api-rest-with-symfony2-the-best-way-the-post-method">part2 - Web API REST with Symfony2</a>
                     </li>
                     
@@ -232,6 +228,10 @@
                       <a href="/design-by-contract-behaviour">Design by contract behaviour</a>
                     </li>
                     
+                    <li>
+                      <a href="/caching-and-data-analysis-will-move-your-application-to-the-next-level">Caching and data analysis will move your application to the next level</a>
+                    </li>
+                    
                     </ul>
                     </div>
                 
@@ -245,7 +245,7 @@
 <div class="span9">
     <div class="page-header">
         <div class="row">
-            <h1 class="span8">Doctrine2 tracking policy 
+            <h1 class="span8">part 3 - Symfony2 API: the rest of REST 
             </h1>
           <div class="span1 right bottom sticky">
                <a href="https://twitter.com/share" class="twitter-share-button" data-via="liuggio" data-size="large"
@@ -265,7 +265,7 @@
         <hr>
         <div class="row">
             <div class="span4">
-                <div class="date"><span>23 April 2013</span></div>
+                <div class="date"><span>03 December 2013</span></div>
             </div>
 
             <div class="span5">
@@ -277,9 +277,11 @@
 
   
      
-    	<li class="tag-list tag-size-1"><a href="/tags.html#doctrine2-ref">doctrine2 <span>1</span></a></li>
+    	<li class="tag-list tag-size-3"><a href="/tags.html#rest-ref">rest <span>3</span></a></li>
      
-    	<li class="tag-list tag-size-11"><a href="/tags.html#php-ref">php <span>11</span></a></li>
+    	<li class="tag-list tag-size-3"><a href="/tags.html#api-ref">api <span>3</span></a></li>
+     
+    	<li class="tag-list tag-size-10"><a href="/tags.html#symfony2-ref">symfony2 <span>10</span></a></li>
     
   
 
@@ -291,74 +293,470 @@
         </div>
     </div>
     <article>
-        <h1 id='which_tracking_policy_are_you_using'>Which tracking policy are you using?</h1>
+        <h3 id='part_3__the_rest_of_rest'>Part 3 - the rest of rest.</h3>
 
-<p>With doctrine you can change the tracking policy for each entity, the tracking policy is the way in which Doctrine understands if a entity property must be &#8216;saved&#8217; in the database.</p>
+<p>This is trilogy&#8217;s final, in the part1 &#8217;<a href='http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way/'>best web API with Symfony2</a>&#8217; we created the application and the bundle, we wrote the <code>GET</code> method, we also talked about the importance of the Interfaces, the content negotiation, and we gave an example of dumb controllers and smart services&#8230;</p>
 
-<p>Doctrine definition: &#8220;Change tracking is the process of determining what has changed in managed entities since the last time they were synchronized with the database.&#8221;</p>
+<p>In the part2 &#8217;<a href='http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way/'>REST and Symfony the best way</a>&#8217; we created a new <code>Page</code> via <strong>REST API</strong>, we talked about <code>idempotent</code> and <code>safe</code> methods, and we understood how much the form is important&#8230;</p>
 
-<p>There are 3 tracking policies: Implicit, Explicit, Nofity.</p>
+<p>In this article we are going to show how to properly modify a given resource using <code>PUT</code>,<code>PATCH</code>, how to handle different role for the Page resource, and how to disable the CRSF protection only when using API.</p>
 
-<h2 id='implicit_tracking_the_default_one'>Implicit tracking (the default one)</h2>
+<h2 id='the_github_repository'>The github repository</h2>
 
-<p>The implicit is the default one and the slowest, you don&#8217;t need to explicit call &#8216;persist&#8217; eg.</p>
+<p>There&#8217;s a repository at <a href='https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/'>liuggio/symfony2-rest-api-the-best-2013-way</a> you could see the working code using the tag <code>part3</code> with</p>
 
-<p><code> // $entity is not a new object, and has $entity-&gt;Title = &#39;liuggio loves tvision.github.io&#39;</code></p>
+<pre><code>php composer.phar create-project liuggio/symfony2-rest-api-the-best-2013-way blog-rest-symfony2 -sdev
+cd blog-rest-symfony2
+git checkout -f part3
+bin/phpunit -c app</code></pre>
 
-<p><code> $entity-&gt;setTitle(&#39;liuggio loves symfony2&#39;);</code></p>
+<p>All the tags for the demo project are at <a href='https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/tags'>tags</a>, and also you could compare the 2 articles with <a href='https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/compare/part2...part3'>compare/part2&#8230;part3</a>.</p>
 
-<p><code> $entityManager-&gt;flush();</code></p>
+<h2 id='this_is_a_crud_world'>This is a CRUD world</h2>
 
-<p><code> echo $entity-&gt;getTitle();   // output &#39;liuggio loves symfony2&#39;</code></p>
+<p>In the second article, we also saw how to properly use the HTTP-verbs, if you have to create a resource you should use the <code>POST</code> method, if you want to fetch a resource you should use the <code>GET</code> method, you have all the tools in order to create a CRUD (Create, Read, Update and Delete) with REST.</p>
+<blockquote>
+The key principles of REST involve separating your API into logical resources. These resources are manipulated using HTTP requests where the method (GET, POST, PUT, PATCH, DELETE) has specific meaning.<small>Best Practices for Designing a Pragmatic RESTful API</small>
+</blockquote><blockquote>
+The great thing about REST is that you're leveraging existing HTTP methods to implement significant functionality on just a single /tickets endpoint. There are no method naming conventions to follow and the URL structure is clean and clear.<small>Best Practices for Designing a Pragmatic RESTful API</small>
+</blockquote>
+<h2 id='the_update_implementation'>The update implementation</h2>
 
-<p>Unit of work now has <strong>$entity.title=liuggio loves symfony2</strong></p>
+<p><code>PUT</code> method is used to replace all the content of a resource, the <code>PATCH</code> method is utilized instead to partially update a resource.</p>
 
-<p>Database has flushed without persist <strong>$entity.title=liuggio loves symfony2</strong></p>
+<h3 id='put_that_patch'>PUT that PATCH</h3>
 
-<p><strong>Pro</strong>: <code>$entityManager-&gt;persist($entity)</code> is not necessary</p>
+<p>As always we need the stories and the tests before coding:</p>
 
-<p><strong>Cons</strong>: Slowness, Doctrine has to check property-by-property for all the object in the unit of work</p>
+<ul>
+<li>
+<p><strong>PUT</strong> - given a Page, is possible to replace all its proprieties, and if that page doesn&#8217;t exist should be created.</p>
+</li>
 
-<h2 id='the_explicit_tracking_the_suggested_one'>The explicit tracking (the suggested one)</h2>
+<li>
+<p><strong>PATCH</strong> - given a Page, is possible to replace some proprieties.</p>
+</li>
+</ul>
 
-<p>You have to explicit flag which object you want to persist, than Doctrine will check property-by-property in order to find with property has changed.</p>
+<h3 id='githubs_star'>github&#8217;s star</h3>
 
-<p><strong>Pro</strong>: Faster than implicit, must if you have a lot of entities.</p>
+<p>If you where github, how did you develop the API in order to add a star to a Gist?</p>
 
-<p><strong>Cons</strong>: the object in the unit of work could be different from that one in the db, not easy to debug.</p>
+<p>Story: A user should be able to &#8216;star&#8217; a gist.</p>
 
-<p>The example</p>
+<p>Github api/v3 uses:</p>
 
-<p><code> // $entity is not a new object, and has $entity-&gt;Title = &#39;liuggio loves tvision.github.io&#39;</code></p>
+<ul>
+<li>PUT /gists/:id/star - to &#8216;star&#8217; a gist and it will response a <code>204 No Content</code></li>
 
-<p><code> $entity-&gt;setTitle(&#39;liuggio loves symfony2&#39;);</code></p>
+<li>DELETE /gists/:id/star - to &#8216;unstar&#8217; a gist and it will response a <code>204 No Content</code></li>
 
-<p><code> $entityManager-&gt;flush();</code></p>
+<li>GET /gists/:id/star - to check if a gist is starred was starred will response a <code>204 No Content</code> and return a <code>404</code> if it wasn&#8217;t.</li>
+</ul>
 
-<p><code> echo $entity-&gt;getTitle();   // output &#39;liuggio loves symfony2&#39;</code></p>
+<h3 id='put_the_implementation'>PUT the implementation</h3>
 
-<p>Unit of work now has <strong>$entity.title=liuggio loves symfony2</strong></p>
+<p>The implementation of the PUT and PATCH methods should be in our service called <code>PageHandler</code>, all the job is already done by the <code>processForm</code> function that we have developed in the last article.</p>
 
-<p>Database has different state for that entity <strong>liuggio loves tvision.github.io</strong></p>
+<p>Adding to <code>PageHandlerInterface</code> the new methods, the <code>PageHandler</code> will be:</p>
 
-<h2 id='notify_tracking'>Notify tracking</h2>
+<pre><code>/**
+ * Edit a Page, or create if not exist.
+ *
+ * @param PageInterface $page
+ * @param array         $parameters
+ *
+ * @return PageInterface
+ */
+public function put(PageInterface $page, array $parameters)
+{
+    return $this-&gt;processForm($page, $parameters, &#39;PUT&#39;);
+}
 
-<p>It&#8217;s not really a tracking policy, if you want to develop your own tracking policy, you have the tool for doing it.</p>
+/**
+ * Partially update a Page.
+ *
+ * @param PageInterface $page
+ * @param array         $parameters
+ *
+ * @return PageInterface
+ */
+public function patch(PageInterface $page, array $parameters)
+{
+    return $this-&gt;processForm($page, $parameters, &#39;PATCH&#39;);
+}</code></pre>
 
-<p>Don&#8217;t understimate this policy useful if you a domain logic.</p>
+<p>The function Put doesn&#8217;t create the resource.</p>
 
-<h2 id='link_to_doctrine_doc'>Link to doctrine doc</h2>
+<h4 id='so__easy'>So #@* easy?</h4>
 
-<p><a href='http://docs.doctrine-project.org/en/latest/reference/change-tracking-policies.html'>doctrine/change-tracking-policies</a></p>
+<p><strong>yes!</strong></p>
+
+<p>The functions need a Page object and its parameters, the form will do the magic.</p>
+
+<h3 id='the_controller'>The Controller</h3>
+
+<p>In the controller we have to handle the HTTP status code, the headers, and the page object.</p>
+
+<p>The tests for putAction are two, one for the creation, and one for the modification:</p>
+
+<pre><code>public function testJsonPutPageActionShouldModify()
+{
+    $fixtures = array(&#39;Acme\BlogBundle\Tests\Fixtures\Entity\LoadPageData&#39;);
+    $this-&gt;customSetUp($fixtures);
+    $pages = LoadPageData::$pages;
+    $page = array_pop($pages);
+
+    $this-&gt;client-&gt;request(&#39;GET&#39;, sprintf(&#39;/api/v1/pages/%d.json&#39;, $page-&gt;getId()), array(&#39;ACCEPT&#39; =&gt; &#39;application/json&#39;));
+    $this-&gt;assertEquals(200, $this-&gt;client-&gt;getResponse()-&gt;getStatusCode(), $this-&gt;client-&gt;getResponse()-&gt;getContent());
+
+    $this-&gt;client-&gt;request(
+        &#39;PUT&#39;,
+        sprintf(&#39;/api/v1/pages/%d.json&#39;, $page-&gt;getId()),
+        array(),
+        array(),
+        array(&#39;CONTENT_TYPE&#39; =&gt; &#39;application/json&#39;),
+        &#39;{&quot;title&quot;:&quot;abc&quot;,&quot;body&quot;:&quot;def&quot;}&#39;
+    );
+
+    $this-&gt;assertJsonResponse($this-&gt;client-&gt;getResponse(), 204, false);
+    $this-&gt;assertTrue(
+        $this-&gt;client-&gt;getResponse()-&gt;headers-&gt;contains(
+            &#39;Location&#39;,
+            sprintf(&#39;http://localhost/api/v1/pages/%d.json&#39;, $page-&gt;getId())
+        ),
+        $this-&gt;client-&gt;getResponse()-&gt;headers
+    );
+}
+
+public function testJsonPutPageActionShouldCreate()
+{
+    $id = 0;
+    $this-&gt;client-&gt;request(&#39;GET&#39;, sprintf(&#39;/api/v1/pages/%d.json&#39;, $id), array(&#39;ACCEPT&#39; =&gt; &#39;application/json&#39;));
+    $this-&gt;assertEquals(404, $this-&gt;client-&gt;getResponse()-&gt;getStatusCode(), $this-&gt;client-&gt;getResponse()-&gt;getContent());
+
+    $this-&gt;client-&gt;request(
+        &#39;PUT&#39;,
+        sprintf(&#39;/api/v1/pages/%d.json&#39;, $id),
+        array(),
+        array(),
+        array(&#39;CONTENT_TYPE&#39; =&gt; &#39;application/json&#39;),
+        &#39;{&quot;title&quot;:&quot;abc&quot;,&quot;body&quot;:&quot;def&quot;}&#39;
+    );
+
+    $this-&gt;assertJsonResponse($this-&gt;client-&gt;getResponse(), 201, false);
+}</code></pre>
+
+<p>And the <code>PUT</code> controller will look like:</p>
+
+<pre><code>/**
+ * Update existing page from the submitted data or create a new page at a specific location.
+ *
+ * @ApiDoc(
+ *   resource = true,
+ *   input = &quot;Acme\DemoBundle\Form\PageType&quot;,
+ *   statusCodes = {
+ *     201 = &quot;Returned when the Page is created&quot;,
+ *     204 = &quot;Returned when successful&quot;,
+ *     400 = &quot;Returned when the form has errors&quot;
+ *   }
+ * )
+ *
+ * @Annotations\View(
+ *  template = &quot;AcmeBlogBundle:Page:editPage.html.twig&quot;,
+ *  templateVar = &quot;form&quot;
+ * )
+ *
+ * @param Request $request the request object
+ * @param int     $id      the page id
+ *
+ * @return FormTypeInterface|View
+ *
+ * @throws NotFoundHttpException when page not exist
+ */
+public function putPageAction(Request $request, $id)
+{
+    try {
+        if (!($page = $this-&gt;container-&gt;get(&#39;acme_blog.page.handler&#39;)-&gt;get($id))) {
+            $statusCode = Codes::HTTP_CREATED;
+            $page = $this-&gt;container-&gt;get(&#39;acme_blog.page.handler&#39;)-&gt;post(
+                $request-&gt;request-&gt;all()
+            );
+        } else {
+            $statusCode = Codes::HTTP_NO_CONTENT;
+            $page = $this-&gt;container-&gt;get(&#39;acme_blog.page.handler&#39;)-&gt;put(
+                $page,
+                $request-&gt;request-&gt;all()
+            );
+        }
+
+        $routeOptions = array(
+            &#39;id&#39; =&gt; $page-&gt;getId(),
+            &#39;_format&#39; =&gt; $request-&gt;get(&#39;_format&#39;)
+        );
+
+        return $this-&gt;routeRedirectView(&#39;api_1_get_page&#39;, $routeOptions, $statusCode);
+
+    } catch (InvalidFormException $exception) {
+
+        return $exception-&gt;getForm();
+    }
+}</code></pre>
+
+<p>The PatchPageAction and the DeletePageAction will be very similar.</p>
+
+<h3 id='manually_testing_the_lifecycle'>Manually testing the lifecycle</h3>
+
+<p>We are going to reproduce all the page lifecycle putting the value of the result of the post into a bash variable, so we could reuse.</p>
+
+<pre><code>location=`curl -X POST -d &#39;{&quot;title&quot;:&quot;liuggio&quot;,&quot;body&quot;:&quot;homepage&quot;}&#39; \
+   http://localhost:8000/api/v1/pages.json \
+   --header &quot;Content-Type:application/json&quot; -v 2&gt;&amp;1 | grep Location | cut -d \  -f 3`;
+
+echo &quot;created result at: &quot;$location</code></pre>
+
+<p>the result will look something like:</p>
+
+<pre><code>created result at http://localhost:8000/api/v1/pages/143.json</code></pre>
+
+<p>and we are going to use this $location variable and we will modify the resource:</p>
+
+<pre><code>curl -X PUT -d &#39;{&quot;title&quot;:&quot;my&quot;,&quot;body&quot;:&quot;homepage&quot;}&#39; $location --header &quot;Content-Type:application/json&quot; -v
+
+curl -X PATCH -d &#39;{&quot;body&quot;:&quot;life&quot;}&#39; $location --header &quot;Content-Type:application/json&quot; -v</code></pre>
+
+<p>and then the get:</p>
+
+<pre><code>curl $location --header &quot;Content-Type:application/json&quot; </code></pre>
+
+<p>the result will be:</p>
+
+<pre><code>{&quot;id&quot;:140,&quot;title&quot;:&quot;my&quot;,&quot;body&quot;:&quot;life&quot;}</code></pre>
+
+<h2 id='get_all_the_pages'>GET all the Pages</h2>
+
+<p>We want to be able to get a list of all the pages, we want to limit the result with pagination.</p>
+
+<pre><code>/**
+ * List all pages.
+ *
+ * @ApiDoc(
+ *   resource = true,
+ *   statusCodes = {
+ *     200 = &quot;Returned when successful&quot;
+ *   }
+ * )
+ *
+ * @Annotations\QueryParam(name=&quot;offset&quot;, requirements=&quot;\d+&quot;, nullable=true, description=&quot;Offset from which to start listing pages.&quot;)
+ * @Annotations\QueryParam(name=&quot;limit&quot;, requirements=&quot;\d+&quot;, default=&quot;5&quot;, description=&quot;How many pages to return.&quot;)
+ *
+ * @Annotations\View(
+ *  templateVar=&quot;pages&quot;
+ * )
+ *
+ * @param Request               $request      the request object
+ * @param ParamFetcherInterface $paramFetcher param fetcher service
+ *
+ * @return array
+ */
+public function getPagesAction(Request $request, ParamFetcherInterface $paramFetcher)
+{
+    $offset = $paramFetcher-&gt;get(&#39;offset&#39;);
+    $offset = null == $offset ? 0 : $offset;
+    $limit = $paramFetcher-&gt;get(&#39;limit&#39;);
+
+    return $this-&gt;container-&gt;get(&#39;acme_blog.page.handler&#39;)-&gt;all($limit, $offset);
+}</code></pre>
+
+<p>Using the annotation <code>@Annotations\QueryParam</code>, is very easy to get the <code>offset</code>, and <code>limit</code> that is ORM-ready :).</p>
+
+<p>This is the <code>PageHandler::all</code>:</p>
+
+<pre><code>/**
+ * Get a list of Pages.
+ *
+ * @param int $limit  the limit of the result
+ * @param int $offset starting from the offset
+ *
+ * @return array
+ */
+public function all($limit = 5, $offset = 0, $orderby = null)
+{
+    return $this-&gt;repository-&gt;findBy(array(), $orderby, $limit, $offset);
+}</code></pre>
+
+<h3 id='pagination_with_headers'>Pagination with headers</h3>
+
+<p>Is possible to include pagination into the headers, there is a RFC: <a href='http://tools.ietf.org/html/rfc5988#page-6'>Link header introduced by RFC 5988</a>, you could find a good implementation on the <a href='http://developer.github.com/v3/#pagination'>github pagination documentation</a>.</p>
+<blockquote>
+<b>Link Header</b><br />
+The pagination info is included in the Link header. It is important to follow these Link header values instead of constructing your own URLs. In some instances, such as in the Commits API, pagination is based on SHA1 and not on page number.<small>github link header</small>
+</blockquote>
+<p>github example:</p>
+
+<pre><code>Link: &lt;https://api.github.com/user/repos?page=3&amp;per_page=100&gt;; rel=&quot;next&quot;,&lt;https://api.github.com/user/repos?page=50&amp;per_page=100&gt;; rel=&quot;last&quot;</code></pre>
+
+<h2 id='symfony2_goodies'>Symfony2 goodies</h2>
+
+<h3 id='head_method'>HEAD method</h3>
+
+<p>In Symfony2 the HEAD method follows the same routes and settings of the GET method, if you have the GET method available you will also have the <code>HEAD</code> that links to the same actions, the response will be empty.</p>
+
+<h3 id='patching_the_patch_problem'>Patching the PATCH problem</h3>
+
+<p>Some browser doesn&#8217;t support some methods as <code>PUT</code>, <code>PATCH</code> and <code>DELETE</code> HTTP methods:</p>
+<blockquote>
+    Fortunately Symfony2 provides you with a simple way of working around this limitation.<br />
+     By including a _method parameter in the query string or parameters of an HTTP request,
+     Symfony2 will use this as the method when matching routes. <br />
+     Forms automatically include a hidden field for this parameter if their submission method is not GET or POST.<br />
+      See the related chapter in the forms documentation for more information.
+    <small>http://symfony.com/doc/current/cookbook/routing/method_parameters.html#faking-the-method-with-method</small>
+</blockquote>
+<h2 id='disable_csrf_with_rest'>Disable CSRF with REST</h2>
+
+<h3 id='theory_on_crosssite_request_forgery'>Theory on Cross-site request forgery</h3>
+
+<p>If you don&#8217;t know what CSFR is there is lot of documentation on internet, please have a look to the <a href='http://symfony.com/doc/current/book/forms.html#csrf-protection'>csrf-protection</a></p>
+<blockquote>
+CSRF protection works by adding a hidden field to your form - called _token by default - that contains a value that only you and your user knows. This ensures that the user - not some other entity - is submitting the given data. Symfony automatically validates the presence and accuracy of this token.
+<small>http://symfony.com/doc/current/book/forms.html#csrf-protection</small>
+</blockquote>
+<h3 id='csrf_and_rest'>CSRF and REST</h3>
+
+<p>Is possible to disable the CSRF based on the user&#8217;s role, the documentation on Friend-Of-Symfony repository is self-explanatory: <a href='https://github.com/FriendsOfSymfony/FOSRestBundle/blob/master/Resources/doc/2-the-view-layer.md#CSRF-validation'>FOSRestBundle doc CSRF validation</a>.</p>
+
+<p>We need to associate the <code>ROLE_API</code> to the REST users:</p>
+
+<pre><code># app/config/security.yml
+providers:
+    in_memory:
+        memory:
+            users:
+                user:  { password: userpass, roles: [ &#39;ROLE_USER&#39;, &#39;ROLE_API&#39; ] }
+                admin: { password: adminpass, roles: [ &#39;ROLE_ADMIN&#39;, &#39;ROLE_API&#39; ] }</code></pre>
+
+<p>then in the config.yml we need to enable the feature</p>
+
+<pre><code># app/config/config.yml
+fos_rest:
+    disable_csrf_role: ROLE_API</code></pre>
+
+<p>We have now to modify the functional tests adding the authentication:</p>
+
+<pre><code>// /src/Acme/BlogBundle/Tests/Controller/PageControllerTest.php
+public function setUp()
+{
+    $this-&gt;auth = array(
+        &#39;PHP_AUTH_USER&#39; =&gt; &#39;user&#39;,
+        &#39;PHP_AUTH_PW&#39;   =&gt; &#39;userpass&#39;,
+    );
+
+    $this-&gt;client = static::createClient(array(), $this-&gt;auth);
+}</code></pre>
+
+<h2 id='different_points_of_view'>Different points of view</h2>
+
+<p>It is very common when the API should serves different fields according to the role of the user that requests a resource.</p>
+
+<p>For example the field <code>state</code> that determines whether the page is public or not, can only be viewed and changed by the administrator. There are also more complex scenario, eg. the same field may follow different validations.</p>
+
+<p>How to handle those differences on the same Page Entity?</p>
+
+<p>There are many ways: validation groups, using serialization groups, or use different forms.</p>
+
+<h3 id='the_form_is_the_resource'>The form is the resource</h3>
+
+<p>I personally prefer the form, an idea could be associate a form to a role. Given the same URI, if the user was authenticated as an administrator would use the <code>PageAdminType</code> form, otherwise she/he would use the <code>PageUserType</code>.</p>
+
+<p>But this idea of associating a form to a role, does not fully comply with the REST philosophy, each request should be made to the desired resource, but technically the forms are different.</p>
+
+<p>The URI should indicate which resource you want, and the layer of authorization should only accept or reject your request.</p>
+
+<p>In the article part2, we have already seen that the resource we receive in input is not the entity Page, but it is the <code>pageType</code> form, the API uses as interface the <code>pageType</code> form.</p>
+
+<p>Maybe the best option is use different URIs for different form and role.</p>
+
+<ol>
+<li>
+<p><code>api/v1/pages/</code>, the form is the standard <code>PageType</code>.</p>
+</li>
+
+<li>
+<p><code>api/v1/admin/pages/</code> the form used will have more fields and different authentication.</p>
+</li>
+</ol>
+
+<p>We just apply the definition of Resource not to the Entity but to the form.</p>
+
+<h2 id='the_perfection'>The perfection?</h2>
+
+<p>In the enterprise the perfect software is when timing, clean-code and maintenance are in the correct balance with the specifications.</p>
+
+<p>In the open-source and in the Symfony ecosystem developers tend to do their best, it would be possible to improve our application and our bundle?</p>
+
+<h3 id='thin_bundle_fat_library'>Thin Bundle, Fat library.</h3>
+
+<p>We could improve the loose coupling leaving in the bundle only the files that are truly related to Symfony and create a library for the entities, forms and services. But this could be another topic a blog post :).</p>
+
+<h2 id='recap'>Recap</h2>
+
+<p>We are in the end of this epic tale, this recapitulate should contain few concepts:</p>
+
+<ol>
+<li>
+<p>We have created a smart service <code>PageHandler</code> where all the logic about the page is.</p>
+</li>
+
+<li>
+<p>The service <code>PageHandler</code> is an API for all the Symfony application, it respects the Interface <code>PageHandlerInterface</code>, and is available in the container.</p>
+</li>
+
+<li>
+<p>We have developed a controller <code>PageController</code>, the actions have @docblock annotations in order to decorate the View, those annotations also create the documentation, and provide a parameters filtering.</p>
+</li>
+
+<li>
+<p>The form is very important in this REST application, the form is the input for our PUT/PATCH/POST methods, it also validates and hydrates the object.</p>
+</li>
+
+<li>
+<p>The form could also be the resource named by the URI.</p>
+</li>
+
+<li>
+<p>We have defined what is the meaning of <code>idempotent</code> and why <code>PUT</code> should also create the resource.</p>
+</li>
+</ol>
+
+<p>There are a lot of concepts about REST that I won&#8217;t cover here like RESTFul, HAL, OAuth &#8230;</p>
+
+<p>The <a href='https://github.com/liuggio/symfony2-rest-api-the-best-2013-way'>repository</a> contains all the functions and the tests that we have seen during those articles.</p>
+
+<h5 id='have_a_rest'>Have a REST.</h5>
+
+<p>That is all for the 2013</p>
+
+<h3 id='resources'>Resources</h3>
+
+<p><a href='http://tools.ietf.org/html/rfc1945#page-24'>RFC1945 Request-URI</a></p>
+
+<p><a href='http://tools.ietf.org/html/rfc5988#page-6'>RFC5988 Web Linking</a></p>
+
+<p><a href='http://developer.github.com/v3/'>REST API at github.com/v3/</a></p>
+
+<p><a href='https://github.com/gimler/symfony-rest-edition'>gimler/symfony rest edition</a></p>
+
+<p><a href='http://symfony.com/doc/current/cookbook/routing/method_parameters.html#faking-the-method-with-method'>Symfony Faking the Method</a></p>
+
+<p><a href='http://idbentley.com/blog/2013/03/14/should-restful-apis-include-relationships/'>should-restful-apis-include-relationships/</a></p>
+
+<p><a href='http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api'>best-practices-for-a-pragmatic-restful-api</a></p>
     </article>
     <hr>
     <div id="related">
       <h3>Related Posts</h3>
       <ul class="posts">
-      
-      <li>
-       <span>03 Dec 2013 &raquo;</span> <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
-      </li>
       
       <li>
        <span>16 Nov 2013 &raquo;</span> <a href="/web-api-rest-with-symfony2-the-best-way-the-post-method">part2 - Web API REST with Symfony2</a>
@@ -368,20 +766,23 @@
        <span>13 Nov 2013 &raquo;</span> <a href="/symfony2-rest-api-the-best-2013-way">Symfony2 REST API: the best way</a>
       </li>
       
+      <li>
+       <span>18 Oct 2013 &raquo;</span> <a href="/symfony2-design-patterns">Symfony2 design patterns @ symfonyday</a>
+      </li>
+      
       </ul>
     </div>
     
     <div class="pagination">
         <ul class="pager span9">
             
-            <li class="prev span3"><a href="/it-is-all-about-behaviour-also-in-php" title="It is all about behaviour also in php">&larr;<br>
-                Previous - It is all about behaviour also in php</a></li>
+            <li class="prev span3"><a href="/web-api-rest-with-symfony2-the-best-way-the-post-method" title="part2 - Web API REST with Symfony2">&larr;<br>
+                Previous - part2 - Web API REST with Symfony2</a></li>
             
             <li  class="span2"><a href="/index.html"><br>Archive</a></li>
             
-            <li class="next span3"><a href="/caching-and-data-analysis-will-move-your-application-to-the-next-level" title="Caching and data analysis will move your application to the next level">&rarr; <br>Next - Caching and data analysis will move your application to the next level</a>
-            </li>
-            
+            <li class="next disabled span5"><a>Next &rarr;</a>
+                
         </ul>
     </div>
     
