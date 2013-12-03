@@ -2,24 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2476ae60-ec3a-4959-85a2-a6673668d2c0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-04-20-using-github-or-bitbucket-as-assets-container-for-symfony2.md" afterPath="$PROJECT_DIR$/_posts/2012-04-20-using-github-or-bitbucket-as-assets-container-for-symfony2.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-05-06-symfony2-assets-on-rackspace-cloud-files.md" afterPath="$PROJECT_DIR$/_posts/2012-05-06-symfony2-assets-on-rackspace-cloud-files.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-07-31-easily-install-statsd-and-graphite-with-vagrant.md" afterPath="$PROJECT_DIR$/_posts/2012-07-31-easily-install-statsd-and-graphite-with-vagrant.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-09-16-tvision-team-manifesto.md" afterPath="$PROJECT_DIR$/_posts/2012-09-16-tvision-team-manifesto.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-10-31-symfony-day-5-october-turin-2012.md" afterPath="$PROJECT_DIR$/_posts/2012-10-31-symfony-day-5-october-turin-2012.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-01-03-automate-test-and-code-inspection-in-php-with-guard-and-symfony2.md" afterPath="$PROJECT_DIR$/_posts/2013-01-03-automate-test-and-code-inspection-in-php-with-guard-and-symfony2.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-01-03-servergrove-stastdclientbundle-interesting-symfony-bundles.md" afterPath="$PROJECT_DIR$/_posts/2013-01-03-servergrove-stastdclientbundle-interesting-symfony-bundles.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-01-05-phpunit-vs-phpspec-theory-on-behaviour-driven-development.md" afterPath="$PROJECT_DIR$/_posts/2013-01-05-phpunit-vs-phpspec-theory-on-behaviour-driven-development.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-02-22-the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection.md" afterPath="$PROJECT_DIR$/_posts/2013-02-22-the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-03-10-it-is-all-about-behaviour-also-in-php.md" afterPath="$PROJECT_DIR$/_posts/2013-03-10-it-is-all-about-behaviour-also-in-php.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-04-23-doctrine2-tracking-policy.md" afterPath="$PROJECT_DIR$/_posts/2013-04-23-doctrine2-tracking-policy.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-05-17-caching-and-data-analysis-will-move-your-application-to-the-next-level.md" afterPath="$PROJECT_DIR$/_posts/2013-05-17-caching-and-data-analysis-will-move-your-application-to-the-next-level.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-09-11-design-by-contract-behaviour.md" afterPath="$PROJECT_DIR$/_posts/2013-09-11-design-by-contract-behaviour.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-10-18-symfony2-design-patterns.md" afterPath="$PROJECT_DIR$/_posts/2013-10-18-symfony2-design-patterns.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-11-09-symfony2-rest-api-the-best-2013-way.md" afterPath="$PROJECT_DIR$/_posts/2013-11-09-symfony2-rest-api-the-best-2013-way.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-11-16-web-api-rest-with-symfony2-the-best-way-the-post-method.md" afterPath="$PROJECT_DIR$/_posts/2013-11-16-web-api-rest-with-symfony2-the-best-way-the-post-method.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-11-18-thin-bundles-fat-libraries.md" afterPath="$PROJECT_DIR$/_posts/2013-11-18-thin-bundles-fat-libraries.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-11-20-symfony2-rest-api-the-best-way-part-3.md" afterPath="$PROJECT_DIR$/_posts/2013-11-20-symfony2-rest-api-the-best-way-part-3.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/atom.xml" afterPath="$PROJECT_DIR$/_site/atom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/categories.html" afterPath="$PROJECT_DIR$/_site/categories.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/index.html" afterPath="$PROJECT_DIR$/_site/index.html" />
@@ -74,18 +56,17 @@
     <file path="$USER_HOME$/PhpstormProjects/BlogRESTAPI/src/Acme/BlogBundle/Form/PageType.php" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384550191290" ignored="false" />
     <file path="$USER_HOME$/PhpstormProjects/BlogRESTAPI/src/Acme/BlogBundle/Handler/PageHandlerInterface.php" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384613867268" ignored="false" />
     <file path="/2013-11-16-symfony2-rest-api-the-best-way-2013-part-2.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384613533796" ignored="false" />
-    <file path="/style.css" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386089621032" ignored="false" />
+    <file path="/style.css" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386091986487" ignored="false" />
     <file path="$USER_HOME$/PhpstormProjects/BlogRESTAPI/src/Acme/BlogBundle/Tests/Handler/PageHandlerTest.php" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384613867268" ignored="false" />
     <file path="/2013-11-18-thin-bundles-fat-libraries.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386068990885" ignored="false" />
     <file path="/2013-11-20-symfony2-rest-api-the-best-way-part-3.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386085909710" ignored="false" />
     <file path="/2013-11-16-web-api-rest-with-symfony2-the-best-way-the-post-method.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386084795706" ignored="false" />
     <file path="/a.dummy" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386071161097" ignored="false" />
     <file path="$USER_HOME$/PhpstormProjects/blog-rest-api/src/Acme/BlogBundle/Controller/PageController.php" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386083972074" ignored="false" />
-    <file path="/post.html" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386090608742" ignored="false" />
-    <file path="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/css/font-awesome.css" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386086216825" ignored="false" />
-    <file path="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/js/styles/docco.css" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386086942787" ignored="false" />
-    <file path="$PROJECT_DIR$/_site/assets/themes/twitter/bootstrap/css/bootstrap.min.css" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386090264772" ignored="false" />
-    <file path="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/bootstrap/css/bootstrap.min.css" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386090264772" ignored="false" />
+    <file path="/post.html" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386091934043" ignored="false" />
+    <file path="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/css/font-awesome.css" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386092039580" ignored="false" />
+    <file path="$PROJECT_DIR$/_site/assets/themes/twitter/bootstrap/css/bootstrap.min.css" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386092039580" ignored="false" />
+    <file path="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/bootstrap/css/bootstrap.min.css" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386092039580" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +89,7 @@
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/themes/readable-liuggio/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="392" column="0" selection-start="5608" selection-end="5608" vertical-scroll-proportion="0.0">
+            <state line="331" column="17" selection-start="4692" selection-end="4692" vertical-scroll-proportion="-12.064516">
               <folding />
             </state>
           </provider>
@@ -117,8 +98,10 @@
       <file leaf-file-name="post.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/post.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="115" selection-start="488" selection-end="488" vertical-scroll-proportion="0.17381229">
-              <folding />
+            <state line="65" column="132" selection-start="2708" selection-end="2708" vertical-scroll-proportion="0.68164796">
+              <folding>
+                <element signature="n#style#0;n#a#0;n#li#2;n#ul#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -592,15 +575,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/themes/readable-liuggio/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="392" column="0" selection-start="5608" selection-end="5608" vertical-scroll-proportion="0.0">
+        <state line="331" column="17" selection-start="4692" selection-end="4692" vertical-scroll-proportion="-12.064516">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/post.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="115" selection-start="488" selection-end="488" vertical-scroll-proportion="0.17381229">
-          <folding />
+        <state line="65" column="132" selection-start="2708" selection-end="2708" vertical-scroll-proportion="0.68164796">
+          <folding>
+            <element signature="n#style#0;n#a#0;n#li#2;n#ul#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -194,6 +194,10 @@ p {
     text-align: center; /* center align it with the container */
 }
 
+.center {
+    text-align: center;
+}
+
 /* The white background content wrapper */
 .content {
     padding: 20px;
@@ -321,6 +325,11 @@ aside ul.posts li {
 
 .pagination a {
     border: 0;
+}
+
+.pagination i
+{
+    font-size: 26px;
 }
 
 .well {
