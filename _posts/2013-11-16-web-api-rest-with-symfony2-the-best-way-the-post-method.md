@@ -11,9 +11,17 @@ date: 2013-11-16 13:00:00
 
 ### Part 2 - the `POST`
 
-In the '[Symfony2 REST part 1](http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way/)' we created the application, the bundle, we talked about the `GET` method, we also talked about the importance of the Interfaces, the content negotiation, and we gave an example of dumb controllers and brain services.
+In the '[Symfony2 REST part 1](http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way/)' we created the application,
+the bundle, we talked about the `GET` method,
+we also talked about the importance of the Interfaces, the content negotiation, and we gave an example of dumb controllers and brain services.
+
+Here you could find the [last article Part3 - The rest of REST](/symfony2-rest-api-the-best-way-part-3/)
 
 In this blog post we are going to create a new `Page` via **REST API**: the form is the protagonist of this article.
+
+**Edited**
+
+- 3/12/2013: Added the Request in the actions, thanks to [stloyd](http://twitter.com/stloyd)
 
 ## The github repository
 
@@ -328,20 +336,22 @@ in an array, so instead of `handleRequest`, we are going to `submit` the form.
      *
      * @return PageInterface
      *
-     * @throws Acme\BlogBundle\Exception\InvalidFormException
+     * @throws \Acme\BlogBundle\Exception\InvalidFormException
      */
     private function processForm(PageInterface $page, array $parameters, $method = "PUT")
     {
         $form = $this->formFactory->create(new PageType(), $page, array('method' => $method));
         $form->submit($parameters, 'PATCH' !== $method);
-        if (!$form->isValid()) {
-            throw new InvalidFormException('Invalid submitted data', $form);
-        }
-        $page = $form->getData(); // get the hydrated Page object
-        $this->om->persist($page);// persistence layer
-        $this->om->flush($page);
+        if ($form->isValid()) {
 
-        return $page;
+            $page = $form->getData();
+            $this->om->persist($page);
+            $this->om->flush($page);
+
+            return $page;
+        }
+
+        throw new InvalidFormException('Invalid submitted data', $form);
     }
 
 This function returns an object of `PageInterface` type, but if the parameters are not valid it
@@ -383,32 +393,32 @@ The postPageAction is simple, all the domain logic is demanded to the `PageHandl
      *
      * @Annotations\View(
      *  template = "AcmeBlogBundle:Page:newPage.html.twig",
-     *  statusCode = Codes::HTTP_BAD_REQUEST
+     *  statusCode = Codes::HTTP_BAD_REQUEST,
+     *  templateVar = "form"
      * )
      *
-     * @return FormTypeInterface|RouteRedirectView
+     * @param Request $request the request object
+     *
+     * @return FormTypeInterface|View
      */
-    public function postPageAction()
+    public function postPageAction(Request $request)
     {
-        try {
-        	// Hey handler create a page for me.
-            $newPage = $this->container->get('acme_blog.page.handler')->post(
-                    // this is the body of the request
-                    $this->container->get('request')->request->all()
-            );
+       try {
+           // Hey Page handler create a new Page.
+           $newPage = $this->container->get('acme_blog.page.handler')->post(
+               $request->request->all()
+           );
 
-            $routeOptions = array(
-                'id' => $newPage->getId(),
-                '_format' => $this->container->get('request')->get('_format')
-            );
+           $routeOptions = array(
+               'id' => $newPage->getId(),
+               '_format' => $request->get('_format')
+           );
 
-            // return HTTP_CREATED, and add location header
-            return $this->routeRedirectView('api_1_get_page', $routeOptions, Codes::HTTP_CREATED);
+           return $this->routeRedirectView('api_1_get_page', $routeOptions, Codes::HTTP_CREATED);
+       } catch (InvalidFormException $exception) {
 
-        } catch (InvalidFormException $exception) {
-
-            return $this->view(array('errors' => $exception->getForm()), Codes::HTTP_BAD_REQUEST);
-        }
+           return $exception->getForm();
+       }
     }
 
 ### The location
@@ -459,12 +469,12 @@ The data should be sent with a different syntax:
 
 and the controller should look something like
 
-	public function postPageAction()
+	public function postPageAction(Request $request)
     {
         try {
             $form = new PageType();
             $newPage = $this->container->get('acme_blog.page.handler')->post(
-                    $this->container->get('request')->request->get($form->getName())
+                    $request->request->get($form->getName())
             );
     // ...
 
@@ -622,7 +632,7 @@ then modifying the PostAction annotations
      *   }
      * )
      */
-    public function postPageAction()
+    public function postPageAction
 
 And thanks to [this guys](https://github.com/nelmio/NelmioApiDocBundle/graphs/contributors) you will have something like:
 
@@ -666,10 +676,10 @@ We also have created another API usable via service container and the API are de
         public function post(array $parameters);
     }
 
-## Next
+## Next ›› [The last REST API episode](/symfony2-rest-api-the-best-way-part-3/)
 
 In the next articles, we will describe how to delete, edit partially and totally a resource with `DELETE`, `PATCH`, `PUT`,
-we will talk how use other important HTTP headers, we will play with `filter` authentication ...
+we will talk how use other important HTTP headers, we will play with `filter` ...
 
 ### References
 

@@ -4,13 +4,479 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-11-19T13:00:29+01:00</updated>
+ <updated>2013-12-03T16:48:25+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
    <email>liuggio@liuggio</email>
  </author>
 
+ 
+ <entry>
+   <title>part 3 - Symfony2 API: the rest of REST</title>
+   <link href="http://welcometothebundle.com/symfony2-rest-api-the-best-way-part-3"/>
+   <updated>2013-12-03T13:00:00+01:00</updated>
+   <id>http://welcometothebundle.com/symfony2-rest-api-the-best-way-part-3</id>
+   <content type="html">&lt;h3 id='part_3__the_rest_of_rest'&gt;Part 3 - the rest of rest.&lt;/h3&gt;
+
+&lt;p&gt;This is trilogy&amp;#8217;s final, in the part1 &amp;#8217;&lt;a href='http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way/'&gt;best web API with Symfony2&lt;/a&gt;&amp;#8217; we created the application and the bundle, we wrote the &lt;code&gt;GET&lt;/code&gt; method, we also talked about the importance of the Interfaces, the content negotiation, and we gave an example of dumb controllers and smart services&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;In the part2 &amp;#8217;&lt;a href='http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way/'&gt;REST and Symfony the best way&lt;/a&gt;&amp;#8217; we created a new &lt;code&gt;Page&lt;/code&gt; via &lt;strong&gt;REST API&lt;/strong&gt;, we talked about &lt;code&gt;idempotent&lt;/code&gt; and &lt;code&gt;safe&lt;/code&gt; methods, and we understood how much the form is important&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;In this article we are going to show how to properly modify a given resource using &lt;code&gt;PUT&lt;/code&gt;,&lt;code&gt;PATCH&lt;/code&gt;, how to handle different role for the Page resource, and how to disable the CRSF protection only when using API.&lt;/p&gt;
+
+&lt;h2 id='the_github_repository'&gt;The github repository&lt;/h2&gt;
+
+&lt;p&gt;There&amp;#8217;s a repository at &lt;a href='https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/'&gt;liuggio/symfony2-rest-api-the-best-2013-way&lt;/a&gt; you could see the working code using the tag &lt;code&gt;part3&lt;/code&gt; with&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;php composer.phar create-project liuggio/symfony2-rest-api-the-best-2013-way blog-rest-symfony2 -sdev
+cd blog-rest-symfony2
+git checkout -f part3
+bin/phpunit -c app&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;All the tags for the demo project are at &lt;a href='https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/tags'&gt;tags&lt;/a&gt;, and also you could compare the 2 articles with &lt;a href='https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/compare/part2...part3'&gt;compare/part2&amp;#8230;part3&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id='this_is_a_crud_world'&gt;This is a CRUD world&lt;/h2&gt;
+
+&lt;p&gt;In the second article, we also saw how to properly use the HTTP-verbs, if you have to create a resource you should use the &lt;code&gt;POST&lt;/code&gt; method, if you want to fetch a resource you should use the &lt;code&gt;GET&lt;/code&gt; method, you have all the tools in order to create a CRUD (Create, Read, Update and Delete) with REST.&lt;/p&gt;
+&lt;blockquote&gt;
+The key principles of REST involve separating your API into logical resources. These resources are manipulated using HTTP requests where the method (GET, POST, PUT, PATCH, DELETE) has specific meaning.&lt;small&gt;Best Practices for Designing a Pragmatic RESTful API&lt;/small&gt;
+&lt;/blockquote&gt;&lt;blockquote&gt;
+The great thing about REST is that you're leveraging existing HTTP methods to implement significant functionality on just a single /tickets endpoint. There are no method naming conventions to follow and the URL structure is clean and clear.&lt;small&gt;Best Practices for Designing a Pragmatic RESTful API&lt;/small&gt;
+&lt;/blockquote&gt;
+&lt;h2 id='the_update_implementation'&gt;The update implementation&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;PUT&lt;/code&gt; method is used to replace all the content of a resource, the &lt;code&gt;PATCH&lt;/code&gt; method is utilized instead to partially update a resource.&lt;/p&gt;
+
+&lt;h3 id='put_that_patch'&gt;PUT that PATCH&lt;/h3&gt;
+
+&lt;p&gt;As always we need the stories and the tests before coding:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;PUT&lt;/strong&gt; - given a Page, is possible to replace all its proprieties, and if that page doesn&amp;#8217;t exist should be created.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;PATCH&lt;/strong&gt; - given a Page, is possible to replace some proprieties.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id='githubs_star'&gt;github&amp;#8217;s star&lt;/h3&gt;
+
+&lt;p&gt;If you where github, how did you develop the API in order to add a star to a Gist?&lt;/p&gt;
+
+&lt;p&gt;Story: A user should be able to &amp;#8216;star&amp;#8217; a gist.&lt;/p&gt;
+
+&lt;p&gt;Github api/v3 uses:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;PUT /gists/:id/star - to &amp;#8216;star&amp;#8217; a gist and it will response a &lt;code&gt;204 No Content&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;DELETE /gists/:id/star - to &amp;#8216;unstar&amp;#8217; a gist and it will response a &lt;code&gt;204 No Content&lt;/code&gt;&lt;/li&gt;
+
+&lt;li&gt;GET /gists/:id/star - to check if a gist is starred was starred will response a &lt;code&gt;204 No Content&lt;/code&gt; and return a &lt;code&gt;404&lt;/code&gt; if it wasn&amp;#8217;t.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id='put_the_implementation'&gt;PUT the implementation&lt;/h3&gt;
+
+&lt;p&gt;The implementation of the PUT and PATCH methods should be in our service called &lt;code&gt;PageHandler&lt;/code&gt;, all the job is already done by the &lt;code&gt;processForm&lt;/code&gt; function that we have developed in the last article.&lt;/p&gt;
+
+&lt;p&gt;Adding to &lt;code&gt;PageHandlerInterface&lt;/code&gt; the new methods, the &lt;code&gt;PageHandler&lt;/code&gt; will be:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/**
+ * Edit a Page, or create if not exist.
+ *
+ * @param PageInterface $page
+ * @param array         $parameters
+ *
+ * @return PageInterface
+ */
+public function put(PageInterface $page, array $parameters)
+{
+    return $this-&amp;gt;processForm($page, $parameters, &amp;#39;PUT&amp;#39;);
+}
+
+/**
+ * Partially update a Page.
+ *
+ * @param PageInterface $page
+ * @param array         $parameters
+ *
+ * @return PageInterface
+ */
+public function patch(PageInterface $page, array $parameters)
+{
+    return $this-&amp;gt;processForm($page, $parameters, &amp;#39;PATCH&amp;#39;);
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The function Put doesn&amp;#8217;t create the resource.&lt;/p&gt;
+
+&lt;h4 id='so__easy'&gt;So #@* easy?&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;yes!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The functions need a Page object and its parameters, the form will do the magic.&lt;/p&gt;
+
+&lt;h3 id='the_controller'&gt;The Controller&lt;/h3&gt;
+
+&lt;p&gt;In the controller we have to handle the HTTP status code, the headers, and the page object.&lt;/p&gt;
+
+&lt;p&gt;The tests for putAction are two, one for the creation, and one for the modification:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public function testJsonPutPageActionShouldModify()
+{
+    $fixtures = array(&amp;#39;Acme\BlogBundle\Tests\Fixtures\Entity\LoadPageData&amp;#39;);
+    $this-&amp;gt;customSetUp($fixtures);
+    $pages = LoadPageData::$pages;
+    $page = array_pop($pages);
+
+    $this-&amp;gt;client-&amp;gt;request(&amp;#39;GET&amp;#39;, sprintf(&amp;#39;/api/v1/pages/%d.json&amp;#39;, $page-&amp;gt;getId()), array(&amp;#39;ACCEPT&amp;#39; =&amp;gt; &amp;#39;application/json&amp;#39;));
+    $this-&amp;gt;assertEquals(200, $this-&amp;gt;client-&amp;gt;getResponse()-&amp;gt;getStatusCode(), $this-&amp;gt;client-&amp;gt;getResponse()-&amp;gt;getContent());
+
+    $this-&amp;gt;client-&amp;gt;request(
+        &amp;#39;PUT&amp;#39;,
+        sprintf(&amp;#39;/api/v1/pages/%d.json&amp;#39;, $page-&amp;gt;getId()),
+        array(),
+        array(),
+        array(&amp;#39;CONTENT_TYPE&amp;#39; =&amp;gt; &amp;#39;application/json&amp;#39;),
+        &amp;#39;{&amp;quot;title&amp;quot;:&amp;quot;abc&amp;quot;,&amp;quot;body&amp;quot;:&amp;quot;def&amp;quot;}&amp;#39;
+    );
+
+    $this-&amp;gt;assertJsonResponse($this-&amp;gt;client-&amp;gt;getResponse(), 204, false);
+    $this-&amp;gt;assertTrue(
+        $this-&amp;gt;client-&amp;gt;getResponse()-&amp;gt;headers-&amp;gt;contains(
+            &amp;#39;Location&amp;#39;,
+            sprintf(&amp;#39;http://localhost/api/v1/pages/%d.json&amp;#39;, $page-&amp;gt;getId())
+        ),
+        $this-&amp;gt;client-&amp;gt;getResponse()-&amp;gt;headers
+    );
+}
+
+public function testJsonPutPageActionShouldCreate()
+{
+    $id = 0;
+    $this-&amp;gt;client-&amp;gt;request(&amp;#39;GET&amp;#39;, sprintf(&amp;#39;/api/v1/pages/%d.json&amp;#39;, $id), array(&amp;#39;ACCEPT&amp;#39; =&amp;gt; &amp;#39;application/json&amp;#39;));
+    $this-&amp;gt;assertEquals(404, $this-&amp;gt;client-&amp;gt;getResponse()-&amp;gt;getStatusCode(), $this-&amp;gt;client-&amp;gt;getResponse()-&amp;gt;getContent());
+
+    $this-&amp;gt;client-&amp;gt;request(
+        &amp;#39;PUT&amp;#39;,
+        sprintf(&amp;#39;/api/v1/pages/%d.json&amp;#39;, $id),
+        array(),
+        array(),
+        array(&amp;#39;CONTENT_TYPE&amp;#39; =&amp;gt; &amp;#39;application/json&amp;#39;),
+        &amp;#39;{&amp;quot;title&amp;quot;:&amp;quot;abc&amp;quot;,&amp;quot;body&amp;quot;:&amp;quot;def&amp;quot;}&amp;#39;
+    );
+
+    $this-&amp;gt;assertJsonResponse($this-&amp;gt;client-&amp;gt;getResponse(), 201, false);
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And the &lt;code&gt;PUT&lt;/code&gt; controller will look like:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/**
+ * Update existing page from the submitted data or create a new page at a specific location.
+ *
+ * @ApiDoc(
+ *   resource = true,
+ *   input = &amp;quot;Acme\DemoBundle\Form\PageType&amp;quot;,
+ *   statusCodes = {
+ *     201 = &amp;quot;Returned when the Page is created&amp;quot;,
+ *     204 = &amp;quot;Returned when successful&amp;quot;,
+ *     400 = &amp;quot;Returned when the form has errors&amp;quot;
+ *   }
+ * )
+ *
+ * @Annotations\View(
+ *  template = &amp;quot;AcmeBlogBundle:Page:editPage.html.twig&amp;quot;,
+ *  templateVar = &amp;quot;form&amp;quot;
+ * )
+ *
+ * @param Request $request the request object
+ * @param int     $id      the page id
+ *
+ * @return FormTypeInterface|View
+ *
+ * @throws NotFoundHttpException when page not exist
+ */
+public function putPageAction(Request $request, $id)
+{
+    try {
+        if (!($page = $this-&amp;gt;container-&amp;gt;get(&amp;#39;acme_blog.page.handler&amp;#39;)-&amp;gt;get($id))) {
+            $statusCode = Codes::HTTP_CREATED;
+            $page = $this-&amp;gt;container-&amp;gt;get(&amp;#39;acme_blog.page.handler&amp;#39;)-&amp;gt;post(
+                $request-&amp;gt;request-&amp;gt;all()
+            );
+        } else {
+            $statusCode = Codes::HTTP_NO_CONTENT;
+            $page = $this-&amp;gt;container-&amp;gt;get(&amp;#39;acme_blog.page.handler&amp;#39;)-&amp;gt;put(
+                $page,
+                $request-&amp;gt;request-&amp;gt;all()
+            );
+        }
+
+        $routeOptions = array(
+            &amp;#39;id&amp;#39; =&amp;gt; $page-&amp;gt;getId(),
+            &amp;#39;_format&amp;#39; =&amp;gt; $request-&amp;gt;get(&amp;#39;_format&amp;#39;)
+        );
+
+        return $this-&amp;gt;routeRedirectView(&amp;#39;api_1_get_page&amp;#39;, $routeOptions, $statusCode);
+
+    } catch (InvalidFormException $exception) {
+
+        return $exception-&amp;gt;getForm();
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The PatchPageAction and the DeletePageAction will be very similar.&lt;/p&gt;
+
+&lt;h3 id='manually_testing_the_lifecycle'&gt;Manually testing the lifecycle&lt;/h3&gt;
+
+&lt;p&gt;We are going to reproduce all the page lifecycle putting the value of the result of the post into a bash variable, so we could reuse.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;location=`curl -X POST -d &amp;#39;{&amp;quot;title&amp;quot;:&amp;quot;liuggio&amp;quot;,&amp;quot;body&amp;quot;:&amp;quot;homepage&amp;quot;}&amp;#39; \
+   http://localhost:8000/api/v1/pages.json \
+   --header &amp;quot;Content-Type:application/json&amp;quot; -v 2&amp;gt;&amp;amp;1 | grep Location | cut -d \  -f 3`;
+
+echo &amp;quot;created result at: &amp;quot;$location&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;the result will look something like:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;created result at http://localhost:8000/api/v1/pages/143.json&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and we are going to use this $location variable and we will modify the resource:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -X PUT -d &amp;#39;{&amp;quot;title&amp;quot;:&amp;quot;my&amp;quot;,&amp;quot;body&amp;quot;:&amp;quot;homepage&amp;quot;}&amp;#39; $location --header &amp;quot;Content-Type:application/json&amp;quot; -v
+
+curl -X PATCH -d &amp;#39;{&amp;quot;body&amp;quot;:&amp;quot;life&amp;quot;}&amp;#39; $location --header &amp;quot;Content-Type:application/json&amp;quot; -v&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and then the get:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl $location --header &amp;quot;Content-Type:application/json&amp;quot; &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;the result will be:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{&amp;quot;id&amp;quot;:140,&amp;quot;title&amp;quot;:&amp;quot;my&amp;quot;,&amp;quot;body&amp;quot;:&amp;quot;life&amp;quot;}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='get_all_the_pages'&gt;GET all the Pages&lt;/h2&gt;
+
+&lt;p&gt;We want to be able to get a list of all the pages, we want to limit the result with pagination.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/**
+ * List all pages.
+ *
+ * @ApiDoc(
+ *   resource = true,
+ *   statusCodes = {
+ *     200 = &amp;quot;Returned when successful&amp;quot;
+ *   }
+ * )
+ *
+ * @Annotations\QueryParam(name=&amp;quot;offset&amp;quot;, requirements=&amp;quot;\d+&amp;quot;, nullable=true, description=&amp;quot;Offset from which to start listing pages.&amp;quot;)
+ * @Annotations\QueryParam(name=&amp;quot;limit&amp;quot;, requirements=&amp;quot;\d+&amp;quot;, default=&amp;quot;5&amp;quot;, description=&amp;quot;How many pages to return.&amp;quot;)
+ *
+ * @Annotations\View(
+ *  templateVar=&amp;quot;pages&amp;quot;
+ * )
+ *
+ * @param Request               $request      the request object
+ * @param ParamFetcherInterface $paramFetcher param fetcher service
+ *
+ * @return array
+ */
+public function getPagesAction(Request $request, ParamFetcherInterface $paramFetcher)
+{
+    $offset = $paramFetcher-&amp;gt;get(&amp;#39;offset&amp;#39;);
+    $offset = null == $offset ? 0 : $offset;
+    $limit = $paramFetcher-&amp;gt;get(&amp;#39;limit&amp;#39;);
+
+    return $this-&amp;gt;container-&amp;gt;get(&amp;#39;acme_blog.page.handler&amp;#39;)-&amp;gt;all($limit, $offset);
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Using the annotation &lt;code&gt;@Annotations\QueryParam&lt;/code&gt;, is very easy to get the &lt;code&gt;offset&lt;/code&gt;, and &lt;code&gt;limit&lt;/code&gt; that is ORM-ready :).&lt;/p&gt;
+
+&lt;p&gt;This is the &lt;code&gt;PageHandler::all&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/**
+ * Get a list of Pages.
+ *
+ * @param int $limit  the limit of the result
+ * @param int $offset starting from the offset
+ *
+ * @return array
+ */
+public function all($limit = 5, $offset = 0, $orderby = null)
+{
+    return $this-&amp;gt;repository-&amp;gt;findBy(array(), $orderby, $limit, $offset);
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id='pagination_with_headers'&gt;Pagination with headers&lt;/h3&gt;
+
+&lt;p&gt;Is possible to include pagination into the headers, there is a RFC: &lt;a href='http://tools.ietf.org/html/rfc5988#page-6'&gt;Link header introduced by RFC 5988&lt;/a&gt;, you could find a good implementation on the &lt;a href='http://developer.github.com/v3/#pagination'&gt;github pagination documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;b&gt;Link Header&lt;/b&gt;&lt;br /&gt;
+The pagination info is included in the Link header. It is important to follow these Link header values instead of constructing your own URLs. In some instances, such as in the Commits API, pagination is based on SHA1 and not on page number.&lt;small&gt;github link header&lt;/small&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;github example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Link: &amp;lt;https://api.github.com/user/repos?page=3&amp;amp;per_page=100&amp;gt;; rel=&amp;quot;next&amp;quot;,&amp;lt;https://api.github.com/user/repos?page=50&amp;amp;per_page=100&amp;gt;; rel=&amp;quot;last&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='symfony2_goodies'&gt;Symfony2 goodies&lt;/h2&gt;
+
+&lt;h3 id='head_method'&gt;HEAD method&lt;/h3&gt;
+
+&lt;p&gt;In Symfony2 the HEAD method follows the same routes and settings of the GET method, if you have the GET method available you will also have the &lt;code&gt;HEAD&lt;/code&gt; that links to the same actions, the response will be empty.&lt;/p&gt;
+
+&lt;h3 id='patching_the_patch_problem'&gt;Patching the PATCH problem&lt;/h3&gt;
+
+&lt;p&gt;Some browser doesn&amp;#8217;t support some methods as &lt;code&gt;PUT&lt;/code&gt;, &lt;code&gt;PATCH&lt;/code&gt; and &lt;code&gt;DELETE&lt;/code&gt; HTTP methods:&lt;/p&gt;
+&lt;blockquote&gt;
+    Fortunately Symfony2 provides you with a simple way of working around this limitation.&lt;br /&gt;
+     By including a _method parameter in the query string or parameters of an HTTP request,
+     Symfony2 will use this as the method when matching routes. &lt;br /&gt;
+     Forms automatically include a hidden field for this parameter if their submission method is not GET or POST.&lt;br /&gt;
+      See the related chapter in the forms documentation for more information.
+    &lt;small&gt;http://symfony.com/doc/current/cookbook/routing/method_parameters.html#faking-the-method-with-method&lt;/small&gt;
+&lt;/blockquote&gt;
+&lt;h2 id='disable_csrf_with_rest'&gt;Disable CSRF with REST&lt;/h2&gt;
+
+&lt;h3 id='theory_on_crosssite_request_forgery'&gt;Theory on Cross-site request forgery&lt;/h3&gt;
+
+&lt;p&gt;If you don&amp;#8217;t know what CSFR is there is lot of documentation on internet, please have a look to the &lt;a href='http://symfony.com/doc/current/book/forms.html#csrf-protection'&gt;csrf-protection&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+CSRF protection works by adding a hidden field to your form - called _token by default - that contains a value that only you and your user knows. This ensures that the user - not some other entity - is submitting the given data. Symfony automatically validates the presence and accuracy of this token.
+&lt;small&gt;http://symfony.com/doc/current/book/forms.html#csrf-protection&lt;/small&gt;
+&lt;/blockquote&gt;
+&lt;h3 id='csrf_and_rest'&gt;CSRF and REST&lt;/h3&gt;
+
+&lt;p&gt;Is possible to disable the CSRF based on the user&amp;#8217;s role, the documentation on Friend-Of-Symfony repository is self-explanatory: &lt;a href='https://github.com/FriendsOfSymfony/FOSRestBundle/blob/master/Resources/doc/2-the-view-layer.md#CSRF-validation'&gt;FOSRestBundle doc CSRF validation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We need to associate the &lt;code&gt;ROLE_API&lt;/code&gt; to the REST users:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# app/config/security.yml
+providers:
+    in_memory:
+        memory:
+            users:
+                user:  { password: userpass, roles: [ &amp;#39;ROLE_USER&amp;#39;, &amp;#39;ROLE_API&amp;#39; ] }
+                admin: { password: adminpass, roles: [ &amp;#39;ROLE_ADMIN&amp;#39;, &amp;#39;ROLE_API&amp;#39; ] }&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;then in the config.yml we need to enable the feature&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# app/config/config.yml
+fos_rest:
+    disable_csrf_role: ROLE_API&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We have now to modify the functional tests adding the authentication:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// /src/Acme/BlogBundle/Tests/Controller/PageControllerTest.php
+public function setUp()
+{
+    $this-&amp;gt;auth = array(
+        &amp;#39;PHP_AUTH_USER&amp;#39; =&amp;gt; &amp;#39;user&amp;#39;,
+        &amp;#39;PHP_AUTH_PW&amp;#39;   =&amp;gt; &amp;#39;userpass&amp;#39;,
+    );
+
+    $this-&amp;gt;client = static::createClient(array(), $this-&amp;gt;auth);
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='different_points_of_view'&gt;Different points of view&lt;/h2&gt;
+
+&lt;p&gt;It is very common when the API should serves different fields according to the role of the user that requests a resource.&lt;/p&gt;
+
+&lt;p&gt;For example the field &lt;code&gt;state&lt;/code&gt; that determines whether the page is public or not, can only be viewed and changed by the administrator. There are also more complex scenario, eg. the same field may follow different validations.&lt;/p&gt;
+
+&lt;p&gt;How to handle those differences on the same Page Entity?&lt;/p&gt;
+
+&lt;p&gt;There are many ways: validation groups, using serialization groups, or use different forms.&lt;/p&gt;
+
+&lt;h3 id='the_form_is_the_resource'&gt;The form is the resource&lt;/h3&gt;
+
+&lt;p&gt;I personally prefer the form, an idea could be associate a form to a role. Given the same URI, if the user was authenticated as an administrator would use the &lt;code&gt;PageAdminType&lt;/code&gt; form, otherwise she/he would use the &lt;code&gt;PageUserType&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;But this idea of associating a form to a role, does not fully comply with the REST philosophy, each request should be made to the desired resource, but technically the forms are different.&lt;/p&gt;
+
+&lt;p&gt;The URI should indicate which resource you want, and the layer of authorization should only accept or reject your request.&lt;/p&gt;
+
+&lt;p&gt;In the article part2, we have already seen that the resource we receive in input is not the entity Page, but it is the &lt;code&gt;pageType&lt;/code&gt; form, the API uses as interface the &lt;code&gt;pageType&lt;/code&gt; form.&lt;/p&gt;
+
+&lt;p&gt;Maybe the best option is use different URIs for different form and role.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;api/v1/pages/&lt;/code&gt;, the form is the standard &lt;code&gt;PageType&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;api/v1/admin/pages/&lt;/code&gt; the form used will have more fields and different authentication.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;We just apply the definition of Resource not to the Entity but to the form.&lt;/p&gt;
+
+&lt;h2 id='the_perfection'&gt;The perfection?&lt;/h2&gt;
+
+&lt;p&gt;In the enterprise the perfect software is when timing, clean-code and maintenance are in the correct balance with the specifications.&lt;/p&gt;
+
+&lt;p&gt;In the open-source and in the Symfony ecosystem developers tend to do their best, it would be possible to improve our application and our bundle?&lt;/p&gt;
+
+&lt;h3 id='thin_bundle_fat_library'&gt;Thin Bundle, Fat library.&lt;/h3&gt;
+
+&lt;p&gt;We could improve the loose coupling leaving in the bundle only the files that are truly related to Symfony and create a library for the entities, forms and services. But this could be another topic a blog post :).&lt;/p&gt;
+
+&lt;h2 id='recap'&gt;Recap&lt;/h2&gt;
+
+&lt;p&gt;We are in the end of this epic tale, this recapitulate should contain few concepts:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;We have created a smart service &lt;code&gt;PageHandler&lt;/code&gt; where all the logic about the page is.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;The service &lt;code&gt;PageHandler&lt;/code&gt; is an API for all the Symfony application, it respects the Interface &lt;code&gt;PageHandlerInterface&lt;/code&gt;, and is available in the container.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;We have developed a controller &lt;code&gt;PageController&lt;/code&gt;, the actions have @docblock annotations in order to decorate the View, those annotations also create the documentation, and provide a parameters filtering.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;The form is very important in this REST application, the form is the input for our PUT/PATCH/POST methods, it also validates and hydrates the object.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;The form could also be the resource named by the URI.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;We have defined what is the meaning of &lt;code&gt;idempotent&lt;/code&gt; and why &lt;code&gt;PUT&lt;/code&gt; should also create the resource.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;There are a lot of concepts about REST that I won&amp;#8217;t cover here like RESTFul, HAL, OAuth &amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href='https://github.com/liuggio/symfony2-rest-api-the-best-2013-way'&gt;repository&lt;/a&gt; contains all the functions and the tests that we have seen during those articles.&lt;/p&gt;
+
+&lt;h5 id='have_a_rest'&gt;Have a REST.&lt;/h5&gt;
+
+&lt;p&gt;That is all for the 2013&lt;/p&gt;
+
+&lt;h3 id='resources'&gt;Resources&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href='http://tools.ietf.org/html/rfc1945#page-24'&gt;RFC1945 Request-URI&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://tools.ietf.org/html/rfc5988#page-6'&gt;RFC5988 Web Linking&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://developer.github.com/v3/'&gt;REST API at github.com/v3/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='https://github.com/gimler/symfony-rest-edition'&gt;gimler/symfony rest edition&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://symfony.com/doc/current/cookbook/routing/method_parameters.html#faking-the-method-with-method'&gt;Symfony Faking the Method&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://idbentley.com/blog/2013/03/14/should-restful-apis-include-relationships/'&gt;should-restful-apis-include-relationships/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api'&gt;best-practices-for-a-pragmatic-restful-api&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>part2 - Web API REST with Symfony2</title>
@@ -21,7 +487,15 @@
 
 &lt;p&gt;In the &amp;#8217;&lt;a href='http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way/'&gt;Symfony2 REST part 1&lt;/a&gt;&amp;#8217; we created the application, the bundle, we talked about the &lt;code&gt;GET&lt;/code&gt; method, we also talked about the importance of the Interfaces, the content negotiation, and we gave an example of dumb controllers and brain services.&lt;/p&gt;
 
+&lt;p&gt;Here you could find the &lt;a href='/symfony2-rest-api-the-best-way-part-3/'&gt;last article Part3 - The rest of REST&lt;/a&gt;&lt;/p&gt;
+
 &lt;p&gt;In this blog post we are going to create a new &lt;code&gt;Page&lt;/code&gt; via &lt;strong&gt;REST API&lt;/strong&gt;: the form is the protagonist of this article.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Edited&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;3/12/2013: Added the Request in the actions, thanks to &lt;a href='http://twitter.com/stloyd'&gt;stloyd&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id='the_github_repository'&gt;The github repository&lt;/h2&gt;
 
@@ -327,20 +801,22 @@ public function __construct(ObjectManager $om, $entityClass, FormFactoryInterfac
  *
  * @return PageInterface
  *
- * @throws Acme\BlogBundle\Exception\InvalidFormException
+ * @throws \Acme\BlogBundle\Exception\InvalidFormException
  */
 private function processForm(PageInterface $page, array $parameters, $method = &amp;quot;PUT&amp;quot;)
 {
     $form = $this-&amp;gt;formFactory-&amp;gt;create(new PageType(), $page, array(&amp;#39;method&amp;#39; =&amp;gt; $method));
     $form-&amp;gt;submit($parameters, &amp;#39;PATCH&amp;#39; !== $method);
-    if (!$form-&amp;gt;isValid()) {
-        throw new InvalidFormException(&amp;#39;Invalid submitted data&amp;#39;, $form);
-    }
-    $page = $form-&amp;gt;getData(); // get the hydrated Page object
-    $this-&amp;gt;om-&amp;gt;persist($page);// persistence layer
-    $this-&amp;gt;om-&amp;gt;flush($page);
+    if ($form-&amp;gt;isValid()) {
 
-    return $page;
+        $page = $form-&amp;gt;getData();
+        $this-&amp;gt;om-&amp;gt;persist($page);
+        $this-&amp;gt;om-&amp;gt;flush($page);
+
+        return $page;
+    }
+
+    throw new InvalidFormException(&amp;#39;Invalid submitted data&amp;#39;, $form);
 }&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;This function returns an object of &lt;code&gt;PageInterface&lt;/code&gt; type, but if the parameters are not valid it throws an &lt;code&gt;InvalidFormException&lt;/code&gt; that will be handled and caught by the controller.&lt;/p&gt;
@@ -380,32 +856,32 @@ private function processForm(PageInterface $page, array $parameters, $method = &
  *
  * @Annotations\View(
  *  template = &amp;quot;AcmeBlogBundle:Page:newPage.html.twig&amp;quot;,
- *  statusCode = Codes::HTTP_BAD_REQUEST
+ *  statusCode = Codes::HTTP_BAD_REQUEST,
+ *  templateVar = &amp;quot;form&amp;quot;
  * )
  *
- * @return FormTypeInterface|RouteRedirectView
+ * @param Request $request the request object
+ *
+ * @return FormTypeInterface|View
  */
-public function postPageAction()
+public function postPageAction(Request $request)
 {
-    try {
-    	// Hey handler create a page for me.
-        $newPage = $this-&amp;gt;container-&amp;gt;get(&amp;#39;acme_blog.page.handler&amp;#39;)-&amp;gt;post(
-                // this is the body of the request
-                $this-&amp;gt;container-&amp;gt;get(&amp;#39;request&amp;#39;)-&amp;gt;request-&amp;gt;all()
-        );
+   try {
+       // Hey Page handler create a new Page.
+       $newPage = $this-&amp;gt;container-&amp;gt;get(&amp;#39;acme_blog.page.handler&amp;#39;)-&amp;gt;post(
+           $request-&amp;gt;request-&amp;gt;all()
+       );
 
-        $routeOptions = array(
-            &amp;#39;id&amp;#39; =&amp;gt; $newPage-&amp;gt;getId(),
-            &amp;#39;_format&amp;#39; =&amp;gt; $this-&amp;gt;container-&amp;gt;get(&amp;#39;request&amp;#39;)-&amp;gt;get(&amp;#39;_format&amp;#39;)
-        );
+       $routeOptions = array(
+           &amp;#39;id&amp;#39; =&amp;gt; $newPage-&amp;gt;getId(),
+           &amp;#39;_format&amp;#39; =&amp;gt; $request-&amp;gt;get(&amp;#39;_format&amp;#39;)
+       );
 
-        // return HTTP_CREATED, and add location header
-        return $this-&amp;gt;routeRedirectView(&amp;#39;api_1_get_page&amp;#39;, $routeOptions, Codes::HTTP_CREATED);
+       return $this-&amp;gt;routeRedirectView(&amp;#39;api_1_get_page&amp;#39;, $routeOptions, Codes::HTTP_CREATED);
+   } catch (InvalidFormException $exception) {
 
-    } catch (InvalidFormException $exception) {
-
-        return $this-&amp;gt;view(array(&amp;#39;errors&amp;#39; =&amp;gt; $exception-&amp;gt;getForm()), Codes::HTTP_BAD_REQUEST);
-    }
+       return $exception-&amp;gt;getForm();
+   }
 }&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id='the_location'&gt;The location&lt;/h3&gt;
@@ -455,12 +931,12 @@ public function getName()
 
 &lt;p&gt;and the controller should look something like&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;public function postPageAction()
+&lt;pre&gt;&lt;code&gt;public function postPageAction(Request $request)
 {
     try {
         $form = new PageType();
         $newPage = $this-&amp;gt;container-&amp;gt;get(&amp;#39;acme_blog.page.handler&amp;#39;)-&amp;gt;post(
-                $this-&amp;gt;container-&amp;gt;get(&amp;#39;request&amp;#39;)-&amp;gt;request-&amp;gt;get($form-&amp;gt;getName())
+                $request-&amp;gt;request-&amp;gt;get($form-&amp;gt;getName())
         );
 // ...&lt;/code&gt;&lt;/pre&gt;
 
@@ -610,7 +1086,7 @@ NelmioApiDocBundle:
  *   }
  * )
  */
-public function postPageAction()&lt;/code&gt;&lt;/pre&gt;
+public function postPageAction&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;And thanks to &lt;a href='https://github.com/nelmio/NelmioApiDocBundle/graphs/contributors'&gt;this guys&lt;/a&gt; you will have something like:&lt;/p&gt;
 
@@ -653,9 +1129,9 @@ interface PageHandlerInterface
     public function post(array $parameters);
 }&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id='next'&gt;Next&lt;/h2&gt;
+&lt;h2 id='next__the_last_rest_api_episode'&gt;Next ›› &lt;a href='/symfony2-rest-api-the-best-way-part-3/'&gt;The last REST API episode&lt;/a&gt;&lt;/h2&gt;
 
-&lt;p&gt;In the next articles, we will describe how to delete, edit partially and totally a resource with &lt;code&gt;DELETE&lt;/code&gt;, &lt;code&gt;PATCH&lt;/code&gt;, &lt;code&gt;PUT&lt;/code&gt;, we will talk how use other important HTTP headers, we will play with &lt;code&gt;filter&lt;/code&gt; authentication &amp;#8230;&lt;/p&gt;
+&lt;p&gt;In the next articles, we will describe how to delete, edit partially and totally a resource with &lt;code&gt;DELETE&lt;/code&gt;, &lt;code&gt;PATCH&lt;/code&gt;, &lt;code&gt;PUT&lt;/code&gt;, we will talk how use other important HTTP headers, we will play with &lt;code&gt;filter&lt;/code&gt; &amp;#8230;&lt;/p&gt;
 
 &lt;h3 id='references'&gt;References&lt;/h3&gt;
 
@@ -685,7 +1161,7 @@ interface PageHandlerInterface
 
 &lt;p&gt;Here&amp;#8217;s another nice guide on how to create an API with Symfony2, this is the &lt;strong&gt;part 1&lt;/strong&gt; of a series of articles.&lt;/p&gt;
 
-&lt;p&gt;Here you could find the &lt;a href='/web-api-rest-with-symfony2-the-best-way-the-post-method/'&gt;Part2 - the &amp;#8216;POST&amp;#8217;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Here you could find the &lt;a href='/web-api-rest-with-symfony2-the-best-way-the-post-method/'&gt;Part2 - the &amp;#8216;POST&amp;#8217;&lt;/a&gt;, and the last article &lt;a href='/symfony2-rest-api-the-best-way-part-3/'&gt;Part3 - The rest of REST&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I would like to be short and concise bringing practical examples.&lt;/p&gt;
 
@@ -1107,7 +1583,7 @@ Allow: GET
 
 &lt;p&gt;We have created a Doctrine entity called &lt;code&gt;Page&lt;/code&gt;, we have identified the methods of the interface that will be very useful later on. We first created a functional test, then the thin controller without logic. We have created unit test and then the service &lt;code&gt;PageHandler&lt;/code&gt; which instead of the controller, contains the logic to retrieve the information. We understood the importance of Content Negotiation.&lt;/p&gt;
 
-&lt;h2 id='next'&gt;Next&lt;/h2&gt;
+&lt;h2 id='next__create_a_resource_with_api_rest'&gt;Next ›› &lt;a href='/web-api-rest-with-symfony2-the-best-way-the-post-method/'&gt;create a resource with API REST&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;In the next articles, we will describe how to use the page form as shared interface, we will create, modify, and delete Pages, with &lt;code&gt;PUT&lt;/code&gt;, &lt;code&gt;PATCH&lt;/code&gt;, &lt;code&gt;POST&lt;/code&gt;, &lt;code&gt;DELETE&lt;/code&gt;, and we will detail how use other important HTTP headers.&lt;/p&gt;
 
@@ -1116,7 +1592,7 @@ Allow: GET
 &lt;ol&gt;
 &lt;li&gt;&lt;a href='http://www.symfony2.com'&gt;sf2 - Symfony.com&lt;/a&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;a href='http://www.youtube.com/watch?v=Kkby5fG89K0&amp;amp;feature=youtu.be&amp;amp;from=www.welcometothebundle.com'&gt;Lukas Kahwe Smith: resting with Sf2 - video&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href='http://www.youtube.com/watch?v=Kkby5fG89K0'&gt;Lukas Kahwe Smith: resting with Sf2 - video&lt;/a&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;a href='http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/'&gt;William Durand: rest-apis-with-symfony2-the-right-way - blog&lt;/a&gt;&lt;/li&gt;
 

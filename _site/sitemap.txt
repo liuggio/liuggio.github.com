@@ -6,6 +6,7 @@ http://welcometothebundle.com/tags.html
 http://welcometothebundle.com/sitemap.txt
 http://welcometothebundle.com/index.html
 
+http://welcometothebundle.com/symfony2-rest-api-the-best-way-part-3
 http://welcometothebundle.com/web-api-rest-with-symfony2-the-best-way-the-post-method
 http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way
 http://welcometothebundle.com/symfony2-design-patterns

@@ -21,7 +21,7 @@ Ci sono vari problemi che emergono, cosa succedere se il sito cambia?
 
 Alcuni problematiche sono emersi da orso e dal suo talk [sf2-wtf](http://www.slideshare.net/MicheleOrselli/sf2-wtf).
 
-Cosa succede se esce symfony3 convertiresti i tuoi progetti?
+Cosa succede se uscisse symfony3 convertiresti i tuoi progetti?
 
 Quanto è facile programmare in modo che tutte le funzionalità siano fuori dal bundle?
 

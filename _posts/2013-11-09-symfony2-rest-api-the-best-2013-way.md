@@ -12,8 +12,8 @@ date: 2013-11-13 13:00:00
 
 Here's another nice guide on how to create an API with Symfony2, this is the **part 1** of a series of articles.
 
-Here you could find the [Part2 - the 'POST'](/web-api-rest-with-symfony2-the-best-way-the-post-method/).
-
+Here you could find the [Part2 - the 'POST'](/web-api-rest-with-symfony2-the-best-way-the-post-method/),
+and the last article [Part3 - The rest of REST](/symfony2-rest-api-the-best-way-part-3/)
 
 I would like to be short and concise bringing practical examples.
 
@@ -455,7 +455,7 @@ We first created a functional test, then the thin controller without logic.
 We have created unit test and then the service `PageHandler` which instead of the controller, contains the logic to retrieve the information.
 We understood the importance of Content Negotiation.
 
-## Next
+## Next ›› [create a resource with API REST](/web-api-rest-with-symfony2-the-best-way-the-post-method/)
 
 In the next articles, we will describe how to use the page form as shared interface, we will create, modify, and delete Pages, with `PUT`, `PATCH`, `POST`, `DELETE`, and we will detail how use other important HTTP headers.
 
@@ -463,7 +463,7 @@ In the next articles, we will describe how to use the page form as shared interf
 ### References:
 
 1. [sf2 - Symfony.com](http://www.symfony2.com)
-2. [Lukas Kahwe Smith: resting with Sf2 - video](http://www.youtube.com/watch?v=Kkby5fG89K0&feature=youtu.be&from=www.welcometothebundle.com)
+2. [Lukas Kahwe Smith: resting with Sf2 - video](http://www.youtube.com/watch?v=Kkby5fG89K0)
 3. [William Durand: rest-apis-with-symfony2-the-right-way - blog](http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/)
 4. [Samuel Gordalina: REST APIs made easy with Symfony2 - slide](https://speakerdeck.com/gordalina/rest-apis-made-easy-with-symfony2)
 5. [Daniel Londero: Rest in practice - slide](http://www.slideshare.net/dlondero/rest-in-practice-27335543)
