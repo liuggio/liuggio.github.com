@@ -4,6 +4,7 @@
     <list default="true" id="2476ae60-ec3a-4959-85a2-a6673668d2c0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/atom.xml" afterPath="$PROJECT_DIR$/_site/atom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/categories.html" afterPath="$PROJECT_DIR$/_site/categories.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html" afterPath="$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/index.html" afterPath="$PROJECT_DIR$/_site/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/automate-test-and-code-inspection-in-php-with-guard-and-symfony2/index.html" afterPath="$PROJECT_DIR$/_site/automate-test-and-code-inspection-in-php-with-guard-and-symfony2/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/caching-and-data-analysis-will-move-your-application-to-the-next-level/index.html" afterPath="$PROJECT_DIR$/_site/caching-and-data-analysis-will-move-your-application-to-the-next-level/index.html" />
@@ -37,7 +38,7 @@
     <file path="/2012-10-31-symfony-day-5-october-turin-2012.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384170705876" ignored="false" />
     <file path="/2013-03-10-it-is-all-about-behaviour-also-in-php" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384173376131" ignored="false" />
     <file path="/2013-03-10-it-is-all-about-behaviour-also-in-php.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384174812441" ignored="false" />
-    <file path="/default.html" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384174795534" ignored="false" />
+    <file path="/default.html" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386093178446" ignored="false" />
     <file path="/2013-11-09-symfony2-rest-api-the-best-2013-way.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386086034029" ignored="false" />
     <file path="/2013-11-11-symfony2-rest-api-the-best-way-2013-article-2.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384188066815" ignored="false" />
     <file path="$USER_HOME$/PhpstormProjects/BlogRESTAPI/composer.json" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384187255793" ignored="false" />
@@ -56,17 +57,14 @@
     <file path="$USER_HOME$/PhpstormProjects/BlogRESTAPI/src/Acme/BlogBundle/Form/PageType.php" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384550191290" ignored="false" />
     <file path="$USER_HOME$/PhpstormProjects/BlogRESTAPI/src/Acme/BlogBundle/Handler/PageHandlerInterface.php" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384613867268" ignored="false" />
     <file path="/2013-11-16-symfony2-rest-api-the-best-way-2013-part-2.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384613533796" ignored="false" />
-    <file path="/style.css" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386091986487" ignored="false" />
+    <file path="/style.css" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386092913612" ignored="false" />
     <file path="$USER_HOME$/PhpstormProjects/BlogRESTAPI/src/Acme/BlogBundle/Tests/Handler/PageHandlerTest.php" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384613867268" ignored="false" />
     <file path="/2013-11-18-thin-bundles-fat-libraries.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386068990885" ignored="false" />
     <file path="/2013-11-20-symfony2-rest-api-the-best-way-part-3.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386085909710" ignored="false" />
     <file path="/2013-11-16-web-api-rest-with-symfony2-the-best-way-the-post-method.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386084795706" ignored="false" />
     <file path="/a.dummy" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386071161097" ignored="false" />
     <file path="$USER_HOME$/PhpstormProjects/blog-rest-api/src/Acme/BlogBundle/Controller/PageController.php" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386083972074" ignored="false" />
-    <file path="/post.html" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386091934043" ignored="false" />
-    <file path="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/css/font-awesome.css" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386092039580" ignored="false" />
-    <file path="$PROJECT_DIR$/_site/assets/themes/twitter/bootstrap/css/bootstrap.min.css" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386092039580" ignored="false" />
-    <file path="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/bootstrap/css/bootstrap.min.css" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386092039580" ignored="false" />
+    <file path="/post.html" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386093131879" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,18 +87,36 @@
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/themes/readable-liuggio/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="331" column="17" selection-start="4692" selection-end="4692" vertical-scroll-proportion="-12.064516">
+            <state line="396" column="0" selection-start="5635" selection-end="5635" vertical-scroll-proportion="-8.225806">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="post.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="post.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/post.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="132" selection-start="2708" selection-end="2708" vertical-scroll-proportion="0.68164796">
+            <state line="14" column="55" selection-start="660" selection-end="660" vertical-scroll-proportion="-2.4418604">
               <folding>
                 <element signature="n#style#0;n#a#0;n#li#2;n#ul#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="default.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="235" column="0" selection-start="14774" selection-end="14774" vertical-scroll-proportion="0.26941177">
+              <folding>
+                <marker date="1386093194840" expanded="true" signature="10693:10755" placeholder="..." />
+                <marker date="1386093194840" expanded="true" signature="10836:10853" placeholder="..." />
+                <marker date="1386093194840" expanded="true" signature="11513:11575" placeholder="..." />
+                <marker date="1386093194840" expanded="true" signature="11656:11673" placeholder="..." />
+                <marker date="1386093194840" expanded="true" signature="12247:12309" placeholder="..." />
+                <marker date="1386093194840" expanded="true" signature="12390:12407" placeholder="..." />
+                <marker date="1386093194840" expanded="true" signature="13045:13107" placeholder="..." />
+                <marker date="1386093194840" expanded="true" signature="13188:13205" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -124,7 +140,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/_posts/2012-05-06-symfony2-assets-on-rackspace-cloud-files.md" />
         <option value="$PROJECT_DIR$/_posts/2012-07-31-easily-install-statsd-and-graphite-with-vagrant.md" />
         <option value="$PROJECT_DIR$/_posts/2012-09-16-tvision-team-manifesto.md" />
         <option value="$PROJECT_DIR$/_posts/2012-10-31-symfony-day-5-october-turin-2012.md" />
@@ -140,6 +155,7 @@
         <option value="$PROJECT_DIR$/_posts/2013-11-09-symfony2-rest-api-the-best-2013-way.md" />
         <option value="$PROJECT_DIR$/assets/themes/readable-liuggio/css/style.css" />
         <option value="$PROJECT_DIR$/_includes/themes/readable-liuggio/post.html" />
+        <option value="$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html" />
       </list>
     </option>
   </component>
@@ -475,20 +491,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_posts/2012-10-31-symfony-day-5-october-turin-2012.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="122" selection-start="348" selection-end="348" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-01-03-automate-test-and-code-inspection-in-php-with-guard-and-symfony2.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="154" selection-start="403" selection-end="403" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2013-01-03-servergrove-stastdclientbundle-interesting-symfony-bundles.md">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="148" selection-start="398" selection-end="398" vertical-scroll-proportion="0.0">
@@ -575,16 +577,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/themes/readable-liuggio/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="331" column="17" selection-start="4692" selection-end="4692" vertical-scroll-proportion="-12.064516">
+        <state line="396" column="0" selection-start="5635" selection-end="5635" vertical-scroll-proportion="-8.225806">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_layouts/default.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/post.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="132" selection-start="2708" selection-end="2708" vertical-scroll-proportion="0.68164796">
+        <state line="14" column="55" selection-start="660" selection-end="660" vertical-scroll-proportion="-2.4418604">
           <folding>
             <element signature="n#style#0;n#a#0;n#li#2;n#ul#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="235" column="0" selection-start="14774" selection-end="14774" vertical-scroll-proportion="0.26941177">
+          <folding>
+            <marker date="1386093194840" expanded="true" signature="10693:10755" placeholder="..." />
+            <marker date="1386093194840" expanded="true" signature="10836:10853" placeholder="..." />
+            <marker date="1386093194840" expanded="true" signature="11513:11575" placeholder="..." />
+            <marker date="1386093194840" expanded="true" signature="11656:11673" placeholder="..." />
+            <marker date="1386093194840" expanded="true" signature="12247:12309" placeholder="..." />
+            <marker date="1386093194840" expanded="true" signature="12390:12407" placeholder="..." />
+            <marker date="1386093194840" expanded="true" signature="13045:13107" placeholder="..." />
+            <marker date="1386093194840" expanded="true" signature="13188:13205" placeholder="..." />
           </folding>
         </state>
       </provider>

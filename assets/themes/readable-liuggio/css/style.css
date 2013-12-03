@@ -384,6 +384,17 @@ footer.footer {
     text-decoration:underline;
 }
 
+#sticky-pagination {
+    height: 22px;
+    margin-bottom: 5px;
+    text-align: center;
+    width: 74px;
+}
+
+#sticky-pagination i {
+    color: rgba(52, 73, 94, 0.55);
+}
+
 #edit-github {
     margin-bottom: 5px;
     font: 11px/18px 'Helvetica Neue',Arial,sans-serif;

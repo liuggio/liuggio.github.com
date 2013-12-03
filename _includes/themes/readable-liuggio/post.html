@@ -11,6 +11,29 @@
                   <a class="btn btn-mini" target="_blank" href="{{ page.edit-link }}" title="Found a typo? Please edit it on Github"><i class="icon-edit pull-left"></i><b>Edit</b></a>
               </div>
               {% endif %}
+
+              <div id="sticky-pagination" class="hidden">
+                  {% if page.previous %}
+                      <a class="btn-mini pull-left" target="_blank" href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">
+                          <i class="icon-arrow-left"></i>
+                      </a>
+                  {% else %}
+                      <a class="btn-mini disabled pull-left" target="_blank">
+                          <i class="icon-arrow-left"></i>
+                      </a>
+                  {% endif %}
+
+                  {% if page.next %}
+                  <a class="btn-mini pull-right" target="_blank" href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">
+                      <i class="icon-arrow-right"></i>
+                  </a>
+                  {% else %}
+                  <a class="btn-mini disabled pull-right" target="_blank">
+                      <i class="icon-arrow-right"></i>
+                  </a>
+                  {% endif %}
+              </div>
+
                <a href="https://twitter.com/share" class="twitter-share-button" data-via="liuggio" data-size="large"
                   data-count="none">Tweet</a>
                <script>!function (d, s, id) {

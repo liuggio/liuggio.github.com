@@ -242,6 +242,7 @@
         if (!!$('.sticky').offset()) { // make sure ".sticky" element exists
             var stickyTop = $('.sticky').offset().top; // returns number
             $(window).scroll(function () { // scroll event
+                $('#sticky-pagination').show().removeClass("hidden");
                 var windowTop = $(window).scrollTop(); // returns number
                 if (stickyTop < windowTop) {
                     $('.sticky').css({ position:'fixed', top:0, right:0 });
@@ -253,6 +254,7 @@
                     $('.sticky').css('position', 'static');
                     $('.sticky').removeClass("well").addClass("span1");
                     $('.sticky .inner').hide();
+                    $('#sticky-pagination').hide();
                 }
             });
         }
