@@ -117,5 +117,13 @@ but hard-coding namespaces and dependencies is not the best option.
 
 **That's a RFC for that**
 
-Giorgio told me about this RFC: [php.net/rfc/protocol_type_hinting](https://wiki.php.net/rfc/protocol_type_hinting).
+[giorrrgio](https://twitter.com/giorrrgio) told me about this RFC: [php.net/rfc/protocol_type_hinting](https://wiki.php.net/rfc/protocol_type_hinting)
+
+Unfortunately, the RFC was not understood by PHP guru.
+
+Then has followed a twitter conversation:
+
+[![Twitter conversation with @ircmaxell]({{ ASSET_PATH }}img/ircmaxell.png)](https://twitter.com/liuggio/statuses/377818409062236160)
+
+
 

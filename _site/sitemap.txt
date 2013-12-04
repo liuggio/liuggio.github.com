@@ -1,5 +1,6 @@
 
 http://welcometothebundle.com/categories.html
+http://welcometothebundle.com/feed.xml
 http://welcometothebundle.com/atom.xml
 http://welcometothebundle.com/new-page.html
 http://welcometothebundle.com/tags.html

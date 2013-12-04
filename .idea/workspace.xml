@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2476ae60-ec3a-4959-85a2-a6673668d2c0" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/feed.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-09-11-design-by-contract-behaviour.md" afterPath="$PROJECT_DIR$/_posts/2013-09-11-design-by-contract-behaviour.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-11-09-symfony2-rest-api-the-best-2013-way.md" afterPath="$PROJECT_DIR$/_posts/2013-11-09-symfony2-rest-api-the-best-2013-way.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/atom.xml" afterPath="$PROJECT_DIR$/_site/atom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/categories.html" afterPath="$PROJECT_DIR$/_site/categories.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html" afterPath="$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html" />
@@ -25,20 +28,19 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/web-api-rest-with-symfony2-the-best-way-the-post-method/index.html" afterPath="$PROJECT_DIR$/_site/web-api-rest-with-symfony2-the-best-way-the-post-method/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/new-page.html" afterPath="$PROJECT_DIR$/_site/new-page.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_includes/themes/readable-liuggio/post.html" afterPath="$PROJECT_DIR$/_includes/themes/readable-liuggio/post.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/css/style.css" afterPath="$PROJECT_DIR$/_site/assets/themes/readable-liuggio/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/themes/readable-liuggio/css/style.css" afterPath="$PROJECT_DIR$/assets/themes/readable-liuggio/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/sitemap.txt" afterPath="$PROJECT_DIR$/_site/sitemap.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/tags.html" afterPath="$PROJECT_DIR$/_site/tags.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="liuggio.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386068966353" ignored="false" />
+    <file path="/Dummy.txt" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386156438945" ignored="false" />
     <file path="/2013-11-09-rest-api-symfony2-the-best-2013-way.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384170140249" ignored="false" />
     <file path="/2013-02-26-it-is-all-about-behaviour-also-in-php" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384173111878" ignored="false" />
     <file path="/2012-10-31-symfony-day-5-october-turin-2012.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384170705876" ignored="false" />
     <file path="/2013-03-10-it-is-all-about-behaviour-also-in-php" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384173376131" ignored="false" />
     <file path="/2013-03-10-it-is-all-about-behaviour-also-in-php.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384174812441" ignored="false" />
-    <file path="/default.html" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386093178446" ignored="false" />
+    <file path="/default.html" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386162659636" ignored="false" />
     <file path="/2013-11-09-symfony2-rest-api-the-best-2013-way.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386086034029" ignored="false" />
     <file path="/2013-11-11-symfony2-rest-api-the-best-way-2013-article-2.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384188066815" ignored="false" />
     <file path="$USER_HOME$/PhpstormProjects/BlogRESTAPI/composer.json" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1384187255793" ignored="false" />
@@ -62,9 +64,12 @@
     <file path="/2013-11-18-thin-bundles-fat-libraries.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386068990885" ignored="false" />
     <file path="/2013-11-20-symfony2-rest-api-the-best-way-part-3.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386085909710" ignored="false" />
     <file path="/2013-11-16-web-api-rest-with-symfony2-the-best-way-the-post-method.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386084795706" ignored="false" />
-    <file path="/a.dummy" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386071161097" ignored="false" />
+    <file path="/a.dummy" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386156755058" ignored="false" />
     <file path="$USER_HOME$/PhpstormProjects/blog-rest-api/src/Acme/BlogBundle/Controller/PageController.php" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386083972074" ignored="false" />
     <file path="/post.html" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386093131879" ignored="false" />
+    <file path="/2013-12-03-why-acl-died-in-symfony2.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386094732162" ignored="false" />
+    <file path="/feed.xml" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386156517753" ignored="false" />
+    <file path="/2013-09-11-design-by-contract-behaviour.md" changelist="2476ae60-ec3a-4959-85a2-a6673668d2c0" time="1386161891739" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,39 +89,85 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/themes/readable-liuggio/css/style.css">
+      <file leaf-file-name="post.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/post.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="396" column="0" selection-start="5635" selection-end="5635" vertical-scroll-proportion="-8.225806">
+            <state line="37" column="20" selection-start="1827" selection-end="1827" vertical-scroll-proportion="-23.125">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="post.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/post.html">
+      <file leaf-file-name="feed.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/feed.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="55" selection-start="660" selection-end="660" vertical-scroll-proportion="-2.4418604">
-              <folding>
-                <element signature="n#style#0;n#a#0;n#li#2;n#ul#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state line="8" column="49" selection-start="251" selection-end="251" vertical-scroll-proportion="-1.9354838">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="default.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="2013-09-11-design-by-contract-behaviour.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_posts/2013-09-11-design-by-contract-behaviour.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="125" column="57" selection-start="3985" selection-end="3985" vertical-scroll-proportion="0.7513812">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_config.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_config.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="7" selection-start="363" selection-end="370" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pages_list" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_includes/JB/pages_list">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="posts_collate" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_includes/JB/posts_collate">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="45" column="154" selection-start="1873" selection-end="1905" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="atom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/atom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="22" selection-start="515" selection-end="515" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="default.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="235" column="0" selection-start="14774" selection-end="14774" vertical-scroll-proportion="0.26941177">
+            <state line="32" column="71" selection-start="2322" selection-end="2338" vertical-scroll-proportion="-8.75">
               <folding>
-                <marker date="1386093194840" expanded="true" signature="10693:10755" placeholder="..." />
-                <marker date="1386093194840" expanded="true" signature="10836:10853" placeholder="..." />
-                <marker date="1386093194840" expanded="true" signature="11513:11575" placeholder="..." />
-                <marker date="1386093194840" expanded="true" signature="11656:11673" placeholder="..." />
-                <marker date="1386093194840" expanded="true" signature="12247:12309" placeholder="..." />
-                <marker date="1386093194840" expanded="true" signature="12390:12407" placeholder="..." />
-                <marker date="1386093194840" expanded="true" signature="13045:13107" placeholder="..." />
-                <marker date="1386093194840" expanded="true" signature="13188:13205" placeholder="..." />
+                <marker date="1386162669287" expanded="false" signature="11874:11936" placeholder="..." />
+                <marker date="1386162669287" expanded="false" signature="12017:12034" placeholder="..." />
+                <marker date="1386162669287" expanded="false" signature="12694:12756" placeholder="..." />
+                <marker date="1386162669287" expanded="false" signature="12837:12854" placeholder="..." />
+                <marker date="1386162669287" expanded="false" signature="13428:13490" placeholder="..." />
+                <marker date="1386162669287" expanded="false" signature="13571:13588" placeholder="..." />
+                <marker date="1386162669287" expanded="false" signature="14226:14288" placeholder="..." />
+                <marker date="1386162669287" expanded="false" signature="14369:14386" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -140,22 +191,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/_posts/2012-07-31-easily-install-statsd-and-graphite-with-vagrant.md" />
-        <option value="$PROJECT_DIR$/_posts/2012-09-16-tvision-team-manifesto.md" />
-        <option value="$PROJECT_DIR$/_posts/2012-10-31-symfony-day-5-october-turin-2012.md" />
-        <option value="$PROJECT_DIR$/_posts/2013-01-03-automate-test-and-code-inspection-in-php-with-guard-and-symfony2.md" />
         <option value="$PROJECT_DIR$/_posts/2013-01-03-servergrove-stastdclientbundle-interesting-symfony-bundles.md" />
         <option value="$PROJECT_DIR$/_posts/2013-01-05-phpunit-vs-phpspec-theory-on-behaviour-driven-development.md" />
         <option value="$PROJECT_DIR$/_posts/2013-02-22-the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection.md" />
         <option value="$PROJECT_DIR$/_posts/2013-03-10-it-is-all-about-behaviour-also-in-php.md" />
         <option value="$PROJECT_DIR$/_posts/2013-04-23-doctrine2-tracking-policy.md" />
         <option value="$PROJECT_DIR$/_posts/2013-05-17-caching-and-data-analysis-will-move-your-application-to-the-next-level.md" />
-        <option value="$PROJECT_DIR$/_posts/2013-09-11-design-by-contract-behaviour.md" />
         <option value="$PROJECT_DIR$/_posts/2013-10-18-symfony2-design-patterns.md" />
-        <option value="$PROJECT_DIR$/_posts/2013-11-09-symfony2-rest-api-the-best-2013-way.md" />
         <option value="$PROJECT_DIR$/assets/themes/readable-liuggio/css/style.css" />
         <option value="$PROJECT_DIR$/_includes/themes/readable-liuggio/post.html" />
+        <option value="$PROJECT_DIR$/_posts/2013-12-03-why-acl-died-in-symfony2.md" />
+        <option value="$PROJECT_DIR$/_posts/2013-12-03-symfony-voters-and-acl-died.md" />
+        <option value="$PROJECT_DIR$/_posts/2013-11-09-symfony2-rest-api-the-best-2013-way.md" />
+        <option value="$PROJECT_DIR$/_posts/2013-11-20-symfony2-rest-api-the-best-way-part-3.md" />
+        <option value="$PROJECT_DIR$/feed.xml" />
         <option value="$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html" />
+        <option value="$PROJECT_DIR$/_posts/2013-09-11-design-by-contract-behaviour.md" />
       </list>
     </option>
   </component>
@@ -191,7 +242,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -272,7 +322,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="img" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -357,9 +407,14 @@
               <option name="myItemId" value="_includes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -372,9 +427,13 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
     <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
       <JSDebuggerConfigurationSettings>
-        <option name="engineId" />
+        <option name="engineId" value="embedded" />
         <option name="fileUrl" />
       </JSDebuggerConfigurationSettings>
       <method />
@@ -413,9 +472,10 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32934782" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23149695" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.344463" sideWeight="0.67065215" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -424,7 +484,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -491,69 +550,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_posts/2013-01-03-servergrove-stastdclientbundle-interesting-symfony-bundles.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="148" selection-start="398" selection-end="398" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-01-05-phpunit-vs-phpspec-theory-on-behaviour-driven-development.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="147" selection-start="392" selection-end="392" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-02-22-the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="158" selection-start="382" selection-end="382" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-03-10-it-is-all-about-behaviour-also-in-php.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="127" selection-start="352" selection-end="352" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-04-23-doctrine2-tracking-policy.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="115" selection-start="252" selection-end="252" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-05-17-caching-and-data-analysis-will-move-your-application-to-the-next-level.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="160" selection-start="393" selection-end="393" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-09-11-design-by-contract-behaviour.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="118" selection-start="267" selection-end="267" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-10-18-symfony2-design-patterns.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="114" selection-start="290" selection-end="290" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-11-09-symfony2-rest-api-the-best-2013-way.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="125" selection-start="301" selection-end="301" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2013-11-16-web-api-rest-with-symfony2-the-best-way-the-post-method.md">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -568,49 +564,109 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-11-20-symfony2-rest-api-the-best-way-part-3.md">
+    <entry file="file://$PROJECT_DIR$/_layouts/default.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/themes/readable-liuggio/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="396" column="0" selection-start="5635" selection-end="5635" vertical-scroll-proportion="-8.225806">
+        <state line="396" column="0" selection-start="5635" selection-end="5635" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_layouts/default.html">
+    <entry file="file://$PROJECT_DIR$/_posts/2013-11-09-symfony2-rest-api-the-best-2013-way.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="127" column="22" selection-start="5162" selection-end="5162" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-11-20-symfony2-rest-api-the-best-way-part-3.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="11" selection-start="66" selection-end="77" vertical-scroll-proportion="0.09297521">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_includes/JB/pages_list">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_includes/JB/posts_collate">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="154" selection-start="1873" selection-end="1905" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="7" selection-start="363" selection-end="370" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feed.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="49" selection-start="251" selection-end="251" vertical-scroll-proportion="-1.9354838">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/themes/readable-liuggio/img/ircmaxell.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/post.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="55" selection-start="660" selection-end="660" vertical-scroll-proportion="-2.4418604">
-          <folding>
-            <element signature="n#style#0;n#a#0;n#li#2;n#ul#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="37" column="20" selection-start="1827" selection-end="1827" vertical-scroll-proportion="-23.125">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_includes/themes/readable-liuggio/default.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="235" column="0" selection-start="14774" selection-end="14774" vertical-scroll-proportion="0.26941177">
+        <state line="32" column="71" selection-start="2322" selection-end="2338" vertical-scroll-proportion="-8.75">
           <folding>
-            <marker date="1386093194840" expanded="true" signature="10693:10755" placeholder="..." />
-            <marker date="1386093194840" expanded="true" signature="10836:10853" placeholder="..." />
-            <marker date="1386093194840" expanded="true" signature="11513:11575" placeholder="..." />
-            <marker date="1386093194840" expanded="true" signature="11656:11673" placeholder="..." />
-            <marker date="1386093194840" expanded="true" signature="12247:12309" placeholder="..." />
-            <marker date="1386093194840" expanded="true" signature="12390:12407" placeholder="..." />
-            <marker date="1386093194840" expanded="true" signature="13045:13107" placeholder="..." />
-            <marker date="1386093194840" expanded="true" signature="13188:13205" placeholder="..." />
+            <marker date="1386162669287" expanded="false" signature="11874:11936" placeholder="..." />
+            <marker date="1386162669287" expanded="false" signature="12017:12034" placeholder="..." />
+            <marker date="1386162669287" expanded="false" signature="12694:12756" placeholder="..." />
+            <marker date="1386162669287" expanded="false" signature="12837:12854" placeholder="..." />
+            <marker date="1386162669287" expanded="false" signature="13428:13490" placeholder="..." />
+            <marker date="1386162669287" expanded="false" signature="13571:13588" placeholder="..." />
+            <marker date="1386162669287" expanded="false" signature="14226:14288" placeholder="..." />
+            <marker date="1386162669287" expanded="false" signature="14369:14386" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-12-03-symfony-voters-and-acl-died.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="526" selection-end="526" vertical-scroll-proportion="-0.4364641">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/atom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="22" selection-start="515" selection-end="515" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-09-11-design-by-contract-behaviour.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="125" column="57" selection-start="3985" selection-end="3985" vertical-scroll-proportion="0.7513812">
+          <folding />
         </state>
       </provider>
     </entry>

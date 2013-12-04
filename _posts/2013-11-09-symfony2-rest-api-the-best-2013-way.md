@@ -125,7 +125,7 @@ and then we add a simple and dirty function (we'll refactor soon)
         return $this->container->get('doctrine.entity_manager')->getRepository('Page')->find($id);
     }
 
-#### **[EDIT-14/11/2013]** Samuel Gordalina suggests:
+#### **EDIT-14/11/2013** Samuel Gordalina suggests:
 
 You can use ParamConverter which fetches an entity from database or returns a 404 exception.
 For more info see [sample-twitter-api-symfony2:37](https://github.com/gordalina/sample-twitter-api-symfony2/blob/master/src/Twitter/ApiBundle/Controller/TweetController.php#L37)

@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-12-03T18:59:12+01:00</updated>
+ <updated>2013-12-04T14:19:26+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -15,7 +15,7 @@
  <entry>
    <title>part 3 - Symfony2 API: the rest of REST</title>
    <link href="http://welcometothebundle.com/symfony2-rest-api-the-best-way-part-3"/>
-   <updated>2013-12-03T13:00:00+01:00</updated>
+   <updated>2013-12-03T13:00:00Z</updated>
    <id>http://welcometothebundle.com/symfony2-rest-api-the-best-way-part-3</id>
    <content type="html">&lt;h3 id='part_3__the_rest_of_rest'&gt;Part 3 - the rest of rest.&lt;/h3&gt;
 
@@ -481,7 +481,7 @@ public function setUp()
  <entry>
    <title>part2 - Web API REST with Symfony2</title>
    <link href="http://welcometothebundle.com/web-api-rest-with-symfony2-the-best-way-the-post-method"/>
-   <updated>2013-11-16T13:00:00+01:00</updated>
+   <updated>2013-11-16T13:00:00Z</updated>
    <id>http://welcometothebundle.com/web-api-rest-with-symfony2-the-best-way-the-post-method</id>
    <content type="html">&lt;h3 id='part_2__the_'&gt;Part 2 - the &lt;code&gt;POST&lt;/code&gt;&lt;/h3&gt;
 
@@ -1090,7 +1090,7 @@ public function postPageAction&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;And thanks to &lt;a href='https://github.com/nelmio/NelmioApiDocBundle/graphs/contributors'&gt;this guys&lt;/a&gt; you will have something like:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src='/assets/themes//readable-liuggio/img/screenshot-nelmio.png' alt='NelmioApiDocBundle screen-shot' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt='NelmioApiDocBundle screen-shot' src='/assets/themes//readable-liuggio/img/screenshot-nelmio.png' /&gt;&lt;/p&gt;
 
 &lt;h2 id='recap'&gt;Recap&lt;/h2&gt;
 
@@ -1155,7 +1155,7 @@ interface PageHandlerInterface
  <entry>
    <title>Symfony2 REST API: the best way</title>
    <link href="http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way"/>
-   <updated>2013-11-13T13:00:00+01:00</updated>
+   <updated>2013-11-13T13:00:00Z</updated>
    <id>http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way</id>
    <content type="html">&lt;h3 id='part_1__the_'&gt;Part 1 - the &lt;code&gt;GET&lt;/code&gt;&lt;/h3&gt;
 
@@ -1272,7 +1272,7 @@ class PageController extends FOSRestController&lt;/code&gt;&lt;/pre&gt;
     return $this-&amp;gt;container-&amp;gt;get(&amp;#39;doctrine.entity_manager&amp;#39;)-&amp;gt;getRepository(&amp;#39;Page&amp;#39;)-&amp;gt;find($id);
 }&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id='edit14112013_samuel_gordalina_suggests'&gt;&lt;strong&gt;&lt;span&gt;EDIT-14/11/2013&lt;/span&gt;&lt;/strong&gt; Samuel Gordalina suggests:&lt;/h4&gt;
+&lt;h4 id='edit14112013_samuel_gordalina_suggests'&gt;&lt;strong&gt;EDIT-14/11/2013&lt;/strong&gt; Samuel Gordalina suggests:&lt;/h4&gt;
 
 &lt;p&gt;You can use ParamConverter which fetches an entity from database or returns a 404 exception. For more info see &lt;a href='https://github.com/gordalina/sample-twitter-api-symfony2/blob/master/src/Twitter/ApiBundle/Controller/TweetController.php#L37'&gt;sample-twitter-api-symfony2:37&lt;/a&gt;&lt;/p&gt;
 
@@ -1709,7 +1709,13 @@ Behaviour Interface LoggerInterface
 
 &lt;p&gt;&lt;strong&gt;That&amp;#8217;s a RFC for that&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Giorgio told me about this RFC: &lt;a href='https://wiki.php.net/rfc/protocol_type_hinting'&gt;php.net/rfc/protocol_type_hinting&lt;/a&gt;.&lt;/p&gt;</content>
+&lt;p&gt;&lt;a href='https://twitter.com/giorrrgio'&gt;giorrrgio&lt;/a&gt; told me about this RFC: &lt;a href='https://wiki.php.net/rfc/protocol_type_hinting'&gt;php.net/rfc/protocol_type_hinting&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, the RFC was not understood by PHP guru.&lt;/p&gt;
+
+&lt;p&gt;Then has followed a twitter conversation:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='https://twitter.com/liuggio/statuses/377818409062236160'&gt;&lt;img alt='Twitter conversation with @ircmaxell' src='/assets/themes/img/ircmaxell.png' /&gt;&lt;/a&gt;&lt;/p&gt;</content>
  </entry>
  
  <entry>
@@ -2040,7 +2046,7 @@ function delete($id);&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;• Test case example Becomes group&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;BUT&lt;/strong&gt; You would be distracted by the code loosing focus on the result, and you might miss the concept of behaviour. [EDITED 07-01-2013 thanks to &lt;a href='http://twitter.com/euxpom'&gt;euxpom &lt;img src='http://gravatar.com/avatar/77014411a56fa9c746d6a89b7fd96121?size=20' alt='exupom' /&gt;&lt;/a&gt;]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;BUT&lt;/strong&gt; You would be distracted by the code loosing focus on the result, and you might miss the concept of behaviour. [EDITED 07-01-2013 thanks to &lt;a href='http://twitter.com/euxpom'&gt;euxpom &lt;img alt='exupom' src='http://gravatar.com/avatar/77014411a56fa9c746d6a89b7fd96121?size=20' /&gt;&lt;/a&gt;]&lt;/p&gt;
 
 &lt;h2 id='phpspec_advantages'&gt;&lt;a href='https://github.com/phpspec/phpspec2'&gt;PHPSpec&lt;/a&gt; advantages&lt;/h2&gt;
 
@@ -2131,7 +2137,7 @@ end&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;you will have an Icon next your top panel&lt;/p&gt;
 
-&lt;p&gt;&lt;img src='http://welcometothebundle.com/assets/themes/readable-liuggio/img/guard-phpunit-sf2.png' alt='liuggio-guard-phpunit-sf2-notifier' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt='liuggio-guard-phpunit-sf2-notifier' src='http://welcometothebundle.com/assets/themes/readable-liuggio/img/guard-phpunit-sf2.png' /&gt;&lt;/p&gt;
 
 &lt;h3 id='4_trick_guard_on_large_directories'&gt;4 Trick Guard on large directories&lt;/h3&gt;
 
@@ -2200,9 +2206,9 @@ end&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>ServerGrove StastdClientBundle Interesting Symfony Bundles</title>
    <link href="http://welcometothebundle.com/servergrove-stastdclientbundle-interesting-symfony-bundles"/>
-   <updated>2012-11-01T06:01:25+01:00</updated>
+   <updated>2012-11-01T06:01:25Z</updated>
    <id>http://welcometothebundle.com/servergrove-stastdclientbundle-interesting-symfony-bundles</id>
-   <content type="html">&lt;p&gt;I was contacted by &lt;a href='https://twitter.com/_leopro_'&gt;leopro&lt;/a&gt; &lt;img src='https://en.gravatar.com/avatar/26d90e88b1eb694cc1276b9ab8d7630f?s=30' alt='leopro' /&gt; who congratulated me for the excellent results obtained with the &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;StatsDClientBundle&lt;/a&gt;.&lt;/p&gt;
+   <content type="html">&lt;p&gt;I was contacted by &lt;a href='https://twitter.com/_leopro_'&gt;leopro&lt;/a&gt; &lt;img alt='leopro' src='https://en.gravatar.com/avatar/26d90e88b1eb694cc1276b9ab8d7630f?s=30' /&gt; who congratulated me for the excellent results obtained with the &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;StatsDClientBundle&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Thanks to this comment I now know that &lt;a href='http://blog.servergrove.com/2012/10/09/interesting-symfony-bundles-statsdclientbundle/'&gt;ServerGrove&lt;/a&gt; chosen &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;StatsD Client Bundle&lt;/a&gt; as its top choice for Symfony2 project among more than 1600.&lt;/p&gt;
 
@@ -2219,7 +2225,7 @@ In our first installment of the series we will present StatsDClientBundle writte
  <entry>
    <title>Improving the performance of a Symfony2 web application.</title>
    <link href="http://welcometothebundle.com/symfony-day-5-october-turin-2012"/>
-   <updated>2012-10-31T23:01:25+01:00</updated>
+   <updated>2012-10-31T23:01:25Z</updated>
    <id>http://welcometothebundle.com/symfony-day-5-october-turin-2012</id>
    <content type="html">&lt;p&gt;On October 5th, I was the speaker at the symfony day, and I was lucky enough to be able to close the conference.&lt;/p&gt;
 
@@ -2245,7 +2251,7 @@ In our first installment of the series we will present StatsDClientBundle writte
  <entry>
    <title>2013-Software Team Manifesto</title>
    <link href="http://welcometothebundle.com/tvision-team-manifesto"/>
-   <updated>2012-09-16T16:09:12+02:00</updated>
+   <updated>2012-09-16T16:09:12Z</updated>
    <id>http://welcometothebundle.com/tvision-team-manifesto</id>
    <content type="html">&lt;h2 id='abstract'&gt;Abstract&lt;/h2&gt;
 

@@ -17,18 +17,10 @@
                       <a class="btn-mini pull-left" target="_blank" href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">
                           <i class="icon-arrow-left"></i>
                       </a>
-                  {% else %}
-                      <a class="btn-mini disabled pull-left" target="_blank">
-                          <i class="icon-arrow-left"></i>
-                      </a>
                   {% endif %}
 
                   {% if page.next %}
                   <a class="btn-mini pull-right" target="_blank" href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">
-                      <i class="icon-arrow-right"></i>
-                  </a>
-                  {% else %}
-                  <a class="btn-mini disabled pull-right" target="_blank">
                       <i class="icon-arrow-right"></i>
                   </a>
                   {% endif %}
