@@ -123,7 +123,7 @@ Unfortunately, the RFC was not understood by PHP guru.
 
 Then has followed a twitter conversation:
 
-[![Twitter conversation with @ircmaxell]({{ ASSET_PATH }}img/ircmaxell.png)](https://twitter.com/liuggio/statuses/377818409062236160)
+[![Twitter conversation with @ircmaxell](/assets/themes/readable-liuggio/img/ircmaxell.png)](https://twitter.com/liuggio/statuses/377818409062236160)
 
 
 

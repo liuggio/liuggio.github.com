@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2013-12-04T14:20:09+01:00</updated>
+ <updated>2013-12-04T14:34:48+01:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -1715,7 +1715,7 @@ Behaviour Interface LoggerInterface
 
 &lt;p&gt;Then has followed a twitter conversation:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href='https://twitter.com/liuggio/statuses/377818409062236160'&gt;&lt;img alt='Twitter conversation with @ircmaxell' src='/assets/themes/img/ircmaxell.png' /&gt;&lt;/a&gt;&lt;/p&gt;</content>
+&lt;p&gt;&lt;a href='https://twitter.com/liuggio/statuses/377818409062236160'&gt;&lt;img alt='Twitter conversation with @ircmaxell' src='/assets/themes/readable-liuggio/img/ircmaxell.png' /&gt;&lt;/a&gt;&lt;/p&gt;</content>
  </entry>
  
  <entry>
