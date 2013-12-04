@@ -1,23 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
- 
- <title>Welcome to the bundle</title>
- <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
- <link href="http://welcometothebundle.com"/>
- <updated>2013-12-04T14:20:09+01:00</updated>
- <id>http://welcometothebundle.com</id>
- <author>
-   <name>liuggio</name>
-   <email>liuggio@liuggio</email>
- </author>
-
- 
- <entry>
-   <title>part 3 - Symfony2 API: the rest of REST</title>
-   <link href="http://welcometothebundle.com/symfony2-rest-api-the-best-way-part-3"/>
-   <updated>2013-12-03T13:00:00Z</updated>
-   <id>http://welcometothebundle.com/symfony2-rest-api-the-best-way-part-3</id>
-   <content type="html">&lt;h3 id='part_3__the_rest_of_rest'&gt;Part 3 - the rest of rest.&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Welcome to the bundle</title>
+        <description>Best Practices, Symfony2, developing, and blah blah blah.</description>
+        <link>http://welcometothebundle.com</link>
+        <atom:link href="http://welcometothebundle.com/feed.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>part 3 - Symfony2 API: the rest of REST</title>
+            <description>&lt;h3 id='part_3__the_rest_of_rest'&gt;Part 3 - the rest of rest.&lt;/h3&gt;
 
 &lt;p&gt;This is trilogy&amp;#8217;s final, in the part1 &amp;#8217;&lt;a href='http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way/'&gt;best web API with Symfony2&lt;/a&gt;&amp;#8217; we created the application and the bundle, we wrote the &lt;code&gt;GET&lt;/code&gt; method, we also talked about the importance of the Interfaces, the content negotiation, and we gave an example of dumb controllers and smart services&amp;#8230;&lt;/p&gt;
 
@@ -475,15 +466,15 @@ public function setUp()
 
 &lt;p&gt;&lt;a href='http://idbentley.com/blog/2013/03/14/should-restful-apis-include-relationships/'&gt;should-restful-apis-include-relationships/&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href='http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api'&gt;best-practices-for-a-pragmatic-restful-api&lt;/a&gt;&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>part2 - Web API REST with Symfony2</title>
-   <link href="http://welcometothebundle.com/web-api-rest-with-symfony2-the-best-way-the-post-method"/>
-   <updated>2013-11-16T13:00:00Z</updated>
-   <id>http://welcometothebundle.com/web-api-rest-with-symfony2-the-best-way-the-post-method</id>
-   <content type="html">&lt;h3 id='part_2__the_'&gt;Part 2 - the &lt;code&gt;POST&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href='http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api'&gt;best-practices-for-a-pragmatic-restful-api&lt;/a&gt;&lt;/p&gt;</description>
+            <pubDate>Tue, 03 Dec 2013 13:00:00 +0000</pubDate>
+            <link>http://welcometothebundle.com//symfony2-rest-api-the-best-way-part-3</link>
+            <guid isPermaLink="true">http://welcometothebundle.com//symfony2-rest-api-the-best-way-part-3</guid>
+        </item>
+        
+        <item>
+            <title>part2 - Web API REST with Symfony2</title>
+            <description>&lt;h3 id='part_2__the_'&gt;Part 2 - the &lt;code&gt;POST&lt;/code&gt;&lt;/h3&gt;
 
 &lt;p&gt;In the &amp;#8217;&lt;a href='http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way/'&gt;Symfony2 REST part 1&lt;/a&gt;&amp;#8217; we created the application, the bundle, we talked about the &lt;code&gt;GET&lt;/code&gt; method, we also talked about the importance of the Interfaces, the content negotiation, and we gave an example of dumb controllers and brain services.&lt;/p&gt;
 
@@ -1149,15 +1140,15 @@ interface PageHandlerInterface
 &lt;li&gt;&lt;a href='https://github.com/nelmio/NelmioApiDocBundle'&gt;NelmioApiDocBundle&lt;/a&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;a href='https://github.com/lsmith77/symfony-rest-edition/'&gt;lsmith77/symfony-rest-edition/&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content>
- </entry>
- 
- <entry>
-   <title>Symfony2 REST API: the best way</title>
-   <link href="http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way"/>
-   <updated>2013-11-13T13:00:00Z</updated>
-   <id>http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way</id>
-   <content type="html">&lt;h3 id='part_1__the_'&gt;Part 1 - the &lt;code&gt;GET&lt;/code&gt;&lt;/h3&gt;
+&lt;/ol&gt;</description>
+            <pubDate>Sat, 16 Nov 2013 13:00:00 +0000</pubDate>
+            <link>http://welcometothebundle.com//web-api-rest-with-symfony2-the-best-way-the-post-method</link>
+            <guid isPermaLink="true">http://welcometothebundle.com//web-api-rest-with-symfony2-the-best-way-the-post-method</guid>
+        </item>
+        
+        <item>
+            <title>Symfony2 REST API: the best way</title>
+            <description>&lt;h3 id='part_1__the_'&gt;Part 1 - the &lt;code&gt;GET&lt;/code&gt;&lt;/h3&gt;
 
 &lt;p&gt;Here&amp;#8217;s another nice guide on how to create an API with Symfony2, this is the &lt;strong&gt;part 1&lt;/strong&gt; of a series of articles.&lt;/p&gt;
 
@@ -1599,27 +1590,27 @@ Allow: GET
 &lt;li&gt;&lt;a href='https://speakerdeck.com/gordalina/rest-apis-made-easy-with-symfony2'&gt;Samuel Gordalina: REST APIs made easy with Symfony2 - slide&lt;/a&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;a href='http://www.slideshare.net/dlondero/rest-in-practice-27335543'&gt;Daniel Londero: Rest in practice - slide&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content>
- </entry>
- 
- <entry>
-   <title>Symfony2 design patterns @ symfonyday</title>
-   <link href="http://welcometothebundle.com/symfony2-design-patterns"/>
-   <updated>2013-10-18T00:00:00+02:00</updated>
-   <id>http://welcometothebundle.com/symfony2-design-patterns</id>
-   <content type="html">&lt;p&gt;I had the good fortune of being able to speech for the second time in a row, on the Symfony-Day conference.&lt;/p&gt;
+&lt;/ol&gt;</description>
+            <pubDate>Wed, 13 Nov 2013 13:00:00 +0000</pubDate>
+            <link>http://welcometothebundle.com//symfony2-rest-api-the-best-2013-way</link>
+            <guid isPermaLink="true">http://welcometothebundle.com//symfony2-rest-api-the-best-2013-way</guid>
+        </item>
+        
+        <item>
+            <title>Symfony2 design patterns @ symfonyday</title>
+            <description>&lt;p&gt;I had the good fortune of being able to speech for the second time in a row, on the Symfony-Day conference.&lt;/p&gt;
 
 &lt;p&gt;This time I had a quality partner &lt;a href='http://giorgiocefaro.com/'&gt;mr @giorrrgio (Giorgio Cefaro)&lt;/a&gt;, we talked about design patterns in Symfony2, and even about some Anti-patterns.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href='http://www.slideshare.net/liuggio/design-pattern-symfony2'&gt;Design pattern symfony2 - Nanos gigantium humeris insidentes&lt;/a&gt;.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Design by contract behaviour</title>
-   <link href="http://welcometothebundle.com/design-by-contract-behaviour"/>
-   <updated>2013-09-11T00:00:00+02:00</updated>
-   <id>http://welcometothebundle.com/design-by-contract-behaviour</id>
-   <content type="html">&lt;p&gt;In recent years, &lt;a href='http://getcomposer.org'&gt;Composer&lt;/a&gt; has given a breath of freshness to the dependencies, and framework such as &lt;a href='http://www.symfony.com'&gt;Symfony2&lt;/a&gt; have made best practices and decoupling their pride.&lt;/p&gt;
+&lt;p&gt;&lt;a href='http://www.slideshare.net/liuggio/design-pattern-symfony2'&gt;Design pattern symfony2 - Nanos gigantium humeris insidentes&lt;/a&gt;.&lt;/p&gt;</description>
+            <pubDate>Fri, 18 Oct 2013 00:00:00 +0200</pubDate>
+            <link>http://welcometothebundle.com//symfony2-design-patterns</link>
+            <guid isPermaLink="true">http://welcometothebundle.com//symfony2-design-patterns</guid>
+        </item>
+        
+        <item>
+            <title>Design by contract behaviour</title>
+            <description>&lt;p&gt;In recent years, &lt;a href='http://getcomposer.org'&gt;Composer&lt;/a&gt; has given a breath of freshness to the dependencies, and framework such as &lt;a href='http://www.symfony.com'&gt;Symfony2&lt;/a&gt; have made best practices and decoupling their pride.&lt;/p&gt;
 
 &lt;p&gt;The union of these two phenomena have moved the attentions to the type hinting in order to have contracts with &lt;code&gt;Interfaces&lt;/code&gt;.&lt;/p&gt;
 
@@ -1715,15 +1706,15 @@ Behaviour Interface LoggerInterface
 
 &lt;p&gt;Then has followed a twitter conversation:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href='https://twitter.com/liuggio/statuses/377818409062236160'&gt;&lt;img alt='Twitter conversation with @ircmaxell' src='/assets/themes/img/ircmaxell.png' /&gt;&lt;/a&gt;&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Caching and data analysis will move your application to the next level</title>
-   <link href="http://welcometothebundle.com/caching-and-data-analysis-will-move-your-application-to-the-next-level"/>
-   <updated>2013-05-17T00:00:00+02:00</updated>
-   <id>http://welcometothebundle.com/caching-and-data-analysis-will-move-your-application-to-the-next-level</id>
-   <content type="html">&lt;h3 id='if_you_dont_ignore_data_you_could_find_a_business_value'&gt;If you don&amp;#8217;t ignore data you could find a business value.&lt;/h3&gt;
+&lt;p&gt;&lt;a href='https://twitter.com/liuggio/statuses/377818409062236160'&gt;&lt;img alt='Twitter conversation with @ircmaxell' src='/assets/themes/img/ircmaxell.png' /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+            <pubDate>Wed, 11 Sep 2013 00:00:00 +0200</pubDate>
+            <link>http://welcometothebundle.com//design-by-contract-behaviour</link>
+            <guid isPermaLink="true">http://welcometothebundle.com//design-by-contract-behaviour</guid>
+        </item>
+        
+        <item>
+            <title>Caching and data analysis will move your application to the next level</title>
+            <description>&lt;h3 id='if_you_dont_ignore_data_you_could_find_a_business_value'&gt;If you don&amp;#8217;t ignore data you could find a business value.&lt;/h3&gt;
 
 &lt;p&gt;The presentation focuses on data analysis, how to track and measure applications and why the use of software metrics that push information are essential.&lt;/p&gt;
 
@@ -1731,15 +1722,15 @@ Behaviour Interface LoggerInterface
 
 &lt;p&gt;The final part of the presentation concludes with methodologies of advanced scalability, events, messages and queues.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href='http://www.slideshare.net/liuggio/caching-and-data-analysis-will-move-your-symfony2-application-to-the-next-level'&gt;Caching and data analysis will move your Symfony2 application to the next level&lt;/a&gt;&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Doctrine2 tracking policy</title>
-   <link href="http://welcometothebundle.com/doctrine2-tracking-policy"/>
-   <updated>2013-04-23T00:00:00+02:00</updated>
-   <id>http://welcometothebundle.com/doctrine2-tracking-policy</id>
-   <content type="html">&lt;h1 id='which_tracking_policy_are_you_using'&gt;Which tracking policy are you using?&lt;/h1&gt;
+&lt;p&gt;&lt;a href='http://www.slideshare.net/liuggio/caching-and-data-analysis-will-move-your-symfony2-application-to-the-next-level'&gt;Caching and data analysis will move your Symfony2 application to the next level&lt;/a&gt;&lt;/p&gt;</description>
+            <pubDate>Fri, 17 May 2013 00:00:00 +0200</pubDate>
+            <link>http://welcometothebundle.com//caching-and-data-analysis-will-move-your-application-to-the-next-level</link>
+            <guid isPermaLink="true">http://welcometothebundle.com//caching-and-data-analysis-will-move-your-application-to-the-next-level</guid>
+        </item>
+        
+        <item>
+            <title>Doctrine2 tracking policy</title>
+            <description>&lt;h1 id='which_tracking_policy_are_you_using'&gt;Which tracking policy are you using?&lt;/h1&gt;
 
 &lt;p&gt;With doctrine you can change the tracking policy for each entity, the tracking policy is the way in which Doctrine understands if a entity property must be &amp;#8216;saved&amp;#8217; in the database.&lt;/p&gt;
 
@@ -1797,27 +1788,27 @@ Behaviour Interface LoggerInterface
 
 &lt;h2 id='link_to_doctrine_doc'&gt;Link to doctrine doc&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href='http://docs.doctrine-project.org/en/latest/reference/change-tracking-policies.html'&gt;doctrine/change-tracking-policies&lt;/a&gt;&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>It is all about behaviour also in php</title>
-   <link href="http://welcometothebundle.com/it-is-all-about-behaviour-also-in-php"/>
-   <updated>2013-03-10T00:00:00+01:00</updated>
-   <id>http://welcometothebundle.com/it-is-all-about-behaviour-also-in-php</id>
-   <content type="html">&lt;p&gt;It is a shame I never had energy to continue the BDD saga started with: &lt;a href='http://welcometothebundle.com/phpunit-vs-phpspec-theory-on-behaviour-driven-development'&gt;phpunit-vs-phpspec-theory-on-behaviour-driven-development 1/3&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href='http://docs.doctrine-project.org/en/latest/reference/change-tracking-policies.html'&gt;doctrine/change-tracking-policies&lt;/a&gt;&lt;/p&gt;</description>
+            <pubDate>Tue, 23 Apr 2013 00:00:00 +0200</pubDate>
+            <link>http://welcometothebundle.com//doctrine2-tracking-policy</link>
+            <guid isPermaLink="true">http://welcometothebundle.com//doctrine2-tracking-policy</guid>
+        </item>
+        
+        <item>
+            <title>It is all about behaviour also in php</title>
+            <description>&lt;p&gt;It is a shame I never had energy to continue the BDD saga started with: &lt;a href='http://welcometothebundle.com/phpunit-vs-phpspec-theory-on-behaviour-driven-development'&gt;phpunit-vs-phpspec-theory-on-behaviour-driven-development 1/3&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;During our monthly meeting at &lt;a href='http://roma.grusp.org/2013/03/incontro-di-febbraio-2013/'&gt;Pug Roma&lt;/a&gt;, I have talked about php-spec and behaviour driven development.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href='http://www.slideshare.net/liuggio/its-all-about-behaviour-also-in-php'&gt;phpspec/It is all about behaviour also in php&lt;/a&gt;&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>The meaning of Cache for a web developer no more too many connection</title>
-   <link href="http://welcometothebundle.com/the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection"/>
-   <updated>2013-02-22T00:00:00+01:00</updated>
-   <id>http://welcometothebundle.com/the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection</id>
-   <content type="html">&lt;p&gt;In the place of Mr. Obvious I&amp;#8217;m going to describe what really cache means, there is a lot of confusion between what the cache &lt;strong&gt;is&lt;/strong&gt;, what it &lt;strong&gt;does&lt;/strong&gt; and all the possible &lt;strong&gt;uses&lt;/strong&gt; and &lt;strong&gt;implementations&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href='http://www.slideshare.net/liuggio/its-all-about-behaviour-also-in-php'&gt;phpspec/It is all about behaviour also in php&lt;/a&gt;&lt;/p&gt;</description>
+            <pubDate>Sun, 10 Mar 2013 00:00:00 +0100</pubDate>
+            <link>http://welcometothebundle.com//it-is-all-about-behaviour-also-in-php</link>
+            <guid isPermaLink="true">http://welcometothebundle.com//it-is-all-about-behaviour-also-in-php</guid>
+        </item>
+        
+        <item>
+            <title>The meaning of Cache for a web developer no more too many connection</title>
+            <description>&lt;p&gt;In the place of Mr. Obvious I&amp;#8217;m going to describe what really cache means, there is a lot of confusion between what the cache &lt;strong&gt;is&lt;/strong&gt;, what it &lt;strong&gt;does&lt;/strong&gt; and all the possible &lt;strong&gt;uses&lt;/strong&gt; and &lt;strong&gt;implementations&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;All the fuss comes from the use&lt;strong&gt;s&lt;/strong&gt; of that polysemous word.&lt;/p&gt;
 
@@ -1962,15 +1953,15 @@ function delete($id);&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;
 &lt;p&gt;Before there were static website in HTML, then dynamic languages ​​and databases, and we finally came to the static pages again, this blog has been developed with &lt;a href='http://jekyllbootstrap.com/lessons/jekyll-introduction.html'&gt;jekyll&lt;/a&gt;,&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</content>
- </entry>
- 
- <entry>
-   <title>PHPUnit vs PHPSpec: theory on Behaviour Driven Development 1/3</title>
-   <link href="http://welcometothebundle.com/phpunit-vs-phpspec-theory-on-behaviour-driven-development"/>
-   <updated>2013-01-05T00:00:00+01:00</updated>
-   <id>http://welcometothebundle.com/phpunit-vs-phpspec-theory-on-behaviour-driven-development</id>
-   <content type="html">&lt;p&gt;The first part of a series of short articles (maybe three) where I&amp;#8217;d like to share my tiny experience with BDD and in particular with PHPSpec.&lt;/p&gt;
+&lt;/ul&gt;</description>
+            <pubDate>Fri, 22 Feb 2013 00:00:00 +0100</pubDate>
+            <link>http://welcometothebundle.com//the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection</link>
+            <guid isPermaLink="true">http://welcometothebundle.com//the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection</guid>
+        </item>
+        
+        <item>
+            <title>PHPUnit vs PHPSpec: theory on Behaviour Driven Development 1/3</title>
+            <description>&lt;p&gt;The first part of a series of short articles (maybe three) where I&amp;#8217;d like to share my tiny experience with BDD and in particular with PHPSpec.&lt;/p&gt;
 
 &lt;h2 id='phpunit_vs_phpspec_a_word_on_behaviour_testing'&gt;PHPUnit vs &lt;a href='https://github.com/phpspec/phpspec2'&gt;PHPSpec&lt;/a&gt;: A word on behaviour testing&lt;/h2&gt;
 
@@ -2068,364 +2059,11 @@ function delete($id);&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;
 &lt;p&gt;Test Driven Development. By Example di Kent Beck (dic. 2002)&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</content>
- </entry>
- 
- <entry>
-   <title>Automate Test and Code Inspection in PHP with Guard, and Symfony2</title>
-   <link href="http://welcometothebundle.com/automate-test-and-code-inspection-in-php-with-guard-and-symfony2"/>
-   <updated>2013-01-03T00:00:00+01:00</updated>
-   <id>http://welcometothebundle.com/automate-test-and-code-inspection-in-php-with-guard-and-symfony2</id>
-   <content type="html">&lt;h2 id='hey_phper_do_you_automate_your_test'&gt;Hey PHPer do you automate your test?&lt;/h2&gt;
-
-&lt;p&gt;In everyday life there are tools that can not only speed, but also lighten the workload of your mind, in that regard I wanted to share a useful library: &lt;a href='https://github.com/guard/guard'&gt;Guard&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id='_guard'&gt;&lt;code&gt;Watch&lt;/code&gt; Guard!&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href='https://github.com/guard/guard'&gt;Guard&lt;/a&gt; is written in Ruby, it automates commands based on events that happen in the filesystem.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href='https://github.com/guard/guard'&gt;Guard&lt;/a&gt; in a short time has become popular especially in the automate testing.&lt;/p&gt;
-
-&lt;p&gt;You can easily edit your files, having only the front window of your editor/IDE, each change will run the test, and you will be notified.&lt;/p&gt;
-
-&lt;p&gt;Indeed during these years of development, especially in PHP I overstimulated shortcuts, I have become a slave of the keyboard, &lt;strong&gt;Alt-Tab&lt;/strong&gt;, &lt;strong&gt;Key-Up + Enter&lt;/strong&gt; for example, are a must for TDD programmers .&lt;/p&gt;
-
-&lt;p&gt;For years I had the &lt;strong&gt;CTRL+S&lt;/strong&gt; tic, in fact in my life I have saved (by mistake) around 2000 pages browsing with Firefox.&lt;/p&gt;
-
-&lt;p&gt;Before finding out &lt;a href='https://github.com/guard/guard'&gt;Guard&lt;/a&gt;, I was using a crude one-line script, it runs each 3 seconds PHPUnit if error otherwise waits 10 seconds&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;while true; do clear; phpunit; if [ ! $? ]; then sleep 10; else sleep 3;fi; done;&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;but it was not enough, I needed something which could perform only the Test for the file that I had changed: &lt;a href='https://github.com/Maher4Ever/guard-phpunit'&gt;guard-phpunit&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;In the PHP world, &lt;a href='https://github.com/guard/guard'&gt;Guard&lt;/a&gt; is not so popular but instead would require much more importance.&lt;/p&gt;
-
-&lt;h2 id='install_guardphpunit'&gt;&lt;strong&gt;Install&lt;/strong&gt; &lt;a href='https://github.com/Maher4Ever/guard-phpunit'&gt;guard-phpunit&lt;/a&gt;!&lt;/h2&gt;
-
-&lt;p&gt;Simply follow the instructions of the README.md https://github.com/Maher4Ever/guard-phpunit&lt;/p&gt;
-
-&lt;h3 id='1_install_guardphpunit'&gt;1 Install guard-phpunit&lt;/h3&gt;
-
-&lt;p&gt;&lt;code&gt;gem install guard-phpunit&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id='2_step_create_a_'&gt;2 Step create a &lt;code&gt;Guardfile&lt;/code&gt;&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;guard &amp;#39;phpunit&amp;#39;, :tests_path =&amp;gt; &amp;#39;Tests&amp;#39;, :cli =&amp;gt; &amp;#39;--colors&amp;#39; do
- # Watch tests files
- watch(%r{^.+Test\.php$})
- # Watch library files and run their tests
- watch(%r{^Object/(.+)\.php}) { |m| &amp;quot;Tests/#{m[1]}Test.php&amp;quot; }
-end&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id='3_run_with_'&gt;3 Run with &lt;code&gt;guard&lt;/code&gt;&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;liuggio@liuggio:/var/repos/StatsDClientBundle$ guard
-20:33:21 - INFO - Guard uses NotifySend to send notifications.
-20:33:21 - INFO - Guard uses TerminalTitle to send notifications.
-20:33:21 - INFO - Running all tests
-20:33:23 - INFO - ..................
-&amp;gt; [#51616B16C20E]
-&amp;gt; [#51616B16C20E] Finished in 2 seconds
-&amp;gt; [#51616B16C20E] 18 tests, 43 assertions
-20:33:23 - INFO - Guard is now watching at &amp;#39;/var/www/StatsDClientBundle&amp;#39;&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This will test the entire library for you, any changes will test only the files that have changed&lt;/p&gt;
-
-&lt;p&gt;If you install &lt;code&gt;libnotify&lt;/code&gt; with&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;gem install libnotify&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;you will have an Icon next your top panel&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt='liuggio-guard-phpunit-sf2-notifier' src='http://welcometothebundle.com/assets/themes/readable-liuggio/img/guard-phpunit-sf2.png' /&gt;&lt;/p&gt;
-
-&lt;h3 id='4_trick_guard_on_large_directories'&gt;4 Trick Guard on large directories&lt;/h3&gt;
-
-&lt;p&gt;If you have big project you need to increase the amount of watches of libnotify&lt;/p&gt;
-
-&lt;p&gt;see this page for more info: https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers&lt;/p&gt;
-
-&lt;h2 id='_guard'&gt;&lt;code&gt;Inspect&lt;/code&gt; Guard!&lt;/h2&gt;
-
-&lt;p&gt;Another plugin that I suggest is Guard for code inspection:&lt;/p&gt;
-
-&lt;p&gt;is easy to install&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo pear install PHP_CodeSniffer
-sudo gem install guard-phpcs&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;and then add to your Guardfile&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;guard &amp;#39;phpunit&amp;#39;, :tests_path =&amp;gt; &amp;#39;Tests&amp;#39;, :cli =&amp;gt; &amp;#39;--colors&amp;#39; do
- # Watch tests files
- watch(%r{^.+Test\.php$})
- # Watch library files and run their tests
- watch(%r{^/(.+)/(.+)/(.+)\.php}) { |m| &amp;quot;Test/#{m[1]}/#{m[2]}/#{m[3]}Test.php&amp;quot; }
-end
-guard &amp;#39;phpcs&amp;#39;, :standard =&amp;gt; &amp;#39;PSR1&amp;#39; do
-    watch(%r{.*\.php$})
-end&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This will detect all the camel case problems, and you will have to follow the standard PSR1 :D&lt;/p&gt;
-
-&lt;h2 id='guard____guardphpunitsf2'&gt;Guard + &lt;code&gt;Symfony2&lt;/code&gt; = &lt;a href='https://github.com/liuggio/guard-phpunit-sf2'&gt;guard-phpunit-sf2&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;Unfortunately &lt;code&gt;guard-phpunit&lt;/code&gt; does not work with symfony2 framework,&lt;/p&gt;
-
-&lt;p&gt;so I forked that repo and I made &lt;a href='https://github.com/liuggio/guard-phpunit-sf2'&gt;guard-phpunit-sf2&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Hurray!!&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;guard-phpunit-sf2 has not been pushed on RubyGems. If you want to try it, clone the repository, build the gem and install it.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;git clone git@github.com:liuggio/guard-phpunit-sf2.git
-cd guard-phpunit-sf2
-gem build guard-phpunit-sf2.gemspec
-sudo gem instal guard-phpunit-sf2-0.1.4.gem&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;then create the Guardfile into the root of your Symfony2 project&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;guard &amp;#39;phpunit&amp;#39;, :cli =&amp;gt; &amp;#39;--colors -c app/&amp;#39; do
-     # Watch tests files
-     watch(%r{^src\/.+Test\.php$})
-
-     # Watch src file and run its test,
-     # Test string: src/Tvision/Bundle/CartBundle/Repository/CartRepository.php
-     watch(%r{^src\/(.+)\/(.+)Bundle\/(.+)\.php$}) { |m| &amp;quot;src/#{m[1]}/#{m[2]}Bundle/Tests/#{m[3]}Test.php&amp;quot; } # Watch all files in your bundles and run the respective tests on change
-end&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;then lunch &lt;code&gt;guard&lt;/code&gt; and start testing.&lt;/p&gt;
-
-&lt;p&gt;PS: maybe you should uninstall guard-phpunit in order to work with symfony2 :|&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;sudo gem uninstall guard-phpunit&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Happy test to everybody.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>ServerGrove StastdClientBundle Interesting Symfony Bundles</title>
-   <link href="http://welcometothebundle.com/servergrove-stastdclientbundle-interesting-symfony-bundles"/>
-   <updated>2012-11-01T06:01:25Z</updated>
-   <id>http://welcometothebundle.com/servergrove-stastdclientbundle-interesting-symfony-bundles</id>
-   <content type="html">&lt;p&gt;I was contacted by &lt;a href='https://twitter.com/_leopro_'&gt;leopro&lt;/a&gt; &lt;img alt='leopro' src='https://en.gravatar.com/avatar/26d90e88b1eb694cc1276b9ab8d7630f?s=30' /&gt; who congratulated me for the excellent results obtained with the &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;StatsDClientBundle&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Thanks to this comment I now know that &lt;a href='http://blog.servergrove.com/2012/10/09/interesting-symfony-bundles-statsdclientbundle/'&gt;ServerGrove&lt;/a&gt; chosen &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;StatsD Client Bundle&lt;/a&gt; as its top choice for Symfony2 project among more than 1600.&lt;/p&gt;
-
-&lt;p&gt;cite&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;There are well over 1600 public bundles at knpbundles.com, so sometimes really interesting and good bundles are hard time find. So we will revive the old series but this time we will do it with bundles.
-In our first installment of the series we will present StatsDClientBundle written by Giulio De Donato. `&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Anyone who follows a conference in europe about web developing or PHP knows &lt;a href='http://blog.servergrove.com/2012/10/09/interesting-symfony-bundles-statsdclientbundle/'&gt;ServerGrove&lt;/a&gt;, I thank them.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href='http://blog.servergrove.com/2012/10/09/interesting-symfony-bundles-statsdclientbundle/'&gt;continue reading Interesting Symfony Bundles: StatsDClientBundle on ServerGrove&lt;/a&gt;&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Improving the performance of a Symfony2 web application.</title>
-   <link href="http://welcometothebundle.com/symfony-day-5-october-turin-2012"/>
-   <updated>2012-10-31T23:01:25Z</updated>
-   <id>http://welcometothebundle.com/symfony-day-5-october-turin-2012</id>
-   <content type="html">&lt;p&gt;On October 5th, I was the speaker at the symfony day, and I was lucky enough to be able to close the conference.&lt;/p&gt;
-
-&lt;p&gt;It was a very interesting experience, although excited I talked about what I know best: &lt;strong&gt;improving the performance of a web application&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href='http://www.slideshare.net/liuggio/rationally-boost-your-symfony2-application-with-caching-tips-and-monitoring'&gt;liuggio/rationally-boost-your-symfony2-application-with-caching-tips-and-monitoring&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;[edit] Two months after the talk, visitors pass the 1,200 visits (December 2012).&lt;/p&gt;
-
-&lt;p&gt;There were a lot of other interesting topics:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Symfony2 Security Layer&lt;/strong&gt; - by @K3A, explained in detail the most difficult part of the symfony documentation.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;PHPUnit raised by Symfony2&lt;/strong&gt; of @euxpom, showed how many utensils you have for free by the Symfony2 framework&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Symfony CMF&lt;/strong&gt; of @jacoporomei described with an overwhelming sympathy a subject very dear to me the CMF and his architecture.&lt;/p&gt;
-
-&lt;p&gt;See you next year &lt;a href='http://www.symfonyday.it'&gt;symfonyday.it&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;a special thanks @cirpo&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>2013-Software Team Manifesto</title>
-   <link href="http://welcometothebundle.com/tvision-team-manifesto"/>
-   <updated>2012-09-16T16:09:12Z</updated>
-   <id>http://welcometothebundle.com/tvision-team-manifesto</id>
-   <content type="html">&lt;h2 id='abstract'&gt;Abstract&lt;/h2&gt;
-
-&lt;p&gt;In the chaos of the implicit, a programmer who joins a team must have a common language and some rules in order to have an integration without friction.&lt;/p&gt;
-
-&lt;p&gt;There is a level 0, a common and accepted (or imposed by the architect) knowledge.&lt;/p&gt;
-
-&lt;p&gt;This document defines the concepts and guidelines to follow in order to be a developer who can work in a software team in 2013.&lt;/p&gt;
-
-&lt;p&gt;I think that you are already proficient with this notions.&lt;/p&gt;
-
-&lt;p&gt;We use PHP as language and Symofony2 as framework.&lt;/p&gt;
-&lt;script src='https://gist.github.com/4339207.js'&gt; &lt;/script&gt;
-&lt;p&gt;Any comment or help is really appreciated,&lt;/p&gt;
-
-&lt;p&gt;please help me to improve this document forking this &lt;a href='https://gist.github.com/4339207'&gt;gist&lt;/a&gt;.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Easily install statsd and graphite with vagrant</title>
-   <link href="http://welcometothebundle.com/easily-install-statsd-and-graphite-with-vagrant"/>
-   <updated>2012-07-31T00:00:00+02:00</updated>
-   <id>http://welcometothebundle.com/easily-install-statsd-and-graphite-with-vagrant</id>
-   <content type="html">&lt;p&gt;If Engineering at Tvision has a religion, it’s the Church of Graphs. If it moves, we track it.&lt;/p&gt;
-
-&lt;p&gt;Ops I already heard this sentence, please read carefully this blog post &lt;a href='http://codeascraft.etsy.com/2011/02/15/measure-anything-measure-everything/'&gt;measure-anything-measure-everything&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;For your production env sure you need statsd, you do will want to use it.&lt;/p&gt;
-
-&lt;p&gt;If your salary is paid by a website, you need to &lt;strong&gt;monitor and react&lt;/strong&gt;, you need a monitor that pushes the informations.&lt;/p&gt;
-
-&lt;h2 id='install_statsd__graphite__carbon__whisper__linuxos__apache__python__django__mod_wsgi_'&gt;Install Statsd + Graphite + Carbon + Whisper + LinuxOS + apache + python + django + mod_wsgi &amp;#8230;&lt;/h2&gt;
-
-&lt;p&gt;The first time I spent 3 hours installing Graphite, now with vagrant you could try Statsd+Graphite in few minutes.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Install vagrant&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;gem install vagrant&lt;/code&gt; (if you need see the official documentation)&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;Installing the world with &lt;a href='http://vagrantup.com/'&gt;vagrant&lt;/a&gt; is so easy&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git clone https://github.com/liuggio/vagrant-statsd-graphite-puppet.git&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;cd vagrant-statsd-graphite-puppet.git&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;vagrant up&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;My repo is just a fork of &lt;code&gt;Jimdo/vagrant-statsd-graphite-puppet&lt;/code&gt; with a small bug fix&lt;/em&gt;&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;Say &amp;#8216;WOOOW&amp;#8217; then connect to&lt;/p&gt;
-
-&lt;p&gt;graphite: http://localhost:8080/&lt;/p&gt;
-
-&lt;p&gt;statsd: 8125:udp&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Everything is done, your virtual box with StatsD is ready to use, if you are a developer and you like web application YOU MUST use a web framework, if you are a php developer you SHOULD use Symfony2, if you use Symfony2 you should have a look to &lt;a href='https://github.com/liuggio/StatsDClientBundle'&gt;symfony2 liuggio StatsDClientBundle&lt;/a&gt;&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Symfony2 assets on RackSpace Cloud files</title>
-   <link href="http://welcometothebundle.com/symfony2-assets-on-rackspace-cloud-files"/>
-   <updated>2012-05-06T00:00:00+02:00</updated>
-   <id>http://welcometothebundle.com/symfony2-assets-on-rackspace-cloud-files</id>
-   <content type="html">&lt;p&gt;How to use assetic on rackspace with symfony2?&lt;/p&gt;
-
-&lt;p&gt;The problem is how to move the static files to the cloud files and get them from twig?&lt;/p&gt;
-
-&lt;p&gt;Following some tips from the forum &lt;a href='http://groups.google.com/group/symfony2/browse_thread/thread/8e14c145683981d4'&gt;Registering (s3) stream wrapper for AsseticBundle – Symfony2 | Google Gruppi&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;I created this bundle &lt;a href='https://github.com/liuggio/RackspaceCloudFilesBundle'&gt;RackspaceCloudFilesBundle&lt;/a&gt; that handles the static files easily&lt;/p&gt;
-
-&lt;h2 id='installing'&gt;Installing&lt;/h2&gt;
-
-&lt;h3 id='step_1'&gt;Step 1&lt;/h3&gt;
-
-&lt;p&gt;follow the README into the &lt;a href='https://github.com/liuggio/RackspaceCloudFilesBundle
-'&gt;RackspaceCloudFilesBundle&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id='step_2'&gt;Step 2&lt;/h3&gt;
-
-&lt;p&gt;modify the app/config/config.yml and the app/parameters.ini&lt;/p&gt;
-&lt;script src='https://gist.github.com/2420800.js'&gt; &lt;/script&gt;
-&lt;h3 id='step_3'&gt;Step 3&lt;/h3&gt;
-
-&lt;p&gt;when you will deploy a new image just run app/console assetic:dump –env=prod&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;That’s it!!!!&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;PLEASE FELL FREE TO CLONE AND SEND PULL REQUEST!&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Using Github or Bitbucket as Assets container for Symfony2</title>
-   <link href="http://welcometothebundle.com/using-github-or-bitbucket-as-assets-container-for-symfony2"/>
-   <updated>2012-04-20T00:00:00+02:00</updated>
-   <id>http://welcometothebundle.com/using-github-or-bitbucket-as-assets-container-for-symfony2</id>
-   <content type="html">&lt;p&gt;I made the following changes to the config, deps and autoload in order to push all the assets directly into a github repository.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Why you should pay for CDN if you can use Github?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id='theory'&gt;Theory&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;span&gt;Php library&lt;/span&gt; the library teqneers/PHP-Stream-Wrapper-for-Git registers a stream and commit to a repository each file that is moved throw the stream&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;&lt;span&gt;Symfony2&lt;/span&gt; Assetic bundle compresses and streams the files in your local repository, and twig render the raw.github url&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;&lt;span&gt;Git-Hook&lt;/span&gt; The Post-Commit hook will push to remote repository automatically&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id='how_to'&gt;How To&lt;/h2&gt;
-
-&lt;p&gt;Just 3 steps&lt;/p&gt;
-
-&lt;h2 id='step_1_install_the_library_in_your_symfony2'&gt;Step 1 Install the library in your symfony2&lt;/h2&gt;
-
-&lt;p&gt;In your deps file add the following lines, and then run bin/vendors install&lt;/p&gt;
-&lt;script src='https://gist.github.com/2427058.js?file=deps'&gt; &lt;/script&gt;
-&lt;p&gt;Register namespace and register stream into &lt;code&gt;app/autoload.php&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;‘/usr/bin/git’ is where your git binary are&lt;/p&gt;
-
-&lt;p&gt;‘php-git’ is the name of the stream&lt;/p&gt;
-&lt;script src='https://gist.github.com/2427058.js?file=app-autoload.php'&gt; &lt;/script&gt;
-&lt;h2 id='step_2_github_or_bitbucket_repository'&gt;Step 2 Github or BitBucket Repository&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Create Repo in the root /UsingGitHubAsAssetsCloudFiles&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a href='http://help.github.com/create-a-repo/'&gt;http://help.github.com/create-a-repo/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;the public url of the repo will be www.github.com/liuggio/UsingGitHubAsAssetsCloudFiles,&lt;/p&gt;
-
-&lt;p&gt;your remote name is ‘origin’ and the branch is ‘master’&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Add the Hook into the /UsingGitHubAsAssetsCloudFiles&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;create a file into ‘/UsingGitHubAsAssetsCloudFiles/.git/hooks/post-commit’&lt;/p&gt;
-&lt;script src='https://gist.github.com/2427058.js?file=UsingGitHubAsAssetsCloudFiles-.git-hooks-post-commit'&gt; &lt;/script&gt;
-&lt;h2 id='step_3_configyml_and_assets'&gt;Step 3 Config.yml and Assets&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;modify your &lt;code&gt;app/config/config.yml&lt;/code&gt; in 2 different places&lt;/li&gt;
-&lt;/ul&gt;
-&lt;script src='https://gist.github.com/2427058.js?file=app-config-config.yml'&gt; &lt;/script&gt;
-&lt;ul&gt;
-&lt;li&gt;dump all the file for prod&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code&gt;app/console assetic:dump –env=prod&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;go to your symfony2 website http://yoursymfony2.com/web/app.php/hello/{YES}&lt;/p&gt;
-
-&lt;p&gt;THAT’S ALL.&lt;/p&gt;
-
-&lt;p&gt;Now github is hosting your assets (for free) and your web server is happy (and if your webserver is into the cloud you’ll not charged for assets )&lt;/p&gt;</content>
- </entry>
- 
- 
-</feed>
+&lt;/ol&gt;</description>
+            <pubDate>Sat, 05 Jan 2013 00:00:00 +0100</pubDate>
+            <link>http://welcometothebundle.com//phpunit-vs-phpspec-theory-on-behaviour-driven-development</link>
+            <guid isPermaLink="true">http://welcometothebundle.com//phpunit-vs-phpspec-theory-on-behaviour-driven-development</guid>
+        </item>
+        
+    </channel>
+</rss>
