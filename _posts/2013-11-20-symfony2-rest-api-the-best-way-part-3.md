@@ -381,6 +381,16 @@ We have now to modify the functional tests adding the authentication:
         $this->client = static::createClient(array(), $this->auth);
     }
 
+**EDITED 2-gen-2014** 
+
+Adding `disable_csrf_role` you should add the basic auth to the CURL call:
+
+    curl -X POST -d '{"title":"title","body":"body"}' \
+     http://localhost:8000/api/v1/pages.json \
+     --header "Content-Type:application/json" --user user:userpass
+
+
+
 ## Different points of view
 
 It is very common when the API should serves different fields according to the role of the user that requests a resource.
