@@ -586,13 +586,13 @@ We hardcoded the classes inside another class, we create an hard dependency.
 
 we could create the PageType as service, and use the name of the service from the PageHandler.
 	
-	<parameter key="acme_blog.page.type.class">Acme\BlogBundle\Form\PageType</parameter>
+    <parameter key="acme_blog.page.type.class">Acme\BlogBundle\Form\PageType</parameter>
     <parameter key="acme_blog.page.type.name"></parameter>
-    <parameter key="acme_blog.page.type.alias">leaphly_cart</parameter>
+ 
 
     <service id="acme_blog.page.type" class="Leaphly\CartBundle\Form\Type\CartFormType">
         <argument>%acme_blog.page.type.class%</argument>
-        <tag name="form.type" alias="acme_blog.page.type.alias" />
+        <tag name="form.type" alias="leaphly_cart" />
     </service>
 
 and then in the `Page handler` do something like:
