@@ -592,7 +592,7 @@ we could create the PageType as service, and use the name of the service from th
 
     <service id="acme_blog.page.type" class="Leaphly\CartBundle\Form\Type\CartFormType">
         <argument>%acme_blog.page.type.class%</argument>
-        <tag name="form.type" alias="%acme_blog.page.type.alias%" />
+        <tag name="form.type" alias="acme_blog.page.type.alias" />
     </service>
 
 and then in the `Page handler` do something like:
