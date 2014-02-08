@@ -75,7 +75,7 @@ then we had to configure the bundles properly and add to the appKernel.php
 We are going to create a REST controller for the Page Entity,
 in your symfony2 standard application we need to create the bundle:
 
-    app/console generate:bundle --namespace=Acme/BlogBundle --dir=src --no-interaction
+    php app/console generate:bundle --namespace=Acme/BlogBundle --dir=src --no-interaction
 
 ## Step 1.C The Model
 
