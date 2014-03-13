@@ -47,6 +47,8 @@ you could see the working code using the tag `part1` with
     php composer.phar create-project liuggio/symfony2-rest-api-the-best-2013-way blog-rest-symfony2 -sdev
     cd blog-rest-symfony2
     git checkout -f part1
+    php app/console doctrine:database:create
+    php app/console doctrine:schema:create
     bin/phpunit -c app
 
 All the tags for the demo project at [tags](https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/tags)
