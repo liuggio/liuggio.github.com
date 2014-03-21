@@ -53,9 +53,11 @@
                     <p align="center"><img
                             src="http://www.gravatar.com/avatar/662a52953053d94a145a00df9da9f0d2.png?size=48" class="img-rounded">
                     </p>
-                    <p style="font-size:95%">I'm liuggio (aka Giulio De Donato)
+                    <p style="font-size:95%">I'm liuggio 
+                    (aka <a href="https://plus.google.com/115690008178168800202?rel=author" rel="author" title="Giulio De Donato">Giulio De Donato</a>)
                          tons of lines of code ago I took a degree in Computer Science, I'm the
-                        lead developer at Terravision. I can't stop studying, you could find me in some conferences, I'm a proud member of <a href="http://roma.grusp.org/">PHP user group</a>, and exactly now I'm in the center of Rome.</p>
+                        lead developer at Terravision. I can't stop studying, you could find me in some conferences, I'm a proud member of <a href="http://roma.grusp.org/">PHP user group</a>, 
+                        and right now I'm in <a href="https://maps.google.it/maps?q=vatican+city&hnear=Vatican+City&gl=it&t=h&z=16">the center of Rome</a>.</p>
                         <p><strong>ps: I love open-source.</strong></p>
                 </div>
                 <!-- start sticky section
@@ -201,7 +203,7 @@
      
     	<li class="tag-list tag-size-1"><a href="/tags.html#doctrine2-ref" rel="1">doctrine2 <span>1</span></a></li>
      
-    	<li class="tag-list tag-size-1"><a href="/tags.html#doctrine-ref" rel="1">doctrine <span>1</span></a></li>
+    	<li class="tag-list tag-size-2"><a href="/tags.html#doctrine-ref" rel="2">doctrine <span>2</span></a></li>
      
     	<li class="tag-list tag-size-1"><a href="/tags.html#php-internal-ref" rel="1">php-internal <span>1</span></a></li>
      
@@ -212,6 +214,8 @@
     	<li class="tag-list tag-size-3"><a href="/tags.html#rest-ref" rel="3">rest <span>3</span></a></li>
      
     	<li class="tag-list tag-size-3"><a href="/tags.html#api-ref" rel="3">api <span>3</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#ddd-ref" rel="1">ddd <span>1</span></a></li>
     
   
 
@@ -224,6 +228,10 @@
                     <div id="related" class="boxed">
                     <h3>Related Posts</h3>
                     <ul class="posts">
+                    
+                    <li>
+                      <a href="/persist-the-money-doctrine-value-object">Persist the Money, Doctrine Value Object</a>
+                    </li>
                     
                     <li>
                       <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
@@ -239,10 +247,6 @@
                     
                     <li>
                       <a href="/design-by-contract-behaviour">Design by contract behaviour</a>
-                    </li>
-                    
-                    <li>
-                      <a href="/caching-and-data-analysis-will-move-your-application-to-the-next-level">Caching and data analysis will move your application to the next level</a>
                     </li>
                     
                     </ul>
@@ -325,41 +329,41 @@
         </div>
     </div>
     <article>
-        <h3 id='part_2__the_'>Part 2 - the <code>POST</code></h3>
+        <h3 id="part_2__the_">Part 2 - the <code>POST</code></h3>
 
-<p>In the &#8217;<a href='http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way/'>Symfony2 REST part 1</a>&#8217; we created the application, the bundle, we talked about the <code>GET</code> method, we also talked about the importance of the Interfaces, the content negotiation, and we gave an example of dumb controllers and brain services.</p>
+<p>In the ’<a href="http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way/">Symfony2 REST part 1</a>’ we created the application, the bundle, we talked about the <code>GET</code> method, we also talked about the importance of the Interfaces, the content negotiation, and we gave an example of dumb controllers and brain services.</p>
 
-<p>Here you could find the <a href='/symfony2-rest-api-the-best-way-part-3/'>last article Part3 - The rest of REST</a></p>
+<p>Here you could find the <a href="/symfony2-rest-api-the-best-way-part-3/">last article Part3 - The rest of REST</a></p>
 
 <p>In this blog post we are going to create a new <code>Page</code> via <strong>REST API</strong>: the form is the protagonist of this article.</p>
 
 <p><strong>Edited</strong></p>
 
 <ul>
-<li>3/12/2013: Added the Request in the actions, thanks to <a href='http://twitter.com/stloyd'>stloyd</a></li>
+<li>3/12/2013: Added the Request in the actions, thanks to <a href="http://twitter.com/stloyd">stloyd</a></li>
 </ul>
 
-<h2 id='the_github_repository'>The github repository</h2>
+<h2 id="the_github_repository">The github repository</h2>
 
-<p>There&#8217;s a repository at <a href='https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/'>liuggio/symfony2-rest-api-the-best-2013-way</a> you could see the working code using the tag <code>part2</code> with</p>
+<p>There’s a repository at <a href="https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/">liuggio/symfony2-rest-api-the-best-2013-way</a> you could see the working code using the tag <code>part2</code> with</p>
 
 <pre><code>php composer.phar create-project liuggio/symfony2-rest-api-the-best-2013-way blog-rest-symfony2 -sdev
 cd blog-rest-symfony2
 git checkout -f part2
 bin/phpunit -c app</code></pre>
 
-<p>All the tags for the demo project are at <a href='https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/tags'>tags</a>, and also you could compare the first 2 articles with <a href='https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/compare/part1...part2'>compare/part1&#8230;part2</a>.</p>
+<p>All the tags for the demo project are at <a href="https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/tags">tags</a>, and also you could compare the first 2 articles with <a href="https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/compare/part1...part2">compare/part1…part2</a>.</p>
 
-<h2 id='httpbang_theory'>HTTP-bang theory</h2>
+<h2 id="httpbang_theory">HTTP-bang theory</h2>
 
 <p>Just few concepts to know before coding.</p>
 <blockquote>
 Miyagi: Wax on... wax off. Wax on... wax off.
 <small>Karate Kid</small>
 </blockquote>
-<h3 id='the_http_methods'>The HTTP Methods</h3>
+<h3 id="the_http_methods">The HTTP Methods</h3>
 
-<p>The HTTP Methods are well described by <a href='http://developer.github.com/v3/'>github v3 api</a></p>
+<p>The HTTP Methods are well described by <a href="http://developer.github.com/v3/">github v3 api</a></p>
 
 <p>Where possible, API strives to use appropriate HTTP verbs for each action.</p>
 
@@ -389,7 +393,7 @@ Miyagi: Wax on... wax off. Wax on... wax off.
 </li>
 </ul>
 
-<h3 id='safe_and_idempotent'>Safe and idempotent:</h3>
+<h3 id="safe_and_idempotent">Safe and idempotent:</h3>
 
 <p><strong>Safe methods</strong></p>
 <blockquote>
@@ -403,17 +407,17 @@ Miyagi: Wax on... wax off. Wax on... wax off.
 </blockquote>
 <p>So idempotent is about the state of the system, if I create a new resource with POST, the state of the system change every time I call the same Post.</p>
 
-<p>If I delete a resource with $id=10, the system goes always to the same state, so for example multiples and concurrent requests with DELETE pages/10 are accepted without &#8216;side effect&#8217;.</p>
+<p>If I delete a resource with $id=10, the system goes always to the same state, so for example multiples and concurrent requests with DELETE pages/10 are accepted without ‘side effect’.</p>
 
 <p>The Safe methods are very important for HTTP-Caching, and idempontent is about the Request, the response could be different, the code and the message could change.</p>
 
-<p>You&#8217;d see how the response is about communication and request is about action.</p>
+<p>You’d see how the response is about communication and request is about action.</p>
 
-<h3 id='verbs_and_nouns'>Verbs and nouns</h3>
+<h3 id="verbs_and_nouns">Verbs and nouns</h3>
 
 <p>Since you want to follow the REST methodology, you should create a web interface, which it uses the HTTP Methods that are available.</p>
 
-<p>The good practices suggests to use <strong>nouns</strong> not verbs (this is not really always true we&#8217;ll see in the last part of this trilogy).</p>
+<p>The good practices suggests to use <strong>nouns</strong> not verbs (this is not really always true we’ll see in the last part of this trilogy).</p>
 
 <p>The convention also imposes to use plurals nouns, <code>pages</code> instead <code>page</code>, is simpler and coherent.</p>
 <table class='table'>
@@ -454,7 +458,7 @@ Miyagi: Wax on... wax off. Wax on... wax off.
 <blockquote>
     The fundamental difference between the POST and PUT requests is reflected in the different meaning of the Request-URI. The URI in a POST request identifies the resource that will handle the enclosed entity. That resource might be a data-accepting process, a gateway to some other protocol, or a separate entity that accepts annotations. In contrast, the URI in a PUT request identifies the entity enclosed with the request -- the user agent knows what URI is intended and the server MUST NOT attempt to apply the request to some other resource. If the server desires that the request be applied to a different URI,
 </blockquote>
-<h3 id='the_actions'>The actions</h3>
+<h3 id="the_actions">The actions</h3>
 
 <p>The table below, describes the name of the actions, on the head of the table the HTTP Methods.</p>
 <table class='table'>
@@ -502,13 +506,13 @@ Miyagi: Wax on... wax off. Wax on... wax off.
 </table>
 <p>So just creating the action properly we will have automatically configured the routes, with the proper HTTP Methods.</p>
 
-<p>More info at <a href='https://github.com/FriendsOfSymfony/FOSRestBundle/blob/master/Resources/doc/5-automatic-route-generation_single-restful-controller.md#rest-actions'>rest-action fosRestBundle</a>.</p>
+<p>More info at <a href="https://github.com/FriendsOfSymfony/FOSRestBundle/blob/master/Resources/doc/5-automatic-route-generation_single-restful-controller.md#rest-actions">rest-action fosRestBundle</a>.</p>
 
-<h2 id='the_creation'>The creation</h2>
+<h2 id="the_creation">The creation</h2>
 
 <p>Back to our Page example, we need a REST API that allows the creation of a Page.</p>
 
-<h2 id='step_1_writing_the_story'>Step 1 Writing the story</h2>
+<h2 id="step_1_writing_the_story">Step 1 Writing the story</h2>
 
 <p>The story: calling the resource <code>/api/v1/pages.json</code> with POST method, and giving the whole serialized content of a <code>Page</code> entity, the response should have the status code <code>201</code>, and should be a json response.</p>
 
@@ -519,12 +523,12 @@ public function testJsonPostPageAction()
 {
     $this-&gt;client = static::createClient();
     $this-&gt;client-&gt;request(
-        &#39;POST&#39;, 
-        &#39;/api/v1/pages.json&#39;,  
+        'POST', 
+        '/api/v1/pages.json',  
         array(),
         array(),
-        array(&#39;CONTENT_TYPE&#39; =&gt; &#39;application/json&#39;),
-        &#39;{&quot;title&quot;:&quot;title1&quot;,&quot;body&quot;:&quot;body1&quot;}&#39;
+        array('CONTENT_TYPE' =&gt; 'application/json'),
+        '{&quot;title&quot;:&quot;title1&quot;,&quot;body&quot;:&quot;body1&quot;}'
     );
     $this-&gt;assertJsonResponse($this-&gt;client-&gt;getResponse(), 201, false);
 }</code></pre>
@@ -537,12 +541,12 @@ public function testJsonPostPageAction()
 {
     $this-&gt;client = static::createClient();
     $this-&gt;client-&gt;request(
-        &#39;POST&#39;,
-        &#39;/api/v1/pages.json&#39;,
+        'POST',
+        '/api/v1/pages.json',
         array(),
         array(),
-        array(&#39;CONTENT_TYPE&#39; =&gt; &#39;application/json&#39;),
-        &#39;{&quot;ninja&quot;:&quot;turtles&quot;}&#39;
+        array('CONTENT_TYPE' =&gt; 'application/json'),
+        '{&quot;ninja&quot;:&quot;turtles&quot;}'
     );
 
     $this-&gt;assertJsonResponse($this-&gt;client-&gt;getResponse(), 400, false);
@@ -554,7 +558,7 @@ public function testJsonPostPageAction()
 
 <p>the <strong>form</strong> is responsible to validate and hydrate the new <code>Page</code> object, then this object is persisted to the Object Manager.</p>
 
-<h2 id='step_2_the_entity_validation'>Step 2 The Entity validation</h2>
+<h2 id="step_2_the_entity_validation">Step 2 The Entity validation</h2>
 
 <p>We have to add the validation layer that will be invisible, the form will perform it automatically:</p>
 
@@ -570,17 +574,17 @@ Acme\BlogBundle\Entity\Page:
                 minMessage: &quot;Your title must be at least  characters length&quot;
                 maxMessage: &quot;Your title name cannot be longer than  characters length&quot;</code></pre>
 
-<h2 id='step_3_the_pagehandlerpost'>Step 3 The PageHandler::post</h2>
+<h2 id="step_3_the_pagehandlerpost">Step 3 The PageHandler::post</h2>
 
 <p>In the first article we created a service called <code>PageHandler</code>, its objective is to respect the <code>PageHandlerInterface</code>, serving the <code>Page</code> entity with <code>get(id)</code> and <code>post()</code>: it could read and write a <code>Page</code> resource.</p>
 
 <p>The first step should be create a test that respects the behavior that we want for the post.</p>
 
-<p>Given parameters containing properties of the <code>Page</code> like <code>array(&#39;title&#39;=&gt;&#39;title&#39;)</code> the function should return an already persisted object respecting the interface <code>PageInterface</code>.</p>
+<p>Given parameters containing properties of the <code>Page</code> like <code>array('title'=&gt;'title')</code> the function should return an already persisted object respecting the interface <code>PageInterface</code>.</p>
 
-<h3 id='step_3a_the_post_function'>Step 3.a The post function</h3>
+<h3 id="step_3a_the_post_function">Step 3.a The post function</h3>
 
-<p>We are now going to create a function that look like even in the name to the controller&#8217;s function.</p>
+<p>We are now going to create a function that look like even in the name to the controller’s function.</p>
 
 <pre><code>// src/Acme/BlogBundle/Handler/PageHandler.php
 /**
@@ -595,10 +599,10 @@ public function post(array $parameters)
     $page = $this-&gt;createPage(); // factory method create an empty Page
 
     // Process form does all the magic, validate and hydrate the Page Object.
-    return $this-&gt;processForm($page, $parameters, &#39;POST&#39;);
+    return $this-&gt;processForm($page, $parameters, 'POST');
 }</code></pre>
 
-<h3 id='step_3b_the_form_factory'>Step 3.b The form factory</h3>
+<h3 id="step_3b_the_form_factory">Step 3.b The form factory</h3>
 
 <p>In order to use the form we need the <code>form.factory</code> injected into the service:</p>
 
@@ -618,9 +622,8 @@ public function __construct(ObjectManager $om, $entityClass, FormFactoryInterfac
 }</code></pre>
 
 <p>and then we have to add a new argument into the page handler service at <code>/src/Acme/BlogBundle/Resources/config/services.xml</code></p>
-
-<pre><code>&lt;?xml version=&quot;1.0&quot; ?&gt;
-&lt;services&gt;
+<?xml version="1.0" ?>
+<pre><code>&lt;services&gt;
     &lt;service id=&quot;acme_blog.page.handler&quot; class=&quot;%acme_blog.page.handler.class%&quot;&gt;
         &lt;argument type=&quot;service&quot; id=&quot;doctrine.orm.entity_manager&quot; /&gt;
         &lt;argument&gt;%acme_blog.page.class%&lt;/argument&gt;
@@ -628,11 +631,11 @@ public function __construct(ObjectManager $om, $entityClass, FormFactoryInterfac
     &lt;/service&gt;
 &lt;/services&gt;</code></pre>
 
-<h3 id='step_3c_the_processform'>Step 3.c The processForm</h3>
+<h3 id="step_3c_the_processform">Step 3.c The processForm</h3>
 
-<p>It&#8217;s time to back to <code>\Acme\BlogBundle\Handler\PageHandler</code> and create the <code>processForm</code> function, the hearth of the write functions.</p>
+<p>It’s time to back to <code>\Acme\BlogBundle\Handler\PageHandler</code> and create the <code>processForm</code> function, the hearth of the write functions.</p>
 
-<p>You have surely already used <a href='http://api.symfony.com/2.3/Symfony/Component/Form/FormInterface.html'>form-&gt;handleRequest($request)</a>, but in this case we don&#8217;t have the Request but only the values ​​ in an array, so instead of <code>handleRequest</code>, we are going to <code>submit</code> the form.</p>
+<p>You have surely already used <a href="http://api.symfony.com/2.3/Symfony/Component/Form/FormInterface.html">form-&gt;handleRequest($request)</a>, but in this case we don’t have the Request but only the values ​​ in an array, so instead of <code>handleRequest</code>, we are going to <code>submit</code> the form.</p>
 
 <pre><code>/**
  * Processes the form.
@@ -647,8 +650,8 @@ public function __construct(ObjectManager $om, $entityClass, FormFactoryInterfac
  */
 private function processForm(PageInterface $page, array $parameters, $method = &quot;PUT&quot;)
 {
-    $form = $this-&gt;formFactory-&gt;create(new PageType(), $page, array(&#39;method&#39; =&gt; $method));
-    $form-&gt;submit($parameters, &#39;PATCH&#39; !== $method);
+    $form = $this-&gt;formFactory-&gt;create(new PageType(), $page, array('method' =&gt; $method));
+    $form-&gt;submit($parameters, 'PATCH' !== $method);
     if ($form-&gt;isValid()) {
 
         $page = $form-&gt;getData();
@@ -658,18 +661,18 @@ private function processForm(PageInterface $page, array $parameters, $method = &
         return $page;
     }
 
-    throw new InvalidFormException(&#39;Invalid submitted data&#39;, $form);
+    throw new InvalidFormException('Invalid submitted data', $form);
 }</code></pre>
 
 <p>This function returns an object of <code>PageInterface</code> type, but if the parameters are not valid it throws an <code>InvalidFormException</code> that will be handled and caught by the controller.</p>
 
-<p>The test class is at <a href='https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/blob/part2/src/Acme/BlogBundle/Tests/Handler/PageHandlerTest.php/'>part2-src/Acme/BlogBundle/Tests/Handler/PageHandlerTest.php</a></p>
+<p>The test class is at <a href="https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/blob/part2/src/Acme/BlogBundle/Tests/Handler/PageHandlerTest.php/">part2-src/Acme/BlogBundle/Tests/Handler/PageHandlerTest.php</a></p>
 
-<h3 id='why_dont_use_the_request'>Why don&#8217;t use the request?</h3>
+<h3 id="why_dont_use_the_request">Why don’t use the request?</h3>
 
 <p>The real question is: do we really need the request here?</p>
 
-<p>The answer is <strong>no</strong>, the main responsibility of <code>PageHandler</code> class is to <code>handle</code> (creating, editing, showing) the <code>Page</code> entity, given some parameters, it doesn&#8217;t care about Request.</p>
+<p>The answer is <strong>no</strong>, the main responsibility of <code>PageHandler</code> class is to <code>handle</code> (creating, editing, showing) the <code>Page</code> entity, given some parameters, it doesn’t care about Request.</p>
 
 <p>In this way you could use <code>PageHandler</code> from container services, without injecting or faking the Request.</p>
 
@@ -677,9 +680,9 @@ private function processForm(PageInterface $page, array $parameters, $method = &
 
 <p>but the PageHandler is itself an API, usable by services of your application via service container.</p>
 
-<h2 id='step_4_the_post_and_the_controller'>Step 4 The POST and the Controller</h2>
+<h2 id="step_4_the_post_and_the_controller">Step 4 The POST and the Controller</h2>
 
-<h3 id='the_function'>The function</h3>
+<h3 id="the_function">The function</h3>
 
 <p>The postPageAction is simple, all the domain logic is demanded to the <code>PageHandler</code>.</p>
 
@@ -710,38 +713,38 @@ public function postPageAction(Request $request)
 {
    try {
        // Hey Page handler create a new Page.
-       $newPage = $this-&gt;container-&gt;get(&#39;acme_blog.page.handler&#39;)-&gt;post(
+       $newPage = $this-&gt;container-&gt;get('acme_blog.page.handler')-&gt;post(
            $request-&gt;request-&gt;all()
        );
 
        $routeOptions = array(
-           &#39;id&#39; =&gt; $newPage-&gt;getId(),
-           &#39;_format&#39; =&gt; $request-&gt;get(&#39;_format&#39;)
+           'id' =&gt; $newPage-&gt;getId(),
+           '_format' =&gt; $request-&gt;get('_format')
        );
 
-       return $this-&gt;routeRedirectView(&#39;api_1_get_page&#39;, $routeOptions, Codes::HTTP_CREATED);
+       return $this-&gt;routeRedirectView('api_1_get_page', $routeOptions, Codes::HTTP_CREATED);
    } catch (InvalidFormException $exception) {
 
        return $exception-&gt;getForm();
    }
 }</code></pre>
 
-<h3 id='the_location'>The location</h3>
+<h3 id="the_location">The location</h3>
 
 <p>A new page is created by the <code>PageHandler</code>, then the helper <code>routeRedirectView</code> adds to the http header the location: <code>http://localhost:8000/api/v1/pages/47.json</code>.</p>
 
-<h3 id='the_template'>The template</h3>
+<h3 id="the_template">The template</h3>
 
 <p>Remember to create the template newPage.html.twig something like</p>
 
 <pre><code>/src/Acme/BlogBundle/Resources/views/Page/newPage.html.twig
 &lt;h1&gt;Page Form&lt;/h1&gt;
-&lt;form action=&quot;{ { url(&#39;api_1_post_page&#39;) } }&quot; method=&quot;POST&quot; { { form_enctype(form) } }&gt;
+&lt;form action=&quot;{ { url('api_1_post_page') } }&quot; method=&quot;POST&quot; { { form_enctype(form) } }&gt;
     { { form_widget(form) } }
     &lt;input type=&quot;submit&quot; value=&quot;submit&quot;&gt;
 &lt;/form&gt;</code></pre>
 
-<h3 id='the_api'>The API</h3>
+<h3 id="the_api">The API</h3>
 
 <p>Maybe it has gone unnoticed but in the annotation of the documentation, the input of the post is not the <code>Page</code> object but a form type:</p>
 
@@ -750,13 +753,13 @@ public function postPageAction(Request $request)
 *   input = &quot;Acme\BlogBundle\Form\PageType&quot;,
 *   ...</code></pre>
 
-<p>You&#8217;d see how much the form is important in our API application.</p>
+<p>You’d see how much the form is important in our API application.</p>
 
-<h3 id='the_name_of_the_form_type'>The name of the Form type</h3>
+<h3 id="the_name_of_the_form_type">The name of the Form type</h3>
 
 <p>One thing that seems very obscure in the eyes of those doing the rest with the form is the <code>getName</code>,</p>
 
-<p>in all the examples above we sent all the data with an empty <code>PageType::name</code> but if we&#8217;d change to:</p>
+<p>in all the examples above we sent all the data with an empty <code>PageType::name</code> but if we’d change to:</p>
 
 <pre><code>// src/Acme/BlogBundle/Form/PageType.php
 /**
@@ -764,12 +767,12 @@ public function postPageAction(Request $request)
  */
 public function getName()
 {
-    return &#39;page&#39;;
+    return 'page';
 }</code></pre>
 
 <p>The data should be sent with a different syntax:</p>
 
-<pre><code>curl -X POST -d &#39;{&quot;page&quot;:{&quot;title&quot;:&quot;title1&quot;,&quot;body&quot;:&quot;body1&quot;}}&#39; http://localhost:8000/api/v1/pages.json --header &quot;Content-Type:application/json&quot; -v</code></pre>
+<pre><code>curl -X POST -d '{&quot;page&quot;:{&quot;title&quot;:&quot;title1&quot;,&quot;body&quot;:&quot;body1&quot;}}' http://localhost:8000/api/v1/pages.json --header &quot;Content-Type:application/json&quot; -v</code></pre>
 
 <p>and the controller should look something like</p>
 
@@ -777,18 +780,18 @@ public function getName()
 {
     try {
         $form = new PageType();
-        $newPage = $this-&gt;container-&gt;get(&#39;acme_blog.page.handler&#39;)-&gt;post(
+        $newPage = $this-&gt;container-&gt;get('acme_blog.page.handler')-&gt;post(
                 $request-&gt;request-&gt;get($form-&gt;getName())
         );
 // ...</code></pre>
 
-<h2 id='rest_is_also_for_human'>Rest is (also) for human</h2>
+<h2 id="rest_is_also_for_human">Rest is (also) for human</h2>
 
-<h3 id='people_and_rest_got_the_power'>People (and REST) got the power</h3>
+<h3 id="people_and_rest_got_the_power">People (and REST) got the power</h3>
 
 <p>There are many protocols and each has its advantages and its reasons, SOAP, XML-RPC. The added value of REST is that it is not just for client API and web browser is <strong>for people too</strong>.</p>
 
-<h2 id='conventional_actions'>Conventional Actions</h2>
+<h2 id="conventional_actions">Conventional Actions</h2>
 
 <p>The title <code>Rest is also for human</code> is self explanatory and the guys at Friends Of Symfony, wrote how to increase the interaction with the REST process, adding some <code>conventional actions</code>:</p>
 <blockquote>
@@ -796,7 +799,7 @@ HATEOAS, or Hypermedia as the Engine of Application State, is an aspect of REST 
 
 <b>new</b>, <b>edit</b>, <b>remove</b> ... from FOSREST-1
 </blockquote>
-<h2 id='step_5_the_newpage_action'>Step 5 The newPage action</h2>
+<h2 id="step_5_the_newpage_action">Step 5 The newPage action</h2>
 
 <p>We are going to create the new action:</p>
 
@@ -831,11 +834,11 @@ public function newPageAction()
 
 <p>you will obtain a working html form.</p>
 
-<h2 id='manually_test_the_application'>Manually test the application</h2>
+<h2 id="manually_test_the_application">Manually test the application</h2>
 
-<h3 id='the_happy_path_201'>The happy path 201</h3>
+<h3 id="the_happy_path_201">The happy path 201</h3>
 
-<pre><code>curl -X POST -d &#39;{&quot;title&quot;:&quot;title&quot;,&quot;body&quot;:&quot;body&quot;}&#39; http://localhost:8000/api/v1/pages.json --header &quot;Content-Type:application/json&quot; </code></pre>
+<pre><code>curl -X POST -d '{&quot;title&quot;:&quot;title&quot;,&quot;body&quot;:&quot;body&quot;}' http://localhost:8000/api/v1/pages.json --header &quot;Content-Type:application/json&quot; </code></pre>
 
 <p>It will return</p>
 
@@ -847,11 +850,11 @@ public function newPageAction()
 
 <p>This is great! HTTP Status code <code>201</code> resource created, and location tells to the consumers where to get this resource.</p>
 
-<h3 id='bad_parameters_400'>Bad parameters 400</h3>
+<h3 id="bad_parameters_400">Bad parameters 400</h3>
 
-<p>Let&#8217;s try to send a bad content:</p>
+<p>Let’s try to send a bad content:</p>
 
-<pre><code>curl -X POST -d &#39;{&quot;ninja&quot;:&quot;title&quot;,&quot;turtles&quot;:&quot;body&quot;}&#39; http://localhost:8000/api/v1/pages.json --header &quot;Content-Type:application/json&quot; -v</code></pre>
+<pre><code>curl -X POST -d '{&quot;ninja&quot;:&quot;title&quot;,&quot;turtles&quot;:&quot;body&quot;}' http://localhost:8000/api/v1/pages.json --header &quot;Content-Type:application/json&quot; -v</code></pre>
 
 <p>The Response will be <code>400</code></p>
 
@@ -861,52 +864,52 @@ public function newPageAction()
 &lt; 
 &lt; {&quot;form&quot;:{&quot;errors&quot;:[&quot;This form should not contain extra fields.&quot;],&quot;children&quot;:{&quot;title&quot;:[],&quot;body&quot;:[]}}}</code></pre>
 
-<h2 id='things_to_know_and_not_always_to_do'>Things to know (and not always to do)</h2>
+<h2 id="things_to_know_and_not_always_to_do">Things to know (and not always to do)</h2>
 
 <p>There are simple steps that could improve a little bit the project:</p>
 
-<h3 id='the_nonproblem'>The non-problem</h3>
+<h3 id="the_nonproblem">The non-problem</h3>
 
 <p>Do you remember how we used the formFactory in the PageHandler?</p>
 
 <pre><code>// src\Acme\BlogBundle\Handler\PageHandler::$formFactory
-$form = $this-&gt;formFactory-&gt;create(new PageType(), $page, array(&#39;method&#39; =&gt; $method));</code></pre>
+$form = $this-&gt;formFactory-&gt;create(new PageType(), $page, array('method' =&gt; $method));</code></pre>
 
 <p>and do you remember how we created the PageType?</p>
 
 <pre><code>// src/Acme/BlogBundle/Form/PageType.php
-&#39;data_class&#39; =&gt; &#39;Acme\BlogBundle\Entity\Page&#39;,</code></pre>
+'data_class' =&gt; 'Acme\BlogBundle\Entity\Page',</code></pre>
 
 <p>We hardcoded the classes inside another class, we create an hard dependency.</p>
 
-<h3 id='the_solution'>The solution</h3>
+<h3 id="the_solution">The solution</h3>
 
 <p>we could create the PageType as service, and use the name of the service from the PageHandler.</p>
 
 <pre><code>&lt;parameter key=&quot;acme_blog.page.type.class&quot;&gt;Acme\BlogBundle\Form\PageType&lt;/parameter&gt;
 &lt;parameter key=&quot;acme_blog.page.type.name&quot;&gt;&lt;/parameter&gt;
-&lt;parameter key=&quot;acme_blog.page.type.alias&quot;&gt;leaphly_cart&lt;/parameter&gt;
+
 
 &lt;service id=&quot;acme_blog.page.type&quot; class=&quot;Leaphly\CartBundle\Form\Type\CartFormType&quot;&gt;
     &lt;argument&gt;%acme_blog.page.type.class%&lt;/argument&gt;
-    &lt;tag name=&quot;form.type&quot; alias=&quot;%acme_blog.page.type.alias%&quot; /&gt;
+    &lt;tag name=&quot;form.type&quot; alias=&quot;leaphly_cart&quot; /&gt;
 &lt;/service&gt;</code></pre>
 
 <p>and then in the <code>Page handler</code> do something like:</p>
 
 <pre><code>$this-&gt;formFactory-&gt;createNamed ...</code></pre>
 
-<p>the code given on github <strong>doesn&#8217;t cover</strong> the form type as service.</p>
+<p>the code given on github <strong>doesn’t cover</strong> the form type as service.</p>
 
-<h3 id='justifying_this_extra_effort'>Justifying this extra effort</h3>
+<h3 id="justifying_this_extra_effort">Justifying this extra effort</h3>
 
-<p>In few cases this could be considered an <a href='http://en.wikipedia.org/wiki/Overengineering'>over-engineered</a> task,</p>
+<p>In few cases this could be considered an <a href="http://en.wikipedia.org/wiki/Overengineering">over-engineered</a> task,</p>
 
 <p>but when the form type needs extra powers(eg. database access) or when we want to remove all the hard-coding and explicit classes, or if we want to centralize the parameters and the classes in order to be easily changed or renamed, the form type as service could be useful.</p>
 
-<h2 id='the_documentation_as_bonus'>The documentation as bonus</h2>
+<h2 id="the_documentation_as_bonus">The documentation as bonus</h2>
 
-<p>With <a href='https://github.com/nelmio/NelmioApiDocBundle'>NelmioApiDocBundle</a> we will have a documentation <strong>for free</strong></p>
+<p>With <a href="https://github.com/nelmio/NelmioApiDocBundle">NelmioApiDocBundle</a> we will have a documentation <strong>for free</strong></p>
 
 <p>adding a route:</p>
 
@@ -930,11 +933,11 @@ NelmioApiDocBundle:
  */
 public function postPageAction</code></pre>
 
-<p>And thanks to <a href='https://github.com/nelmio/NelmioApiDocBundle/graphs/contributors'>this guys</a> you will have something like:</p>
+<p>And thanks to <a href="https://github.com/nelmio/NelmioApiDocBundle/graphs/contributors">this guys</a> you will have something like:</p>
 
-<p><img alt='NelmioApiDocBundle screen-shot' src='/assets/themes//readable-liuggio/img/screenshot-nelmio.png' /></p>
+<p><img src="/assets/themes//readable-liuggio/img/screenshot-nelmio.png" alt="NelmioApiDocBundle screen-shot" /></p>
 
-<h2 id='recap'>Recap</h2>
+<h2 id="recap">Recap</h2>
 
 <p>Now we could create and read a resource via HTTP REST, using those routes:</p>
 
@@ -971,26 +974,26 @@ interface PageHandlerInterface
     public function post(array $parameters);
 }</code></pre>
 
-<h2 id='next__the_last_rest_api_episode'>Next ›› <a href='/symfony2-rest-api-the-best-way-part-3/'>The last REST API episode</a></h2>
+<h2 id="next__the_last_rest_api_episode">Next ›› <a href="/symfony2-rest-api-the-best-way-part-3/">The last REST API episode</a></h2>
 
-<p>In the next articles, we will describe how to delete, edit partially and totally a resource with <code>DELETE</code>, <code>PATCH</code>, <code>PUT</code>, we will talk how use other important HTTP headers, we will play with <code>filter</code> &#8230;</p>
+<p>In the next articles, we will describe how to delete, edit partially and totally a resource with <code>DELETE</code>, <code>PATCH</code>, <code>PUT</code>, we will talk how use other important HTTP headers, we will play with <code>filter</code> </p>
 
-<h3 id='references'>References</h3>
+<h3 id="references">References</h3>
 
 <ol>
-<li><a href='http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html'>W3C-1 w3.org/Protocols/rfc2616/rfc2616-sec9</a></li>
+<li><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">W3C-1 w3.org/Protocols/rfc2616/rfc2616-sec9</a></li>
 
-<li><a href='http://zachholman.com/2010/03/the-human-is-a-restful-client/'>ZAC-1 - Zach Holman: The Human is a RESTful Client</a></li>
+<li><a href="http://zachholman.com/2010/03/the-human-is-a-restful-client/">ZAC-1 - Zach Holman: The Human is a RESTful Client</a></li>
 
-<li><a href='https://github.com/FriendsOfSymfony/FOSRestBundle/blob/master/Resources/doc/5-automatic-route-generation_single-restful-controller.md#conventional-actions'>FOSREST-1 conventional-actions</a></li>
+<li><a href="https://github.com/FriendsOfSymfony/FOSRestBundle/blob/master/Resources/doc/5-automatic-route-generation_single-restful-controller.md#conventional-actions">FOSREST-1 conventional-actions</a></li>
 
-<li><a href='http://symfony.com/doc/current/cookbook/form/direct_submit.html'>symfony.com/doc/current/cookbook/form/direct_submit.html</a></li>
+<li><a href="http://symfony.com/doc/current/cookbook/form/direct_submit.html">symfony.com/doc/current/cookbook/form/direct_submit.html</a></li>
 
-<li><a href='http://symfony.com/doc/current/cookbook/form/create_custom_field_type.html'>symfony.com/doc/current/cookbook/form/create_custom_field_type.html</a></li>
+<li><a href="http://symfony.com/doc/current/cookbook/form/create_custom_field_type.html">symfony.com/doc/current/cookbook/form/create_custom_field_type.html</a></li>
 
-<li><a href='https://github.com/nelmio/NelmioApiDocBundle'>NelmioApiDocBundle</a></li>
+<li><a href="https://github.com/nelmio/NelmioApiDocBundle">NelmioApiDocBundle</a></li>
 
-<li><a href='https://github.com/lsmith77/symfony-rest-edition/'>lsmith77/symfony-rest-edition/</a></li>
+<li><a href="https://github.com/lsmith77/symfony-rest-edition/">lsmith77/symfony-rest-edition/</a></li>
 </ol>
     </article>
     <hr>
@@ -999,15 +1002,15 @@ interface PageHandlerInterface
       <ul class="posts">
       
       <li>
+       <span>21 Mar 2014 &raquo;</span> <a href="/persist-the-money-doctrine-value-object">Persist the Money, Doctrine Value Object</a>
+      </li>
+      
+      <li>
        <span>03 Dec 2013 &raquo;</span> <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
       </li>
       
       <li>
        <span>13 Nov 2013 &raquo;</span> <a href="/symfony2-rest-api-the-best-2013-way">Symfony2 REST API: the best way</a>
-      </li>
-      
-      <li>
-       <span>18 Oct 2013 &raquo;</span> <a href="/symfony2-design-patterns">Symfony2 design patterns @ symfonyday</a>
       </li>
       
       </ul>

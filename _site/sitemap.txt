@@ -1,12 +1,13 @@
 
-http://welcometothebundle.com/categories.html
-http://welcometothebundle.com/feed.xml
-http://welcometothebundle.com/atom.xml
-http://welcometothebundle.com/new-page.html
-http://welcometothebundle.com/tags.html
-http://welcometothebundle.com/sitemap.txt
 http://welcometothebundle.com/index.html
+http://welcometothebundle.com/feed.xml
+http://welcometothebundle.com/new-page.html
+http://welcometothebundle.com/categories.html
+http://welcometothebundle.com/sitemap.txt
+http://welcometothebundle.com/tags.html
+http://welcometothebundle.com/atom.xml
 
+http://welcometothebundle.com/persist-the-money-doctrine-value-object
 http://welcometothebundle.com/symfony2-rest-api-the-best-way-part-3
 http://welcometothebundle.com/web-api-rest-with-symfony2-the-best-way-the-post-method
 http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way

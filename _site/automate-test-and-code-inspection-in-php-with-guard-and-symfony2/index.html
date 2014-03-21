@@ -53,9 +53,11 @@
                     <p align="center"><img
                             src="http://www.gravatar.com/avatar/662a52953053d94a145a00df9da9f0d2.png?size=48" class="img-rounded">
                     </p>
-                    <p style="font-size:95%">I'm liuggio (aka Giulio De Donato)
+                    <p style="font-size:95%">I'm liuggio 
+                    (aka <a href="https://plus.google.com/115690008178168800202?rel=author" rel="author" title="Giulio De Donato">Giulio De Donato</a>)
                          tons of lines of code ago I took a degree in Computer Science, I'm the
-                        lead developer at Terravision. I can't stop studying, you could find me in some conferences, I'm a proud member of <a href="http://roma.grusp.org/">PHP user group</a>, and exactly now I'm in the center of Rome.</p>
+                        lead developer at Terravision. I can't stop studying, you could find me in some conferences, I'm a proud member of <a href="http://roma.grusp.org/">PHP user group</a>, 
+                        and right now I'm in <a href="https://maps.google.it/maps?q=vatican+city&hnear=Vatican+City&gl=it&t=h&z=16">the center of Rome</a>.</p>
                         <p><strong>ps: I love open-source.</strong></p>
                 </div>
                 <!-- start sticky section
@@ -201,7 +203,7 @@
      
     	<li class="tag-list tag-size-1"><a href="/tags.html#doctrine2-ref" rel="1">doctrine2 <span>1</span></a></li>
      
-    	<li class="tag-list tag-size-1"><a href="/tags.html#doctrine-ref" rel="1">doctrine <span>1</span></a></li>
+    	<li class="tag-list tag-size-2"><a href="/tags.html#doctrine-ref" rel="2">doctrine <span>2</span></a></li>
      
     	<li class="tag-list tag-size-1"><a href="/tags.html#php-internal-ref" rel="1">php-internal <span>1</span></a></li>
      
@@ -212,6 +214,8 @@
     	<li class="tag-list tag-size-3"><a href="/tags.html#rest-ref" rel="3">rest <span>3</span></a></li>
      
     	<li class="tag-list tag-size-3"><a href="/tags.html#api-ref" rel="3">api <span>3</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#ddd-ref" rel="1">ddd <span>1</span></a></li>
     
   
 
@@ -224,6 +228,10 @@
                     <div id="related" class="boxed">
                     <h3>Related Posts</h3>
                     <ul class="posts">
+                    
+                    <li>
+                      <a href="/persist-the-money-doctrine-value-object">Persist the Money, Doctrine Value Object</a>
+                    </li>
                     
                     <li>
                       <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
@@ -239,10 +247,6 @@
                     
                     <li>
                       <a href="/symfony2-design-patterns">Symfony2 design patterns @ symfonyday</a>
-                    </li>
-                    
-                    <li>
-                      <a href="/design-by-contract-behaviour">Design by contract behaviour</a>
                     </li>
                     
                     </ul>
@@ -331,15 +335,15 @@
         </div>
     </div>
     <article>
-        <h2 id='hey_phper_do_you_automate_your_test'>Hey PHPer do you automate your test?</h2>
+        <h2 id="hey_phper_do_you_automate_your_test">Hey PHPer do you automate your test?</h2>
 
-<p>In everyday life there are tools that can not only speed, but also lighten the workload of your mind, in that regard I wanted to share a useful library: <a href='https://github.com/guard/guard'>Guard</a>.</p>
+<p>In everyday life there are tools that can not only speed, but also lighten the workload of your mind, in that regard I wanted to share a useful library: <a href="https://github.com/guard/guard">Guard</a>.</p>
 
-<h2 id='_guard'><code>Watch</code> Guard!</h2>
+<h2 id="_guard"><code>Watch</code> Guard!</h2>
 
-<p><a href='https://github.com/guard/guard'>Guard</a> is written in Ruby, it automates commands based on events that happen in the filesystem.</p>
+<p><a href="https://github.com/guard/guard">Guard</a> is written in Ruby, it automates commands based on events that happen in the filesystem.</p>
 
-<p><a href='https://github.com/guard/guard'>Guard</a> in a short time has become popular especially in the automate testing.</p>
+<p><a href="https://github.com/guard/guard">Guard</a> in a short time has become popular especially in the automate testing.</p>
 
 <p>You can easily edit your files, having only the front window of your editor/IDE, each change will run the test, and you will be notified.</p>
 
@@ -347,32 +351,32 @@
 
 <p>For years I had the <strong>CTRL+S</strong> tic, in fact in my life I have saved (by mistake) around 2000 pages browsing with Firefox.</p>
 
-<p>Before finding out <a href='https://github.com/guard/guard'>Guard</a>, I was using a crude one-line script, it runs each 3 seconds PHPUnit if error otherwise waits 10 seconds</p>
+<p>Before finding out <a href="https://github.com/guard/guard">Guard</a>, I was using a crude one-line script, it runs each 3 seconds PHPUnit if error otherwise waits 10 seconds</p>
 
 <pre><code>while true; do clear; phpunit; if [ ! $? ]; then sleep 10; else sleep 3;fi; done;</code></pre>
 
-<p>but it was not enough, I needed something which could perform only the Test for the file that I had changed: <a href='https://github.com/Maher4Ever/guard-phpunit'>guard-phpunit</a></p>
+<p>but it was not enough, I needed something which could perform only the Test for the file that I had changed: <a href="https://github.com/Maher4Ever/guard-phpunit">guard-phpunit</a></p>
 
-<p>In the PHP world, <a href='https://github.com/guard/guard'>Guard</a> is not so popular but instead would require much more importance.</p>
+<p>In the PHP world, <a href="https://github.com/guard/guard">Guard</a> is not so popular but instead would require much more importance.</p>
 
-<h2 id='install_guardphpunit'><strong>Install</strong> <a href='https://github.com/Maher4Ever/guard-phpunit'>guard-phpunit</a>!</h2>
+<h2 id="install_guardphpunit"><strong>Install</strong> <a href="https://github.com/Maher4Ever/guard-phpunit">guard-phpunit</a>!</h2>
 
 <p>Simply follow the instructions of the README.md https://github.com/Maher4Ever/guard-phpunit</p>
 
-<h3 id='1_install_guardphpunit'>1 Install guard-phpunit</h3>
+<h3 id="1_install_guardphpunit">1 Install guard-phpunit</h3>
 
 <p><code>gem install guard-phpunit</code></p>
 
-<h3 id='2_step_create_a_'>2 Step create a <code>Guardfile</code></h3>
+<h3 id="2_step_create_a_">2 Step create a <code>Guardfile</code></h3>
 
-<pre><code>guard &#39;phpunit&#39;, :tests_path =&gt; &#39;Tests&#39;, :cli =&gt; &#39;--colors&#39; do
+<pre><code>guard 'phpunit', :tests_path =&gt; 'Tests', :cli =&gt; '--colors' do
  # Watch tests files
  watch(%r{^.+Test\.php$})
  # Watch library files and run their tests
  watch(%r{^Object/(.+)\.php}) { |m| &quot;Tests/#{m[1]}Test.php&quot; }
 end</code></pre>
 
-<h3 id='3_run_with_'>3 Run with <code>guard</code></h3>
+<h3 id="3_run_with_">3 Run with <code>guard</code></h3>
 
 <pre><code>liuggio@liuggio:/var/repos/StatsDClientBundle$ guard
 20:33:21 - INFO - Guard uses NotifySend to send notifications.
@@ -382,7 +386,7 @@ end</code></pre>
 &gt; [#51616B16C20E]
 &gt; [#51616B16C20E] Finished in 2 seconds
 &gt; [#51616B16C20E] 18 tests, 43 assertions
-20:33:23 - INFO - Guard is now watching at &#39;/var/www/StatsDClientBundle&#39;</code></pre>
+20:33:23 - INFO - Guard is now watching at '/var/www/StatsDClientBundle'</code></pre>
 
 <p>This will test the entire library for you, any changes will test only the files that have changed</p>
 
@@ -392,15 +396,15 @@ end</code></pre>
 
 <p>you will have an Icon next your top panel</p>
 
-<p><img alt='liuggio-guard-phpunit-sf2-notifier' src='http://welcometothebundle.com/assets/themes/readable-liuggio/img/guard-phpunit-sf2.png' /></p>
+<p><img src="http://welcometothebundle.com/assets/themes/readable-liuggio/img/guard-phpunit-sf2.png" alt="liuggio-guard-phpunit-sf2-notifier" /></p>
 
-<h3 id='4_trick_guard_on_large_directories'>4 Trick Guard on large directories</h3>
+<h3 id="4_trick_guard_on_large_directories">4 Trick Guard on large directories</h3>
 
 <p>If you have big project you need to increase the amount of watches of libnotify</p>
 
 <p>see this page for more info: https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers</p>
 
-<h2 id='_guard'><code>Inspect</code> Guard!</h2>
+<h2 id="_guard_2"><code>Inspect</code> Guard!</h2>
 
 <p>Another plugin that I suggest is Guard for code inspection:</p>
 
@@ -411,23 +415,23 @@ sudo gem install guard-phpcs</code></pre>
 
 <p>and then add to your Guardfile</p>
 
-<pre><code>guard &#39;phpunit&#39;, :tests_path =&gt; &#39;Tests&#39;, :cli =&gt; &#39;--colors&#39; do
+<pre><code>guard 'phpunit', :tests_path =&gt; 'Tests', :cli =&gt; '--colors' do
  # Watch tests files
  watch(%r{^.+Test\.php$})
  # Watch library files and run their tests
  watch(%r{^/(.+)/(.+)/(.+)\.php}) { |m| &quot;Test/#{m[1]}/#{m[2]}/#{m[3]}Test.php&quot; }
 end
-guard &#39;phpcs&#39;, :standard =&gt; &#39;PSR1&#39; do
+guard 'phpcs', :standard =&gt; 'PSR1' do
     watch(%r{.*\.php$})
 end</code></pre>
 
 <p>This will detect all the camel case problems, and you will have to follow the standard PSR1 :D</p>
 
-<h2 id='guard____guardphpunitsf2'>Guard + <code>Symfony2</code> = <a href='https://github.com/liuggio/guard-phpunit-sf2'>guard-phpunit-sf2</a></h2>
+<h2 id="guard____guardphpunitsf2">Guard + <code>Symfony2</code> = <a href="https://github.com/liuggio/guard-phpunit-sf2">guard-phpunit-sf2</a></h2>
 
 <p>Unfortunately <code>guard-phpunit</code> does not work with symfony2 framework,</p>
 
-<p>so I forked that repo and I made <a href='https://github.com/liuggio/guard-phpunit-sf2'>guard-phpunit-sf2</a></p>
+<p>so I forked that repo and I made <a href="https://github.com/liuggio/guard-phpunit-sf2">guard-phpunit-sf2</a></p>
 
 <p><strong>Hurray!!</strong></p>
 
@@ -440,7 +444,7 @@ sudo gem instal guard-phpunit-sf2-0.1.4.gem</code></pre>
 
 <p>then create the Guardfile into the root of your Symfony2 project</p>
 
-<pre><code>guard &#39;phpunit&#39;, :cli =&gt; &#39;--colors -c app/&#39; do
+<pre><code>guard 'phpunit', :cli =&gt; '--colors -c app/' do
      # Watch tests files
      watch(%r{^src\/.+Test\.php$})
 
@@ -463,15 +467,15 @@ end</code></pre>
       <ul class="posts">
       
       <li>
+       <span>21 Mar 2014 &raquo;</span> <a href="/persist-the-money-doctrine-value-object">Persist the Money, Doctrine Value Object</a>
+      </li>
+      
+      <li>
        <span>03 Dec 2013 &raquo;</span> <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
       </li>
       
       <li>
        <span>16 Nov 2013 &raquo;</span> <a href="/web-api-rest-with-symfony2-the-best-way-the-post-method">part2 - Web API REST with Symfony2</a>
-      </li>
-      
-      <li>
-       <span>13 Nov 2013 &raquo;</span> <a href="/symfony2-rest-api-the-best-2013-way">Symfony2 REST API: the best way</a>
       </li>
       
       </ul>

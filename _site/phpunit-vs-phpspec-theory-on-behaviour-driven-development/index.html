@@ -53,9 +53,11 @@
                     <p align="center"><img
                             src="http://www.gravatar.com/avatar/662a52953053d94a145a00df9da9f0d2.png?size=48" class="img-rounded">
                     </p>
-                    <p style="font-size:95%">I'm liuggio (aka Giulio De Donato)
+                    <p style="font-size:95%">I'm liuggio 
+                    (aka <a href="https://plus.google.com/115690008178168800202?rel=author" rel="author" title="Giulio De Donato">Giulio De Donato</a>)
                          tons of lines of code ago I took a degree in Computer Science, I'm the
-                        lead developer at Terravision. I can't stop studying, you could find me in some conferences, I'm a proud member of <a href="http://roma.grusp.org/">PHP user group</a>, and exactly now I'm in the center of Rome.</p>
+                        lead developer at Terravision. I can't stop studying, you could find me in some conferences, I'm a proud member of <a href="http://roma.grusp.org/">PHP user group</a>, 
+                        and right now I'm in <a href="https://maps.google.it/maps?q=vatican+city&hnear=Vatican+City&gl=it&t=h&z=16">the center of Rome</a>.</p>
                         <p><strong>ps: I love open-source.</strong></p>
                 </div>
                 <!-- start sticky section
@@ -201,7 +203,7 @@
      
     	<li class="tag-list tag-size-1"><a href="/tags.html#doctrine2-ref" rel="1">doctrine2 <span>1</span></a></li>
      
-    	<li class="tag-list tag-size-1"><a href="/tags.html#doctrine-ref" rel="1">doctrine <span>1</span></a></li>
+    	<li class="tag-list tag-size-2"><a href="/tags.html#doctrine-ref" rel="2">doctrine <span>2</span></a></li>
      
     	<li class="tag-list tag-size-1"><a href="/tags.html#php-internal-ref" rel="1">php-internal <span>1</span></a></li>
      
@@ -212,6 +214,8 @@
     	<li class="tag-list tag-size-3"><a href="/tags.html#rest-ref" rel="3">rest <span>3</span></a></li>
      
     	<li class="tag-list tag-size-3"><a href="/tags.html#api-ref" rel="3">api <span>3</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#ddd-ref" rel="1">ddd <span>1</span></a></li>
     
   
 
@@ -224,6 +228,10 @@
                     <div id="related" class="boxed">
                     <h3>Related Posts</h3>
                     <ul class="posts">
+                    
+                    <li>
+                      <a href="/persist-the-money-doctrine-value-object">Persist the Money, Doctrine Value Object</a>
+                    </li>
                     
                     <li>
                       <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
@@ -239,10 +247,6 @@
                     
                     <li>
                       <a href="/symfony2-design-patterns">Symfony2 design patterns @ symfonyday</a>
-                    </li>
-                    
-                    <li>
-                      <a href="/design-by-contract-behaviour">Design by contract behaviour</a>
                     </li>
                     
                     </ul>
@@ -331,9 +335,9 @@
         </div>
     </div>
     <article>
-        <p>The first part of a series of short articles (maybe three) where I&#8217;d like to share my tiny experience with BDD and in particular with PHPSpec.</p>
+        <p>The first part of a series of short articles (maybe three) where I’d like to share my tiny experience with BDD and in particular with PHPSpec.</p>
 
-<h2 id='phpunit_vs_phpspec_a_word_on_behaviour_testing'>PHPUnit vs <a href='https://github.com/phpspec/phpspec2'>PHPSpec</a>: A word on behaviour testing</h2>
+<h2 id="phpunit_vs_phpspec_a_word_on_behaviour_testing">PHPUnit vs <a href="https://github.com/phpspec/phpspec2">PHPSpec</a>: A word on behaviour testing</h2>
 
 <p>I recently discovered that there is an alternative to PHPUnit, and I really like this new approach.</p>
 
@@ -341,7 +345,7 @@
 
 <p><strong>A:</strong> What could be changed is the way of doing test,</p>
 
-<p>If you&#8217;ve ever worked in TDD, you know it&#8217;s very time consuming</p>
+<p>If you’ve ever worked in TDD, you know it’s very time consuming</p>
 
 <ol>
 <li>
@@ -365,39 +369,39 @@
 </li>
 </ol>
 
-<h2 id='the_differences_in_a_sentence'>The differences in a sentence</h2>
+<h2 id="the_differences_in_a_sentence">The differences in a sentence</h2>
 
 <p>If the story is a key of the development, the behaviour is the differrence between TDD and BDD.</p>
 
 <p>If you need to test the insertion of an object into a collection and the collection is represented by an Array, with xUnit you should assert that the collection contains the object in the Array, but if the collection will change to another type of container, graph for example, the xUnit will fail, even if the behaviour is unchanged. In BDD you are not testing you are describing what that classes will do, and so you can continue creating the class (PHPSpec will create the class and the methods for you)</p>
 
-<h2 id='bdd'>BDD</h2>
+<h2 id="bdd">BDD</h2>
 
 <p>There are several BDD frameworks on PHP depending on what you want to test.</p>
 
-<h4 id='external_behaviour'>External behaviour</h4>
+<h4 id="external_behaviour">External behaviour</h4>
 
-<p><a href='http://behat.org/'>Behat</a> deals to have specifications that reflects the environment from the outside.</p>
+<p><a href="http://behat.org/">Behat</a> deals to have specifications that reflects the environment from the outside.</p>
 
-<h4 id='internal_behaviour'>Internal behaviour</h4>
+<h4 id="internal_behaviour">Internal behaviour</h4>
 
-<p><a href='https://github.com/phpspec/phpspec2'>PHPSpec</a> responds to the behaviour in the lower level, from the internal of the classes.</p>
+<p><a href="https://github.com/phpspec/phpspec2">PHPSpec</a> responds to the behaviour in the lower level, from the internal of the classes.</p>
 
-<p><a href='https://github.com/phpspec/phpspec2'>PHPSpec</a> is considered a tool that helps you to develop.</p>
+<p><a href="https://github.com/phpspec/phpspec2">PHPSpec</a> is considered a tool that helps you to develop.</p>
 
-<h2 id='summary'>Summary</h2>
+<h2 id="summary">Summary</h2>
 
 <p>The BDD tests what the object does instead of what it is, and what it does is much more important.</p>
 
 <p>We have to say that Ruby community helped a lot the evolution of BDD, RSpec is a standard-de-facto, in Ruby world.</p>
 
-<h2 id='faq'>FAQ</h2>
+<h2 id="faq">FAQ</h2>
 
-<p><strong>Q:</strong> When I should use PHPUnit and when to use <a href='https://github.com/phpspec/phpspec2'>PHPSpec</a>?</p>
+<p><strong>Q:</strong> When I should use PHPUnit and when to use <a href="https://github.com/phpspec/phpspec2">PHPSpec</a>?</p>
 
-<p><strong>A:</strong> There isn&#8217;t a better way between the two, depending on how you want to approach the problem, if you want to follow the behaviour or a unit test the code.</p>
+<p><strong>A:</strong> There isn’t a better way between the two, depending on how you want to approach the problem, if you want to follow the behaviour or a unit test the code.</p>
 
-<p><strong>Q:</strong> With PHPUnit I could do the same things as I could do with <a href='https://github.com/phpspec/phpspec2'>PHPSpec</a>?</p>
+<p><strong>Q:</strong> With PHPUnit I could do the same things as I could do with <a href="https://github.com/phpspec/phpspec2">PHPSpec</a>?</p>
 
 <p><strong>A:</strong> Absolutely, in fact there is a mapping between the two</p>
 
@@ -407,9 +411,9 @@
 
 <p>• Test case example Becomes group</p>
 
-<p><strong>BUT</strong> You would be distracted by the code loosing focus on the result, and you might miss the concept of behaviour. [EDITED 07-01-2013 thanks to <a href='http://twitter.com/euxpom'>euxpom <img alt='exupom' src='http://gravatar.com/avatar/77014411a56fa9c746d6a89b7fd96121?size=20' /></a>]</p>
+<p><strong>BUT</strong> You would be distracted by the code loosing focus on the result, and you might miss the concept of behaviour. [EDITED 07-01-2013 thanks to <a href="http://twitter.com/euxpom">euxpom <img src="http://gravatar.com/avatar/77014411a56fa9c746d6a89b7fd96121?size=20" alt="exupom" /></a>]</p>
 
-<h2 id='phpspec_advantages'><a href='https://github.com/phpspec/phpspec2'>PHPSpec</a> advantages</h2>
+<h2 id="phpspec_advantages"><a href="https://github.com/phpspec/phpspec2">PHPSpec</a> advantages</h2>
 
 <p>xSpec is context specific, expectation, the output is the documentation and it is for this reason that the language is used because the same syntax you guide you to focus in behaviour, and the importance of documentation.</p>
 
@@ -417,13 +421,13 @@
 
 <p>So the big change is on how you write test code.</p>
 
-<p><strong>In the next post I will show some examples on how you could use <a href='https://github.com/phpspec/phpspec2'>PHPSpec</a> to test some (in)famous design pattern.</strong></p>
+<p><strong>In the next post I will show some examples on how you could use <a href="https://github.com/phpspec/phpspec2">PHPSpec</a> to test some (in)famous design pattern.</strong></p>
 
-<h2 id='bibliography'>Bibliography</h2>
+<h2 id="bibliography">Bibliography</h2>
 
 <ol>
 <li>
-<p><a href='http://pragprog.com/book/achbd/the-rspec-book'>The RSpec Book Behaviour-Driven Development with RSpec, Cucumber, and Friends</a> by David Chelimsky, Dave Astels, Zach Dennis, Aslak Hellesøy, Bryan Helmkamp, Dan North</p>
+<p><a href="http://pragprog.com/book/achbd/the-rspec-book">The RSpec Book Behaviour-Driven Development with RSpec, Cucumber, and Friends</a> by David Chelimsky, Dave Astels, Zach Dennis, Aslak Hellesøy, Bryan Helmkamp, Dan North</p>
 </li>
 
 <li>
@@ -437,15 +441,15 @@
       <ul class="posts">
       
       <li>
+       <span>21 Mar 2014 &raquo;</span> <a href="/persist-the-money-doctrine-value-object">Persist the Money, Doctrine Value Object</a>
+      </li>
+      
+      <li>
        <span>03 Dec 2013 &raquo;</span> <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
       </li>
       
       <li>
        <span>16 Nov 2013 &raquo;</span> <a href="/web-api-rest-with-symfony2-the-best-way-the-post-method">part2 - Web API REST with Symfony2</a>
-      </li>
-      
-      <li>
-       <span>13 Nov 2013 &raquo;</span> <a href="/symfony2-rest-api-the-best-2013-way">Symfony2 REST API: the best way</a>
       </li>
       
       </ul>

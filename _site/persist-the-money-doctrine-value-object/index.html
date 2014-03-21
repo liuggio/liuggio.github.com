@@ -3,9 +3,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Caching and data analysis will move your application to the next level</title>
+    <title>Persist the Money, Doctrine Value Object</title>
     
-    <meta name="description" content="If you don't ignore data you could find a business value.">
+    <meta name="description" content="Finally is possible to use and persist value object">
     
     <meta name="author" content="Giulio De Donato">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -230,10 +230,6 @@
                     <ul class="posts">
                     
                     <li>
-                      <a href="/persist-the-money-doctrine-value-object">Persist the Money, Doctrine Value Object</a>
-                    </li>
-                    
-                    <li>
                       <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
                     </li>
                     
@@ -249,6 +245,10 @@
                       <a href="/symfony2-design-patterns">Symfony2 design patterns @ symfonyday</a>
                     </li>
                     
+                    <li>
+                      <a href="/design-by-contract-behaviour">Design by contract behaviour</a>
+                    </li>
+                    
                     </ul>
                     </div>
                 
@@ -262,26 +262,22 @@
 <div class="span9">
     <div class="page-header">
         <div class="row">
-            <h1 class="span8">Caching and data analysis will move your application to the next level 
+            <h1 class="span8">Persist the Money, Doctrine Value Object 
             </h1>
           <div class="span1 right bottom sticky center">
               
               <div id="edit-github">
-                  <a class="btn btn-mini" target="_blank" href="https://github.com/liuggio/liuggio.github.com/edit/master/_posts/2013-05-17-caching-and-data-analysis-will-move-your-application-to-the-next-level.md" title="Found a typo? Please edit it on Github"><i class="icon-edit pull-left"></i><b>Edit</b></a>
+                  <a class="btn btn-mini" target="_blank" href="https://github.com/liuggio/liuggio.github.com/edit/master/_posts/2014-03-21-persist-the-money-doctrine-value-object.md" title="Found a typo? Please edit it on Github"><i class="icon-edit pull-left"></i><b>Edit</b></a>
               </div>
               
 
               <div id="sticky-pagination" class="hidden">
                   
-                      <a class="btn-mini pull-left" target="_blank" href="/doctrine2-tracking-policy" title="Doctrine2 tracking policy">
+                      <a class="btn-mini pull-left" target="_blank" href="/symfony2-rest-api-the-best-way-part-3" title="part 3 - Symfony2 API: the rest of REST">
                           <i class="icon-arrow-left"></i>
                       </a>
                   
 
-                  
-                  <a class="btn-mini pull-right" target="_blank" href="/design-by-contract-behaviour" title="Design by contract behaviour">
-                      <i class="icon-arrow-right"></i>
-                  </a>
                   
               </div>
 
@@ -301,7 +297,7 @@
         <hr>
         <div class="row">
             <div class="span4">
-                <div class="date"><span>17 May 2013</span></div>
+                <div class="date"><span>21 March 2014</span></div>
             </div>
 
             <div class="span5">
@@ -313,15 +309,9 @@
 
   
      
-    	<li class="tag-list tag-size-10"><a href="/tags.html#symfony2-ref">symfony2 <span>10</span></a></li>
-     
-    	<li class="tag-list tag-size-3"><a href="/tags.html#cache-ref">cache <span>3</span></a></li>
-     
-    	<li class="tag-list tag-size-3"><a href="/tags.html#statsd-ref">statsd <span>3</span></a></li>
-     
     	<li class="tag-list tag-size-2"><a href="/tags.html#doctrine-ref">doctrine <span>2</span></a></li>
      
-    	<li class="tag-list tag-size-4"><a href="/tags.html#talk-ref">talk <span>4</span></a></li>
+    	<li class="tag-list tag-size-1"><a href="/tags.html#ddd-ref">ddd <span>1</span></a></li>
     
   
 
@@ -333,24 +323,104 @@
         </div>
     </div>
     <article>
-        <h3 id="if_you_dont_ignore_data_you_could_find_a_business_value">If you don’t ignore data you could find a business value.</h3>
+        <p>Working on large projects, I noticed that we lose too much time thinking about the famous ‘M’ of the <em>MVC</em> pattern instead of thinking about the communication of the various modules.</p>
 
-<p>The presentation focuses on data analysis, how to track and measure applications and why the use of software metrics that push information are essential.</p>
+<h2 id="the_magical_world_of_the_value_object">The magical world of the Value Object</h2>
 
-<p>Delegates will be shown practical examples of how Terravision uses Statsd, Sentry versus Graylog for the error behavior analysis of users, applications, operating systems and web servers.</p>
+<p>Surely the Value Objects has always been overshadowed by the entity as V.Vernon also says in <a href="http://www.amazon.it/Implementing-Domain-Driven-Design-Vaughn-Vernon/dp/0321834577">his red book</a>.</p>
 
-<p>The final part of the presentation concludes with methodologies of advanced scalability, events, messages and queues.</p>
+<p>We are accustomed to think about Entity, and also on how to store those entities in the db, but often what we need is to focus on the Value Objects.</p>
 
-<p><a href="http://www.slideshare.net/liuggio/caching-and-data-analysis-will-move-your-symfony2-application-to-the-next-level">Caching and data analysis will move your Symfony2 application to the next level</a></p>
+<p>If you want to enter into the magical world of the value object, you could find more detail on internet, the value object is an important concept for the DDD community.</p>
+
+<h2 id="identify_a_value_object">Identify a Value Object</h2>
+
+<p>The most simple recipe to identify an entity from a value object:</p>
+
+<p>if an object needs a life cycle, if an object needs to be identified is an Entity.</p>
+
+<p>If you need an immutable object, that its meaning lies in the value, is a Value Object.</p>
+
+<p>Very Often you could find a Value Object inside an Entity.</p>
+
+<h2 id="implementing_money">Implementing Money</h2>
+
+<p>The most famous example of Value Object is the Money scenario.</p>
+
+<pre><code>Class Order {
+  /** @var int */
+  protected $id;
+  /** @var int */
+  protected $price;
+  /** @var string */
+  protected $currency;
+  
+  … more proprerties
+}</code></pre>
+
+<p>Does this sound familiar?</p>
+
+<p>Well surely there is a more elegant way to do it, we are objects oriented programmers.</p>
+
+<pre><code>Class Order {
+  /** @var int */
+  protected $id;
+  /** @var Money */
+  protected $price;
+  
+  // … more proprerties
+}  </code></pre>
+
+<p>$order-&gt;setPrice(new Money(10, ‘EUR’));</p>
+
+<p><em>Price</em> is a Value Object!</p>
+
+<h3 id="persisting_value_objects_in_php">Persisting Value Objects in PHP</h3>
+
+<p>With Doctrine minor2.5 a custom type is allowed only for one-to-one mapping between field and column of the relational database, and representing an object with more proprerties is difficult.</p>
+
+<p>A very common approach was to create a custom <code>MoneyType</code> see <a href="https://github.com/mathiasverraes/money/blob/708d8d53b2374e1f9686dceee4f9636df32f6d43/lib/Money/Doctrine2/MoneyType.php">Doctrine2/MoneyType</a>, with this custom type Money is converted to a string eg. <code>Money(100, 'EUR')</code> would become a <code>string</code> of <code>&quot;1000 EUR&quot;</code>.</p>
+
+<p>A good approach to represent a Value Object leveraging on its immutability, was to record the value object directly as a serialized <a href="http://doctrine-orm.readthedocs.org/en/latest/reference/basic-mapping.html#doctrine-mapping-types">Object type</a> in Doctrine.</p>
+
+<p>All the above approaches led to drawbacks in terms of usability especially when you need to queries.</p>
+
+<h3 id="embeddables">Embeddables</h3>
+
+<p>Finally, we can work the value object with the beautiful feature of <a href="http://doctrine-orm.readthedocs.org/en/latest/tutorials/embeddables.html">Embeddables</a> available with <strong>Doctrine 2.5</strong></p>
+
+<pre><code>/** @Entity */
+class Order
+{
+    /** @Id */
+    private $money;
+
+    /** @Embedded(class = &quot;Money&quot;) */
+    private $money;
+}
+
+/** @Embeddable */
+class Money
+{
+    /** @Column(type = &quot;decimal&quot;) */
+    private $amount;
+
+    /** @Column(type = &quot;string&quot;) */
+    private $currency;
+}</code></pre>
+
+<p>Is also possible to use DQL to order by the amount or to filter using the fields of the Value Object.</p>
+
+<pre><code>SELECT o FROM User o WHERE o.money.currency = :currency</code></pre>
+
+<p>A very used library for handle <a href="https://packagist.org/packages/mathiasverraes/money">Money is here</a> thanks to <a href="https://twitter.com/mathiasverraes">@mathiasverraes</a></p>
+
+<p>That’s all, thanks Domain Driven Design and Doctrine community.</p>
     </article>
     <hr>
     <div id="related">
       <h3>Related Posts</h3>
       <ul class="posts">
-      
-      <li>
-       <span>21 Mar 2014 &raquo;</span> <a href="/persist-the-money-doctrine-value-object">Persist the Money, Doctrine Value Object</a>
-      </li>
       
       <li>
        <span>03 Dec 2013 &raquo;</span> <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
@@ -360,19 +430,22 @@
        <span>16 Nov 2013 &raquo;</span> <a href="/web-api-rest-with-symfony2-the-best-way-the-post-method">part2 - Web API REST with Symfony2</a>
       </li>
       
+      <li>
+       <span>13 Nov 2013 &raquo;</span> <a href="/symfony2-rest-api-the-best-2013-way">Symfony2 REST API: the best way</a>
+      </li>
+      
       </ul>
     </div>
     
     <div class="pagination">
         <ul class="pager span9">
             
-            <li class="prev span3"><a href="/doctrine2-tracking-policy" title="Doctrine2 tracking policy"><i class="icon-arrow-left"></i><br>
-                Previous - Doctrine2 tracking policy</a></li>
+            <li class="prev span3"><a href="/symfony2-rest-api-the-best-way-part-3" title="part 3 - Symfony2 API: the rest of REST"><i class="icon-arrow-left"></i><br>
+                Previous - part 3 - Symfony2 API: the rest of REST</a></li>
             
             <li  class="span2 center"><a style=" width: 100%;" href="/index.html"><br>Archive</a></li>
             
-            <li class="next span3"><a href="/design-by-contract-behaviour" title="Design by contract behaviour"><i class="icon-arrow-right"></i> <br>Next - Design by contract behaviour</a>
-            </li>
+            <li class="next disabled span2"><a><i class="icon-arrow-right"></i> <br>Next</a></li>
             
         </ul>
     </div>

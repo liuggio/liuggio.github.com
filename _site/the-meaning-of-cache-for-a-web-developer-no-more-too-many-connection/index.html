@@ -53,9 +53,11 @@
                     <p align="center"><img
                             src="http://www.gravatar.com/avatar/662a52953053d94a145a00df9da9f0d2.png?size=48" class="img-rounded">
                     </p>
-                    <p style="font-size:95%">I'm liuggio (aka Giulio De Donato)
+                    <p style="font-size:95%">I'm liuggio 
+                    (aka <a href="https://plus.google.com/115690008178168800202?rel=author" rel="author" title="Giulio De Donato">Giulio De Donato</a>)
                          tons of lines of code ago I took a degree in Computer Science, I'm the
-                        lead developer at Terravision. I can't stop studying, you could find me in some conferences, I'm a proud member of <a href="http://roma.grusp.org/">PHP user group</a>, and exactly now I'm in the center of Rome.</p>
+                        lead developer at Terravision. I can't stop studying, you could find me in some conferences, I'm a proud member of <a href="http://roma.grusp.org/">PHP user group</a>, 
+                        and right now I'm in <a href="https://maps.google.it/maps?q=vatican+city&hnear=Vatican+City&gl=it&t=h&z=16">the center of Rome</a>.</p>
                         <p><strong>ps: I love open-source.</strong></p>
                 </div>
                 <!-- start sticky section
@@ -201,7 +203,7 @@
      
     	<li class="tag-list tag-size-1"><a href="/tags.html#doctrine2-ref" rel="1">doctrine2 <span>1</span></a></li>
      
-    	<li class="tag-list tag-size-1"><a href="/tags.html#doctrine-ref" rel="1">doctrine <span>1</span></a></li>
+    	<li class="tag-list tag-size-2"><a href="/tags.html#doctrine-ref" rel="2">doctrine <span>2</span></a></li>
      
     	<li class="tag-list tag-size-1"><a href="/tags.html#php-internal-ref" rel="1">php-internal <span>1</span></a></li>
      
@@ -212,6 +214,8 @@
     	<li class="tag-list tag-size-3"><a href="/tags.html#rest-ref" rel="3">rest <span>3</span></a></li>
      
     	<li class="tag-list tag-size-3"><a href="/tags.html#api-ref" rel="3">api <span>3</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#ddd-ref" rel="1">ddd <span>1</span></a></li>
     
   
 
@@ -224,6 +228,10 @@
                     <div id="related" class="boxed">
                     <h3>Related Posts</h3>
                     <ul class="posts">
+                    
+                    <li>
+                      <a href="/persist-the-money-doctrine-value-object">Persist the Money, Doctrine Value Object</a>
+                    </li>
                     
                     <li>
                       <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
@@ -239,10 +247,6 @@
                     
                     <li>
                       <a href="/symfony2-design-patterns">Symfony2 design patterns @ symfonyday</a>
-                    </li>
-                    
-                    <li>
-                      <a href="/design-by-contract-behaviour">Design by contract behaviour</a>
                     </li>
                     
                     </ul>
@@ -331,15 +335,15 @@
         </div>
     </div>
     <article>
-        <p>In the place of Mr. Obvious I&#8217;m going to describe what really cache means, there is a lot of confusion between what the cache <strong>is</strong>, what it <strong>does</strong> and all the possible <strong>uses</strong> and <strong>implementations</strong>.</p>
+        <p>In the place of Mr. Obvious I’m going to describe what really cache means, there is a lot of confusion between what the cache <strong>is</strong>, what it <strong>does</strong> and all the possible <strong>uses</strong> and <strong>implementations</strong>.</p>
 
 <p>All the fuss comes from the use<strong>s</strong> of that polysemous word.</p>
 
-<h2 id='definition'>Definition:</h2>
+<h2 id="definition">Definition:</h2>
 
 <p>We should start from <strong>Wikipedia</strong>, “Cache is a component that transparently stores data so that future requests for that data can be served faster.”</p>
 
-<p>So instead of doing a time consuming calculation if you already &#8216;remember&#8217; the result answer it.</p>
+<p>So instead of doing a time consuming calculation if you already ‘remember’ the result answer it.</p>
 
 <p>The concept seems simple, the problem is it could be used in a myriad of ways.</p>
 
@@ -355,126 +359,126 @@
 </li>
 </ul>
 
-<h2 id='some_standard_code'>Some &#8216;standard&#8217; Code:</h2>
+<h2 id="some_standard_code">Some ‘standard’ Code:</h2>
 
-<p><strong>Doctrine</strong> defines the cache interface with <a href='https://github.com/doctrine/cache/blob/master/lib/Doctrine/Common/Cache/Cache.php'>Doctrine/Common/Cache/Cache.php</a></p>
+<p><strong>Doctrine</strong> defines the cache interface with <a href="https://github.com/doctrine/cache/blob/master/lib/Doctrine/Common/Cache/Cache.php">Doctrine/Common/Cache/Cache.php</a></p>
 
 <pre><code>function fetch($id);
 function contains($id);
 function save($id, $data, $lifeTime = 0);
 function delete($id);</code></pre>
 
-<p><strong>PHP fig-standards</strong> proposed the cache with <a href='https://github.com/php-fig/fig-standards/issues?labels=Cache&amp;page=1&amp;state=open'>proposed/PSR-Cache.md</a></p>
+<p><strong>PHP fig-standards</strong> proposed the cache with <a href="https://github.com/php-fig/fig-standards/issues?labels=Cache&page=1&state=open">proposed/PSR-Cache.md</a></p>
 
-<h2 id='implementations'>Implementations:</h2>
+<h2 id="implementations">Implementations:</h2>
 
 <p>As web developers the cache is an essential tool, we have to divide the cache features from its implementations.</p>
 
-<h3 id='1_http_cache'>1. HTTP Cache</h3>
+<h3 id="1_http_cache">1. HTTP Cache</h3>
 
-<h4 id='description'>Description</h4>
+<h4 id="description">Description</h4>
 
-<p>OK - describing the HTTP Cache is a huge task, and heaps of great developers already did this (<a href='https://www.google.com/search?q=http+cache'>google</a>, <a href='http://www.slideshare.net/fabpot/caching-on-the-edge'>fabpot/caching-on-the-edge</a>), the concept in few lines is that you are a web developer, and the web works with the HTTP Protocol, so you HAVE to study the HTTP Protocol.</p>
+<p>OK - describing the HTTP Cache is a huge task, and heaps of great developers already did this (<a href="https://www.google.com/search?q=http+cache">google</a>, <a href="http://www.slideshare.net/fabpot/caching-on-the-edge">fabpot/caching-on-the-edge</a>), the concept in few lines is that you are a web developer, and the web works with the HTTP Protocol, so you HAVE to study the HTTP Protocol.</p>
 
-<p>I won&#8217;t go in depth with HTTP Protocol and Cache, but understanding the HTTP protocol turns a developer in a web developer.</p>
+<p>I won’t go in depth with HTTP Protocol and Cache, but understanding the HTTP protocol turns a developer in a web developer.</p>
 
 <p>The actors in the HTTP Cache are: your web-server, your reverse proxy (as Varnish or Squid), the Shared cache server<strong>s</strong> (more than one) and the client browser cache.</p>
 
 <p>This is the best Cache and the most powerful, you could create many cache layers on your application, but if you set up the HTTP headers properly the first time, the next requests will be served for free. <strong>The least expensive query is the query you never had</strong></p>
 
-<h4 id='enemies'>Enemies</h4>
+<h4 id="enemies">Enemies</h4>
 
 <p>An enemy of your mental health is the <strong>invalidation</strong>, do not waste time trying to find a solutions for invalidating cache, choose only the best validation.</p>
 
-<p>The HTTP cache enemy? Cookies and Sessions (see how to solve it thanks to <a href='https://www.google.it/search?client=ubuntu&amp;channel=fs&amp;q=ESI+cache&amp;ie=utf-8&amp;oe=utf-8&amp;redir_esc=&amp;ei=P6QnUbS5AsbKtAbdQQ'>ESI</a>)</p>
+<p>The HTTP cache enemy? Cookies and Sessions (see how to solve it thanks to <a href="https://www.google.it/search?client=ubuntu&channel=fs&q=ESI+cache&ie=utf-8&oe=utf-8&redir_esc=&ei=P6QnUbS5AsbKtAbdQQ">ESI</a>)</p>
 
-<h4 id='best_tools'>Best Tools</h4>
+<h4 id="best_tools">Best Tools</h4>
 
 <p>Varnish / Squid</p>
 
-<h3 id='2_opcode'>2. Opcode</h3>
+<h3 id="2_opcode">2. Opcode</h3>
 
-<h4 id='description'>Description</h4>
+<h4 id="description_2">Description</h4>
 
-<p>“APC is a performance-enhancing extension. It should not be confused with a magic pill, although having it around does provide a positive impact on performance! If configured incorrectly, APC can cause unexpected behaviour, however when implemented optimally APC can be a useful weapon in your arsenal.” <a href='http://techportal.inviqa.com/2010/10/07/understanding-apc/'>read more on understanding APC</a>.</p>
+<p>“APC is a performance-enhancing extension. It should not be confused with a magic pill, although having it around does provide a positive impact on performance! If configured incorrectly, APC can cause unexpected behaviour, however when implemented optimally APC can be a useful weapon in your arsenal.” <a href="http://techportal.inviqa.com/2010/10/07/understanding-apc/">read more on understanding APC</a>.</p>
 
 <p>This should be a must for you my dear PHP developer.</p>
 
-<h4 id='best_tools'>Best Tools</h4>
+<h4 id="best_tools_2">Best Tools</h4>
 
 <p>APC o Zend Optimizer+.</p>
 
-<h3 id='3_the_cache_of_your_application__framework'>3. The Cache of your application / framework</h3>
+<h3 id="3_the_cache_of_your_application__framework">3. The Cache of your application / framework</h3>
 
-<h4 id='description'>Description</h4>
+<h4 id="description_3">Description</h4>
 
 <p>The framework is a tool that should helps you sort and easily create the logic of your domain, to do this it provides files and configurators, which are usually elaborated in PHP files, the cache is used to not process at each request.</p>
 
-<p>For example with Symfony2 in the application cache folders you will find, Url creator files, Proxy Classes, Configuration files (ini, yml, xml) converted to PHP files, Annotations etc&#8230;</p>
+<p>For example with Symfony2 in the application cache folders you will find, Url creator files, Proxy Classes, Configuration files (ini, yml, xml) converted to PHP files, Annotations etc</p>
 
-<h4 id='best_tools'>Best Tools</h4>
+<h4 id="best_tools_3">Best Tools</h4>
 
 <p>Configuration file to PHP then any Opcode.</p>
 
-<h3 id='4_template_and_file_system_caching'>4. Template and File System Caching</h3>
+<h3 id="4_template_and_file_system_caching">4. Template and File System Caching</h3>
 
-<h4 id='description'>Description</h4>
+<h4 id="description_4">Description</h4>
 
 <p>Good Template engines, Smarty and Twig provide a caching system using precompiled pieces of code already in a file into the file system.</p>
 
-<h4 id='best_tools'>Best Tools</h4>
+<h4 id="best_tools_4">Best Tools</h4>
 
 <p>There is no better cache then the Opcode for serving this type of file.</p>
 
-<p>Recently a Pull Request has also been refused, it allows Twig to use any other type of cache <a href='https://github.com/fabpot/Twig/issues/728'>issue on github</a>.</p>
+<p>Recently a Pull Request has also been refused, it allows Twig to use any other type of cache <a href="https://github.com/fabpot/Twig/issues/728">issue on github</a>.</p>
 
-<h3 id='5_query_results'>5. Query Results</h3>
+<h3 id="5_query_results">5. Query Results</h3>
 
-<h4 id='description'>Description</h4>
+<h4 id="description_5">Description</h4>
 
 <p>You are Object Oriented programmers, do not waste your time normalizing the database, if you have too many JOIN delegated the speed to the cache layer.</p>
 
 <p>Queries can be large objects, better to put a centralized server, The enemy is the period of validity vs. freshness, and the size of the query.</p>
 
-<h4 id='best_tools'>Best Tools</h4>
+<h4 id="best_tools_5">Best Tools</h4>
 
-<p>Redis/Memcache(d), but <a href='http://www.slideshare.net/uptimeforce/postgresql-query-cache-pqc'>PostgreSQL-cache</a> has a great internal cache layer, also MySQL has it.</p>
+<p>Redis/Memcache(d), but <a href="http://www.slideshare.net/uptimeforce/postgresql-query-cache-pqc">PostgreSQL-cache</a> has a great internal cache layer, also MySQL has it.</p>
 
-<h3 id='6_query_caching'>6. Query Caching</h3>
+<h3 id="6_query_caching">6. Query Caching</h3>
 
-<h4 id='description'>Description</h4>
+<h4 id="description_6">Description</h4>
 
 <p>Some ORM as Doctrine stores the query creation in order to not process it twice.</p>
 
-<h4 id='best_tools'>Best Tools</h4>
+<h4 id="best_tools_6">Best Tools</h4>
 
 <p>APC or Redis/Memcache(d)</p>
 
-<h2 id='simple_rules'>Simple Rules</h2>
+<h2 id="simple_rules">Simple Rules</h2>
 
 <ol>
 <li>If you want to not process content of ini files or xml files or yml files, you could convert to PHP or you could store data see <strong>3.</strong></li>
 
 <li>If you want to cache PHP files use Opcode caching.</li>
 
-<li>If you want to store variable contents or Objects use Redis, Memcache(d), or you could also use APC <a href='http://php.net/manual/en/function.apc-store.php'>apc-store</a> (suggested if you have a single web server)</li>
+<li>If you want to store variable contents or Objects use Redis, Memcache(d), or you could also use APC <a href="http://php.net/manual/en/function.apc-store.php">apc-store</a> (suggested if you have a single web server)</li>
 
 <li>If you have provide some content use HTTP Cache always and in order to serve assets (file css, js, static content) use some famous CDN or Nginx or some free/cheap cdn service on the net.</li>
 </ol>
 
-<h2 id='other_cache_mechanisms'>Other Cache mechanisms</h2>
+<h2 id="other_cache_mechanisms">Other Cache mechanisms</h2>
 
 <ul>
 <li>
-<p>Pre-Caching/Cacheback, sometimes you need to have some data already available and you don&#8217;t want that the first request wait some slow task <a href='http://codeinthehole.com/writing/cacheback-asynchronous-cache-refreshing-for-django'>cacheback-asynchronous-cache-refreshing-for-django</a></p>
+<p>Pre-Caching/Cacheback, sometimes you need to have some data already available and you don’t want that the first request wait some slow task <a href="http://codeinthehole.com/writing/cacheback-asynchronous-cache-refreshing-for-django">cacheback-asynchronous-cache-refreshing-for-django</a></p>
 </li>
 
 <li>
-<p><a href='http://www.howtoforge.com/why-you-should-always-use-nginx-with-microcaching'>Microcaching</a>, few seconds of cache, useful for GET or <strong>POST</strong>. I said <strong>POST</strong>, do not it seemed strange to you? If you jumped on the chair is ok, POST on cache is insane, unless you do not want to avoid double click.</p>
+<p><a href="http://www.howtoforge.com/why-you-should-always-use-nginx-with-microcaching">Microcaching</a>, few seconds of cache, useful for GET or <strong>POST</strong>. I said <strong>POST</strong>, do not it seemed strange to you? If you jumped on the chair is ok, POST on cache is insane, unless you do not want to avoid double click.</p>
 </li>
 
 <li>
-<p>Before there were static website in HTML, then dynamic languages ​​and databases, and we finally came to the static pages again, this blog has been developed with <a href='http://jekyllbootstrap.com/lessons/jekyll-introduction.html'>jekyll</a>,</p>
+<p>Before there were static website in HTML, then dynamic languages ​​and databases, and we finally came to the static pages again, this blog has been developed with <a href="http://jekyllbootstrap.com/lessons/jekyll-introduction.html">jekyll</a>,</p>
 </li>
 </ul>
     </article>
@@ -484,15 +488,15 @@ function delete($id);</code></pre>
       <ul class="posts">
       
       <li>
+       <span>21 Mar 2014 &raquo;</span> <a href="/persist-the-money-doctrine-value-object">Persist the Money, Doctrine Value Object</a>
+      </li>
+      
+      <li>
        <span>03 Dec 2013 &raquo;</span> <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
       </li>
       
       <li>
        <span>16 Nov 2013 &raquo;</span> <a href="/web-api-rest-with-symfony2-the-best-way-the-post-method">part2 - Web API REST with Symfony2</a>
-      </li>
-      
-      <li>
-       <span>13 Nov 2013 &raquo;</span> <a href="/symfony2-rest-api-the-best-2013-way">Symfony2 REST API: the best way</a>
       </li>
       
       </ul>

@@ -53,9 +53,11 @@
                     <p align="center"><img
                             src="http://www.gravatar.com/avatar/662a52953053d94a145a00df9da9f0d2.png?size=48" class="img-rounded">
                     </p>
-                    <p style="font-size:95%">I'm liuggio (aka Giulio De Donato)
+                    <p style="font-size:95%">I'm liuggio 
+                    (aka <a href="https://plus.google.com/115690008178168800202?rel=author" rel="author" title="Giulio De Donato">Giulio De Donato</a>)
                          tons of lines of code ago I took a degree in Computer Science, I'm the
-                        lead developer at Terravision. I can't stop studying, you could find me in some conferences, I'm a proud member of <a href="http://roma.grusp.org/">PHP user group</a>, and exactly now I'm in the center of Rome.</p>
+                        lead developer at Terravision. I can't stop studying, you could find me in some conferences, I'm a proud member of <a href="http://roma.grusp.org/">PHP user group</a>, 
+                        and right now I'm in <a href="https://maps.google.it/maps?q=vatican+city&hnear=Vatican+City&gl=it&t=h&z=16">the center of Rome</a>.</p>
                         <p><strong>ps: I love open-source.</strong></p>
                 </div>
                 <!-- start sticky section
@@ -201,7 +203,7 @@
      
     	<li class="tag-list tag-size-1"><a href="/tags.html#doctrine2-ref" rel="1">doctrine2 <span>1</span></a></li>
      
-    	<li class="tag-list tag-size-1"><a href="/tags.html#doctrine-ref" rel="1">doctrine <span>1</span></a></li>
+    	<li class="tag-list tag-size-2"><a href="/tags.html#doctrine-ref" rel="2">doctrine <span>2</span></a></li>
      
     	<li class="tag-list tag-size-1"><a href="/tags.html#php-internal-ref" rel="1">php-internal <span>1</span></a></li>
      
@@ -212,6 +214,8 @@
     	<li class="tag-list tag-size-3"><a href="/tags.html#rest-ref" rel="3">rest <span>3</span></a></li>
      
     	<li class="tag-list tag-size-3"><a href="/tags.html#api-ref" rel="3">api <span>3</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#ddd-ref" rel="1">ddd <span>1</span></a></li>
     
   
 
@@ -224,6 +228,10 @@
                     <div id="related" class="boxed">
                     <h3>Related Posts</h3>
                     <ul class="posts">
+                    
+                    <li>
+                      <a href="/persist-the-money-doctrine-value-object">Persist the Money, Doctrine Value Object</a>
+                    </li>
                     
                     <li>
                       <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
@@ -239,10 +247,6 @@
                     
                     <li>
                       <a href="/symfony2-design-patterns">Symfony2 design patterns @ symfonyday</a>
-                    </li>
-                    
-                    <li>
-                      <a href="/design-by-contract-behaviour">Design by contract behaviour</a>
                     </li>
                     
                     </ul>
@@ -337,22 +341,22 @@
 
 <p>The problem is how to move the static files to the cloud files and get them from twig?</p>
 
-<p>Following some tips from the forum <a href='http://groups.google.com/group/symfony2/browse_thread/thread/8e14c145683981d4'>Registering (s3) stream wrapper for AsseticBundle – Symfony2 | Google Gruppi</a></p>
+<p>Following some tips from the forum <a href="http://groups.google.com/group/symfony2/browse_thread/thread/8e14c145683981d4">Registering (s3) stream wrapper for AsseticBundle – Symfony2 | Google Gruppi</a></p>
 
-<p>I created this bundle <a href='https://github.com/liuggio/RackspaceCloudFilesBundle'>RackspaceCloudFilesBundle</a> that handles the static files easily</p>
+<p>I created this bundle <a href="https://github.com/liuggio/RackspaceCloudFilesBundle">RackspaceCloudFilesBundle</a> that handles the static files easily</p>
 
-<h2 id='installing'>Installing</h2>
+<h2 id="installing">Installing</h2>
 
-<h3 id='step_1'>Step 1</h3>
+<h3 id="step_1">Step 1</h3>
 
-<p>follow the README into the <a href='https://github.com/liuggio/RackspaceCloudFilesBundle
-'>RackspaceCloudFilesBundle</a></p>
+<p>follow the README into the <a href="https://github.com/liuggio/RackspaceCloudFilesBundle
+">RackspaceCloudFilesBundle</a></p>
 
-<h3 id='step_2'>Step 2</h3>
+<h3 id="step_2">Step 2</h3>
 
 <p>modify the app/config/config.yml and the app/parameters.ini</p>
 <script src='https://gist.github.com/2420800.js'> </script>
-<h3 id='step_3'>Step 3</h3>
+<h3 id="step_3">Step 3</h3>
 
 <p>when you will deploy a new image just run app/console assetic:dump –env=prod</p>
 
@@ -366,15 +370,15 @@
       <ul class="posts">
       
       <li>
+       <span>21 Mar 2014 &raquo;</span> <a href="/persist-the-money-doctrine-value-object">Persist the Money, Doctrine Value Object</a>
+      </li>
+      
+      <li>
        <span>03 Dec 2013 &raquo;</span> <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
       </li>
       
       <li>
        <span>16 Nov 2013 &raquo;</span> <a href="/web-api-rest-with-symfony2-the-best-way-the-post-method">part2 - Web API REST with Symfony2</a>
-      </li>
-      
-      <li>
-       <span>13 Nov 2013 &raquo;</span> <a href="/symfony2-rest-api-the-best-2013-way">Symfony2 REST API: the best way</a>
       </li>
       
       </ul>

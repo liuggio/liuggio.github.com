@@ -53,9 +53,11 @@
                     <p align="center"><img
                             src="http://www.gravatar.com/avatar/662a52953053d94a145a00df9da9f0d2.png?size=48" class="img-rounded">
                     </p>
-                    <p style="font-size:95%">I'm liuggio (aka Giulio De Donato)
+                    <p style="font-size:95%">I'm liuggio 
+                    (aka <a href="https://plus.google.com/115690008178168800202?rel=author" rel="author" title="Giulio De Donato">Giulio De Donato</a>)
                          tons of lines of code ago I took a degree in Computer Science, I'm the
-                        lead developer at Terravision. I can't stop studying, you could find me in some conferences, I'm a proud member of <a href="http://roma.grusp.org/">PHP user group</a>, and exactly now I'm in the center of Rome.</p>
+                        lead developer at Terravision. I can't stop studying, you could find me in some conferences, I'm a proud member of <a href="http://roma.grusp.org/">PHP user group</a>, 
+                        and right now I'm in <a href="https://maps.google.it/maps?q=vatican+city&hnear=Vatican+City&gl=it&t=h&z=16">the center of Rome</a>.</p>
                         <p><strong>ps: I love open-source.</strong></p>
                 </div>
                 <!-- start sticky section
@@ -201,7 +203,7 @@
      
     	<li class="tag-list tag-size-1"><a href="/tags.html#doctrine2-ref" rel="1">doctrine2 <span>1</span></a></li>
      
-    	<li class="tag-list tag-size-1"><a href="/tags.html#doctrine-ref" rel="1">doctrine <span>1</span></a></li>
+    	<li class="tag-list tag-size-2"><a href="/tags.html#doctrine-ref" rel="2">doctrine <span>2</span></a></li>
      
     	<li class="tag-list tag-size-1"><a href="/tags.html#php-internal-ref" rel="1">php-internal <span>1</span></a></li>
      
@@ -212,6 +214,8 @@
     	<li class="tag-list tag-size-3"><a href="/tags.html#rest-ref" rel="3">rest <span>3</span></a></li>
      
     	<li class="tag-list tag-size-3"><a href="/tags.html#api-ref" rel="3">api <span>3</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#ddd-ref" rel="1">ddd <span>1</span></a></li>
     
   
 
@@ -224,6 +228,10 @@
                     <div id="related" class="boxed">
                     <h3>Related Posts</h3>
                     <ul class="posts">
+                    
+                    <li>
+                      <a href="/persist-the-money-doctrine-value-object">Persist the Money, Doctrine Value Object</a>
+                    </li>
                     
                     <li>
                       <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
@@ -239,10 +247,6 @@
                     
                     <li>
                       <a href="/symfony2-design-patterns">Symfony2 design patterns @ symfonyday</a>
-                    </li>
-                    
-                    <li>
-                      <a href="/design-by-contract-behaviour">Design by contract behaviour</a>
                     </li>
                     
                     </ul>
@@ -333,27 +337,27 @@
 
 <p><strong>Why you should pay for CDN if you can use Github?</strong></p>
 
-<h2 id='theory'>Theory</h2>
+<h2 id="theory">Theory</h2>
 
 <ol>
 <li>
-<p><span>Php library</span> the library teqneers/PHP-Stream-Wrapper-for-Git registers a stream and commit to a repository each file that is moved throw the stream</p>
+<p>[Php library] the library teqneers/PHP-Stream-Wrapper-for-Git registers a stream and commit to a repository each file that is moved throw the stream</p>
 </li>
 
 <li>
-<p><span>Symfony2</span> Assetic bundle compresses and streams the files in your local repository, and twig render the raw.github url</p>
+<p>[Symfony2] Assetic bundle compresses and streams the files in your local repository, and twig render the raw.github url</p>
 </li>
 
 <li>
-<p><span>Git-Hook</span> The Post-Commit hook will push to remote repository automatically</p>
+<p>[Git-Hook] The Post-Commit hook will push to remote repository automatically</p>
 </li>
 </ol>
 
-<h2 id='how_to'>How To</h2>
+<h2 id="how_to">How To</h2>
 
 <p>Just 3 steps</p>
 
-<h2 id='step_1_install_the_library_in_your_symfony2'>Step 1 Install the library in your symfony2</h2>
+<h2 id="step_1_install_the_library_in_your_symfony2">Step 1 Install the library in your symfony2</h2>
 
 <p>In your deps file add the following lines, and then run bin/vendors install</p>
 <script src='https://gist.github.com/2427058.js?file=deps'> </script>
@@ -363,13 +367,13 @@
 
 <p>‘php-git’ is the name of the stream</p>
 <script src='https://gist.github.com/2427058.js?file=app-autoload.php'> </script>
-<h2 id='step_2_github_or_bitbucket_repository'>Step 2 Github or BitBucket Repository</h2>
+<h2 id="step_2_github_or_bitbucket_repository">Step 2 Github or BitBucket Repository</h2>
 
 <ul>
 <li>Create Repo in the root /UsingGitHubAsAssetsCloudFiles</li>
 </ul>
 
-<p><a href='http://help.github.com/create-a-repo/'>http://help.github.com/create-a-repo/</a></p>
+<p><a href="http://help.github.com/create-a-repo/">http://help.github.com/create-a-repo/</a></p>
 
 <p>the public url of the repo will be www.github.com/liuggio/UsingGitHubAsAssetsCloudFiles,</p>
 
@@ -381,7 +385,7 @@
 
 <p>create a file into ‘/UsingGitHubAsAssetsCloudFiles/.git/hooks/post-commit’</p>
 <script src='https://gist.github.com/2427058.js?file=UsingGitHubAsAssetsCloudFiles-.git-hooks-post-commit'> </script>
-<h2 id='step_3_configyml_and_assets'>Step 3 Config.yml and Assets</h2>
+<h2 id="step_3_configyml_and_assets">Step 3 Config.yml and Assets</h2>
 
 <ul>
 <li>modify your <code>app/config/config.yml</code> in 2 different places</li>
@@ -405,15 +409,15 @@
       <ul class="posts">
       
       <li>
+       <span>21 Mar 2014 &raquo;</span> <a href="/persist-the-money-doctrine-value-object">Persist the Money, Doctrine Value Object</a>
+      </li>
+      
+      <li>
        <span>03 Dec 2013 &raquo;</span> <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
       </li>
       
       <li>
        <span>16 Nov 2013 &raquo;</span> <a href="/web-api-rest-with-symfony2-the-best-way-the-post-method">part2 - Web API REST with Symfony2</a>
-      </li>
-      
-      <li>
-       <span>13 Nov 2013 &raquo;</span> <a href="/symfony2-rest-api-the-best-2013-way">Symfony2 REST API: the best way</a>
       </li>
       
       </ul>

@@ -53,9 +53,11 @@
                     <p align="center"><img
                             src="http://www.gravatar.com/avatar/662a52953053d94a145a00df9da9f0d2.png?size=48" class="img-rounded">
                     </p>
-                    <p style="font-size:95%">I'm liuggio (aka Giulio De Donato)
+                    <p style="font-size:95%">I'm liuggio 
+                    (aka <a href="https://plus.google.com/115690008178168800202?rel=author" rel="author" title="Giulio De Donato">Giulio De Donato</a>)
                          tons of lines of code ago I took a degree in Computer Science, I'm the
-                        lead developer at Terravision. I can't stop studying, you could find me in some conferences, I'm a proud member of <a href="http://roma.grusp.org/">PHP user group</a>, and exactly now I'm in the center of Rome.</p>
+                        lead developer at Terravision. I can't stop studying, you could find me in some conferences, I'm a proud member of <a href="http://roma.grusp.org/">PHP user group</a>, 
+                        and right now I'm in <a href="https://maps.google.it/maps?q=vatican+city&hnear=Vatican+City&gl=it&t=h&z=16">the center of Rome</a>.</p>
                         <p><strong>ps: I love open-source.</strong></p>
                 </div>
                 <!-- start sticky section
@@ -201,7 +203,7 @@
      
     	<li class="tag-list tag-size-1"><a href="/tags.html#doctrine2-ref" rel="1">doctrine2 <span>1</span></a></li>
      
-    	<li class="tag-list tag-size-1"><a href="/tags.html#doctrine-ref" rel="1">doctrine <span>1</span></a></li>
+    	<li class="tag-list tag-size-2"><a href="/tags.html#doctrine-ref" rel="2">doctrine <span>2</span></a></li>
      
     	<li class="tag-list tag-size-1"><a href="/tags.html#php-internal-ref" rel="1">php-internal <span>1</span></a></li>
      
@@ -212,6 +214,8 @@
     	<li class="tag-list tag-size-3"><a href="/tags.html#rest-ref" rel="3">rest <span>3</span></a></li>
      
     	<li class="tag-list tag-size-3"><a href="/tags.html#api-ref" rel="3">api <span>3</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#ddd-ref" rel="1">ddd <span>1</span></a></li>
     
   
 
@@ -224,6 +228,10 @@
                     <div id="related" class="boxed">
                     <h3>Related Posts</h3>
                     <ul class="posts">
+                    
+                    <li>
+                      <a href="/persist-the-money-doctrine-value-object">Persist the Money, Doctrine Value Object</a>
+                    </li>
                     
                     <li>
                       <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
@@ -239,10 +247,6 @@
                     
                     <li>
                       <a href="/symfony2-design-patterns">Symfony2 design patterns @ symfonyday</a>
-                    </li>
-                    
-                    <li>
-                      <a href="/design-by-contract-behaviour">Design by contract behaviour</a>
                     </li>
                     
                     </ul>
@@ -323,25 +327,25 @@
         </div>
     </div>
     <article>
-        <h1 id='which_tracking_policy_are_you_using'>Which tracking policy are you using?</h1>
+        <h1 id="which_tracking_policy_are_you_using">Which tracking policy are you using?</h1>
 
-<p>With doctrine you can change the tracking policy for each entity, the tracking policy is the way in which Doctrine understands if a entity property must be &#8216;saved&#8217; in the database.</p>
+<p>With doctrine you can change the tracking policy for each entity, the tracking policy is the way in which Doctrine understands if a entity property must be ‘saved’ in the database.</p>
 
-<p>Doctrine definition: &#8220;Change tracking is the process of determining what has changed in managed entities since the last time they were synchronized with the database.&#8221;</p>
+<p>Doctrine definition: “Change tracking is the process of determining what has changed in managed entities since the last time they were synchronized with the database.”</p>
 
 <p>There are 3 tracking policies: Implicit, Explicit, Nofity.</p>
 
-<h2 id='implicit_tracking_the_default_one'>Implicit tracking (the default one)</h2>
+<h2 id="implicit_tracking_the_default_one">Implicit tracking (the default one)</h2>
 
-<p>The implicit is the default one and the slowest, you don&#8217;t need to explicit call &#8216;persist&#8217; eg.</p>
+<p>The implicit is the default one and the slowest, you don’t need to explicit call ‘persist’ eg.</p>
 
-<p><code> // $entity is not a new object, and has $entity-&gt;Title = &#39;liuggio loves tvision.github.io&#39;</code></p>
+<p><code> // $entity is not a new object, and has $entity-&gt;Title = 'liuggio loves tvision.github.io'</code></p>
 
-<p><code> $entity-&gt;setTitle(&#39;liuggio loves symfony2&#39;);</code></p>
+<p><code> $entity-&gt;setTitle('liuggio loves symfony2');</code></p>
 
 <p><code> $entityManager-&gt;flush();</code></p>
 
-<p><code> echo $entity-&gt;getTitle();   // output &#39;liuggio loves symfony2&#39;</code></p>
+<p><code> echo $entity-&gt;getTitle();   // output 'liuggio loves symfony2'</code></p>
 
 <p>Unit of work now has <strong>$entity.title=liuggio loves symfony2</strong></p>
 
@@ -351,7 +355,7 @@
 
 <p><strong>Cons</strong>: Slowness, Doctrine has to check property-by-property for all the object in the unit of work</p>
 
-<h2 id='the_explicit_tracking_the_suggested_one'>The explicit tracking (the suggested one)</h2>
+<h2 id="the_explicit_tracking_the_suggested_one">The explicit tracking (the suggested one)</h2>
 
 <p>You have to explicit flag which object you want to persist, than Doctrine will check property-by-property in order to find with property has changed.</p>
 
@@ -361,27 +365,27 @@
 
 <p>The example</p>
 
-<p><code> // $entity is not a new object, and has $entity-&gt;Title = &#39;liuggio loves tvision.github.io&#39;</code></p>
+<p><code> // $entity is not a new object, and has $entity-&gt;Title = 'liuggio loves tvision.github.io'</code></p>
 
-<p><code> $entity-&gt;setTitle(&#39;liuggio loves symfony2&#39;);</code></p>
+<p><code> $entity-&gt;setTitle('liuggio loves symfony2');</code></p>
 
 <p><code> $entityManager-&gt;flush();</code></p>
 
-<p><code> echo $entity-&gt;getTitle();   // output &#39;liuggio loves symfony2&#39;</code></p>
+<p><code> echo $entity-&gt;getTitle();   // output 'liuggio loves symfony2'</code></p>
 
 <p>Unit of work now has <strong>$entity.title=liuggio loves symfony2</strong></p>
 
 <p>Database has different state for that entity <strong>liuggio loves tvision.github.io</strong></p>
 
-<h2 id='notify_tracking'>Notify tracking</h2>
+<h2 id="notify_tracking">Notify tracking</h2>
 
-<p>It&#8217;s not really a tracking policy, if you want to develop your own tracking policy, you have the tool for doing it.</p>
+<p>It’s not really a tracking policy, if you want to develop your own tracking policy, you have the tool for doing it.</p>
 
-<p>Don&#8217;t understimate this policy useful if you a domain logic.</p>
+<p>Don’t understimate this policy useful if you a domain logic.</p>
 
-<h2 id='link_to_doctrine_doc'>Link to doctrine doc</h2>
+<h2 id="link_to_doctrine_doc">Link to doctrine doc</h2>
 
-<p><a href='http://docs.doctrine-project.org/en/latest/reference/change-tracking-policies.html'>doctrine/change-tracking-policies</a></p>
+<p><a href="http://docs.doctrine-project.org/en/latest/reference/change-tracking-policies.html">doctrine/change-tracking-policies</a></p>
     </article>
     <hr>
     <div id="related">
@@ -389,15 +393,15 @@
       <ul class="posts">
       
       <li>
+       <span>21 Mar 2014 &raquo;</span> <a href="/persist-the-money-doctrine-value-object">Persist the Money, Doctrine Value Object</a>
+      </li>
+      
+      <li>
        <span>03 Dec 2013 &raquo;</span> <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
       </li>
       
       <li>
        <span>16 Nov 2013 &raquo;</span> <a href="/web-api-rest-with-symfony2-the-best-way-the-post-method">part2 - Web API REST with Symfony2</a>
-      </li>
-      
-      <li>
-       <span>13 Nov 2013 &raquo;</span> <a href="/symfony2-rest-api-the-best-2013-way">Symfony2 REST API: the best way</a>
       </li>
       
       </ul>
