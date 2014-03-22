@@ -80,7 +80,7 @@ Finally, we can work the value object with the beautiful feature of [Embeddables
 	class Order
 	{
 	    /** @Id */
-	    private $money;
+	    private $id;
 
 	    /** @Embedded(class = "Money") */
 	    private $money;
