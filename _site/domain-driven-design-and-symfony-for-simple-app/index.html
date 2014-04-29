@@ -3,9 +3,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Design by contract behaviour</title>
+    <title>Domain Driven Design principles with Symfony2 also for dummy applications</title>
     
-    <meta name="description" content="">
+    <meta name="description" content="The way we develop evolves">
     
     <meta name="author" content="Giulio De Donato">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -232,10 +232,6 @@
                     <ul class="posts">
                     
                     <li>
-                      <a href="/domain-driven-design-and-symfony-for-simple-app">Domain Driven Design principles with Symfony2 also for dummy applications</a>
-                    </li>
-                    
-                    <li>
                       <a href="/persist-the-money-doctrine-value-object">Persist the Money, Doctrine Value Object</a>
                     </li>
                     
@@ -251,6 +247,10 @@
                       <a href="/symfony2-rest-api-the-best-2013-way">Symfony2 REST API: the best way</a>
                     </li>
                     
+                    <li>
+                      <a href="/symfony2-design-patterns">Symfony2 design patterns @ symfonyday</a>
+                    </li>
+                    
                     </ul>
                     </div>
                 
@@ -264,26 +264,18 @@
 <div class="span9">
     <div class="page-header">
         <div class="row">
-            <h1 class="span8">Design by contract behaviour 
+            <h1 class="span8">Domain Driven Design principles with Symfony2 also for dummy applications 
             </h1>
           <div class="span1 right bottom sticky center">
-              
-              <div id="edit-github">
-                  <a class="btn btn-mini" target="_blank" href="https://github.com/liuggio/liuggio.github.com/edit/master/_posts/2013-09-11-design-by-contract-behaviour.md" title="Found a typo? Please edit it on Github"><i class="icon-edit pull-left"></i><b>Edit</b></a>
-              </div>
               
 
               <div id="sticky-pagination" class="hidden">
                   
-                      <a class="btn-mini pull-left" target="_blank" href="/caching-and-data-analysis-will-move-your-application-to-the-next-level" title="Caching and data analysis will move your application to the next level">
+                      <a class="btn-mini pull-left" target="_blank" href="/persist-the-money-doctrine-value-object" title="Persist the Money, Doctrine Value Object">
                           <i class="icon-arrow-left"></i>
                       </a>
                   
 
-                  
-                  <a class="btn-mini pull-right" target="_blank" href="/symfony2-design-patterns" title="Symfony2 design patterns @ symfonyday">
-                      <i class="icon-arrow-right"></i>
-                  </a>
                   
               </div>
 
@@ -303,7 +295,7 @@
         <hr>
         <div class="row">
             <div class="span4">
-                <div class="date"><span>11 September 2013</span></div>
+                <div class="date"><span>29 April 2014</span></div>
             </div>
 
             <div class="span5">
@@ -315,11 +307,13 @@
 
   
      
-    	<li class="tag-list tag-size-1"><a href="/tags.html#php-internal-ref">php-internal <span>1</span></a></li>
+    	<li class="tag-list tag-size-1"><a href="/tags.html#symfony-ref">symfony <span>1</span></a></li>
      
     	<li class="tag-list tag-size-12"><a href="/tags.html#php-ref">php <span>12</span></a></li>
      
-    	<li class="tag-list tag-size-1"><a href="/tags.html#interface-ref">interface <span>1</span></a></li>
+    	<li class="tag-list tag-size-3"><a href="/tags.html#bdd-ref">bdd <span>3</span></a></li>
+     
+    	<li class="tag-list tag-size-2"><a href="/tags.html#ddd-ref">ddd <span>2</span></a></li>
     
   
 
@@ -331,112 +325,326 @@
         </div>
     </div>
     <article>
-        <p>In recent years, <a href="http://getcomposer.org">Composer</a> has given a breath of freshness to the dependencies, and framework such as <a href="http://www.symfony.com">Symfony2</a> have made best practices and decoupling their pride.</p>
+        <h3 id="part_1__the_new_flow_the_layered_architecture_and_the_entities">Part 1 - The new flow, the layered architecture and the entities.</h3>
 
-<p>The union of these two phenomena have moved the attentions to the type hinting in order to have contracts with <code>Interfaces</code>.</p>
+<p>The objective of this series of articles is to show how and why I have changed the way of programming, I would also point to the benefits of adopting certain principles of Domain Driven Design also with simple applications, instead using DDD strictly might benefit only for some particular and complex Domains.</p>
 
-<p>PHP doesn’t have the support for <a href="http://en.wikipedia.org/wiki/Structural_type_system">Structural type system</a></p>
+<p>I do not want to say I am an evangelist of the Domain Driven Development philosophy, but the <a href="http://www.amazon.it/Implementing-Domain-Driven-Design-Vaughn-Vernon/dp/0321834577">red book of V.Vaughn</a> and the movement, has profoundly changed and improved the way I code today.</p>
 
-<h2 id="the_problem">The problem</h2>
+<p>I’m sorry for this new trilogy :), I would like to be short and concise bringing practical examples, as always I love to say that I didn’t invent anything.</p>
 
-<p>The problem comes when a library uses a functionality of a third library, but do not want to hard-code the third-part library in the namespace</p>
+<h2 id="history">History</h2>
 
-<h2 id="case_study">Case Study</h2>
+<p>Around 2003/2004 I gave birth to a PHP framework that would help me on some small software, was a jumble of libraries stacked with copy and paste, starting from <a href="https://www.phpnuke.org/">php-nuke</a>. I released it on <a href="https://www.sourceforge.net">sourceforge</a> the project had many “include” and a few contributors, the name of the project is a secret, it was a youth error.</p>
 
-<p>I have a library that uses a logger:</p>
+<p>That was the first time I understood that the decoupling not occur only at the class level, and the potential of using a library for the template and a library for the database abstraction gave to me a new mindset, in the meanwhile Eric Evans was publising <a href="http://www.amazon.it/gp/product/0321125215/ref=pd_lpo_sbs_dp_ss_1">the Blue Book</a> .</p>
 
-<pre><code>// src/Service/MyService
-namespace MyLib\Service;
+<p>My programming style has changed, and I do not understand how music artists or painters keep their style for an entire career, even in the same version of Symfony my developing style changes and evolves.</p>
 
-class MyService
+<p>To better understand how changed let’s start with a real example:</p>
 
-   private $log;
+<p>Stories:</p>
 
-   public function __construct($log)
-   {
-     this-&gt;log = $log;
-   }
+<ol>
+<li>As Author I want to be able to create a new Blog-Post as draft</li>
 
-   public function doSomethig()
-   {
-      $this-&gt;log-&gt;info('log this');
-   }</code></pre>
+<li>Given a blog-post already created, as Author I want to be able to publish new Blog-Post</li>
 
-<p>I want to use the type hinting because that dependency will be called with <code>info</code>.</p>
+<li>The Blog-Post has always an Author, a title and a body.</li>
 
-<p>Then I add the type-hinting LoggerInterface, but which namespace to use? I can’t define a new mine LoggerInterface, so use the Monolog one.</p>
+<li>When a blog post is created is not public.</li>
 
-<pre><code>// src/Service/MyService
-namespace MyLib\Service;
+<li>As Author I want to see a list of all my posts</li>
+</ol>
 
-use Monolog\LoggerInterface;
+<h3 id="before_code_first_it_means_bundlefirst">Before: code first (it means bundle-first).</h3>
 
-class MyService
+<p>If few year ago I’d thought to the database first, Symfony2 gave a breath of fresh pushing forward the mentality of modularity and decoupling.</p>
 
-   private $log;
+<p>It was explicit the good practice of not putting the logic inside the controllers, but as a side effect in the ecosystem has become quite common the ”<strong>bundle-everything with thin controllers and fat services</strong>”.</p>
 
-   public function __construct(LoggerInterface $log)
-   {
-     this-&gt;log = $log;
-   }
+<p>Services full of logic, and empty ORM entities (empty means only with setters and getters).</p>
 
-   public function doSomethig()
-   {
-      $this-&gt;log-&gt;info('log this');
-   }</code></pre>
+<h3 id="thin_controllers_and_fat_services__smell">Thin Controllers and Fat Services = smell</h3>
 
-<p>Doing this I have hardcoded a <strong>dependency</strong> to the Monolog library, composer.json and this file <code>src/Service/MyService</code> has to be maintained together, isn’t smell to you?</p>
+<p>With a new project you start installing the symfony-standard, you create a bundle for each concept, then you create thousands of Doctrine2 entities (get and set on each property), and then you start testing the service before coding, then a slim controller and a functional test over the Reponse playing with HTML and css path in order to have green tests.</p>
 
-<p>And what happen when I’ll find a better logger library that has got the same LoggerInterface and the function ‘info’? I’ve to change the namespace to the new LoggerInterface or the type hinting would fail, because the control for the type hinting is also on the namespace of the interface and not on the behaviour.</p>
+<p>This way of doing it is not even too wrong, it does not suck, but adding new features you’d have a lot of interdependent Symfony bundles, many fat services (maybe) with abstract nouns such as ‘manager’, ‘service’, ‘handler’ and even a CoreBundle with the shared logic. Entities with getters, setters, but also full of annotations (doctrine and serializer).</p>
 
-<h2 id="solution">Solution?</h2>
+<p>The folders would have this structure:</p>
 
-<p>Monolog have fixed this problem by putting a shared interface inside PSR <a href="http://www.php-fig.org">php-fig.org/</a> repository, but not all cases can be put in the php-fig.</p>
+<pre><code>Symfony standard
+├── BlogBundle
+│    ├── Entity
+│    │   └── Blog.php
+│    │   └── BlogRepository.php
+│    ├── Service
+│    │   └── BlogService.php
+│    │   └── BlogManager.php
+│    │   └── BlogManipulator.php
+│    │   └── BlogFactory.php
+│    │   └── BlogHandler.php
+│    └── Controller
+│        └── BlogController.php
+│    CoreBundle
+│    ├── Entity
+│    │   └── Currency.php
+│    ├── Service
+	 
+...</code></pre>
 
-<p>One solution would be to permit the alias for namespaces.</p>
+<p>http://blog.codinghorror.com/i-shall-call-it-somethingmanager/</p>
 
-<p>Another <code>naive</code> solution would be modify the <code>php-internal</code> of how type hinting works, maybe defining an interface with a sort of keyword eg.<code>behaviour</code> that forces the engine to check that the type that you pass has the same behavior (functions) and not forcing the namespace.</p>
+<h4 id="something_wrong_and_anemic_domain_model">Something wrong and Anemic Domain Model</h4>
 
-<pre><code>namespace MyLib;
-Behaviour Interface LoggerInterface
+<p>A couple of years ago after a big project in Symfony2, I realized there was something that could be improved, too many bundles, too many entities persisted without a value, too many connections, too may fat services, too much Symfony2-centric application, something had changed, and in the my PHP community began to appear articles from <a href="http://williamdurand.fr">williamdurand</a> and <a href="http://verraes.net/">Verraes</a> on how we could improve this pattern.</p>
+
+<p>Connected bundles wasn’t the biggest problem, the system was suffering also of <a href="http://www.martinfowler.com/bliki/AnemicDomainModel.html">Anemic Domain Model</a>.</p>
+
+<p>What is the problem of moving a lot of logic in the service?</p>
+
+<p>The service should reside in the application layer should be small by definition:</p>
+<blockquote>In general, the more behavior you find in the services, the more likely you are to be robbing yourself of the benefits of a domain model. If all your logic is in services, you've robbed yourself blind.<small>Martin Fowler</small></blockquote>
+<h2 id="today">Today</h2>
+
+<p>Today I develop in a different way, many more <a href="/persist-the-money-doctrine-value-object/">Value Objects</a>, Entities with more logic, I would start by specifying use cases, and above all the flow of development has changed.</p>
+
+<p>Thinking first about objects that has to perform behaviors, protagonists of the use cases are domain entities (should not be confused with the doctrine-entity) and aggregates, the step of deciding how to persist should be sent to a later stage.</p>
+
+<h3 id="layered_architecture">Layered Architecture</h3>
+
+<p>What has most changed the way I develop is discovering different layers, separating the various concerns of our application by isolating the expression of domain model and business logic, eliminate any dependency from the business logic.</p>
+
+<p>For <a href="http://www.amazon.com/Pattern-Oriented-Software-Architecture-Volume-Patterns/dp/0471958697/ref=tmm_hrd_title_0?">Buschmann</a> there are 4 layers, the internal layer is when you have to define the outlines of the use cases <strong>Domain Layer</strong>, then the flow of the behavior <strong>Application Layer</strong>, then how to present to the user <strong>User Interface layer</strong> and finaly how to implement them <strong>Infrastructure Layer</strong> the choice of the framework should be made in this final layer.</p>
+
+<p>At the beginning we do not want to think about how we will save our objects, we just want the use cases satisfied, we do not want to think about which framework we will use, we are in the <code>Domain Layer</code>.</p>
+<blockquote>It doesn't depend on any particular UI or service interface-related technology, it just describes use cases.</blockquote>
+<p>Let’s see specifically how to proceed in the development, starting from the use cases.</p>
+
+<p>Install a BDD tool that helps you to write user stories:</p>
+
+<pre><code>composer init
+composer behat/behat &quot;2.4.*@stable&quot;
+bin/behat --init</code></pre>
+
+<p>So we start writing the business goal in <code>features/post.feature</code></p>
+
+<pre><code> Scenario: Create a new blog post
+    Given I am an author
+    When I fill in the following:
+      |  First Post | Great Description |
+    Then the &quot;First Post&quot; post should be saved.
+
+  Scenario: Publish a blog post
+    Given I am an author
+    And I have a post with &quot;First Post&quot; and &quot;Great Description&quot; as description
+    When I publish the post with the title &quot;First Post&quot;
+    Then the &quot;First Post&quot; post should be public.
+
+  Scenario: List of all my posts
+    Given I am an author
+    And I have written the following:
+      |  First Post | Great Description |
+      |  Second Post | Bad Description |
+    When I see the list of all my post
+    Then the &quot;First Post&quot; and the &quot;Second Post&quot; should be shown.</code></pre>
+
+<p>So we have completed the outside specification, now we could go deep inside with <code>phpspec</code> describing the behaviours of our domain.</p>
+
+<p>We have recognized 2 entities <code>Post</code> and <code>Author</code> they didn’t change togheter so they are 2 different concept, they are <code>Entity</code> and not value objects because they could change, and they have a lifecycle, and we do want to identify an Author or a Post.</p>
+
+<p>Install the tool that helps you to design focusing on the behaviors:</p>
+
+<pre><code>composer require &quot;phpspec/phpspec&quot; &quot;~2.0&quot;
+bin/phpspec describe Liuggio/Blog/Post</code></pre>
+
+<h3 id="post_behaviours">Post behaviours</h3>
+
+<p>We want to describe how the <code>Post</code> entity will works before writing the code:</p>
+
+<h5 id="the_blogpost_has_always_an_author_a_title_and_a_body">The Blog-Post has always an Author, a title and a body.</h5>
+
+<p>describing the specification in <code>spec/postSpec.php</code>:</p>
+
+<pre><code>function it_should_be_created_with_author_title_and_text()
 {
-    public function info($string);
+}
+
+function it_should_be_created_as_drafted()
+{
+}
+
+function it_should_move_from_drafted_to_published()
+{
 }</code></pre>
 
-<h2 id="why">Why?</h2>
+<p>Running phpspec you will have:</p>
 
-<p>Can you imagine a world where the libraries are decoupled but they respects the interfaces without sharing file but sharing <code>behaviour</code>?</p>
+<pre><code>$ bin/phpspec  run --format=pretty
+  post
+10  - should be created by an author a title and a text
+    todo: write pending example
+14  - should be created as drafted
+    todo: write pending example
+18  - should move from drafted to published
+    todo: write pending example
+1 specs
+3 examples (3 pending)
+2ms</code></pre>
 
-<h2 id="phpfig">PHP-fig</h2>
+<p>What is obvious from the first specification? we need an <code>Author</code> object.</p>
 
-<p>PHP-fig is a great tool but it’s democratic and democracy on internet is not always able to satisfy the minorities, and to be competitive with the times.</p>
+<pre><code>bin/phpspec describe Liuggio/Blog/Author</code></pre>
 
-<h2 id="another_example">Another example</h2>
+<p>and then in <code>spec/Liuggio/Blog/AuthorSpec.php</code></p>
 
-<p>Another example, if you want to use this library http://yohan.giarel.li/Finite/index.html, you have to put a dependency with Finite\StatefulInterface only because your class has to have the functions <code>getFiniteState</code> and <code>setFiniteState</code>, this is good and it works but hard-coding namespaces and dependencies is not the best option.</p>
+<pre><code>function it_should_always_have_a_nickname($nickname)
+{
+    $this-&gt;beConstructedWith($nickname);
+    $this-&gt;shouldHaveType('BlogAuthor');
+}</code></pre>
 
-<h2 id="what_do_you_think_about_it">What do you think about it?</h2>
+<p>Running <code>bin/phpspec  run --format=pretty</code></p>
 
-<h2 id="edit">EDIT</h2>
+<p>We are going to create the BlogAuthor:</p>
 
-<p><strong>That’s a RFC for that</strong></p>
+<pre><code>class Author
+{
+    private $nickname;
 
-<p><a href="https://twitter.com/giorrrgio">giorrrgio</a> told me about this RFC: <a href="https://wiki.php.net/rfc/protocol_type_hinting">php.net/rfc/protocol_type_hinting</a></p>
+    function __construct($nickname)
+    {
+        $this-&gt;nickname = $nickname;
+    }</code></pre>
 
-<p>Unfortunately, the RFC was not understood by PHP guru.</p>
+<p>We prefer to have in the constructor <code>$nickname</code>, in this way we are protecting the Entity <code>Author</code> to be consistent by specification (nickname could also be a Value Object).</p>
 
-<p>Then has followed a twitter conversation:</p>
+<p>Back to our Blog specifications we could add here the Author <code>spec/Liuggio/Blog/PostSpec.php</code></p>
 
-<p><a href="https://twitter.com/liuggio/statuses/377818409062236160"><img src="/assets/themes/readable-liuggio/img/ircmaxell.png" alt="Twitter conversation with @ircmaxell" /></a></p>
+<pre><code>function it_should_be_created_always with_author_title_and_body(Author $author)
+{
+    $this-&gt;beConstructedWith($author, 'title', 'body');
+    $this-&gt;shouldHaveType('Liuggio\Blog\Post');
+}</code></pre>
+
+<p>Then we write our Post Entity Class.</p>
+
+<pre><code>class Post
+{
+    private $author;
+    private $text;
+    private $body;
+
+    function __construct(Author $author, $text, $body)
+    ...</code></pre>
+
+<p>What changed is that we don’t care here about Doctrine and Identity, we care only about the behaviour.</p>
+
+<h5 id="when_a_blog_post_is_created_is_not_public">When a blog post is created is not public</h5>
+
+<p>We have to add an object that represents the state of the post, we are going to use a Value Object.</p>
+
+<p>Although there are several libraries to work with Finite State Machine, maybe a simple value object in this case may be perfect.</p>
+
+<p>As always, we start from the specifications to get an object that represents the states of Drafted and Published.</p>
+
+<p><code>spec/Liuggio/Blog/PostSpec.php</code></p>
+
+<pre><code>function it_should_be_created_as_drafted()
+{
+    $this-&gt;isPublic()-&gt;shouldBe(false);
+}</code></pre>
+
+<p>We are describing the behavior we expect the entity Post, and we put this rule in the constructor into <code>\Liuggio\Blog\Post</code>:</p>
+
+<pre><code>class Post
+{
+	// ..
+    public function __construct(Author $author, $title, $body)
+    {
+        $this-&gt;author = $author;
+        $this-&gt;title = $title;
+        $this-&gt;body = $body;
+        $this-&gt;state = State::draft();
+        $this-&gt;createdAt = new \Datetime(&quot;now&quot;);
+    }</code></pre>
+
+<h5 id="the_blogpost_could_be_published">The Blog-Post could be published.</h5>
+
+<p><code>spec/Liuggio/Blog/PostSpec.php</code></p>
+
+<pre><code>function it_should_move_from_drafted_to_published()
+{
+    $this-&gt;publish();
+    $this-&gt;isPublic()-&gt;shouldBe(true);
+}
+
+function it_should_raise_exception_during_publish_if_it_was_alread_public()
+{
+    $this-&gt;publish();
+    $this-&gt;shouldThrow('Exception')-&gt;duringPublish();
+}</code></pre>
+
+<p>We have reached a point where our entities <code>Post</code> will</p>
+
+<pre><code>class Post
+{
+    //...
+
+    public function isPublic()
+    {
+        return $this-&gt;state-&gt;isPublic();
+    }
+
+    public function publish()
+    {
+        if (!$this-&gt;couldBePublished()) {
+            throw new \Exception(&quot;Could not do this transition&quot;);
+        }
+
+        return $this-&gt;state = State::published();
+    }
+
+    private function couldBePublished()
+    {
+        return !$this-&gt;isPublic();
+    }</code></pre>
+
+<p>The folder is now:</p>
+
+<pre><code>My-Domain-Driven-Blog
+	├── spec
+	│   └── Liuggio
+	│       └── Blog
+	├── src
+	│   └── Blog
+	│       ├── Author.php
+	│       ├── Post.php
+	│       └── State.php</code></pre>
+
+<h2 id="the_github_repository">The github repository</h2>
+
+<p>There’s a repository at <a href="https://github.com/liuggio/DDD-dummy-blog-with-symfony2/">liuggio/DDD-dummy-blog-with-symfony2</a> you could see the working code using the tag <code>part-1</code> with:</p>
+
+<pre><code>git clone liuggio/DDD-dummy-blog-with-symfony2
+cd DDD-dummy-blog-with-symfony2
+composer install
+git checkout -f part-1</code></pre>
+
+<p>All the tags for the demo project at <a href="https://github.com/liuggio/DDD-dummy-blog-with-symfony2/tags">tags</a></p>
+
+<h2 id="next">Next?</h2>
+
+<p>We focused on the behaviors of the <code>Post</code> and <code>Author</code> entities during the specification, our <code>spec</code> are green now, but our <code>behat</code> stories are red.</p>
+
+<p>In the next post, we will finish adding <strong>services</strong> using command patterns, we will describe how to create <strong>repositories</strong>, how to complete the project, how to create the <strong>business expectations over the application layer</strong> and not on the user interface, and how to works with Symfony2 in the <strong>Infrastructure layer</strong>.</p>
+
+<p>Stay tuned and tweet if you want the next episode.</p>
     </article>
     <hr>
     <div id="related">
       <h3>Related Posts</h3>
       <ul class="posts">
-      
-      <li>
-       <span>29 Apr 2014 &raquo;</span> <a href="/domain-driven-design-and-symfony-for-simple-app">Domain Driven Design principles with Symfony2 also for dummy applications</a>
-      </li>
       
       <li>
        <span>21 Mar 2014 &raquo;</span> <a href="/persist-the-money-doctrine-value-object">Persist the Money, Doctrine Value Object</a>
@@ -446,19 +654,22 @@ Behaviour Interface LoggerInterface
        <span>03 Dec 2013 &raquo;</span> <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
       </li>
       
+      <li>
+       <span>16 Nov 2013 &raquo;</span> <a href="/web-api-rest-with-symfony2-the-best-way-the-post-method">part2 - Web API REST with Symfony2</a>
+      </li>
+      
       </ul>
     </div>
     
     <div class="pagination">
         <ul class="pager span9">
             
-            <li class="prev span3"><a href="/caching-and-data-analysis-will-move-your-application-to-the-next-level" title="Caching and data analysis will move your application to the next level"><i class="icon-arrow-left"></i><br>
-                Previous - Caching and data analysis will move your application to the next level</a></li>
+            <li class="prev span3"><a href="/persist-the-money-doctrine-value-object" title="Persist the Money, Doctrine Value Object"><i class="icon-arrow-left"></i><br>
+                Previous - Persist the Money, Doctrine Value Object</a></li>
             
             <li  class="span2 center"><a style=" width: 100%;" href="/index.html"><br>Archive</a></li>
             
-            <li class="next span3"><a href="/symfony2-design-patterns" title="Symfony2 design patterns @ symfonyday"><i class="icon-arrow-right"></i> <br>Next - Symfony2 design patterns @ symfonyday</a>
-            </li>
+            <li class="next disabled span2"><a><i class="icon-arrow-right"></i> <br>Next</a></li>
             
         </ul>
     </div>

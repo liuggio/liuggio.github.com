@@ -147,7 +147,7 @@
      
     	<li class="tag-list tag-size-1"><a href="/tags.html#bitbucket-ref" rel="1">bitbucket <span>1</span></a></li>
      
-    	<li class="tag-list tag-size-11"><a href="/tags.html#php-ref" rel="11">php <span>11</span></a></li>
+    	<li class="tag-list tag-size-12"><a href="/tags.html#php-ref" rel="12">php <span>12</span></a></li>
      
     	<li class="tag-list tag-size-3"><a href="/tags.html#assets-ref" rel="3">assets <span>3</span></a></li>
      
@@ -189,7 +189,7 @@
      
     	<li class="tag-list tag-size-2"><a href="/tags.html#tdd-ref" rel="2">tdd <span>2</span></a></li>
      
-    	<li class="tag-list tag-size-2"><a href="/tags.html#bdd-ref" rel="2">bdd <span>2</span></a></li>
+    	<li class="tag-list tag-size-3"><a href="/tags.html#bdd-ref" rel="3">bdd <span>3</span></a></li>
      
     	<li class="tag-list tag-size-2"><a href="/tags.html#test-ref" rel="2">test <span>2</span></a></li>
      
@@ -215,7 +215,9 @@
      
     	<li class="tag-list tag-size-3"><a href="/tags.html#api-ref" rel="3">api <span>3</span></a></li>
      
-    	<li class="tag-list tag-size-1"><a href="/tags.html#ddd-ref" rel="1">ddd <span>1</span></a></li>
+    	<li class="tag-list tag-size-2"><a href="/tags.html#ddd-ref" rel="2">ddd <span>2</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#symfony-ref" rel="1">symfony <span>1</span></a></li>
     
   
 
@@ -228,6 +230,10 @@
                     <div id="related" class="boxed">
                     <h3>Related Posts</h3>
                     <ul class="posts">
+                    
+                    <li>
+                      <a href="/domain-driven-design-and-symfony-for-simple-app">Domain Driven Design principles with Symfony2 also for dummy applications</a>
+                    </li>
                     
                     <li>
                       <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
@@ -243,10 +249,6 @@
                     
                     <li>
                       <a href="/symfony2-design-patterns">Symfony2 design patterns @ symfonyday</a>
-                    </li>
-                    
-                    <li>
-                      <a href="/design-by-contract-behaviour">Design by contract behaviour</a>
                     </li>
                     
                     </ul>
@@ -278,6 +280,10 @@
                       </a>
                   
 
+                  
+                  <a class="btn-mini pull-right" target="_blank" href="/domain-driven-design-and-symfony-for-simple-app" title="Domain Driven Design principles with Symfony2 also for dummy applications">
+                      <i class="icon-arrow-right"></i>
+                  </a>
                   
               </div>
 
@@ -311,7 +317,7 @@
      
     	<li class="tag-list tag-size-2"><a href="/tags.html#doctrine-ref">doctrine <span>2</span></a></li>
      
-    	<li class="tag-list tag-size-1"><a href="/tags.html#ddd-ref">ddd <span>1</span></a></li>
+    	<li class="tag-list tag-size-2"><a href="/tags.html#ddd-ref">ddd <span>2</span></a></li>
     
   
 
@@ -335,7 +341,7 @@
 
 <h2 id="identify_a_value_object">Identify a Value Object</h2>
 
-<p>The most simple recipe to identify an entity from a value object:</p>
+<p>A simplified recipe to identify an entity from a value object:</p>
 
 <p>if an object needs a life cycle, if an object needs to be identified is an Entity.</p>
 
@@ -393,7 +399,7 @@
 class Order
 {
     /** @Id */
-    private $money;
+    private $id;
 
     /** @Embedded(class = &quot;Money&quot;) */
     private $money;
@@ -402,7 +408,7 @@ class Order
 /** @Embeddable */
 class Money
 {
-    /** @Column(type = &quot;decimal&quot;) */
+    /** @Column(type = &quot;int&quot;) */ // better then decimal see the mathiasverraes/money documentation
     private $amount;
 
     /** @Column(type = &quot;string&quot;) */
@@ -411,7 +417,7 @@ class Money
 
 <p>Is also possible to use DQL to order by the amount or to filter using the fields of the Value Object.</p>
 
-<pre><code>SELECT o FROM User o WHERE o.money.currency = :currency</code></pre>
+<pre><code>SELECT o FROM Order o WHERE o.money.currency = :currency</code></pre>
 
 <p>A very used library for handle <a href="https://packagist.org/packages/mathiasverraes/money">Money is here</a> thanks to <a href="https://twitter.com/mathiasverraes">@mathiasverraes</a></p>
 
@@ -423,15 +429,15 @@ class Money
       <ul class="posts">
       
       <li>
+       <span>29 Apr 2014 &raquo;</span> <a href="/domain-driven-design-and-symfony-for-simple-app">Domain Driven Design principles with Symfony2 also for dummy applications</a>
+      </li>
+      
+      <li>
        <span>03 Dec 2013 &raquo;</span> <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
       </li>
       
       <li>
        <span>16 Nov 2013 &raquo;</span> <a href="/web-api-rest-with-symfony2-the-best-way-the-post-method">part2 - Web API REST with Symfony2</a>
-      </li>
-      
-      <li>
-       <span>13 Nov 2013 &raquo;</span> <a href="/symfony2-rest-api-the-best-2013-way">Symfony2 REST API: the best way</a>
       </li>
       
       </ul>
@@ -445,7 +451,8 @@ class Money
             
             <li  class="span2 center"><a style=" width: 100%;" href="/index.html"><br>Archive</a></li>
             
-            <li class="next disabled span2"><a><i class="icon-arrow-right"></i> <br>Next</a></li>
+            <li class="next span3"><a href="/domain-driven-design-and-symfony-for-simple-app" title="Domain Driven Design principles with Symfony2 also for dummy applications"><i class="icon-arrow-right"></i> <br>Next - Domain Driven Design principles with Symfony2 also for dummy applications</a>
+            </li>
             
         </ul>
     </div>

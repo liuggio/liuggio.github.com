@@ -7,6 +7,328 @@
         <atom:link href="http://welcometothebundle.com/feed.xml" rel="self" type="application/rss+xml" />
         
         <item>
+            <title>Domain Driven Design principles with Symfony2 also for dummy applications</title>
+            <description>&lt;h3 id=&quot;part_1__the_new_flow_the_layered_architecture_and_the_entities&quot;&gt;Part 1 - The new flow, the layered architecture and the entities.&lt;/h3&gt;
+
+&lt;p&gt;The objective of this series of articles is to show how and why I have changed the way of programming, I would also point to the benefits of adopting certain principles of Domain Driven Design also with simple applications, instead using DDD strictly might benefit only for some particular and complex Domains.&lt;/p&gt;
+
+&lt;p&gt;I do not want to say I am an evangelist of the Domain Driven Development philosophy, but the &lt;a href=&quot;http://www.amazon.it/Implementing-Domain-Driven-Design-Vaughn-Vernon/dp/0321834577&quot;&gt;red book of V.Vaughn&lt;/a&gt; and the movement, has profoundly changed and improved the way I code today.&lt;/p&gt;
+
+&lt;p&gt;I’m sorry for this new trilogy :), I would like to be short and concise bringing practical examples, as always I love to say that I didn’t invent anything.&lt;/p&gt;
+
+&lt;h2 id=&quot;history&quot;&gt;History&lt;/h2&gt;
+
+&lt;p&gt;Around 2003/2004 I gave birth to a PHP framework that would help me on some small software, was a jumble of libraries stacked with copy and paste, starting from &lt;a href=&quot;https://www.phpnuke.org/&quot;&gt;php-nuke&lt;/a&gt;. I released it on &lt;a href=&quot;https://www.sourceforge.net&quot;&gt;sourceforge&lt;/a&gt; the project had many “include” and a few contributors, the name of the project is a secret, it was a youth error.&lt;/p&gt;
+
+&lt;p&gt;That was the first time I understood that the decoupling not occur only at the class level, and the potential of using a library for the template and a library for the database abstraction gave to me a new mindset, in the meanwhile Eric Evans was publising &lt;a href=&quot;http://www.amazon.it/gp/product/0321125215/ref=pd_lpo_sbs_dp_ss_1&quot;&gt;the Blue Book&lt;/a&gt; .&lt;/p&gt;
+
+&lt;p&gt;My programming style has changed, and I do not understand how music artists or painters keep their style for an entire career, even in the same version of Symfony my developing style changes and evolves.&lt;/p&gt;
+
+&lt;p&gt;To better understand how changed let’s start with a real example:&lt;/p&gt;
+
+&lt;p&gt;Stories:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;As Author I want to be able to create a new Blog-Post as draft&lt;/li&gt;
+
+&lt;li&gt;Given a blog-post already created, as Author I want to be able to publish new Blog-Post&lt;/li&gt;
+
+&lt;li&gt;The Blog-Post has always an Author, a title and a body.&lt;/li&gt;
+
+&lt;li&gt;When a blog post is created is not public.&lt;/li&gt;
+
+&lt;li&gt;As Author I want to see a list of all my posts&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;before_code_first_it_means_bundlefirst&quot;&gt;Before: code first (it means bundle-first).&lt;/h3&gt;
+
+&lt;p&gt;If few year ago I’d thought to the database first, Symfony2 gave a breath of fresh pushing forward the mentality of modularity and decoupling.&lt;/p&gt;
+
+&lt;p&gt;It was explicit the good practice of not putting the logic inside the controllers, but as a side effect in the ecosystem has become quite common the ”&lt;strong&gt;bundle-everything with thin controllers and fat services&lt;/strong&gt;”.&lt;/p&gt;
+
+&lt;p&gt;Services full of logic, and empty ORM entities (empty means only with setters and getters).&lt;/p&gt;
+
+&lt;h3 id=&quot;thin_controllers_and_fat_services__smell&quot;&gt;Thin Controllers and Fat Services = smell&lt;/h3&gt;
+
+&lt;p&gt;With a new project you start installing the symfony-standard, you create a bundle for each concept, then you create thousands of Doctrine2 entities (get and set on each property), and then you start testing the service before coding, then a slim controller and a functional test over the Reponse playing with HTML and css path in order to have green tests.&lt;/p&gt;
+
+&lt;p&gt;This way of doing it is not even too wrong, it does not suck, but adding new features you’d have a lot of interdependent Symfony bundles, many fat services (maybe) with abstract nouns such as ‘manager’, ‘service’, ‘handler’ and even a CoreBundle with the shared logic. Entities with getters, setters, but also full of annotations (doctrine and serializer).&lt;/p&gt;
+
+&lt;p&gt;The folders would have this structure:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Symfony standard
+├── BlogBundle
+│    ├── Entity
+│    │   └── Blog.php
+│    │   └── BlogRepository.php
+│    ├── Service
+│    │   └── BlogService.php
+│    │   └── BlogManager.php
+│    │   └── BlogManipulator.php
+│    │   └── BlogFactory.php
+│    │   └── BlogHandler.php
+│    └── Controller
+│        └── BlogController.php
+│    CoreBundle
+│    ├── Entity
+│    │   └── Currency.php
+│    ├── Service
+	 
+...&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;http://blog.codinghorror.com/i-shall-call-it-somethingmanager/&lt;/p&gt;
+
+&lt;h4 id=&quot;something_wrong_and_anemic_domain_model&quot;&gt;Something wrong and Anemic Domain Model&lt;/h4&gt;
+
+&lt;p&gt;A couple of years ago after a big project in Symfony2, I realized there was something that could be improved, too many bundles, too many entities persisted without a value, too many connections, too may fat services, too much Symfony2-centric application, something had changed, and in the my PHP community began to appear articles from &lt;a href=&quot;http://williamdurand.fr&quot;&gt;williamdurand&lt;/a&gt; and &lt;a href=&quot;http://verraes.net/&quot;&gt;Verraes&lt;/a&gt; on how we could improve this pattern.&lt;/p&gt;
+
+&lt;p&gt;Connected bundles wasn’t the biggest problem, the system was suffering also of &lt;a href=&quot;http://www.martinfowler.com/bliki/AnemicDomainModel.html&quot;&gt;Anemic Domain Model&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;What is the problem of moving a lot of logic in the service?&lt;/p&gt;
+
+&lt;p&gt;The service should reside in the application layer should be small by definition:&lt;/p&gt;
+&lt;blockquote&gt;In general, the more behavior you find in the services, the more likely you are to be robbing yourself of the benefits of a domain model. If all your logic is in services, you've robbed yourself blind.&lt;small&gt;Martin Fowler&lt;/small&gt;&lt;/blockquote&gt;
+&lt;h2 id=&quot;today&quot;&gt;Today&lt;/h2&gt;
+
+&lt;p&gt;Today I develop in a different way, many more &lt;a href=&quot;/persist-the-money-doctrine-value-object/&quot;&gt;Value Objects&lt;/a&gt;, Entities with more logic, I would start by specifying use cases, and above all the flow of development has changed.&lt;/p&gt;
+
+&lt;p&gt;Thinking first about objects that has to perform behaviors, protagonists of the use cases are domain entities (should not be confused with the doctrine-entity) and aggregates, the step of deciding how to persist should be sent to a later stage.&lt;/p&gt;
+
+&lt;h3 id=&quot;layered_architecture&quot;&gt;Layered Architecture&lt;/h3&gt;
+
+&lt;p&gt;What has most changed the way I develop is discovering different layers, separating the various concerns of our application by isolating the expression of domain model and business logic, eliminate any dependency from the business logic.&lt;/p&gt;
+
+&lt;p&gt;For &lt;a href=&quot;http://www.amazon.com/Pattern-Oriented-Software-Architecture-Volume-Patterns/dp/0471958697/ref=tmm_hrd_title_0?&quot;&gt;Buschmann&lt;/a&gt; there are 4 layers, the internal layer is when you have to define the outlines of the use cases &lt;strong&gt;Domain Layer&lt;/strong&gt;, then the flow of the behavior &lt;strong&gt;Application Layer&lt;/strong&gt;, then how to present to the user &lt;strong&gt;User Interface layer&lt;/strong&gt; and finaly how to implement them &lt;strong&gt;Infrastructure Layer&lt;/strong&gt; the choice of the framework should be made in this final layer.&lt;/p&gt;
+
+&lt;p&gt;At the beginning we do not want to think about how we will save our objects, we just want the use cases satisfied, we do not want to think about which framework we will use, we are in the &lt;code&gt;Domain Layer&lt;/code&gt;.&lt;/p&gt;
+&lt;blockquote&gt;It doesn't depend on any particular UI or service interface-related technology, it just describes use cases.&lt;/blockquote&gt;
+&lt;p&gt;Let’s see specifically how to proceed in the development, starting from the use cases.&lt;/p&gt;
+
+&lt;p&gt;Install a BDD tool that helps you to write user stories:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;composer init
+composer behat/behat &amp;quot;2.4.*@stable&amp;quot;
+bin/behat --init&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So we start writing the business goal in &lt;code&gt;features/post.feature&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; Scenario: Create a new blog post
+    Given I am an author
+    When I fill in the following:
+      |  First Post | Great Description |
+    Then the &amp;quot;First Post&amp;quot; post should be saved.
+
+  Scenario: Publish a blog post
+    Given I am an author
+    And I have a post with &amp;quot;First Post&amp;quot; and &amp;quot;Great Description&amp;quot; as description
+    When I publish the post with the title &amp;quot;First Post&amp;quot;
+    Then the &amp;quot;First Post&amp;quot; post should be public.
+
+  Scenario: List of all my posts
+    Given I am an author
+    And I have written the following:
+      |  First Post | Great Description |
+      |  Second Post | Bad Description |
+    When I see the list of all my post
+    Then the &amp;quot;First Post&amp;quot; and the &amp;quot;Second Post&amp;quot; should be shown.&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So we have completed the outside specification, now we could go deep inside with &lt;code&gt;phpspec&lt;/code&gt; describing the behaviours of our domain.&lt;/p&gt;
+
+&lt;p&gt;We have recognized 2 entities &lt;code&gt;Post&lt;/code&gt; and &lt;code&gt;Author&lt;/code&gt; they didn’t change togheter so they are 2 different concept, they are &lt;code&gt;Entity&lt;/code&gt; and not value objects because they could change, and they have a lifecycle, and we do want to identify an Author or a Post.&lt;/p&gt;
+
+&lt;p&gt;Install the tool that helps you to design focusing on the behaviors:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;composer require &amp;quot;phpspec/phpspec&amp;quot; &amp;quot;~2.0&amp;quot;
+bin/phpspec describe Liuggio/Blog/Post&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;post_behaviours&quot;&gt;Post behaviours&lt;/h3&gt;
+
+&lt;p&gt;We want to describe how the &lt;code&gt;Post&lt;/code&gt; entity will works before writing the code:&lt;/p&gt;
+
+&lt;h5 id=&quot;the_blogpost_has_always_an_author_a_title_and_a_body&quot;&gt;The Blog-Post has always an Author, a title and a body.&lt;/h5&gt;
+
+&lt;p&gt;describing the specification in &lt;code&gt;spec/postSpec.php&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function it_should_be_created_with_author_title_and_text()
+{
+}
+
+function it_should_be_created_as_drafted()
+{
+}
+
+function it_should_move_from_drafted_to_published()
+{
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Running phpspec you will have:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ bin/phpspec  run --format=pretty
+  post
+10  - should be created by an author a title and a text
+    todo: write pending example
+14  - should be created as drafted
+    todo: write pending example
+18  - should move from drafted to published
+    todo: write pending example
+1 specs
+3 examples (3 pending)
+2ms&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;What is obvious from the first specification? we need an &lt;code&gt;Author&lt;/code&gt; object.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;bin/phpspec describe Liuggio/Blog/Author&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and then in &lt;code&gt;spec/Liuggio/Blog/AuthorSpec.php&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function it_should_always_have_a_nickname($nickname)
+{
+    $this-&amp;gt;beConstructedWith($nickname);
+    $this-&amp;gt;shouldHaveType('BlogAuthor');
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Running &lt;code&gt;bin/phpspec  run --format=pretty&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;We are going to create the BlogAuthor:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Author
+{
+    private $nickname;
+
+    function __construct($nickname)
+    {
+        $this-&amp;gt;nickname = $nickname;
+    }&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We prefer to have in the constructor &lt;code&gt;$nickname&lt;/code&gt;, in this way we are protecting the Entity &lt;code&gt;Author&lt;/code&gt; to be consistent by specification (nickname could also be a Value Object).&lt;/p&gt;
+
+&lt;p&gt;Back to our Blog specifications we could add here the Author &lt;code&gt;spec/Liuggio/Blog/PostSpec.php&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function it_should_be_created_always with_author_title_and_body(Author $author)
+{
+    $this-&amp;gt;beConstructedWith($author, 'title', 'body');
+    $this-&amp;gt;shouldHaveType('Liuggio\Blog\Post');
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then we write our Post Entity Class.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Post
+{
+    private $author;
+    private $text;
+    private $body;
+
+    function __construct(Author $author, $text, $body)
+    ...&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;What changed is that we don’t care here about Doctrine and Identity, we care only about the behaviour.&lt;/p&gt;
+
+&lt;h5 id=&quot;when_a_blog_post_is_created_is_not_public&quot;&gt;When a blog post is created is not public&lt;/h5&gt;
+
+&lt;p&gt;We have to add an object that represents the state of the post, we are going to use a Value Object.&lt;/p&gt;
+
+&lt;p&gt;Although there are several libraries to work with Finite State Machine, maybe a simple value object in this case may be perfect.&lt;/p&gt;
+
+&lt;p&gt;As always, we start from the specifications to get an object that represents the states of Drafted and Published.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;spec/Liuggio/Blog/PostSpec.php&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function it_should_be_created_as_drafted()
+{
+    $this-&amp;gt;isPublic()-&amp;gt;shouldBe(false);
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We are describing the behavior we expect the entity Post, and we put this rule in the constructor into &lt;code&gt;\Liuggio\Blog\Post&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Post
+{
+	// ..
+    public function __construct(Author $author, $title, $body)
+    {
+        $this-&amp;gt;author = $author;
+        $this-&amp;gt;title = $title;
+        $this-&amp;gt;body = $body;
+        $this-&amp;gt;state = State::draft();
+        $this-&amp;gt;createdAt = new \Datetime(&amp;quot;now&amp;quot;);
+    }&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;the_blogpost_could_be_published&quot;&gt;The Blog-Post could be published.&lt;/h5&gt;
+
+&lt;p&gt;&lt;code&gt;spec/Liuggio/Blog/PostSpec.php&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function it_should_move_from_drafted_to_published()
+{
+    $this-&amp;gt;publish();
+    $this-&amp;gt;isPublic()-&amp;gt;shouldBe(true);
+}
+
+function it_should_raise_exception_during_publish_if_it_was_alread_public()
+{
+    $this-&amp;gt;publish();
+    $this-&amp;gt;shouldThrow('Exception')-&amp;gt;duringPublish();
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We have reached a point where our entities &lt;code&gt;Post&lt;/code&gt; will&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Post
+{
+    //...
+
+    public function isPublic()
+    {
+        return $this-&amp;gt;state-&amp;gt;isPublic();
+    }
+
+    public function publish()
+    {
+        if (!$this-&amp;gt;couldBePublished()) {
+            throw new \Exception(&amp;quot;Could not do this transition&amp;quot;);
+        }
+
+        return $this-&amp;gt;state = State::published();
+    }
+
+    private function couldBePublished()
+    {
+        return !$this-&amp;gt;isPublic();
+    }&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The folder is now:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;My-Domain-Driven-Blog
+	├── spec
+	│   └── Liuggio
+	│       └── Blog
+	├── src
+	│   └── Blog
+	│       ├── Author.php
+	│       ├── Post.php
+	│       └── State.php&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;the_github_repository&quot;&gt;The github repository&lt;/h2&gt;
+
+&lt;p&gt;There’s a repository at &lt;a href=&quot;https://github.com/liuggio/DDD-dummy-blog-with-symfony2/&quot;&gt;liuggio/DDD-dummy-blog-with-symfony2&lt;/a&gt; you could see the working code using the tag &lt;code&gt;part-1&lt;/code&gt; with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone liuggio/DDD-dummy-blog-with-symfony2
+cd DDD-dummy-blog-with-symfony2
+composer install
+git checkout -f part-1&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;All the tags for the demo project at &lt;a href=&quot;https://github.com/liuggio/DDD-dummy-blog-with-symfony2/tags&quot;&gt;tags&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;next&quot;&gt;Next?&lt;/h2&gt;
+
+&lt;p&gt;We focused on the behaviors of the &lt;code&gt;Post&lt;/code&gt; and &lt;code&gt;Author&lt;/code&gt; entities during the specification, our &lt;code&gt;spec&lt;/code&gt; are green now, but our &lt;code&gt;behat&lt;/code&gt; stories are red.&lt;/p&gt;
+
+&lt;p&gt;In the next post, we will finish adding &lt;strong&gt;services&lt;/strong&gt; using command patterns, we will describe how to create &lt;strong&gt;repositories&lt;/strong&gt;, how to complete the project, how to create the &lt;strong&gt;business expectations over the application layer&lt;/strong&gt; and not on the user interface, and how to works with Symfony2 in the &lt;strong&gt;Infrastructure layer&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Stay tuned and tweet if you want the next episode.&lt;/p&gt;</description>
+            <pubDate>Tue, 29 Apr 2014 00:00:00 +0200</pubDate>
+            <link>http://welcometothebundle.com//domain-driven-design-and-symfony-for-simple-app</link>
+            <guid isPermaLink="true">http://welcometothebundle.com//domain-driven-design-and-symfony-for-simple-app</guid>
+        </item>
+        
+        <item>
             <title>Persist the Money, Doctrine Value Object</title>
             <description>&lt;p&gt;Working on large projects, I noticed that we lose too much time thinking about the famous ‘M’ of the &lt;em&gt;MVC&lt;/em&gt; pattern instead of thinking about the communication of the various modules.&lt;/p&gt;
 
@@ -20,7 +342,7 @@
 
 &lt;h2 id=&quot;identify_a_value_object&quot;&gt;Identify a Value Object&lt;/h2&gt;
 
-&lt;p&gt;The most simple recipe to identify an entity from a value object:&lt;/p&gt;
+&lt;p&gt;A simplified recipe to identify an entity from a value object:&lt;/p&gt;
 
 &lt;p&gt;if an object needs a life cycle, if an object needs to be identified is an Entity.&lt;/p&gt;
 
@@ -78,7 +400,7 @@
 class Order
 {
     /** @Id */
-    private $money;
+    private $id;
 
     /** @Embedded(class = &amp;quot;Money&amp;quot;) */
     private $money;
@@ -87,7 +409,7 @@ class Order
 /** @Embeddable */
 class Money
 {
-    /** @Column(type = &amp;quot;decimal&amp;quot;) */
+    /** @Column(type = &amp;quot;int&amp;quot;) */ // better then decimal see the mathiasverraes/money documentation
     private $amount;
 
     /** @Column(type = &amp;quot;string&amp;quot;) */
@@ -96,7 +418,7 @@ class Money
 
 &lt;p&gt;Is also possible to use DQL to order by the amount or to filter using the fields of the Value Object.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;SELECT o FROM User o WHERE o.money.currency = :currency&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;SELECT o FROM Order o WHERE o.money.currency = :currency&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;A very used library for handle &lt;a href=&quot;https://packagist.org/packages/mathiasverraes/money&quot;&gt;Money is here&lt;/a&gt; thanks to &lt;a href=&quot;https://twitter.com/mathiasverraes&quot;&gt;@mathiasverraes&lt;/a&gt;&lt;/p&gt;
 
@@ -1913,159 +2235,6 @@ Behaviour Interface LoggerInterface
             <pubDate>Sun, 10 Mar 2013 00:00:00 +0100</pubDate>
             <link>http://welcometothebundle.com//it-is-all-about-behaviour-also-in-php</link>
             <guid isPermaLink="true">http://welcometothebundle.com//it-is-all-about-behaviour-also-in-php</guid>
-        </item>
-        
-        <item>
-            <title>The meaning of Cache for a web developer no more too many connection</title>
-            <description>&lt;p&gt;In the place of Mr. Obvious I’m going to describe what really cache means, there is a lot of confusion between what the cache &lt;strong&gt;is&lt;/strong&gt;, what it &lt;strong&gt;does&lt;/strong&gt; and all the possible &lt;strong&gt;uses&lt;/strong&gt; and &lt;strong&gt;implementations&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;All the fuss comes from the use&lt;strong&gt;s&lt;/strong&gt; of that polysemous word.&lt;/p&gt;
-
-&lt;h2 id=&quot;definition&quot;&gt;Definition:&lt;/h2&gt;
-
-&lt;p&gt;We should start from &lt;strong&gt;Wikipedia&lt;/strong&gt;, “Cache is a component that transparently stores data so that future requests for that data can be served faster.”&lt;/p&gt;
-
-&lt;p&gt;So instead of doing a time consuming calculation if you already ‘remember’ the result answer it.&lt;/p&gt;
-
-&lt;p&gt;The concept seems simple, the problem is it could be used in a myriad of ways.&lt;/p&gt;
-
-&lt;p&gt;Important words:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;A &lt;strong&gt;Cache Hit&lt;/strong&gt; happens if the Cache contains the answer.&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;A &lt;strong&gt;Cache Miss&lt;/strong&gt; happens if the Cache doesn’t contain the answer.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;some_standard_code&quot;&gt;Some ‘standard’ Code:&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;Doctrine&lt;/strong&gt; defines the cache interface with &lt;a href=&quot;https://github.com/doctrine/cache/blob/master/lib/Doctrine/Common/Cache/Cache.php&quot;&gt;Doctrine/Common/Cache/Cache.php&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;function fetch($id);
-function contains($id);
-function save($id, $data, $lifeTime = 0);
-function delete($id);&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;PHP fig-standards&lt;/strong&gt; proposed the cache with &lt;a href=&quot;https://github.com/php-fig/fig-standards/issues?labels=Cache&amp;page=1&amp;state=open&quot;&gt;proposed/PSR-Cache.md&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;implementations&quot;&gt;Implementations:&lt;/h2&gt;
-
-&lt;p&gt;As web developers the cache is an essential tool, we have to divide the cache features from its implementations.&lt;/p&gt;
-
-&lt;h3 id=&quot;1_http_cache&quot;&gt;1. HTTP Cache&lt;/h3&gt;
-
-&lt;h4 id=&quot;description&quot;&gt;Description&lt;/h4&gt;
-
-&lt;p&gt;OK - describing the HTTP Cache is a huge task, and heaps of great developers already did this (&lt;a href=&quot;https://www.google.com/search?q=http+cache&quot;&gt;google&lt;/a&gt;, &lt;a href=&quot;http://www.slideshare.net/fabpot/caching-on-the-edge&quot;&gt;fabpot/caching-on-the-edge&lt;/a&gt;), the concept in few lines is that you are a web developer, and the web works with the HTTP Protocol, so you HAVE to study the HTTP Protocol.&lt;/p&gt;
-
-&lt;p&gt;I won’t go in depth with HTTP Protocol and Cache, but understanding the HTTP protocol turns a developer in a web developer.&lt;/p&gt;
-
-&lt;p&gt;The actors in the HTTP Cache are: your web-server, your reverse proxy (as Varnish or Squid), the Shared cache server&lt;strong&gt;s&lt;/strong&gt; (more than one) and the client browser cache.&lt;/p&gt;
-
-&lt;p&gt;This is the best Cache and the most powerful, you could create many cache layers on your application, but if you set up the HTTP headers properly the first time, the next requests will be served for free. &lt;strong&gt;The least expensive query is the query you never had&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;enemies&quot;&gt;Enemies&lt;/h4&gt;
-
-&lt;p&gt;An enemy of your mental health is the &lt;strong&gt;invalidation&lt;/strong&gt;, do not waste time trying to find a solutions for invalidating cache, choose only the best validation.&lt;/p&gt;
-
-&lt;p&gt;The HTTP cache enemy? Cookies and Sessions (see how to solve it thanks to &lt;a href=&quot;https://www.google.it/search?client=ubuntu&amp;channel=fs&amp;q=ESI+cache&amp;ie=utf-8&amp;oe=utf-8&amp;redir_esc=&amp;ei=P6QnUbS5AsbKtAbdQQ&quot;&gt;ESI&lt;/a&gt;)&lt;/p&gt;
-
-&lt;h4 id=&quot;best_tools&quot;&gt;Best Tools&lt;/h4&gt;
-
-&lt;p&gt;Varnish / Squid&lt;/p&gt;
-
-&lt;h3 id=&quot;2_opcode&quot;&gt;2. Opcode&lt;/h3&gt;
-
-&lt;h4 id=&quot;description_2&quot;&gt;Description&lt;/h4&gt;
-
-&lt;p&gt;“APC is a performance-enhancing extension. It should not be confused with a magic pill, although having it around does provide a positive impact on performance! If configured incorrectly, APC can cause unexpected behaviour, however when implemented optimally APC can be a useful weapon in your arsenal.” &lt;a href=&quot;http://techportal.inviqa.com/2010/10/07/understanding-apc/&quot;&gt;read more on understanding APC&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;This should be a must for you my dear PHP developer.&lt;/p&gt;
-
-&lt;h4 id=&quot;best_tools_2&quot;&gt;Best Tools&lt;/h4&gt;
-
-&lt;p&gt;APC o Zend Optimizer+.&lt;/p&gt;
-
-&lt;h3 id=&quot;3_the_cache_of_your_application__framework&quot;&gt;3. The Cache of your application / framework&lt;/h3&gt;
-
-&lt;h4 id=&quot;description_3&quot;&gt;Description&lt;/h4&gt;
-
-&lt;p&gt;The framework is a tool that should helps you sort and easily create the logic of your domain, to do this it provides files and configurators, which are usually elaborated in PHP files, the cache is used to not process at each request.&lt;/p&gt;
-
-&lt;p&gt;For example with Symfony2 in the application cache folders you will find, Url creator files, Proxy Classes, Configuration files (ini, yml, xml) converted to PHP files, Annotations etc&lt;/p&gt;
-
-&lt;h4 id=&quot;best_tools_3&quot;&gt;Best Tools&lt;/h4&gt;
-
-&lt;p&gt;Configuration file to PHP then any Opcode.&lt;/p&gt;
-
-&lt;h3 id=&quot;4_template_and_file_system_caching&quot;&gt;4. Template and File System Caching&lt;/h3&gt;
-
-&lt;h4 id=&quot;description_4&quot;&gt;Description&lt;/h4&gt;
-
-&lt;p&gt;Good Template engines, Smarty and Twig provide a caching system using precompiled pieces of code already in a file into the file system.&lt;/p&gt;
-
-&lt;h4 id=&quot;best_tools_4&quot;&gt;Best Tools&lt;/h4&gt;
-
-&lt;p&gt;There is no better cache then the Opcode for serving this type of file.&lt;/p&gt;
-
-&lt;p&gt;Recently a Pull Request has also been refused, it allows Twig to use any other type of cache &lt;a href=&quot;https://github.com/fabpot/Twig/issues/728&quot;&gt;issue on github&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;5_query_results&quot;&gt;5. Query Results&lt;/h3&gt;
-
-&lt;h4 id=&quot;description_5&quot;&gt;Description&lt;/h4&gt;
-
-&lt;p&gt;You are Object Oriented programmers, do not waste your time normalizing the database, if you have too many JOIN delegated the speed to the cache layer.&lt;/p&gt;
-
-&lt;p&gt;Queries can be large objects, better to put a centralized server, The enemy is the period of validity vs. freshness, and the size of the query.&lt;/p&gt;
-
-&lt;h4 id=&quot;best_tools_5&quot;&gt;Best Tools&lt;/h4&gt;
-
-&lt;p&gt;Redis/Memcache(d), but &lt;a href=&quot;http://www.slideshare.net/uptimeforce/postgresql-query-cache-pqc&quot;&gt;PostgreSQL-cache&lt;/a&gt; has a great internal cache layer, also MySQL has it.&lt;/p&gt;
-
-&lt;h3 id=&quot;6_query_caching&quot;&gt;6. Query Caching&lt;/h3&gt;
-
-&lt;h4 id=&quot;description_6&quot;&gt;Description&lt;/h4&gt;
-
-&lt;p&gt;Some ORM as Doctrine stores the query creation in order to not process it twice.&lt;/p&gt;
-
-&lt;h4 id=&quot;best_tools_6&quot;&gt;Best Tools&lt;/h4&gt;
-
-&lt;p&gt;APC or Redis/Memcache(d)&lt;/p&gt;
-
-&lt;h2 id=&quot;simple_rules&quot;&gt;Simple Rules&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;If you want to not process content of ini files or xml files or yml files, you could convert to PHP or you could store data see &lt;strong&gt;3.&lt;/strong&gt;&lt;/li&gt;
-
-&lt;li&gt;If you want to cache PHP files use Opcode caching.&lt;/li&gt;
-
-&lt;li&gt;If you want to store variable contents or Objects use Redis, Memcache(d), or you could also use APC &lt;a href=&quot;http://php.net/manual/en/function.apc-store.php&quot;&gt;apc-store&lt;/a&gt; (suggested if you have a single web server)&lt;/li&gt;
-
-&lt;li&gt;If you have provide some content use HTTP Cache always and in order to serve assets (file css, js, static content) use some famous CDN or Nginx or some free/cheap cdn service on the net.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;other_cache_mechanisms&quot;&gt;Other Cache mechanisms&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Pre-Caching/Cacheback, sometimes you need to have some data already available and you don’t want that the first request wait some slow task &lt;a href=&quot;http://codeinthehole.com/writing/cacheback-asynchronous-cache-refreshing-for-django&quot;&gt;cacheback-asynchronous-cache-refreshing-for-django&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.howtoforge.com/why-you-should-always-use-nginx-with-microcaching&quot;&gt;Microcaching&lt;/a&gt;, few seconds of cache, useful for GET or &lt;strong&gt;POST&lt;/strong&gt;. I said &lt;strong&gt;POST&lt;/strong&gt;, do not it seemed strange to you? If you jumped on the chair is ok, POST on cache is insane, unless you do not want to avoid double click.&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;Before there were static website in HTML, then dynamic languages ​​and databases, and we finally came to the static pages again, this blog has been developed with &lt;a href=&quot;http://jekyllbootstrap.com/lessons/jekyll-introduction.html&quot;&gt;jekyll&lt;/a&gt;,&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</description>
-            <pubDate>Fri, 22 Feb 2013 00:00:00 +0100</pubDate>
-            <link>http://welcometothebundle.com//the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection</link>
-            <guid isPermaLink="true">http://welcometothebundle.com//the-meaning-of-cache-for-a-web-developer-no-more-too-many-connection</guid>
         </item>
         
     </channel>
