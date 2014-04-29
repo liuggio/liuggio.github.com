@@ -337,7 +337,7 @@
 
 <p>Around 2003/2004 I gave birth to a PHP framework that would help me on some small software, was a jumble of libraries stacked with copy and paste, starting from <a href="https://www.phpnuke.org/">php-nuke</a>. I released it on <a href="https://www.sourceforge.net">sourceforge</a> the project had many “include” and a few contributors, the name of the project is a secret, it was a youth error.</p>
 
-<p>That was the first time I understood that the decoupling not occur only at the class level, and the potential of using a library for the template and a library for the database abstraction gave to me a new mindset, in the meanwhile Eric Evans was publising <a href="http://www.amazon.it/gp/product/0321125215/ref=pd_lpo_sbs_dp_ss_1">the Blue Book</a> .</p>
+<p>That was the first time I understood that the decoupling not occur only at the class level, and the potential of using a library for the template and a library for the database abstraction gave to me a new mindset, in the meanwhile Eric Evans was publishing <a href="http://www.amazon.it/gp/product/0321125215/ref=pd_lpo_sbs_dp_ss_1">the Blue Book</a> .</p>
 
 <p>My programming style has changed, and I do not understand how music artists or painters keep their style for an entire career, even in the same version of Symfony my developing style changes and evolves.</p>
 
@@ -397,7 +397,7 @@
 
 <h4 id="something_wrong_and_anemic_domain_model">Something wrong and Anemic Domain Model</h4>
 
-<p>A couple of years ago after a big project in Symfony2, I realized there was something that could be improved, too many bundles, too many entities persisted without a value, too many connections, too may fat services, too much Symfony2-centric application, something had changed, and in the my PHP community began to appear articles from <a href="http://williamdurand.fr">williamdurand</a> and <a href="http://verraes.net/">Verraes</a> on how we could improve this pattern.</p>
+<p>A couple of years ago after a big project in Symfony2, I realized there was something that could be improved, too many bundles, too many entities persisted without a value, too many connections, too many fat services, too much Symfony2-centric application, something had changed, and in the my PHP community began to appear articles from <a href="http://williamdurand.fr">williamdurand</a> and <a href="http://verraes.net/">Verraes</a> on how we could improve this pattern.</p>
 
 <p>Connected bundles wasn’t the biggest problem, the system was suffering also of <a href="http://www.martinfowler.com/bliki/AnemicDomainModel.html">Anemic Domain Model</a>.</p>
 
@@ -413,9 +413,9 @@
 
 <h3 id="layered_architecture">Layered Architecture</h3>
 
-<p>What has most changed the way I develop is discovering different layers, separating the various concerns of our application by isolating the expression of domain model and business logic, eliminate any dependency from the business logic.</p>
+<p>The thing that most changed the way I develop is discovering different layers and separating the various concerns of our application by isolating the expression of domain model and business logic, eliminate any dependency from the business logic.</p>
 
-<p>For <a href="http://www.amazon.com/Pattern-Oriented-Software-Architecture-Volume-Patterns/dp/0471958697/ref=tmm_hrd_title_0?">Buschmann</a> there are 4 layers, the internal layer is when you have to define the outlines of the use cases <strong>Domain Layer</strong>, then the flow of the behavior <strong>Application Layer</strong>, then how to present to the user <strong>User Interface layer</strong> and finaly how to implement them <strong>Infrastructure Layer</strong> the choice of the framework should be made in this final layer.</p>
+<p>For <a href="http://www.amazon.com/Pattern-Oriented-Software-Architecture-Volume-Patterns/dp/0471958697/ref=tmm_hrd_title_0?">Buschmann</a> there are 4 layers, the internal layer is when you have to define the outlines of the use cases <strong>Domain Layer</strong>, then the flow of the behavior <strong>Application Layer</strong>, then how to present to the user <strong>User Interface layer</strong> and finally how to implement them <strong>Infrastructure Layer</strong> the choice of the framework should be made in this final layer.</p>
 
 <p>At the beginning we do not want to think about how we will save our objects, we just want the use cases satisfied, we do not want to think about which framework we will use, we are in the <code>Domain Layer</code>.</p>
 <blockquote>It doesn't depend on any particular UI or service interface-related technology, it just describes use cases.</blockquote>
@@ -451,7 +451,7 @@ bin/behat --init</code></pre>
 
 <p>So we have completed the outside specification, now we could go deep inside with <code>phpspec</code> describing the behaviours of our domain.</p>
 
-<p>We have recognized 2 entities <code>Post</code> and <code>Author</code> they didn’t change togheter so they are 2 different concept, they are <code>Entity</code> and not value objects because they could change, and they have a lifecycle, and we do want to identify an Author or a Post.</p>
+<p>We have recognized 2 entities <code>Post</code> and <code>Author</code> they didn’t change together so they are 2 different concept, they are <code>Entity</code> and not value objects because they could change, and they have a lifecycle, and we do want to identify an Author or a Post.</p>
 
 <p>Install the tool that helps you to design focusing on the behaviors:</p>
 

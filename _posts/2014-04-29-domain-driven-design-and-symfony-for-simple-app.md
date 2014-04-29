@@ -25,7 +25,7 @@ was a jumble of libraries stacked with copy and paste, starting from [php-nuke](
 I released it on [sourceforge](https://www.sourceforge.net) the project had many "include" and a few contributors,
 the name of the project is a secret, it was a youth error.
 
-That was the first time I understood that the decoupling not occur only at the class level, and the potential of using a library for the template and a library for the database abstraction gave to me a new mindset, in the meanwhile Eric Evans was publising [the Blue Book](http://www.amazon.it/gp/product/0321125215/ref=pd_lpo_sbs_dp_ss_1) .
+That was the first time I understood that the decoupling not occur only at the class level, and the potential of using a library for the template and a library for the database abstraction gave to me a new mindset, in the meanwhile Eric Evans was publishing [the Blue Book](http://www.amazon.it/gp/product/0321125215/ref=pd_lpo_sbs_dp_ss_1) .
 
 My programming style has changed,
 and I do not understand how music artists or painters keep their style for an entire career,
@@ -88,7 +88,7 @@ http://blog.codinghorror.com/i-shall-call-it-somethingmanager/
 
 #### Something wrong and Anemic Domain Model
 
-A couple of years ago after a big project in Symfony2, I realized there was something that could be improved, too many bundles, too many entities persisted without a value, too many connections, too may fat services, too much Symfony2-centric application, something had changed, and in the my PHP community began to appear articles from [williamdurand](http://williamdurand.fr) and [Verraes](http://verraes.net/) on how we could improve this pattern.
+A couple of years ago after a big project in Symfony2, I realized there was something that could be improved, too many bundles, too many entities persisted without a value, too many connections, too many fat services, too much Symfony2-centric application, something had changed, and in the my PHP community began to appear articles from [williamdurand](http://williamdurand.fr) and [Verraes](http://verraes.net/) on how we could improve this pattern.
 
 Connected bundles wasn't the biggest problem, the system was suffering also of [Anemic Domain Model](http://www.martinfowler.com/bliki/AnemicDomainModel.html).
 
@@ -106,10 +106,10 @@ Thinking first about objects that has to perform behaviors, protagonists of the 
 
 ### Layered Architecture
 
-What has most changed the way I develop is discovering different layers, separating the various concerns of our application by isolating the expression of domain model and business logic, eliminate any dependency from the business logic.
+The thing that most changed the way I develop is discovering different layers and separating the various concerns of our application by isolating the expression of domain model and business logic, eliminate any dependency from the business logic.
 
 For [Buschmann](http://www.amazon.com/Pattern-Oriented-Software-Architecture-Volume-Patterns/dp/0471958697/ref=tmm_hrd_title_0?) there are 4 layers, the internal layer is when you have to define the outlines of the use cases **Domain Layer**,
-then the flow of the behavior **Application Layer**, then how to present to the user **User Interface layer** and finaly how to implement them **Infrastructure Layer** the choice of the framework should be made in this final layer.
+then the flow of the behavior **Application Layer**, then how to present to the user **User Interface layer** and finally how to implement them **Infrastructure Layer** the choice of the framework should be made in this final layer.
 
 At the beginning we do not want to think about how we will save our objects, we just want the use cases satisfied, we do not want to think about which framework we will use, we are in the `Domain Layer`.
 
@@ -147,7 +147,7 @@ So we start writing the business goal in `features/post.feature`
 
 So we have completed the outside specification, now we could go deep inside with `phpspec` describing the behaviours of our domain.
 
-We have recognized 2 entities `Post` and `Author` they didn't change togheter so they are 2 different concept, they are `Entity` and not value objects because they could change, and they have a lifecycle, and we do want to identify an Author or a Post.
+We have recognized 2 entities `Post` and `Author` they didn't change together so they are 2 different concept, they are `Entity` and not value objects because they could change, and they have a lifecycle, and we do want to identify an Author or a Post.
 
 Install the tool that helps you to design focusing on the behaviors:
 
