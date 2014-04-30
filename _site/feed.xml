@@ -20,7 +20,7 @@
 
 &lt;p&gt;Around 2003/2004 I gave birth to a PHP framework that would help me on some small software, was a jumble of libraries stacked with copy and paste, starting from &lt;a href=&quot;https://www.phpnuke.org/&quot;&gt;php-nuke&lt;/a&gt;. I released it on &lt;a href=&quot;https://www.sourceforge.net&quot;&gt;sourceforge&lt;/a&gt; the project had many “include” and a few contributors, the name of the project is a secret, it was a youth error.&lt;/p&gt;
 
-&lt;p&gt;That was the first time I understood that the decoupling not occur only at the class level, and the potential of using a library for the template and a library for the database abstraction gave to me a new mindset, in the meanwhile Eric Evans was publishing &lt;a href=&quot;http://www.amazon.it/gp/product/0321125215/ref=pd_lpo_sbs_dp_ss_1&quot;&gt;the Blue Book&lt;/a&gt; .&lt;/p&gt;
+&lt;p&gt;That was the first time I understood that the decoupling not occurs only at the class level, and the benefit of using a library for the template and a library for the database abstraction gave to me a new mindset, in the meanwhile Eric Evans was publishing &lt;a href=&quot;http://www.amazon.it/gp/product/0321125215/ref=pd_lpo_sbs_dp_ss_1&quot;&gt;the Blue Book&lt;/a&gt; .&lt;/p&gt;
 
 &lt;p&gt;My programming style has changed, and I do not understand how music artists or painters keep their style for an entire career, even in the same version of Symfony my developing style changes and evolves.&lt;/p&gt;
 
@@ -29,15 +29,15 @@
 &lt;p&gt;Stories:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;As Author I want to be able to create a new Blog-Post as draft&lt;/li&gt;
+&lt;li&gt;As Author I want to be able to write a new Blog-Post as draft.&lt;/li&gt;
 
-&lt;li&gt;Given a blog-post already created, as Author I want to be able to publish new Blog-Post&lt;/li&gt;
+&lt;li&gt;Given a blog-post already written, as Author I want to be able to publish a new Blog-Post.&lt;/li&gt;
 
-&lt;li&gt;The Blog-Post has always an Author, a title and a body.&lt;/li&gt;
+&lt;li&gt;The Blog-Post is written by an Author with a title and a body.&lt;/li&gt;
 
-&lt;li&gt;When a blog post is created is not public.&lt;/li&gt;
+&lt;li&gt;When a blog post is written is not public.&lt;/li&gt;
 
-&lt;li&gt;As Author I want to see a list of all my posts&lt;/li&gt;
+&lt;li&gt;As Author I want to see a list of my posts.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3 id=&quot;before_code_first_it_means_bundlefirst&quot;&gt;Before: code first (it means bundle-first).&lt;/h3&gt;
@@ -80,13 +80,13 @@
 
 &lt;h4 id=&quot;something_wrong_and_anemic_domain_model&quot;&gt;Something wrong and Anemic Domain Model&lt;/h4&gt;
 
-&lt;p&gt;A couple of years ago after a big project in Symfony2, I realized there was something that could be improved, too many bundles, too many entities persisted without a value, too many connections, too many fat services, too much Symfony2-centric application, something had changed, and in the my PHP community began to appear articles from &lt;a href=&quot;http://williamdurand.fr&quot;&gt;williamdurand&lt;/a&gt; and &lt;a href=&quot;http://verraes.net/&quot;&gt;Verraes&lt;/a&gt; on how we could improve this pattern.&lt;/p&gt;
+&lt;p&gt;A couple of years ago after a big project in Symfony2, I realized there was something that could be improved, too many bundles, too many entities persisted without a real value, too many connections, too many fat services, too much Symfony2-centric application, something had changed, and in the my PHP community began to appear articles from &lt;a href=&quot;http://williamdurand.fr&quot;&gt;williamdurand&lt;/a&gt; and &lt;a href=&quot;http://verraes.net/&quot;&gt;Verraes&lt;/a&gt; on how we could improve this pattern.&lt;/p&gt;
 
 &lt;p&gt;Connected bundles wasn’t the biggest problem, the system was suffering also of &lt;a href=&quot;http://www.martinfowler.com/bliki/AnemicDomainModel.html&quot;&gt;Anemic Domain Model&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;What is the problem of moving a lot of logic in the service?&lt;/p&gt;
+&lt;p&gt;What is the problem of moving a lot of logic in the services?&lt;/p&gt;
 
-&lt;p&gt;The service should reside in the application layer should be small by definition:&lt;/p&gt;
+&lt;p&gt;A service should reside in the application layer should be small by definition:&lt;/p&gt;
 &lt;blockquote&gt;In general, the more behavior you find in the services, the more likely you are to be robbing yourself of the benefits of a domain model. If all your logic is in services, you've robbed yourself blind.&lt;small&gt;Martin Fowler&lt;/small&gt;&lt;/blockquote&gt;
 &lt;h2 id=&quot;today&quot;&gt;Today&lt;/h2&gt;
 
@@ -96,7 +96,7 @@
 
 &lt;h3 id=&quot;layered_architecture&quot;&gt;Layered Architecture&lt;/h3&gt;
 
-&lt;p&gt;The thing that most changed the way I develop is discovering different layers and separating the various concerns of our application by isolating the expression of domain model and business logic, eliminate any dependency from the business logic.&lt;/p&gt;
+&lt;p&gt;The thing that mostly changed the way I develop is the separation of the various concerns of our application by isolating the expression of domain model and business logic, eliminate any dependency from the business logic.&lt;/p&gt;
 
 &lt;p&gt;For &lt;a href=&quot;http://www.amazon.com/Pattern-Oriented-Software-Architecture-Volume-Patterns/dp/0471958697/ref=tmm_hrd_title_0?&quot;&gt;Buschmann&lt;/a&gt; there are 4 layers, the internal layer is when you have to define the outlines of the use cases &lt;strong&gt;Domain Layer&lt;/strong&gt;, then the flow of the behavior &lt;strong&gt;Application Layer&lt;/strong&gt;, then how to present to the user &lt;strong&gt;User Interface layer&lt;/strong&gt; and finally how to implement them &lt;strong&gt;Infrastructure Layer&lt;/strong&gt; the choice of the framework should be made in this final layer.&lt;/p&gt;
 
@@ -112,29 +112,29 @@ bin/behat --init&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;So we start writing the business goal in &lt;code&gt;features/post.feature&lt;/code&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt; Scenario: Create a new blog post
-    Given I am an author
+&lt;pre&gt;&lt;code&gt; Scenario: Write a new blog Post
+    Given I am an Author
     When I fill in the following:
       |  First Post | Great Description |
-    Then the &amp;quot;First Post&amp;quot; post should be saved.
+    Then the &amp;quot;First Post&amp;quot; post should be written.
 
-  Scenario: Publish a blog post
-    Given I am an author
-    And I have a post with &amp;quot;First Post&amp;quot; and &amp;quot;Great Description&amp;quot; as description
+  Scenario: Publish a blog Post
+    Given I am an Author
+    And I wrote a post with &amp;quot;First Post&amp;quot; and &amp;quot;Great Description&amp;quot; as description
     When I publish the post with the title &amp;quot;First Post&amp;quot;
     Then the &amp;quot;First Post&amp;quot; post should be public.
 
   Scenario: List of all my posts
     Given I am an author
-    And I have written the following:
+    And I wrote the following posts:
       |  First Post | Great Description |
       |  Second Post | Bad Description |
-    When I see the list of all my post
+    When I see the list of all my posts
     Then the &amp;quot;First Post&amp;quot; and the &amp;quot;Second Post&amp;quot; should be shown.&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;So we have completed the outside specification, now we could go deep inside with &lt;code&gt;phpspec&lt;/code&gt; describing the behaviours of our domain.&lt;/p&gt;
 
-&lt;p&gt;We have recognized 2 entities &lt;code&gt;Post&lt;/code&gt; and &lt;code&gt;Author&lt;/code&gt; they didn’t change together so they are 2 different concept, they are &lt;code&gt;Entity&lt;/code&gt; and not value objects because they could change, and they have a lifecycle, and we do want to identify an Author or a Post.&lt;/p&gt;
+&lt;p&gt;We have recognized 2 entities &lt;code&gt;Post&lt;/code&gt; and &lt;code&gt;Author&lt;/code&gt; they didn’t change together so they are 2 different concepts, they are &lt;code&gt;Entity&lt;/code&gt; and not value objects because they could change, and they have a lifecycle, and we do want to identify an Author or a Post.&lt;/p&gt;
 
 &lt;p&gt;Install the tool that helps you to design focusing on the behaviors:&lt;/p&gt;
 
@@ -145,19 +145,19 @@ bin/phpspec describe Liuggio/Blog/Post&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;We want to describe how the &lt;code&gt;Post&lt;/code&gt; entity will works before writing the code:&lt;/p&gt;
 
-&lt;h5 id=&quot;the_blogpost_has_always_an_author_a_title_and_a_body&quot;&gt;The Blog-Post has always an Author, a title and a body.&lt;/h5&gt;
+&lt;h5 id=&quot;the_blogpost_is_written_by_an_author_with_a_title_and_a_body&quot;&gt;The Blog-Post is written by an Author with a title and a body.&lt;/h5&gt;
 
 &lt;p&gt;describing the specification in &lt;code&gt;spec/postSpec.php&lt;/code&gt;:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;function it_should_be_created_with_author_title_and_text()
+&lt;pre&gt;&lt;code&gt;function it_should_be_written_by_an_author_containing_a_title_and_body()
 {
 }
 
-function it_should_be_created_as_drafted()
+function it_should_be_written_as_drafted()
 {
 }
 
-function it_should_move_from_drafted_to_published()
+function it_should_be_published()
 {
 }&lt;/code&gt;&lt;/pre&gt;
 
@@ -165,11 +165,11 @@ function it_should_move_from_drafted_to_published()
 
 &lt;pre&gt;&lt;code&gt;$ bin/phpspec  run --format=pretty
   post
-10  - should be created by an author a title and a text
+10  - should be written by an author containing a title and a body
     todo: write pending example
-14  - should be created as drafted
+14  - should be written as drafted
     todo: write pending example
-18  - should move from drafted to published
+18  - should be published
     todo: write pending example
 1 specs
 3 examples (3 pending)
@@ -204,7 +204,7 @@ function it_should_move_from_drafted_to_published()
 
 &lt;p&gt;Back to our Blog specifications we could add here the Author &lt;code&gt;spec/Liuggio/Blog/PostSpec.php&lt;/code&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;function it_should_be_created_always with_author_title_and_body(Author $author)
+&lt;pre&gt;&lt;code&gt;function it_should_be_written_by_an_author_containing_a_title_and_body(Author $author)
 {
     $this-&amp;gt;beConstructedWith($author, 'title', 'body');
     $this-&amp;gt;shouldHaveType('Liuggio\Blog\Post');
@@ -223,7 +223,7 @@ function it_should_move_from_drafted_to_published()
 
 &lt;p&gt;What changed is that we don’t care here about Doctrine and Identity, we care only about the behaviour.&lt;/p&gt;
 
-&lt;h5 id=&quot;when_a_blog_post_is_created_is_not_public&quot;&gt;When a blog post is created is not public&lt;/h5&gt;
+&lt;h5 id=&quot;when_a_blog_post_is_written_is_not_public&quot;&gt;When a blog post is written is not public&lt;/h5&gt;
 
 &lt;p&gt;We have to add an object that represents the state of the post, we are going to use a Value Object.&lt;/p&gt;
 
@@ -233,7 +233,7 @@ function it_should_move_from_drafted_to_published()
 
 &lt;p&gt;&lt;code&gt;spec/Liuggio/Blog/PostSpec.php&lt;/code&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;function it_should_be_created_as_drafted()
+&lt;pre&gt;&lt;code&gt;function it_should_be_written_as_drafted()
 {
     $this-&amp;gt;isPublic()-&amp;gt;shouldBe(false);
 }&lt;/code&gt;&lt;/pre&gt;
@@ -256,7 +256,7 @@ function it_should_move_from_drafted_to_published()
 
 &lt;p&gt;&lt;code&gt;spec/Liuggio/Blog/PostSpec.php&lt;/code&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;function it_should_move_from_drafted_to_published()
+&lt;pre&gt;&lt;code&gt;function it_should_be_published()
 {
     $this-&amp;gt;publish();
     $this-&amp;gt;isPublic()-&amp;gt;shouldBe(true);
@@ -268,7 +268,7 @@ function it_should_raise_exception_during_publish_if_it_was_alread_public()
     $this-&amp;gt;shouldThrow('Exception')-&amp;gt;duringPublish();
 }&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;We have reached a point where our entities &lt;code&gt;Post&lt;/code&gt; will&lt;/p&gt;
+&lt;p&gt;We have reached a point where our entity &lt;code&gt;Post&lt;/code&gt; will be like:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;class Post
 {
@@ -315,6 +315,13 @@ composer install
 git checkout -f part-1&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;All the tags for the demo project at &lt;a href=&quot;https://github.com/liuggio/DDD-dummy-blog-with-symfony2/tags&quot;&gt;tags&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;edited_30042014&quot;&gt;EDITED 30/04/2014&lt;/h3&gt;
+
+&lt;p&gt;I love feedbacks:&lt;/p&gt;
+&lt;blockquote&gt;Good post but Ubiquitous Language is lacking. You don't &quot;create&quot; blog post, it is written. A post doesn't &quot;have&quot; an author etc
+&lt;small&gt;&lt;a href='https://twitter.com/mathiasverraes'&gt;&lt;img alt='@mathiasverraes' src='http://www.gravatar.com/avatar/3a7cb0c3c8d5864e2e72c49cafc3e4d5?s=25' /&gt;@mathiasverraes&lt;/a&gt;&lt;/small&gt;&lt;/blockquote&gt;
+&lt;p&gt;then I modified the stories and the behaviours.&lt;/p&gt;
 
 &lt;h2 id=&quot;next&quot;&gt;Next?&lt;/h2&gt;
 

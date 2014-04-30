@@ -25,7 +25,7 @@ was a jumble of libraries stacked with copy and paste, starting from [php-nuke](
 I released it on [sourceforge](https://www.sourceforge.net) the project had many "include" and a few contributors,
 the name of the project is a secret, it was a youth error.
 
-That was the first time I understood that the decoupling not occur only at the class level, and the potential of using a library for the template and a library for the database abstraction gave to me a new mindset, in the meanwhile Eric Evans was publishing [the Blue Book](http://www.amazon.it/gp/product/0321125215/ref=pd_lpo_sbs_dp_ss_1) .
+That was the first time I understood that the decoupling not occurs only at the class level, and the benefit of using a library for the template and a library for the database abstraction gave to me a new mindset, in the meanwhile Eric Evans was publishing [the Blue Book](http://www.amazon.it/gp/product/0321125215/ref=pd_lpo_sbs_dp_ss_1) .
 
 My programming style has changed,
 and I do not understand how music artists or painters keep their style for an entire career,
@@ -35,11 +35,11 @@ To better understand how changed let's start with a real example:
 
 Stories:
 
-1. As Author I want to be able to create a new Blog-Post as draft
-2. Given a blog-post already created, as Author I want to be able to publish new Blog-Post
-3. The Blog-Post has always an Author, a title and a body.
-4. When a blog post is created is not public.
-5. As Author I want to see a list of all my posts
+1. As Author I want to be able to write a new Blog-Post as draft.
+2. Given a blog-post already written, as Author I want to be able to publish a new Blog-Post.
+3. The Blog-Post is written by an Author with a title and a body.
+4. When a blog post is written is not public.
+5. As Author I want to see a list of my posts.
 
 ### Before: code first (it means bundle-first).
 
@@ -88,13 +88,13 @@ http://blog.codinghorror.com/i-shall-call-it-somethingmanager/
 
 #### Something wrong and Anemic Domain Model
 
-A couple of years ago after a big project in Symfony2, I realized there was something that could be improved, too many bundles, too many entities persisted without a value, too many connections, too many fat services, too much Symfony2-centric application, something had changed, and in the my PHP community began to appear articles from [williamdurand](http://williamdurand.fr) and [Verraes](http://verraes.net/) on how we could improve this pattern.
+A couple of years ago after a big project in Symfony2, I realized there was something that could be improved, too many bundles, too many entities persisted without a real value, too many connections, too many fat services, too much Symfony2-centric application, something had changed, and in the my PHP community began to appear articles from [williamdurand](http://williamdurand.fr) and [Verraes](http://verraes.net/) on how we could improve this pattern.
 
 Connected bundles wasn't the biggest problem, the system was suffering also of [Anemic Domain Model](http://www.martinfowler.com/bliki/AnemicDomainModel.html).
 
-What is the problem of moving a lot of logic in the service?
+What is the problem of moving a lot of logic in the services?
 
-The service should reside in the application layer should be small by definition:
+A service should reside in the application layer should be small by definition:
 
 <blockquote>In general, the more behavior you find in the services, the more likely you are to be robbing yourself of the benefits of a domain model. If all your logic is in services, you've robbed yourself blind.<small>Martin Fowler</small></blockquote>
 
@@ -125,29 +125,30 @@ Install a BDD tool that helps you to write user stories:
 
 So we start writing the business goal in `features/post.feature`
 	
-	 Scenario: Create a new blog post
-	    Given I am an author
+	 Scenario: Write a new blog Post
+	    Given I am an Author
 	    When I fill in the following:
 	      |  First Post | Great Description |
-	    Then the "First Post" post should be saved.
+	    Then the "First Post" post should be written.
 
-	  Scenario: Publish a blog post
-	    Given I am an author
-	    And I have a post with "First Post" and "Great Description" as description
+	  Scenario: Publish a blog Post
+	    Given I am an Author
+	    And I wrote a post with "First Post" and "Great Description" as description
 	    When I publish the post with the title "First Post"
 	    Then the "First Post" post should be public.
 
 	  Scenario: List of all my posts
 	    Given I am an author
-	    And I have written the following:
+	    And I wrote the following posts:
 	      |  First Post | Great Description |
 	      |  Second Post | Bad Description |
-	    When I see the list of all my post
+	    When I see the list of all my posts
 	    Then the "First Post" and the "Second Post" should be shown.
 
 So we have completed the outside specification, now we could go deep inside with `phpspec` describing the behaviours of our domain.
 
-We have recognized 2 entities `Post` and `Author` they didn't change together so they are 2 different concept, they are `Entity` and not value objects because they could change, and they have a lifecycle, and we do want to identify an Author or a Post.
+We have recognized 2 entities `Post` and `Author` they didn't change together so they are 2 different concepts, 
+they are `Entity` and not value objects because they could change, and they have a lifecycle, and we do want to identify an Author or a Post.
 
 Install the tool that helps you to design focusing on the behaviors:
 
@@ -158,19 +159,19 @@ Install the tool that helps you to design focusing on the behaviors:
 
 We want to describe how the `Post` entity will works before writing the code:
 
-##### The Blog-Post has always an Author, a title and a body.
+##### The Blog-Post is written by an Author with a title and a body.
 
 describing the specification in `spec/postSpec.php`:
 
-	function it_should_be_created_with_author_title_and_text()
+	function it_should_be_written_by_an_author_containing_a_title_and_body()
     {
     }
 
-    function it_should_be_created_as_drafted()
+    function it_should_be_written_as_drafted()
     {
     }
 
-    function it_should_move_from_drafted_to_published()
+    function it_should_be_published()
     {
     }
 
@@ -178,11 +179,11 @@ Running phpspec you will have:
 
 	$ bin/phpspec  run --format=pretty
 	  post
-	10  - should be created by an author a title and a text
+	10  - should be written by an author containing a title and a body
 	    todo: write pending example
-	14  - should be created as drafted
+	14  - should be written as drafted
 	    todo: write pending example
-	18  - should move from drafted to published
+	18  - should be published
 	    todo: write pending example
 	1 specs
 	3 examples (3 pending)
@@ -217,7 +218,7 @@ We prefer to have in the constructor `$nickname`, in this way we are protecting 
 
 Back to our Blog specifications we could add here the Author `spec/Liuggio/Blog/PostSpec.php`
 
-	function it_should_be_created_always with_author_title_and_body(Author $author)
+	function it_should_be_written_by_an_author_containing_a_title_and_body(Author $author)
     {
         $this->beConstructedWith($author, 'title', 'body');
         $this->shouldHaveType('Liuggio\Blog\Post');
@@ -236,7 +237,7 @@ Then we write our Post Entity Class.
 
 What changed is that we don't care here about Doctrine and Identity, we care only about the behaviour.
 
-##### When a blog post is created is not public
+##### When a blog post is written is not public
 
 We have to add an object that represents the state of the post, we are going to use a Value Object.
 
@@ -247,7 +248,7 @@ As always, we start from the specifications to get an object that represents the
 `spec/Liuggio/Blog/PostSpec.php`
 
 
-	function it_should_be_created_as_drafted()
+	function it_should_be_written_as_drafted()
 	{
 	    $this->isPublic()->shouldBe(false);
 	}
@@ -272,7 +273,7 @@ and we put this rule in the constructor into `\Liuggio\Blog\Post`:
 
 `spec/Liuggio/Blog/PostSpec.php`
 
-    function it_should_move_from_drafted_to_published()
+    function it_should_be_published()
     {
         $this->publish();
         $this->isPublic()->shouldBe(true);
@@ -284,7 +285,7 @@ and we put this rule in the constructor into `\Liuggio\Blog\Post`:
         $this->shouldThrow('Exception')->duringPublish();
     }
 
-We have reached a point where our entities `Post` will
+We have reached a point where our entity `Post` will be like:
 
 	class Post
 	{
@@ -331,6 +332,14 @@ There's a repository at [liuggio/DDD-dummy-blog-with-symfony2](https://github.co
     git checkout -f part-1
 
 All the tags for the demo project at [tags](https://github.com/liuggio/DDD-dummy-blog-with-symfony2/tags)
+
+### EDITED 30/04/2014
+
+I love feedbacks:
+
+<blockquote>Good post but Ubiquitous Language is lacking. You don't "create" blog post, it is written. A post doesn't "have" an author etc
+<small><a href="https://twitter.com/mathiasverraes"><img src="http://www.gravatar.com/avatar/3a7cb0c3c8d5864e2e72c49cafc3e4d5?s=25" alt="@mathiasverraes">@mathiasverraes</a></small></blockquote>
+then I modified the stories and the behaviours.
 
 ## Next?
 
