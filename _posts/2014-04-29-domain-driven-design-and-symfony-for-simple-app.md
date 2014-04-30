@@ -106,7 +106,7 @@ Thinking first about objects that has to perform behaviors, protagonists of the 
 
 ### Layered Architecture
 
-The thing that most changed the way I develop is discovering different layers and separating the various concerns of our application by isolating the expression of domain model and business logic, eliminate any dependency from the business logic.
+The thing that mostly changed the way I develop is the separation of the various concerns of our application by isolating the expression of domain model and business logic, eliminate any dependency from the business logic.
 
 For [Buschmann](http://www.amazon.com/Pattern-Oriented-Software-Architecture-Volume-Patterns/dp/0471958697/ref=tmm_hrd_title_0?) there are 4 layers, the internal layer is when you have to define the outlines of the use cases **Domain Layer**,
 then the flow of the behavior **Application Layer**, then how to present to the user **User Interface layer** and finally how to implement them **Infrastructure Layer** the choice of the framework should be made in this final layer.
