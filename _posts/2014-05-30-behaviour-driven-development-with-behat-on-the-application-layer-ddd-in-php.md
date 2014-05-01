@@ -12,40 +12,38 @@ tags: [symfony, php, bdd, ddd]
 
 This is the second part of a series of articles, in the first part we saw how the design flow has changed using [a layered architecture](/domain-driven-design-and-symfony-for-simple-app), we started from the use cases, we create our business Entities, we wrote user stories, and we describe the behaviour of the `Post` and the `Author` Entities.
 
+
+#### Remember the Domain Entity
+
+Le entità possono essere il centro del livello di dominio dove tutta la logica vive.
+Le entità possono contenere anche un livello di validazione negli oggetti che contengono.
+Le entità non devono essere confuse con le doctrine entity non è detto che coincidano quando sviluppate cercate di non pensare a come persisterete i dati.
+Le entità contengono Value objects.
+Abbiamo creato solo i metodi che ci servivano, abbiamo evitato di scrivere setters e getters della nostra Entità, abbiamo spostato la logica degli stati dentro un oggetto di valore, abbiamo inoltre protetto l'entità mettendo quello che gli serviva direttamente nel costruttore.
+
+It's time to talk about implementation?! Not now later!
+
 ## Features
 
 We want to satisfy the Behat features visible at `features/post.feature`
 
 In order to do that we need to write a class for each use case.
 
-In our feature file we have 3 features:
+In our feature file we have 3 scenarios:
 
-	Scenario: Create a new blog post
-	Given I am an author
-	When I fill in the following:
-	  |  First Post | Great Description |
-	Then the "First Post" post should be saved.
-
-	Scenario: Publish a blog post
-	Given I am an author
-	And I have a post with "First Post" and "Great Description" as description
-	When I publish the "First Post" post
-	Then the "First Post" post should be public.
-
-	Scenario: Get Author Posts
-	Given I am an Author
-	And I have written the following:
-	  |  First Post | Great Description |
-	  |  Second Post | Bad Description |
-	When I see the list of all my post
-	Then the "First Post" and the "Second Post" should be shown.
+	Scenario: Write a new blog Post
+	 ... 
+	Scenario: Publish a blog Post
+	 ...
+	Scenario: List of all my posts
+	 ...
 
 We have to create 3 use cases, we could create 3 services that explicit and satisfy those functionalities.
 
 In the `Liuggio\Blog\Service` namespace we are going to create 3 classes
 each service get the name from its scenario:
 
-1. CreateBlogPost
+1. WriteBlogPost
 2. GetAuthorPosts
 3. PublishBlogPost
 
@@ -79,9 +77,9 @@ The third specification is really similar to the first one, and I will omit here
 
 Those services should be thin, and they should represent the use cases using a repository to store and fetch the Blog Posts.
 
-## Repositories
+## Repository
 
-Now we have only to create one RepositoryInterface, maybe two one for reading and one for writing.
+Now we have only to create one RepositoryInterface, maybe two, one for reading and one for writing.
 
 <blockquote>
 Mediates between the domain and data mapping layers using a collection-like interface for accessing domain objects.
@@ -105,7 +103,7 @@ they should represent the data mapping, using the domain language.
 
 The repository should have no logic other than execute commands to or from the data mapping, if we put some operations, if we wanted to change the repository from a memory repository very useful for tests or dev envirment to a doctrine, we should duplicate those functions.
  
-## You are here: Domain Layer.
+## You are here: lost.
 
 So we have created Entities, we have created 2 Use case Services, and we have created 2 repository interfaces, Abbiamo finito il Dominio della nostra applicazione, 
 per completare le feature di behat dobbiamo solo implementare le interfacce.
@@ -116,14 +114,13 @@ Facciamo un attimo un punto abbiamo complatato tutti gli use case, quindi abbiam
 
 L'application layer dovrebbe avere meno logica possibile, dovrebbe invece guidare la logica delle entità.
 Lo strato di User Interface dovrebbe mostrare e ricevere nel giusto formato gli oggetti.
-Esiste uno strato definito `Infrastructure`  che racchiude le scelte implementative.
+Esiste uno strato definito `Infrastructure` che racchiude le scelte implementative.
 
 Quindi:
 
 * Domain Layer could use infrastructure objects.
 * Application Layer could use Domain objects and infrastructure objects.
 * User Interface could use Domain Applications and Infrastructure objects.
-
 
 ### Behat not on the User Interface layer?!
 
@@ -153,6 +150,18 @@ L'user Interface dovrebbbe prendere solo le responsabilità del
 
 
 
+
+
+
+Conclusioni
+
+Abbiamo utilizzato una mentalità comportamentale e alcuni aspetti del DDD, abiamo preso il meglio dai due mondi
+ma ci siamo persi qualcosa, ci siamo persi l'iteratività che in alcuni domini complessi è uno step obbligatorio,
+q
+
+TDD and BDD = share The big cost of change is not fixing problem, is finding problem
+TDD and DDD = share experimentation, Iterative design.
+DDD and BDD = Value of collaboration of business process.
 
 
 

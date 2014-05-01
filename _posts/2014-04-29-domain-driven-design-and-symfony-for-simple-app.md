@@ -5,7 +5,7 @@ description: "The way we develop evolves"
 category: tutorial
 published: true
 tags: [symfony, php, bdd, ddd]
-edit-link: 
+edit-link: https://github.com/liuggio/liuggio.github.com/blob/master/_posts/2014-04-29-domain-driven-design-and-symfony-for-simple-app.md
 ---
 {% include JB/setup %}
 
