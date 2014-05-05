@@ -4,13 +4,101 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2014-04-30T15:19:25+02:00</updated>
+ <updated>2014-05-05T14:35:32+02:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
    <email>liuggio@liuggio</email>
  </author>
 
+ 
+ <entry>
+   <title>The Great resources about Symfony, PHP, DDD, BDD ...</title>
+   <link href="http://welcometothebundle.com/resources"/>
+   <updated>2014-05-05T00:00:00+02:00</updated>
+   <id>http://welcometothebundle.com/resources</id>
+   <content type="html">&lt;p&gt;The Internet is full of content, and sometimes filter them and find the most important content takes time.&lt;/p&gt;
+
+&lt;p&gt;I always wanted to make a list of &lt;code&gt;great&lt;/code&gt; resources that are available online, who gave something to my professional growth- The fact is that I would like to be social, if you think or if you loved a video or a post please add it, clicking on the button &lt;code&gt;Fix&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;symfony2_ecosystem&quot;&gt;Symfony2 Ecosystem&lt;/h4&gt;
+
+&lt;h6 id=&quot;dddwithsymfony2folderstructureandcodefirst&quot;&gt;&lt;a href=&quot;http://williamdurand.fr/2013/08/07/ddd-with-symfony2-folder-structure-and-code-first/&quot;&gt;ddd-with-symfony2-folder-structure-and-code-first&lt;/a&gt;&lt;/h6&gt;
+
+&lt;h6 id=&quot;2013__dave_marshall__silex_an_implementation_detail&quot;&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=bTawx0TGIj8&quot;&gt;2013 - Dave Marshall - Silex: An implementation detail&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;code&gt;VIDEO&lt;/code&gt; - An unexpected and very clear presentation on Domain Driven Design with Silex.&lt;/p&gt;
+
+&lt;h6 id=&quot;2013__marcello_duarte__konstantin_kudryashov__the_framework_as_an_implementation_detail&quot;&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=0L_9NutiJlc&quot;&gt;2013 - Marcello Duarte &amp;amp; Konstantin Kudryashov - The Framework as an implementation Detail&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;code&gt;VIDEO&lt;/code&gt; - An introduction to the hexagonal architecture and Symfony2.&lt;/p&gt;
+
+&lt;h6 id=&quot;2013__benjamin_eberlei__functional_testing_with_symfony2&quot;&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=fVdlKl3ZZvM&quot;&gt;2013 - Benjamin Eberlei - Functional Testing with Symfony2&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;code&gt;VIDEO&lt;/code&gt; - If I had seen this video in 2009, I would have spent the time to structure the test in a better way&lt;/p&gt;
+
+&lt;h6 id=&quot;2013__benjamin_eberlei__decouple_your_application_with_domainevents&quot;&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=K9jub4JPpcc&quot;&gt;2013 - Benjamin Eberlei - Decouple your application with (Domain-)Events&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;code&gt;VIDEO&lt;/code&gt; - Decouple, decouple, decouple.&lt;/p&gt;
+
+&lt;h4 id=&quot;php_and_dddtddbdd&quot;&gt;PHP and DDD-TDD-BDD&lt;/h4&gt;
+
+&lt;h6 id=&quot;php_uk_conference_2014__mathias_verraes__unbreakable_domain_models&quot;&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=ZJ63ltuwMaE&quot;&gt;PHP UK Conference 2014 - Mathias Verraes - Unbreakable Domain Models&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;code&gt;VIDEO&lt;/code&gt; - Tutto il blog di Mathias è pieno di spunti.&lt;/p&gt;
+
+&lt;h4 id=&quot;about_ddd_or_bdd_or_tdd&quot;&gt;About DDD or BDD or TDD&lt;/h4&gt;
+
+&lt;h6 id=&quot;goruco_2012_hexagonal_rails_by_matt_wynne&quot;&gt;&lt;a href=&quot;www.youtube.com/watch?v=CGN4RFkhH2M‎&quot;&gt;GoRuCo 2012 Hexagonal Rails by Matt Wynne&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;code&gt;VIDEO&lt;/code&gt; - One of my favourite talk about Hexagonal architecture.&lt;/p&gt;
+
+&lt;h6 id=&quot;domain_models_and_composite_applications&quot;&gt;&lt;a href=&quot;https://skillsmatter.com/skillscasts/1806-talk-from-udi-dahan&quot;&gt;Domain Models and Composite Applications&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;code&gt;VIDEO&lt;/code&gt; - In this talk, recorded at the DDD eXchange 2011, Udi Dahan explains the use of Bounded Contexts to turn previously monolithic systems into composite applications, now with multiple lean and mean domain models - a new perspective on DDD awaits.&lt;/p&gt;
+
+&lt;h6 id=&quot;cqrsddd_by_greg_young&quot;&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=KXqrBySgX-s&quot;&gt;CQRS/DDD by Greg Young&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;code&gt;VIDEO&lt;/code&gt; - Unfortunately this video has a good sound, but it is a must.&lt;/p&gt;
+
+&lt;h6 id=&quot;cucumber_and_testing_through_the_ui&quot;&gt;&lt;a href=&quot;https://groups.google.com/forum/#!topic/objects-on-rails/LytHzDQIwKw&quot;&gt;Cucumber and testing through the UI&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;code&gt;GOOGLEGROUPS&lt;/code&gt; - Some thoughts about testing against User Interface.&lt;/p&gt;
+
+&lt;h6 id=&quot;vvernon__effective_aggregate_design_part_ii&quot;&gt;&lt;a href=&quot;https://vimeo.com/33708293&quot;&gt;V.Vernon - Effective Aggregate Design Part II&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;code&gt;VIDEO&lt;/code&gt; - this is the second part, Vaugh talks about the aggregates.&lt;/p&gt;
+
+&lt;h6 id=&quot;article_on_professionalism_and_tdd_reprise&quot;&gt;&lt;a href=&quot;https://gist.github.com/sandal/1c6c7ec0d7603775ed17&quot;&gt;Article on Professionalism and TDD (Reprise)&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;code&gt;ARTICLE&lt;/code&gt; - A remix of Bob Martin’s essay on Professionalism and TDD (Reprise) edited by Gregory Brown.&lt;/p&gt;
+
+&lt;h6 id=&quot;elephant_in_the_room__test_first_after_and_beyond&quot;&gt;&lt;a href=&quot;http://elephantintheroom.io/&quot;&gt;Elephant in the room - Test First, After and Beyond&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;code&gt;PODCAST&lt;/code&gt; - Testing is more than TDD. There’s a whole world out there of ideas and testing strategies you can employ to grow the team’s confidence in the code. In this episode, Mathias and Konstantin talk about topics such as.&lt;/p&gt;
+
+&lt;h4 id=&quot;todo_list&quot;&gt;TODO list&lt;/h4&gt;
+
+&lt;p&gt;This resources has been suggested to me, but I never had time to review.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=4cVZvoFGJTU&quot;&gt;video- Michael Feathers - the deep synergy between testability and good design&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;http://watirmelon.com/2010/12/10/cucumber-imperative-or-declarative-that-is-the-question/&quot;&gt;blog - Cucumber: imperative or declarative? that is the question&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;http://aslakhellesoy.com/post/11055981222/the-training-wheels-came-off&quot;&gt;the-training-wheels-came-off&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;http://vimeo.com/39660655&quot;&gt;Matt Wynne on Refuctoring Your Cukes&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;https://www.relishapp.com/relish/relish/docs/billing&quot;&gt;https://www.relishapp.com/relish/relish/docs/billing&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;http://skillsmatter.com/podcast/agile-scrum/bdd-as-its-meant-to-be-done&quot;&gt;bdd-as-its-meant-to-be-done&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/results?search_query=Robert+C.+Martin&quot;&gt;All the videos from Uncle Bob&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;http://cleancoders.com/category/fundamentals&quot;&gt;Clean Coders&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+ </entry>
  
  <entry>
    <title>Domain Driven Design principles with Symfony2 also for dummy applications</title>
@@ -134,7 +222,7 @@ bin/behat --init&lt;/code&gt;&lt;/pre&gt;
     Then the &amp;quot;First Post&amp;quot; post should be public.
 
   Scenario: List of all my posts
-    Given I am an author
+    Given I am an Author
     And I wrote the following posts:
       |  First Post | Great Description |
       |  Second Post | Bad Description |

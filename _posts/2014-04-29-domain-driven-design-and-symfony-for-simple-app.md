@@ -138,7 +138,7 @@ So we start writing the business goal in `features/post.feature`
 	    Then the "First Post" post should be public.
 
 	  Scenario: List of all my posts
-	    Given I am an author
+	    Given I am an Author
 	    And I wrote the following posts:
 	      |  First Post | Great Description |
 	      |  Second Post | Bad Description |

@@ -3,9 +3,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Domain Driven Design principles with Symfony2 also for dummy applications</title>
+    <title>The Great resources about Symfony, PHP, DDD, BDD ...</title>
     
-    <meta name="description" content="The way we develop evolves">
+    <meta name="description" content="">
     
     <meta name="author" content="Giulio De Donato">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -236,7 +236,7 @@
                     <ul class="posts">
                     
                     <li>
-                      <a href="/resources">The Great resources about Symfony, PHP, DDD, BDD ...</a>
+                      <a href="/domain-driven-design-and-symfony-for-simple-app">Domain Driven Design principles with Symfony2 also for dummy applications</a>
                     </li>
                     
                     <li>
@@ -268,26 +268,18 @@
 <div class="span9">
     <div class="page-header">
         <div class="row">
-            <h1 class="span8">Domain Driven Design principles with Symfony2 also for dummy applications 
+            <h1 class="span8">The Great resources about Symfony, PHP, DDD, BDD ... 
             </h1>
           <div class="span1 right bottom sticky center">
-              
-              <div id="edit-github">
-                  <a class="btn btn-mini" target="_blank" href="https://github.com/liuggio/liuggio.github.com/blob/master/_posts/2014-04-29-domain-driven-design-and-symfony-for-simple-app.md" title="Found a typo? Please edit it on Github"><i class="icon-edit pull-left"></i><b>Fix</b></a>
-              </div>
               
 
               <div id="sticky-pagination" class="hidden">
                   
-                      <a class="btn-mini pull-left" target="_blank" href="/persist-the-money-doctrine-value-object" title="Persist the Money, Doctrine Value Object">
+                      <a class="btn-mini pull-left" target="_blank" href="/domain-driven-design-and-symfony-for-simple-app" title="Domain Driven Design principles with Symfony2 also for dummy applications">
                           <i class="icon-arrow-left"></i>
                       </a>
                   
 
-                  
-                  <a class="btn-mini pull-right" target="_blank" href="/resources" title="The Great resources about Symfony, PHP, DDD, BDD ...">
-                      <i class="icon-arrow-right"></i>
-                  </a>
                   
               </div>
 
@@ -307,7 +299,7 @@
         <hr>
         <div class="row">
             <div class="span4">
-                <div class="date"><span>29 April 2014</span></div>
+                <div class="date"><span>05 May 2014</span></div>
             </div>
 
             <div class="span5">
@@ -319,13 +311,13 @@
 
   
      
+    	<li class="tag-list tag-size-1"><a href="/tags.html#DDD-ref">DDD <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#PHP-ref">PHP <span>1</span></a></li>
+     
     	<li class="tag-list tag-size-2"><a href="/tags.html#symfony-ref">symfony <span>2</span></a></li>
      
-    	<li class="tag-list tag-size-12"><a href="/tags.html#php-ref">php <span>12</span></a></li>
-     
     	<li class="tag-list tag-size-4"><a href="/tags.html#bdd-ref">bdd <span>4</span></a></li>
-     
-    	<li class="tag-list tag-size-2"><a href="/tags.html#ddd-ref">ddd <span>2</span></a></li>
     
   
 
@@ -337,328 +329,87 @@
         </div>
     </div>
     <article>
-        <h3 id="part_1__the_new_flow_the_layered_architecture_and_the_entities">Part 1 - The new flow, the layered architecture and the entities.</h3>
+        <p>The Internet is full of content, and sometimes filter them and find the most important content takes time.</p>
 
-<p>The objective of this series of articles is to show how and why I have changed the way of programming, I would also point to the benefits of adopting certain principles of Domain Driven Design also with simple applications, instead using DDD strictly might benefit only for some particular and complex Domains.</p>
+<p>I always wanted to make a list of <code>great</code> resources that are available online, who gave something to my professional growth- The fact is that I would like to be social, if you think or if you loved a video or a post please add it, clicking on the button <code>Fix</code>.</p>
 
-<p>I do not want to say I am an evangelist of the Domain Driven Development philosophy, but the <a href="http://www.amazon.it/Implementing-Domain-Driven-Design-Vaughn-Vernon/dp/0321834577">red book of V.Vaughn</a> and the movement, has profoundly changed and improved the way I code today.</p>
+<h4 id="symfony2_ecosystem">Symfony2 Ecosystem</h4>
 
-<p>I’m sorry for this new trilogy :), I would like to be short and concise bringing practical examples, as always I love to say that I didn’t invent anything.</p>
+<h6 id="dddwithsymfony2folderstructureandcodefirst"><a href="http://williamdurand.fr/2013/08/07/ddd-with-symfony2-folder-structure-and-code-first/">ddd-with-symfony2-folder-structure-and-code-first</a></h6>
 
-<h2 id="history">History</h2>
+<h6 id="2013__dave_marshall__silex_an_implementation_detail"><a href="http://www.youtube.com/watch?v=bTawx0TGIj8">2013 - Dave Marshall - Silex: An implementation detail</a></h6>
 
-<p>Around 2003/2004 I gave birth to a PHP framework that would help me on some small software, was a jumble of libraries stacked with copy and paste, starting from <a href="https://www.phpnuke.org/">php-nuke</a>. I released it on <a href="https://www.sourceforge.net">sourceforge</a> the project had many “include” and a few contributors, the name of the project is a secret, it was a youth error.</p>
+<p><code>VIDEO</code> - An unexpected and very clear presentation on Domain Driven Design with Silex.</p>
 
-<p>That was the first time I understood that the decoupling not occurs only at the class level, and the benefit of using a library for the template and a library for the database abstraction gave to me a new mindset, in the meanwhile Eric Evans was publishing <a href="http://www.amazon.it/gp/product/0321125215/ref=pd_lpo_sbs_dp_ss_1">the Blue Book</a> .</p>
+<h6 id="2013__marcello_duarte__konstantin_kudryashov__the_framework_as_an_implementation_detail"><a href="https://www.youtube.com/watch?v=0L_9NutiJlc">2013 - Marcello Duarte &amp; Konstantin Kudryashov - The Framework as an implementation Detail</a></h6>
 
-<p>My programming style has changed, and I do not understand how music artists or painters keep their style for an entire career, even in the same version of Symfony my developing style changes and evolves.</p>
+<p><code>VIDEO</code> - An introduction to the hexagonal architecture and Symfony2.</p>
 
-<p>To better understand how changed let’s start with a real example:</p>
+<h6 id="2013__benjamin_eberlei__functional_testing_with_symfony2"><a href="https://www.youtube.com/watch?v=fVdlKl3ZZvM">2013 - Benjamin Eberlei - Functional Testing with Symfony2</a></h6>
 
-<p>Stories:</p>
+<p><code>VIDEO</code> - If I had seen this video in 2009, I would have spent the time to structure the test in a better way</p>
 
-<ol>
-<li>As Author I want to be able to write a new Blog-Post as draft.</li>
+<h6 id="2013__benjamin_eberlei__decouple_your_application_with_domainevents"><a href="https://www.youtube.com/watch?v=K9jub4JPpcc">2013 - Benjamin Eberlei - Decouple your application with (Domain-)Events</a></h6>
 
-<li>Given a blog-post already written, as Author I want to be able to publish a new Blog-Post.</li>
+<p><code>VIDEO</code> - Decouple, decouple, decouple.</p>
 
-<li>The Blog-Post is written by an Author with a title and a body.</li>
+<h4 id="php_and_dddtddbdd">PHP and DDD-TDD-BDD</h4>
 
-<li>When a blog post is written is not public.</li>
+<h6 id="php_uk_conference_2014__mathias_verraes__unbreakable_domain_models"><a href="https://www.youtube.com/watch?v=ZJ63ltuwMaE">PHP UK Conference 2014 - Mathias Verraes - Unbreakable Domain Models</a></h6>
 
-<li>As Author I want to see a list of my posts.</li>
-</ol>
+<p><code>VIDEO</code> - Tutto il blog di Mathias è pieno di spunti.</p>
 
-<h3 id="before_code_first_it_means_bundlefirst">Before: code first (it means bundle-first).</h3>
+<h4 id="about_ddd_or_bdd_or_tdd">About DDD or BDD or TDD</h4>
 
-<p>If few year ago I’d thought to the database first, Symfony2 gave a breath of fresh pushing forward the mentality of modularity and decoupling.</p>
+<h6 id="goruco_2012_hexagonal_rails_by_matt_wynne"><a href="www.youtube.com/watch?v=CGN4RFkhH2M‎">GoRuCo 2012 Hexagonal Rails by Matt Wynne</a></h6>
 
-<p>It was explicit the good practice of not putting the logic inside the controllers, but as a side effect in the ecosystem has become quite common the ”<strong>bundle-everything with thin controllers and fat services</strong>”.</p>
+<p><code>VIDEO</code> - One of my favourite talk about Hexagonal architecture.</p>
 
-<p>Services full of logic, and empty ORM entities (empty means only with setters and getters).</p>
+<h6 id="domain_models_and_composite_applications"><a href="https://skillsmatter.com/skillscasts/1806-talk-from-udi-dahan">Domain Models and Composite Applications</a></h6>
 
-<h3 id="thin_controllers_and_fat_services__smell">Thin Controllers and Fat Services = smell</h3>
+<p><code>VIDEO</code> - In this talk, recorded at the DDD eXchange 2011, Udi Dahan explains the use of Bounded Contexts to turn previously monolithic systems into composite applications, now with multiple lean and mean domain models - a new perspective on DDD awaits.</p>
 
-<p>With a new project you start installing the symfony-standard, you create a bundle for each concept, then you create thousands of Doctrine2 entities (get and set on each property), and then you start testing the service before coding, then a slim controller and a functional test over the Reponse playing with HTML and css path in order to have green tests.</p>
+<h6 id="cqrsddd_by_greg_young"><a href="https://www.youtube.com/watch?v=KXqrBySgX-s">CQRS/DDD by Greg Young</a></h6>
 
-<p>This way of doing it is not even too wrong, it does not suck, but adding new features you’d have a lot of interdependent Symfony bundles, many fat services (maybe) with abstract nouns such as ‘manager’, ‘service’, ‘handler’ and even a CoreBundle with the shared logic. Entities with getters, setters, but also full of annotations (doctrine and serializer).</p>
+<p><code>VIDEO</code> - Unfortunately this video has a good sound, but it is a must.</p>
 
-<p>The folders would have this structure:</p>
+<h6 id="cucumber_and_testing_through_the_ui"><a href="https://groups.google.com/forum/#!topic/objects-on-rails/LytHzDQIwKw">Cucumber and testing through the UI</a></h6>
 
-<pre><code>Symfony standard
-├── BlogBundle
-│    ├── Entity
-│    │   └── Blog.php
-│    │   └── BlogRepository.php
-│    ├── Service
-│    │   └── BlogService.php
-│    │   └── BlogManager.php
-│    │   └── BlogManipulator.php
-│    │   └── BlogFactory.php
-│    │   └── BlogHandler.php
-│    └── Controller
-│        └── BlogController.php
-│    CoreBundle
-│    ├── Entity
-│    │   └── Currency.php
-│    ├── Service
-	 
-...</code></pre>
+<p><code>GOOGLEGROUPS</code> - Some thoughts about testing against User Interface.</p>
 
-<p>http://blog.codinghorror.com/i-shall-call-it-somethingmanager/</p>
+<h6 id="vvernon__effective_aggregate_design_part_ii"><a href="https://vimeo.com/33708293">V.Vernon - Effective Aggregate Design Part II</a></h6>
 
-<h4 id="something_wrong_and_anemic_domain_model">Something wrong and Anemic Domain Model</h4>
+<p><code>VIDEO</code> - this is the second part, Vaugh talks about the aggregates.</p>
 
-<p>A couple of years ago after a big project in Symfony2, I realized there was something that could be improved, too many bundles, too many entities persisted without a real value, too many connections, too many fat services, too much Symfony2-centric application, something had changed, and in the my PHP community began to appear articles from <a href="http://williamdurand.fr">williamdurand</a> and <a href="http://verraes.net/">Verraes</a> on how we could improve this pattern.</p>
+<h6 id="article_on_professionalism_and_tdd_reprise"><a href="https://gist.github.com/sandal/1c6c7ec0d7603775ed17">Article on Professionalism and TDD (Reprise)</a></h6>
 
-<p>Connected bundles wasn’t the biggest problem, the system was suffering also of <a href="http://www.martinfowler.com/bliki/AnemicDomainModel.html">Anemic Domain Model</a>.</p>
+<p><code>ARTICLE</code> - A remix of Bob Martin’s essay on Professionalism and TDD (Reprise) edited by Gregory Brown.</p>
 
-<p>What is the problem of moving a lot of logic in the services?</p>
+<h6 id="elephant_in_the_room__test_first_after_and_beyond"><a href="http://elephantintheroom.io/">Elephant in the room - Test First, After and Beyond</a></h6>
 
-<p>A service should reside in the application layer should be small by definition:</p>
-<blockquote>In general, the more behavior you find in the services, the more likely you are to be robbing yourself of the benefits of a domain model. If all your logic is in services, you've robbed yourself blind.<small>Martin Fowler</small></blockquote>
-<h2 id="today">Today</h2>
+<p><code>PODCAST</code> - Testing is more than TDD. There’s a whole world out there of ideas and testing strategies you can employ to grow the team’s confidence in the code. In this episode, Mathias and Konstantin talk about topics such as.</p>
 
-<p>Today I develop in a different way, many more <a href="/persist-the-money-doctrine-value-object/">Value Objects</a>, Entities with more logic, I would start by specifying use cases, and above all the flow of development has changed.</p>
+<h4 id="todo_list">TODO list</h4>
 
-<p>Thinking first about objects that has to perform behaviors, protagonists of the use cases are domain entities (should not be confused with the doctrine-entity) and aggregates, the step of deciding how to persist should be sent to a later stage.</p>
+<p>This resources has been suggested to me, but I never had time to review.</p>
 
-<h3 id="layered_architecture">Layered Architecture</h3>
+<ul>
+<li><a href="http://www.youtube.com/watch?v=4cVZvoFGJTU">video- Michael Feathers - the deep synergy between testability and good design</a></li>
 
-<p>The thing that mostly changed the way I develop is the separation of the various concerns of our application by isolating the expression of domain model and business logic, eliminate any dependency from the business logic.</p>
+<li><a href="http://watirmelon.com/2010/12/10/cucumber-imperative-or-declarative-that-is-the-question/">blog - Cucumber: imperative or declarative? that is the question</a></li>
 
-<p>For <a href="http://www.amazon.com/Pattern-Oriented-Software-Architecture-Volume-Patterns/dp/0471958697/ref=tmm_hrd_title_0?">Buschmann</a> there are 4 layers, the internal layer is when you have to define the outlines of the use cases <strong>Domain Layer</strong>, then the flow of the behavior <strong>Application Layer</strong>, then how to present to the user <strong>User Interface layer</strong> and finally how to implement them <strong>Infrastructure Layer</strong> the choice of the framework should be made in this final layer.</p>
+<li><a href="http://aslakhellesoy.com/post/11055981222/the-training-wheels-came-off">the-training-wheels-came-off</a></li>
 
-<p>At the beginning we do not want to think about how we will save our objects, we just want the use cases satisfied, we do not want to think about which framework we will use, we are in the <code>Domain Layer</code>.</p>
-<blockquote>It doesn't depend on any particular UI or service interface-related technology, it just describes use cases.</blockquote>
-<p>Let’s see specifically how to proceed in the development, starting from the use cases.</p>
+<li><a href="http://vimeo.com/39660655">Matt Wynne on Refuctoring Your Cukes</a></li>
 
-<p>Install a BDD tool that helps you to write user stories:</p>
+<li><a href="https://www.relishapp.com/relish/relish/docs/billing">https://www.relishapp.com/relish/relish/docs/billing</a></li>
 
-<pre><code>composer init
-composer behat/behat &quot;2.4.*@stable&quot;
-bin/behat --init</code></pre>
+<li><a href="http://skillsmatter.com/podcast/agile-scrum/bdd-as-its-meant-to-be-done">bdd-as-its-meant-to-be-done</a></li>
 
-<p>So we start writing the business goal in <code>features/post.feature</code></p>
+<li><a href="https://www.youtube.com/results?search_query=Robert+C.+Martin">All the videos from Uncle Bob</a></li>
 
-<pre><code> Scenario: Write a new blog Post
-    Given I am an Author
-    When I fill in the following:
-      |  First Post | Great Description |
-    Then the &quot;First Post&quot; post should be written.
-
-  Scenario: Publish a blog Post
-    Given I am an Author
-    And I wrote a post with &quot;First Post&quot; and &quot;Great Description&quot; as description
-    When I publish the post with the title &quot;First Post&quot;
-    Then the &quot;First Post&quot; post should be public.
-
-  Scenario: List of all my posts
-    Given I am an Author
-    And I wrote the following posts:
-      |  First Post | Great Description |
-      |  Second Post | Bad Description |
-    When I see the list of all my posts
-    Then the &quot;First Post&quot; and the &quot;Second Post&quot; should be shown.</code></pre>
-
-<p>So we have completed the outside specification, now we could go deep inside with <code>phpspec</code> describing the behaviours of our domain.</p>
-
-<p>We have recognized 2 entities <code>Post</code> and <code>Author</code> they didn’t change together so they are 2 different concepts, they are <code>Entity</code> and not value objects because they could change, and they have a lifecycle, and we do want to identify an Author or a Post.</p>
-
-<p>Install the tool that helps you to design focusing on the behaviors:</p>
-
-<pre><code>composer require &quot;phpspec/phpspec&quot; &quot;~2.0&quot;
-bin/phpspec describe Liuggio/Blog/Post</code></pre>
-
-<h3 id="post_behaviours">Post behaviours</h3>
-
-<p>We want to describe how the <code>Post</code> entity will works before writing the code:</p>
-
-<h5 id="the_blogpost_is_written_by_an_author_with_a_title_and_a_body">The Blog-Post is written by an Author with a title and a body.</h5>
-
-<p>describing the specification in <code>spec/postSpec.php</code>:</p>
-
-<pre><code>function it_should_be_written_by_an_author_containing_a_title_and_body()
-{
-}
-
-function it_should_be_written_as_drafted()
-{
-}
-
-function it_should_be_published()
-{
-}</code></pre>
-
-<p>Running phpspec you will have:</p>
-
-<pre><code>$ bin/phpspec  run --format=pretty
-  post
-10  - should be written by an author containing a title and a body
-    todo: write pending example
-14  - should be written as drafted
-    todo: write pending example
-18  - should be published
-    todo: write pending example
-1 specs
-3 examples (3 pending)
-2ms</code></pre>
-
-<p>What is obvious from the first specification? we need an <code>Author</code> object.</p>
-
-<pre><code>bin/phpspec describe Liuggio/Blog/Author</code></pre>
-
-<p>and then in <code>spec/Liuggio/Blog/AuthorSpec.php</code></p>
-
-<pre><code>function it_should_always_have_a_nickname($nickname)
-{
-    $this-&gt;beConstructedWith($nickname);
-    $this-&gt;shouldHaveType('BlogAuthor');
-}</code></pre>
-
-<p>Running <code>bin/phpspec  run --format=pretty</code></p>
-
-<p>We are going to create the BlogAuthor:</p>
-
-<pre><code>class Author
-{
-    private $nickname;
-
-    function __construct($nickname)
-    {
-        $this-&gt;nickname = $nickname;
-    }</code></pre>
-
-<p>We prefer to have in the constructor <code>$nickname</code>, in this way we are protecting the Entity <code>Author</code> to be consistent by specification (nickname could also be a Value Object).</p>
-
-<p>Back to our Blog specifications we could add here the Author <code>spec/Liuggio/Blog/PostSpec.php</code></p>
-
-<pre><code>function it_should_be_written_by_an_author_containing_a_title_and_body(Author $author)
-{
-    $this-&gt;beConstructedWith($author, 'title', 'body');
-    $this-&gt;shouldHaveType('Liuggio\Blog\Post');
-}</code></pre>
-
-<p>Then we write our Post Entity Class.</p>
-
-<pre><code>class Post
-{
-    private $author;
-    private $text;
-    private $body;
-
-    function __construct(Author $author, $text, $body)
-    ...</code></pre>
-
-<p>What changed is that we don’t care here about Doctrine and Identity, we care only about the behaviour.</p>
-
-<h5 id="when_a_blog_post_is_written_is_not_public">When a blog post is written is not public</h5>
-
-<p>We have to add an object that represents the state of the post, we are going to use a Value Object.</p>
-
-<p>Although there are several libraries to work with Finite State Machine, maybe a simple value object in this case may be perfect.</p>
-
-<p>As always, we start from the specifications to get an object that represents the states of Drafted and Published.</p>
-
-<p><code>spec/Liuggio/Blog/PostSpec.php</code></p>
-
-<pre><code>function it_should_be_written_as_drafted()
-{
-    $this-&gt;isPublic()-&gt;shouldBe(false);
-}</code></pre>
-
-<p>We are describing the behavior we expect the entity Post, and we put this rule in the constructor into <code>\Liuggio\Blog\Post</code>:</p>
-
-<pre><code>class Post
-{
-	// ..
-    public function __construct(Author $author, $title, $body)
-    {
-        $this-&gt;author = $author;
-        $this-&gt;title = $title;
-        $this-&gt;body = $body;
-        $this-&gt;state = State::draft();
-        $this-&gt;createdAt = new \Datetime(&quot;now&quot;);
-    }</code></pre>
-
-<h5 id="the_blogpost_could_be_published">The Blog-Post could be published.</h5>
-
-<p><code>spec/Liuggio/Blog/PostSpec.php</code></p>
-
-<pre><code>function it_should_be_published()
-{
-    $this-&gt;publish();
-    $this-&gt;isPublic()-&gt;shouldBe(true);
-}
-
-function it_should_raise_exception_during_publish_if_it_was_alread_public()
-{
-    $this-&gt;publish();
-    $this-&gt;shouldThrow('Exception')-&gt;duringPublish();
-}</code></pre>
-
-<p>We have reached a point where our entity <code>Post</code> will be like:</p>
-
-<pre><code>class Post
-{
-    //...
-
-    public function isPublic()
-    {
-        return $this-&gt;state-&gt;isPublic();
-    }
-
-    public function publish()
-    {
-        if (!$this-&gt;couldBePublished()) {
-            throw new \Exception(&quot;Could not do this transition&quot;);
-        }
-
-        return $this-&gt;state = State::published();
-    }
-
-    private function couldBePublished()
-    {
-        return !$this-&gt;isPublic();
-    }</code></pre>
-
-<p>The folder is now:</p>
-
-<pre><code>My-Domain-Driven-Blog
-	├── spec
-	│   └── Liuggio
-	│       └── Blog
-	├── src
-	│   └── Blog
-	│       ├── Author.php
-	│       ├── Post.php
-	│       └── State.php</code></pre>
-
-<h2 id="the_github_repository">The github repository</h2>
-
-<p>There’s a repository at <a href="https://github.com/liuggio/DDD-dummy-blog-with-symfony2/">liuggio/DDD-dummy-blog-with-symfony2</a> you could see the working code using the tag <code>part-1</code> with:</p>
-
-<pre><code>git clone liuggio/DDD-dummy-blog-with-symfony2
-cd DDD-dummy-blog-with-symfony2
-composer install
-git checkout -f part-1</code></pre>
-
-<p>All the tags for the demo project at <a href="https://github.com/liuggio/DDD-dummy-blog-with-symfony2/tags">tags</a></p>
-
-<h3 id="edited_30042014">EDITED 30/04/2014</h3>
-
-<p>I love feedbacks:</p>
-<blockquote>Good post but Ubiquitous Language is lacking. You don't "create" blog post, it is written. A post doesn't "have" an author etc
-<small><a href='https://twitter.com/mathiasverraes'><img alt='@mathiasverraes' src='http://www.gravatar.com/avatar/3a7cb0c3c8d5864e2e72c49cafc3e4d5?s=25' />@mathiasverraes</a></small></blockquote>
-<p>then I modified the stories and the behaviours.</p>
-
-<h2 id="next">Next?</h2>
-
-<p>We focused on the behaviors of the <code>Post</code> and <code>Author</code> entities during the specification, our <code>spec</code> are green now, but our <code>behat</code> stories are red.</p>
-
-<p>In the next post, we will finish adding <strong>services</strong> using command patterns, we will describe how to create <strong>repositories</strong>, how to complete the project, how to create the <strong>business expectations over the application layer</strong> and not on the user interface, and how to works with Symfony2 in the <strong>Infrastructure layer</strong>.</p>
-
-<p>Stay tuned and tweet if you want the next episode.</p>
+<li><a href="http://cleancoders.com/category/fundamentals">Clean Coders</a></li>
+</ul>
     </article>
     <hr>
     <div id="related">
@@ -666,7 +417,7 @@ git checkout -f part-1</code></pre>
       <ul class="posts">
       
       <li>
-       <span>05 May 2014 &raquo;</span> <a href="/resources">The Great resources about Symfony, PHP, DDD, BDD ...</a>
+       <span>29 Apr 2014 &raquo;</span> <a href="/domain-driven-design-and-symfony-for-simple-app">Domain Driven Design principles with Symfony2 also for dummy applications</a>
       </li>
       
       <li>
@@ -683,13 +434,12 @@ git checkout -f part-1</code></pre>
     <div class="pagination">
         <ul class="pager span9">
             
-            <li class="prev span3"><a href="/persist-the-money-doctrine-value-object" title="Persist the Money, Doctrine Value Object"><i class="icon-arrow-left"></i><br>
-                Previous - Persist the Money, Doctrine Value Object</a></li>
+            <li class="prev span3"><a href="/domain-driven-design-and-symfony-for-simple-app" title="Domain Driven Design principles with Symfony2 also for dummy applications"><i class="icon-arrow-left"></i><br>
+                Previous - Domain Driven Design principles with Symfony2 also for dummy applications</a></li>
             
             <li  class="span2 center"><a style=" width: 100%;" href="/index.html"><br>Archive</a></li>
             
-            <li class="next span3"><a href="/resources" title="The Great resources about Symfony, PHP, DDD, BDD ..."><i class="icon-arrow-right"></i> <br>Next - The Great resources about Symfony, PHP, DDD, BDD ...</a>
-            </li>
+            <li class="next disabled span2"><a><i class="icon-arrow-right"></i> <br>Next</a></li>
             
         </ul>
     </div>
