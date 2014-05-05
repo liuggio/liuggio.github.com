@@ -198,7 +198,7 @@ and then in `spec/Liuggio/Blog/AuthorSpec.php`
     function it_should_always_have_a_nickname($nickname)
     {
         $this->beConstructedWith($nickname);
-        $this->shouldHaveType('BlogAuthor');
+        $this->shouldHaveType('Liuggio\Blog\Author');
     }
 
 Running `bin/phpspec  run --format=pretty`
