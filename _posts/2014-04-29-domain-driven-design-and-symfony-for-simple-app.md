@@ -43,7 +43,7 @@ Stories:
 
 ### Before: code first (it means bundle-first).
 
-If few year ago I'd thought to the  database first, 
+If few years ago I'd thought to the  database first, 
 Symfony2 gave a breath of fresh pushing forward the mentality of modularity and decoupling.
 
 It was explicit the good practice of not putting the logic inside the controllers, but as a side effect in the ecosystem
@@ -102,14 +102,18 @@ A service should reside in the application layer should be small by definition:
 
 Today I develop in a different way, many more [Value Objects](/persist-the-money-doctrine-value-object/), Entities with more logic, I would start by specifying use cases, and above all the flow of development has changed.
 
-Thinking first about objects that has to perform behaviors, protagonists of the use cases are domain entities (should not be confused with the doctrine-entity) and aggregates, the step of deciding how to persist should be sent to a later stage.
+Thinking first about objects that have to perform behaviors, protagonists of the use cases are domain entities (should not be confused with the doctrine-entity) and aggregates, the step of deciding how to persist should be sent to a later stage.
 
 ### Layered Architecture
 
 The thing that mostly changed the way I develop is the separation of the various concerns of our application by isolating the expression of domain model and business logic, eliminate any dependency from the business logic.
 
-For [Buschmann](http://www.amazon.com/Pattern-Oriented-Software-Architecture-Volume-Patterns/dp/0471958697/ref=tmm_hrd_title_0?) there are 4 layers, the internal layer is when you have to define the outlines of the use cases **Domain Layer**,
-then the flow of the behavior **Application Layer**, then how to present to the user **User Interface layer** and finally how to implement them **Infrastructure Layer** the choice of the framework should be made in this final layer.
+For [Buschmann](http://www.amazon.com/Pattern-Oriented-Software-Architecture-Volume-Patterns/dp/0471958697/ref=tmm_hrd_title_0?) there are 4 layers:
+
+1. **Domain Layer**: the internal layer is where you have to define the outlines of the use cases
+2. **Application Layer**: the flow of the behavior 
+3. **User Interface layer**: how to present to the user
+4. **Infrastructure Layer**: and finally how to implement them, the choice of the framework should be made in this final layer.
 
 At the beginning we do not want to think about how we will save our objects, we just want the use cases satisfied, we do not want to think about which framework we will use, we are in the `Domain Layer`.
 
@@ -198,7 +202,7 @@ and then in `spec/Liuggio/Blog/AuthorSpec.php`
     function it_should_always_have_a_nickname($nickname)
     {
         $this->beConstructedWith($nickname);
-        $this->shouldHaveType('BlogAuthor');
+        $this->shouldHaveType('Liuggio\Blog\Author');
     }
 
 Running `bin/phpspec  run --format=pretty`
@@ -279,7 +283,7 @@ and we put this rule in the constructor into `\Liuggio\Blog\Post`:
         $this->isPublic()->shouldBe(true);
     }
 
-    function it_should_raise_exception_during_publish_if_it_was_alread_public()
+    function it_should_raise_exception_during_publish_if_it_was_already_public()
     {
         $this->publish();
         $this->shouldThrow('Exception')->duringPublish();
