@@ -4,7 +4,7 @@ title: "part 2 - BDD DDD PHP, Behaviour Driven Development with Behat on the App
 description: "The way we develop evolves"
 category: tutorial
 published: false
-tags: [symfony, php, bdd, ddd]
+tags: [symfony2, PHP, BDD, DDD]
 ---
 {% include JB/setup %}
 

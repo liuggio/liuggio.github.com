@@ -3,7 +3,7 @@ layout: post
 title: "Symfony2 assets on RackSpace Cloud files"
 description: ""
 category: "tutorial"
-tags: [rackspace, symfony2, bundle, assetic, cdn, php, assets]
+tags: [rackspace, symfony2, bundle, assetic, CDN, PHP, assets]
 published: true
 edit-link: https://github.com/liuggio/liuggio.github.com/edit/master/_posts/2012-05-06-symfony2-assets-on-rackspace-cloud-files.md
 

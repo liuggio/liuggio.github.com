@@ -3,7 +3,7 @@ layout: post
 title: "ServerGrove StastdClientBundle Interesting Symfony Bundles"
 description: "Automate Test and Code Inspection with Guard and Symfony2"
 category: post
-tags: [servergrove, symfony2, php, bundle, statsd]
+tags: [servergrove, symfony2, PHP, bundle, statsd]
 date: 2012-11-01 06:01:25
 edit-link: https://github.com/liuggio/liuggio.github.com/edit/master/_posts/2013-01-03-servergrove-stastdclientbundle-interesting-symfony-bundles.md
 ---

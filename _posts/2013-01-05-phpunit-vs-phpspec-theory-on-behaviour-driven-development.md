@@ -3,7 +3,7 @@ layout: post
 title: "PHPUnit vs PHPSpec: theory on Behaviour Driven Development 1/3"
 description: "PHPUnit vs PHPSpec: theory on Behaviour Driven Development 1/3"
 category: post 
-tags: [phpunit, tdd, bdd, php, test, phpspec]
+tags: [phpunit, TDD, BDD, PHP, test, phpspec]
 published: true
 edit-link: https://github.com/liuggio/liuggio.github.com/edit/master/_posts/2013-01-05-phpunit-vs-phpspec-theory-on-behaviour-driven-development.md
 ---

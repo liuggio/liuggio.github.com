@@ -3,7 +3,7 @@ layout: post
 title: "(my) Best resources about methodologies on Symfony, PHP, DDD, BDD ..."
 description: ""
 category: post
-tags: [DDD, PHP, symfony, bdd]
+tags: [DDD, PHP, symfony2, BDD]
 edit-link: https://github.com/liuggio/liuggio.github.com/blob/master/_posts/2014-05-05-best-resources-about-symfony-tdd-bdd-ddd-methologies.md
 ---
 {% include JB/setup %}
