@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2014-05-05T14:35:32+02:00</updated>
+ <updated>2014-05-05T15:09:39+02:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -13,17 +13,21 @@
 
  
  <entry>
-   <title>The Great resources about Symfony, PHP, DDD, BDD ...</title>
-   <link href="http://welcometothebundle.com/resources"/>
+   <title>(my) Best resources about methodologies on Symfony, PHP, DDD, BDD ...</title>
+   <link href="http://welcometothebundle.com/best-resources-about-symfony-tdd-bdd-ddd-methologies"/>
    <updated>2014-05-05T00:00:00+02:00</updated>
-   <id>http://welcometothebundle.com/resources</id>
-   <content type="html">&lt;p&gt;The Internet is full of content, and sometimes filter them and find the most important content takes time.&lt;/p&gt;
+   <id>http://welcometothebundle.com/best-resources-about-symfony-tdd-bdd-ddd-methologies</id>
+   <content type="html">&lt;p&gt;The Internet is full of content, and sometimes filter them and find the most important article takes time.&lt;/p&gt;
 
-&lt;p&gt;I always wanted to make a list of &lt;code&gt;great&lt;/code&gt; resources that are available online, who gave something to my professional growth- The fact is that I would like to be social, if you think or if you loved a video or a post please add it, clicking on the button &lt;code&gt;Fix&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;I always wanted to make a list of &lt;code&gt;great&lt;/code&gt; resources that are available online, who gave something to my professional growth.&lt;/p&gt;
+
+&lt;p&gt;The fact is that I would like to be social, if you think or if you loved a video or a post please add it,&lt;br /&gt;clicking on the button &lt;code&gt;Fix&lt;/code&gt; on the right.&lt;/p&gt;
 
 &lt;h4 id=&quot;symfony2_ecosystem&quot;&gt;Symfony2 Ecosystem&lt;/h4&gt;
 
-&lt;h6 id=&quot;dddwithsymfony2folderstructureandcodefirst&quot;&gt;&lt;a href=&quot;http://williamdurand.fr/2013/08/07/ddd-with-symfony2-folder-structure-and-code-first/&quot;&gt;ddd-with-symfony2-folder-structure-and-code-first&lt;/a&gt;&lt;/h6&gt;
+&lt;h6 id=&quot;2013__william_durand__ddd_symfony2_folder_structure_and_code_first&quot;&gt;&lt;a href=&quot;http://williamdurand.fr/2013/08/07/ddd-with-symfony2-folder-structure-and-code-first/&quot;&gt;2013 - william durand - ddd symfony2 folder structure and code first&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;code&gt;ARTICLE&lt;/code&gt; - &lt;a href=&quot;https://twitter.com/couac&quot;&gt;@couac&lt;/a&gt; wrote a lot of articles about best practices and methologies, his blog is a must to read for a PHP developer.&lt;/p&gt;
 
 &lt;h6 id=&quot;2013__dave_marshall__silex_an_implementation_detail&quot;&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=bTawx0TGIj8&quot;&gt;2013 - Dave Marshall - Silex: An implementation detail&lt;/a&gt;&lt;/h6&gt;
 
@@ -41,7 +45,9 @@
 
 &lt;p&gt;&lt;code&gt;VIDEO&lt;/code&gt; - Decouple, decouple, decouple.&lt;/p&gt;
 
-&lt;h4 id=&quot;php_and_dddtddbdd&quot;&gt;PHP and DDD-TDD-BDD&lt;/h4&gt;
+&lt;h6 id=&quot;2012__create_your_own_framework_on_top_of_the_symfony2_components__fabien_potencier&quot;&gt;&lt;a href=&quot;http://fabien.potencier.org/article/50/create-your-own-framework-on-top-of-the-symfony2-components-part-1&quot;&gt;2012 - Create your own framework… on top of the Symfony2 Components - Fabien Potencier&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;code&gt;ARTICLE&lt;/code&gt; - Instead of using these low-level components, you can use the ready-to-be-used Symfony2 full-stack web framework, which is based on these components… or you can create your very own framework. This series is about the latter.&lt;/p&gt;
 
 &lt;h6 id=&quot;php_uk_conference_2014__mathias_verraes__unbreakable_domain_models&quot;&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=ZJ63ltuwMaE&quot;&gt;PHP UK Conference 2014 - Mathias Verraes - Unbreakable Domain Models&lt;/a&gt;&lt;/h6&gt;
 
@@ -139,7 +145,7 @@
 
 &lt;h3 id=&quot;before_code_first_it_means_bundlefirst&quot;&gt;Before: code first (it means bundle-first).&lt;/h3&gt;
 
-&lt;p&gt;If few year ago I’d thought to the database first, Symfony2 gave a breath of fresh pushing forward the mentality of modularity and decoupling.&lt;/p&gt;
+&lt;p&gt;If few years ago I’d thought to the database first, Symfony2 gave a breath of fresh pushing forward the mentality of modularity and decoupling.&lt;/p&gt;
 
 &lt;p&gt;It was explicit the good practice of not putting the logic inside the controllers, but as a side effect in the ecosystem has become quite common the ”&lt;strong&gt;bundle-everything with thin controllers and fat services&lt;/strong&gt;”.&lt;/p&gt;
 
@@ -189,13 +195,23 @@
 
 &lt;p&gt;Today I develop in a different way, many more &lt;a href=&quot;/persist-the-money-doctrine-value-object/&quot;&gt;Value Objects&lt;/a&gt;, Entities with more logic, I would start by specifying use cases, and above all the flow of development has changed.&lt;/p&gt;
 
-&lt;p&gt;Thinking first about objects that has to perform behaviors, protagonists of the use cases are domain entities (should not be confused with the doctrine-entity) and aggregates, the step of deciding how to persist should be sent to a later stage.&lt;/p&gt;
+&lt;p&gt;Thinking first about objects that have to perform behaviors, protagonists of the use cases are domain entities (should not be confused with the doctrine-entity) and aggregates, the step of deciding how to persist should be sent to a later stage.&lt;/p&gt;
 
 &lt;h3 id=&quot;layered_architecture&quot;&gt;Layered Architecture&lt;/h3&gt;
 
 &lt;p&gt;The thing that mostly changed the way I develop is the separation of the various concerns of our application by isolating the expression of domain model and business logic, eliminate any dependency from the business logic.&lt;/p&gt;
 
-&lt;p&gt;For &lt;a href=&quot;http://www.amazon.com/Pattern-Oriented-Software-Architecture-Volume-Patterns/dp/0471958697/ref=tmm_hrd_title_0?&quot;&gt;Buschmann&lt;/a&gt; there are 4 layers, the internal layer is when you have to define the outlines of the use cases &lt;strong&gt;Domain Layer&lt;/strong&gt;, then the flow of the behavior &lt;strong&gt;Application Layer&lt;/strong&gt;, then how to present to the user &lt;strong&gt;User Interface layer&lt;/strong&gt; and finally how to implement them &lt;strong&gt;Infrastructure Layer&lt;/strong&gt; the choice of the framework should be made in this final layer.&lt;/p&gt;
+&lt;p&gt;For &lt;a href=&quot;http://www.amazon.com/Pattern-Oriented-Software-Architecture-Volume-Patterns/dp/0471958697/ref=tmm_hrd_title_0?&quot;&gt;Buschmann&lt;/a&gt; there are 4 layers:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Domain Layer&lt;/strong&gt;: the internal layer is where you have to define the outlines of the use cases&lt;/li&gt;
+
+&lt;li&gt;&lt;strong&gt;Application Layer&lt;/strong&gt;: the flow of the behavior&lt;/li&gt;
+
+&lt;li&gt;&lt;strong&gt;User Interface layer&lt;/strong&gt;: how to present to the user&lt;/li&gt;
+
+&lt;li&gt;&lt;strong&gt;Infrastructure Layer&lt;/strong&gt;: and finally how to implement them, the choice of the framework should be made in this final layer.&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;At the beginning we do not want to think about how we will save our objects, we just want the use cases satisfied, we do not want to think about which framework we will use, we are in the &lt;code&gt;Domain Layer&lt;/code&gt;.&lt;/p&gt;
 &lt;blockquote&gt;It doesn't depend on any particular UI or service interface-related technology, it just describes use cases.&lt;/blockquote&gt;
@@ -281,7 +297,7 @@ function it_should_be_published()
 &lt;pre&gt;&lt;code&gt;function it_should_always_have_a_nickname($nickname)
 {
     $this-&amp;gt;beConstructedWith($nickname);
-    $this-&amp;gt;shouldHaveType('BlogAuthor');
+    $this-&amp;gt;shouldHaveType('Liuggio\Blog\Author');
 }&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Running &lt;code&gt;bin/phpspec  run --format=pretty&lt;/code&gt;&lt;/p&gt;
@@ -359,7 +375,7 @@ function it_should_be_published()
     $this-&amp;gt;isPublic()-&amp;gt;shouldBe(true);
 }
 
-function it_should_raise_exception_during_publish_if_it_was_alread_public()
+function it_should_raise_exception_during_publish_if_it_was_already_public()
 {
     $this-&amp;gt;publish();
     $this-&amp;gt;shouldThrow('Exception')-&amp;gt;duringPublish();

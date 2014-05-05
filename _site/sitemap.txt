@@ -7,7 +7,7 @@ http://welcometothebundle.com/sitemap.txt
 http://welcometothebundle.com/tags.html
 http://welcometothebundle.com/atom.xml
 
-http://welcometothebundle.com/resources
+http://welcometothebundle.com/best-resources-about-symfony-tdd-bdd-ddd-methologies
 http://welcometothebundle.com/domain-driven-design-and-symfony-for-simple-app
 http://welcometothebundle.com/persist-the-money-doctrine-value-object
 http://welcometothebundle.com/symfony2-rest-api-the-best-way-part-3

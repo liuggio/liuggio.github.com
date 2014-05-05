@@ -1,21 +1,27 @@
 ---
 layout: post
-title: "The Great resources about Symfony, PHP, DDD, BDD ..."
+title: "(my) Best resources about methodologies on Symfony, PHP, DDD, BDD ..."
 description: ""
 category: post
 tags: [DDD, PHP, symfony, bdd]
+edit-link: https://github.com/liuggio/liuggio.github.com/blob/master/_posts/2014-05-05-best-resources-about-symfony-tdd-bdd-ddd-methologies.md
 ---
 {% include JB/setup %}
 
-The Internet is full of content, and sometimes filter them and find the most important content takes time.
+The Internet is full of content, and sometimes filter them and find the most important article takes time.
 
 I always wanted to make a list of `great` resources that are available online,
-who gave something to my professional growth-
-The fact is that I would like to be social, if you think or if you loved a video or a post please add it, clicking on the button `Fix`.
+who gave something to my professional growth.
+
+The fact is that I would like to be social, 
+if you think or if you loved a video or a post please add it,  
+clicking on the button  `Fix` on the right.
 
 #### Symfony2 Ecosystem
 
-###### [ddd-with-symfony2-folder-structure-and-code-first](http://williamdurand.fr/2013/08/07/ddd-with-symfony2-folder-structure-and-code-first/)
+###### [2013 - william durand - ddd symfony2 folder structure and code first](http://williamdurand.fr/2013/08/07/ddd-with-symfony2-folder-structure-and-code-first/)
+
+`ARTICLE` - [@couac](https://twitter.com/couac) wrote a lot of articles about best practices and methologies, his blog is a must to read for a PHP developer.
 
 ###### [2013 - Dave Marshall - Silex: An implementation detail](http://www.youtube.com/watch?v=bTawx0TGIj8)
 
@@ -33,7 +39,9 @@ The fact is that I would like to be social, if you think or if you loved a video
 
 `VIDEO` - Decouple, decouple, decouple.
 
-#### PHP and DDD-TDD-BDD
+###### [2012 - Create your own framework... on top of the Symfony2 Components - Fabien Potencier ](http://fabien.potencier.org/article/50/create-your-own-framework-on-top-of-the-symfony2-components-part-1)
+
+`ARTICLE` - Instead of using these low-level components, you can use the ready-to-be-used Symfony2 full-stack web framework, which is based on these components... or you can create your very own framework. This series is about the latter.
 
 ###### [PHP UK Conference 2014 - Mathias Verraes - Unbreakable Domain Models](https://www.youtube.com/watch?v=ZJ63ltuwMaE)
 
@@ -68,6 +76,7 @@ The fact is that I would like to be social, if you think or if you loved a video
 ###### [Elephant in the room - Test First, After and Beyond](http://elephantintheroom.io/)
 
 `PODCAST` - Testing is more than TDD. There’s a whole world out there of ideas and testing strategies you can employ to grow the team’s confidence in the code. In this episode, Mathias and Konstantin talk about topics such as.
+
 
 ####  TODO list
 
