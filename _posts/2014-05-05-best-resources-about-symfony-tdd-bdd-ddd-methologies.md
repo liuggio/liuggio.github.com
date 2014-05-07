@@ -77,6 +77,9 @@ clicking on the button  `Fix` on the right.
 
 `PODCAST` - Testing is more than TDD. There’s a whole world out there of ideas and testing strategies you can employ to grow the team’s confidence in the code. In this episode, Mathias and Konstantin talk about topics such as.
 
+###### [Models & Service Layers; Hemoglobin & Hogoblins](https://www.youtube.com/watch?v=3uV3ngl1Z8g) | [Slides](http://www.slideshare.net/rosstuck/models-and-service-layers-hemoglobin-and-hobgoblins)
+
+`VIDEO`|`SLIDES` - There is more info in Ross Tuck's [blog](http://rosstuck.com/)
 
 ####  TODO list
 
