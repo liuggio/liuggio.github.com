@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "part 2 - BDD DDD PHP, Behaviour Driven Development with Behat on the Application layer"
+title: "BDD, DDD and PHP. Behat on the Application layer"
 description: "The way we develop evolves"
 category: tutorial
 published: false
@@ -8,8 +8,6 @@ tags: [symfony2, PHP, BDD, DDD]
 edit-link: https://github.com/liuggio/liuggio.github.com/blob/master/_posts/2014-05-30-behaviour-driven-development-with-behat-on-the-application-layer-ddd-in-php
 ---
 {% include JB/setup %}
-
-
 
 This is the second part of a series of articles, in the first part we talked about how the design flow has changed using [a layered architecture in php](/domain-driven-design-and-symfony-for-simple-app), we started from the use cases, we created our business Entities, we wrote user stories, and we described the behaviour of the `Post` and the `Author` Entities.
 
@@ -20,13 +18,12 @@ We are trying to apply some DDD principles using a simple domain, also because w
 ### Remember the Domain model
 
 We designed the use cases, we used the business language, and we have created models where all the logic lives.
-The models can also contain model validators.
-We gave importance to Value objects,
+The models could also contain their validators.
+We gave importance to Value objects, we have created only the methods that we needed, we have avoided writing getters and setters of our Entities.
 
-We have created only the methods that we needed, we have avoided writing getters and setters of our Entities.
-We have also protected the 'entity putting what he needed directly in the constructor. 
+We have also protected the entities putting needs directly in the constructor. 
 
-Is it time to talk about implementation? **Not now**.
+**Is it time to talk about implementation?** Not now.
 
 ## Services and Use Cases
 
@@ -45,18 +42,18 @@ In our feature file we have 3 scenarios:
 
 In order to satisfy those 3 use stories, we could create 3 services that explicit and satisfy those functionalities.
 
-The word `service` does not describe the behavior and not explicit their functionality,
-in this case the services are use cases and they will need the nfrastructure layer.
+The word `service` does not describe the behaviors and not explicit their functionalities,
+in this case the services are use cases and they will need the infrastructure layer.
 
 Under the namespace `Liuggio\Blog\UseCase` we are going to create 3 classes
-getting the name from the scenario:
+each class get its name from a scenario:
 
 1. WriteBlogPost
 2. GetAuthorPosts
 3. PublishBlogPost
 
 Before writing the classes (as always) we are going to write the specification see `
-spec/Liuggio/Blog/UseCase`, because this helps me to better understand what we need and what we are going to create.
+spec/Liuggio/Blog/UseCase`, because this helps to better understand what we need and what we are going to create.
 
 	// spec/Liuggio/Blog/UseCase/CreatePostSpec.php
 	class CreatePostSpec extends ObjectBehavior
@@ -105,7 +102,7 @@ We said that the service should move the model's states.
 
 ## Repository
 
-Now we have only to create one RepositoryInterface, maybe two, one for reading and one for writing, non parleremo di CQRS, o meglio per questo semplice Blog non serve, preferisco sempre scindere le interfacce e poi pensare all'implementazione se unirle.
+Now we have only to create one RepositoryInterface, maybe two, one for reading and one for writing, we will not talk about CQRS, maybe for this simple Blog is not needed, but I always prefer to separate the interface and then think about whether to implement them together.
 
 A repository:
 <blockquote>
@@ -133,12 +130,10 @@ they should represent the data mapping, using the domain language.
 
 The repositories should have no logic other than execute commands to or from the data mapping.
 
-Se pensate che sia una over-ingegnerizzazione creare Repository e Use Case divisi,
-
-Unendoli si hanno due possibili scenari, o che i repository assorbono anche la responsabilità degli use case di muovere il modello tra i suoi stati, o che il servizio assumesse la responsabilità di salvare e conosciere il data mapping.
-Si potrebbe pensare che unire queste due responsabilità porti allo svantaggio di non poter cambiare agilmente la tipologia di storage,
-beh forse, ma il vero problema è il tempo. 
-Nella prima fase quella di scoperta delle funzionalità non si vuole o meglio sarebbe utile non pensare ai dettagli implementativi.
+You might think that separating Use Case and Repository is an over-engineering,
+but joining them there are two possible scenarios, or the repository also will absorbs all the responsibilities of the use case model (should care about moving model between states), or the service should know about the data mapping.
+You might think that combining these two responsibilities leading to the disadvantage of not being able to easily change the type of storage,
+well yes but the real problem is the flow, in the discovery phase maybe you do not want or you don't need to think about the implementation details.
 
 Riprendo @couac:
 <blockquote>
