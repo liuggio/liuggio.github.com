@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2014-05-19T16:13:50+02:00</updated>
+ <updated>2014-05-19T16:15:48+02:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -82,6 +82,10 @@
 &lt;h6 id=&quot;elephant_in_the_room__test_first_after_and_beyond&quot;&gt;&lt;a href=&quot;http://elephantintheroom.io/&quot;&gt;Elephant in the room - Test First, After and Beyond&lt;/a&gt;&lt;/h6&gt;
 
 &lt;p&gt;&lt;code&gt;PODCAST&lt;/code&gt; - Testing is more than TDD. There’s a whole world out there of ideas and testing strategies you can employ to grow the team’s confidence in the code. In this episode, Mathias and Konstantin talk about topics such as.&lt;/p&gt;
+
+&lt;h6 id=&quot;models__service_layers_hemoglobin__hogoblins__slides&quot;&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=3uV3ngl1Z8g&quot;&gt;Models &amp;amp; Service Layers; Hemoglobin &amp;amp; Hogoblins&lt;/a&gt; | &lt;a href=&quot;http://www.slideshare.net/rosstuck/models-and-service-layers-hemoglobin-and-hobgoblins&quot;&gt;Slides&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;code&gt;VIDEO&lt;/code&gt;|&lt;code&gt;SLIDES&lt;/code&gt; - There is more info in Ross Tuck’s &lt;a href=&quot;http://rosstuck.com/&quot;&gt;blog&lt;/a&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;todo_list&quot;&gt;TODO list&lt;/h4&gt;
 
