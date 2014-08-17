@@ -258,8 +258,8 @@ We have to add the validation layer that will be invisible, the form will perfor
 	            - Length:
 	                min: 2
 	                max: 50
-	                minMessage: "Your title must be at least {{ limit }} characters length"
-	                maxMessage: "Your title name cannot be longer than {{ limit }} characters length"
+	                minMessage: "Your title must be at least \{\{ limit \}\} characters length"
+	                maxMessage: "Your title name cannot be longer than \{\{ limit \}\} characters length"
 
 ## Step 3 The PageHandler::post
 
