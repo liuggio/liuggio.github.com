@@ -124,7 +124,7 @@ Let's see specifically how to proceed in the development, starting from the use 
 Install a BDD tool that helps you to write user stories:
 
 	composer init
-	composer behat/behat "2.4.*@stable"
+	composer require behat/behat "2.4.*@stable"
     bin/behat --init
 
 So we start writing the business goal in `features/post.feature`
