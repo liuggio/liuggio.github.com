@@ -7,98 +7,250 @@
         <atom:link href="http://welcometothebundle.com/feed.xml" rel="self" type="application/rss+xml" />
         
         <item>
+            <title>Price more then Money - PHP library</title>
+            <description>
+&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
+
+&lt;p&gt;When we want to put a new open-source library it should be a useful library, it should not exist it the ecosystem, but we should put libraries that explain a good practice, when we satisfy this we are adding a value.&lt;/p&gt;
+
+&lt;h2 id=&quot;you-need-the-money-lib&quot;&gt;You need the Money lib.&lt;/h2&gt;
+
+&lt;h3 id=&quot;down-with-float&quot;&gt;Down with Float&lt;/h3&gt;
+
+&lt;p&gt;In the different versions of our e-commerce we first have used the float to represent the money, yes it was a bad choise, PHP is very bad with all the float operations, shortly we started using BC-math, yet bad choice it was too difficult and too instable.&lt;/p&gt;
+
+&lt;h3 id=&quot;long-live-value-object&quot;&gt;Long live Value Object&lt;/h3&gt;
+
+&lt;p&gt;I already talked about the importance of the &lt;a href=&quot;persist-the-money-doctrine-value-object/&quot;&gt;value objects and how to implement the Money&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Shortly, how to represent the money information of a product like a &lt;code&gt;T-Shirt&lt;/code&gt;?&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// bad example
+$amount = '40.0';
+$currency = 'EUR';
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As already you know the value object is the answer, read more at &lt;a href=&quot;http://martinfowler.com/books.html&quot;&gt;Martin Fowler’s PoEAA&lt;/a&gt;,
+and the &lt;a href=&quot;https://github.com/mathiasverraes/money&quot;&gt;Money lib of Mathias Verraes&lt;/a&gt; is a good implementation:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// Using the Verraes Library
+$fiveEur = Money::EUR(500);
+$tenEur = $fiveEur-&amp;gt;add($fiveEur);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;you-need-a-price&quot;&gt;You need a Price.&lt;/h2&gt;
+
+&lt;p&gt;There is always a moment when you need to work on a product that hase different amount on different currencies, especially if you need to implement an e-commerce sooner or later you need different values.&lt;/p&gt;
+
+&lt;p&gt;So how to implement the object Price?&lt;/p&gt;
+
+&lt;h3 id=&quot;down-with-the-arrays&quot;&gt;Down with the arrays&lt;/h3&gt;
+
+&lt;p&gt;If a price calculator must return the price of a T-shirt in both Euro and Dollar, &lt;/p&gt;
+
+&lt;p&gt;surely the array is not the best choice:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// bad example
+function HowMuchItCosts()
+{
+    return array(
+    'EUR' =&amp;gt; Money::EUR(500),
+    'USD' =&amp;gt; Money::USD(550)
+    );
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;the-value-object&quot;&gt;The value object&lt;/h3&gt;
+
+&lt;p&gt;We have relased the &lt;a href=&quot;https://github.com/leaphly/price&quot;&gt;Price library&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;composer require leaphly\price 1.0-dev;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;simple-usage&quot;&gt;Simple usage&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;The T-Shirt costs 10€ and 8£
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In PHP:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ticketPrice = new Price(
+  [
+    'EUR' =&amp;gt; 1000,
+    'GBP' =&amp;gt; 800
+  ]
+);
+
+echo $tShirtPrice-&amp;gt;inEUR();  // return 1000
+
+var_dump($ticketPrice-&amp;gt;availableCurrencies()); // array with EUR, GBP
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;a-price-is-the-amount-in-different-currencies&quot;&gt;A Price is the amount in different currencies.&lt;/h3&gt;
+
+&lt;h4 id=&quot;math-operations&quot;&gt;Math operations&lt;/h4&gt;
+
+&lt;p&gt;Has a different mathematical operators:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ticketPrice = new Price(
+    [
+    'EUR' =&amp;gt; 1000,
+    'USD' =&amp;gt; 1300
+    ]
+);
+
+$discount = new Price(
+    [
+    'EUR' =&amp;gt; 10,
+    'USD' =&amp;gt; 13
+    ]
+);
+
+$ticketPrice = $ticketPrice-&amp;gt;subtract($discount);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;the-api&quot;&gt;the API&lt;/h3&gt;
+
+&lt;p&gt;the API is in alpha release:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;inXXX magic call eg. &lt;code&gt;inEUR&lt;/code&gt;() alias of getAmount(‘EUR’)&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;getConversions&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;isZero&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;hasAmount&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;getAmount&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;availableCurrencies&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;add&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;equals&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;subtract&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;multiply&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;divide&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;working-with-conversions&quot;&gt;Working with Conversions&lt;/h3&gt;
+
+&lt;p&gt;Happens that you have only one fixed amount eg. 10 EUR, 
+and you want to provide the converted amount for another currency,
+that’s a good way to do it:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$price = new Price(
+    array(
+        'EUR' =&amp;gt; 100,
+    ),
+    array('EUR/USD 1.500') // ISO.
+);
+
+echo $price-&amp;gt;inUSD(); // will return 150
+var_dump($price-&amp;gt;availableCurrencies()); // will return array('EUR', 'USD')
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;stabilization-process&quot;&gt;Stabilization process&lt;/h3&gt;
+
+&lt;p&gt;The library is not stable, there are few issues opened, this value object is not immutable, when the issues will be closed, the &lt;code&gt;Price&lt;/code&gt; library will have a new release.&lt;/p&gt;
+</description>
+            <pubDate>Sun, 31 Aug 2014 00:00:00 +0200</pubDate>
+            <link>http://welcometothebundle.com//price-more-then-money-php-library</link>
+            <guid isPermaLink="true">http://welcometothebundle.com//price-more-then-money-php-library</guid>
+        </item>
+        
+        <item>
             <title>(my) Best resources about methodologies on Symfony, PHP, DDD, BDD ...</title>
-            <description>&lt;p&gt;The Internet is full of content, and sometimes filter them and find the most important article takes time.&lt;/p&gt;
+            <description>
+&lt;p&gt;The Internet is full of content, and sometimes filter them and find the most important article takes time.&lt;/p&gt;
 
-&lt;p&gt;I always wanted to make a list of &lt;code&gt;great&lt;/code&gt; resources that are available online, who gave something to my professional growth.&lt;/p&gt;
+&lt;p&gt;I always wanted to make a list of &lt;code&gt;great&lt;/code&gt; resources that are available online,
+who gave something to my professional growth.&lt;/p&gt;
 
-&lt;p&gt;The fact is that I would like to be social, if you think or if you loved a video or a post please add it,&lt;br /&gt;clicking on the button &lt;code&gt;Fix&lt;/code&gt; on the right.&lt;/p&gt;
+&lt;p&gt;The fact is that I would like to be social, 
+if you think or if you loved a video or a post please add it,&lt;br /&gt;
+clicking on the button  &lt;code&gt;Fix&lt;/code&gt; on the right.&lt;/p&gt;
 
-&lt;h4 id=&quot;symfony2_ecosystem&quot;&gt;Symfony2 Ecosystem&lt;/h4&gt;
+&lt;h4 id=&quot;symfony2-ecosystem&quot;&gt;Symfony2 Ecosystem&lt;/h4&gt;
 
-&lt;h6 id=&quot;2013__william_durand__ddd_symfony2_folder_structure_and_code_first&quot;&gt;&lt;a href=&quot;http://williamdurand.fr/2013/08/07/ddd-with-symfony2-folder-structure-and-code-first/&quot;&gt;2013 - william durand - ddd symfony2 folder structure and code first&lt;/a&gt;&lt;/h6&gt;
+&lt;h6 id=&quot;william-durand---ddd-symfony2-folder-structure-and-code-firsthttpwilliamdurandfr20130807ddd-with-symfony2-folder-structure-and-code-first&quot;&gt;&lt;a href=&quot;http://williamdurand.fr/2013/08/07/ddd-with-symfony2-folder-structure-and-code-first/&quot;&gt;2013 - william durand - ddd symfony2 folder structure and code first&lt;/a&gt;&lt;/h6&gt;
 
 &lt;p&gt;&lt;code&gt;ARTICLE&lt;/code&gt; - &lt;a href=&quot;https://twitter.com/couac&quot;&gt;@couac&lt;/a&gt; wrote a lot of articles about best practices and methologies, his blog is a must to read for a PHP developer.&lt;/p&gt;
 
-&lt;h6 id=&quot;2013__dave_marshall__silex_an_implementation_detail&quot;&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=bTawx0TGIj8&quot;&gt;2013 - Dave Marshall - Silex: An implementation detail&lt;/a&gt;&lt;/h6&gt;
+&lt;h6 id=&quot;dave-marshall---silex-an-implementation-detailhttpwwwyoutubecomwatchvbtawx0tgij8&quot;&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=bTawx0TGIj8&quot;&gt;2013 - Dave Marshall - Silex: An implementation detail&lt;/a&gt;&lt;/h6&gt;
 
 &lt;p&gt;&lt;code&gt;VIDEO&lt;/code&gt; - An unexpected and very clear presentation on Domain Driven Design with Silex.&lt;/p&gt;
 
-&lt;h6 id=&quot;2013__marcello_duarte__konstantin_kudryashov__the_framework_as_an_implementation_detail&quot;&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=0L_9NutiJlc&quot;&gt;2013 - Marcello Duarte &amp;amp; Konstantin Kudryashov - The Framework as an implementation Detail&lt;/a&gt;&lt;/h6&gt;
+&lt;h6 id=&quot;marcello-duarte--konstantin-kudryashov---the-framework-as-an-implementation-detailhttpswwwyoutubecomwatchv0l9nutijlc&quot;&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=0L_9NutiJlc&quot;&gt;2013 - Marcello Duarte &amp;amp; Konstantin Kudryashov - The Framework as an implementation Detail&lt;/a&gt;&lt;/h6&gt;
 
 &lt;p&gt;&lt;code&gt;VIDEO&lt;/code&gt; - An introduction to the hexagonal architecture and Symfony2.&lt;/p&gt;
 
-&lt;h6 id=&quot;2013__benjamin_eberlei__functional_testing_with_symfony2&quot;&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=fVdlKl3ZZvM&quot;&gt;2013 - Benjamin Eberlei - Functional Testing with Symfony2&lt;/a&gt;&lt;/h6&gt;
+&lt;h6 id=&quot;benjamin-eberlei---functional-testing-with-symfony2httpswwwyoutubecomwatchvfvdlkl3zzvm&quot;&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=fVdlKl3ZZvM&quot;&gt;2013 - Benjamin Eberlei - Functional Testing with Symfony2&lt;/a&gt;&lt;/h6&gt;
 
 &lt;p&gt;&lt;code&gt;VIDEO&lt;/code&gt; - If I had seen this video in 2009, I would have spent the time to structure the test in a better way&lt;/p&gt;
 
-&lt;h6 id=&quot;2013__benjamin_eberlei__decouple_your_application_with_domainevents&quot;&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=K9jub4JPpcc&quot;&gt;2013 - Benjamin Eberlei - Decouple your application with (Domain-)Events&lt;/a&gt;&lt;/h6&gt;
+&lt;h6 id=&quot;benjamin-eberlei---decouple-your-application-with-domain-eventshttpswwwyoutubecomwatchvk9jub4jppcc&quot;&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=K9jub4JPpcc&quot;&gt;2013 - Benjamin Eberlei - Decouple your application with (Domain-)Events&lt;/a&gt;&lt;/h6&gt;
 
 &lt;p&gt;&lt;code&gt;VIDEO&lt;/code&gt; - Decouple, decouple, decouple.&lt;/p&gt;
 
-&lt;h6 id=&quot;2012__create_your_own_framework_on_top_of_the_symfony2_components__fabien_potencier&quot;&gt;&lt;a href=&quot;http://fabien.potencier.org/article/50/create-your-own-framework-on-top-of-the-symfony2-components-part-1&quot;&gt;2012 - Create your own framework… on top of the Symfony2 Components - Fabien Potencier&lt;/a&gt;&lt;/h6&gt;
+&lt;h6 id=&quot;create-your-own-framework-on-top-of-the-symfony2-components---fabien-potencier-httpfabienpotencierorgarticle50create-your-own-framework-on-top-of-the-symfony2-components-part-1&quot;&gt;&lt;a href=&quot;http://fabien.potencier.org/article/50/create-your-own-framework-on-top-of-the-symfony2-components-part-1&quot;&gt;2012 - Create your own framework… on top of the Symfony2 Components - Fabien Potencier &lt;/a&gt;&lt;/h6&gt;
 
 &lt;p&gt;&lt;code&gt;ARTICLE&lt;/code&gt; - Instead of using these low-level components, you can use the ready-to-be-used Symfony2 full-stack web framework, which is based on these components… or you can create your very own framework. This series is about the latter.&lt;/p&gt;
 
-&lt;h6 id=&quot;php_uk_conference_2014__mathias_verraes__unbreakable_domain_models&quot;&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=ZJ63ltuwMaE&quot;&gt;PHP UK Conference 2014 - Mathias Verraes - Unbreakable Domain Models&lt;/a&gt;&lt;/h6&gt;
+&lt;h6 id=&quot;php-uk-conference-2014---mathias-verraes---unbreakable-domain-modelshttpswwwyoutubecomwatchvzj63ltuwmae&quot;&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=ZJ63ltuwMaE&quot;&gt;PHP UK Conference 2014 - Mathias Verraes - Unbreakable Domain Models&lt;/a&gt;&lt;/h6&gt;
 
 &lt;p&gt;&lt;code&gt;VIDEO&lt;/code&gt; - Tutto il blog di Mathias è pieno di spunti.&lt;/p&gt;
 
-&lt;h4 id=&quot;about_ddd_or_bdd_or_tdd&quot;&gt;About DDD or BDD or TDD&lt;/h4&gt;
+&lt;h4 id=&quot;about-ddd-or-bdd-or-tdd&quot;&gt;About DDD or BDD or TDD&lt;/h4&gt;
 
-&lt;h6 id=&quot;goruco_2012_hexagonal_rails_by_matt_wynne&quot;&gt;&lt;a href=&quot;www.youtube.com/watch?v=CGN4RFkhH2M‎&quot;&gt;GoRuCo 2012 Hexagonal Rails by Matt Wynne&lt;/a&gt;&lt;/h6&gt;
+&lt;h6 id=&quot;goruco-2012-hexagonal-rails-by-matt-wynnewwwyoutubecomwatchvcgn4rfkhh2m&quot;&gt;&lt;a href=&quot;www.youtube.com/watch?v=CGN4RFkhH2M‎&quot;&gt;GoRuCo 2012 Hexagonal Rails by Matt Wynne&lt;/a&gt;&lt;/h6&gt;
 
 &lt;p&gt;&lt;code&gt;VIDEO&lt;/code&gt; - One of my favourite talk about Hexagonal architecture.&lt;/p&gt;
 
-&lt;h6 id=&quot;domain_models_and_composite_applications&quot;&gt;&lt;a href=&quot;https://skillsmatter.com/skillscasts/1806-talk-from-udi-dahan&quot;&gt;Domain Models and Composite Applications&lt;/a&gt;&lt;/h6&gt;
+&lt;h6 id=&quot;domain-models-and-composite-applicationshttpsskillsmattercomskillscasts1806-talk-from-udi-dahan&quot;&gt;&lt;a href=&quot;https://skillsmatter.com/skillscasts/1806-talk-from-udi-dahan&quot;&gt;Domain Models and Composite Applications&lt;/a&gt;&lt;/h6&gt;
 
 &lt;p&gt;&lt;code&gt;VIDEO&lt;/code&gt; - In this talk, recorded at the DDD eXchange 2011, Udi Dahan explains the use of Bounded Contexts to turn previously monolithic systems into composite applications, now with multiple lean and mean domain models - a new perspective on DDD awaits.&lt;/p&gt;
 
-&lt;h6 id=&quot;cqrsddd_by_greg_young&quot;&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=KXqrBySgX-s&quot;&gt;CQRS/DDD by Greg Young&lt;/a&gt;&lt;/h6&gt;
+&lt;h6 id=&quot;cqrsddd-by-greg-younghttpswwwyoutubecomwatchvkxqrbysgx-s&quot;&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=KXqrBySgX-s&quot;&gt;CQRS/DDD by Greg Young&lt;/a&gt;&lt;/h6&gt;
 
 &lt;p&gt;&lt;code&gt;VIDEO&lt;/code&gt; - Unfortunately this video has a good sound, but it is a must.&lt;/p&gt;
 
-&lt;h6 id=&quot;cucumber_and_testing_through_the_ui&quot;&gt;&lt;a href=&quot;https://groups.google.com/forum/#!topic/objects-on-rails/LytHzDQIwKw&quot;&gt;Cucumber and testing through the UI&lt;/a&gt;&lt;/h6&gt;
+&lt;h6 id=&quot;cucumber-and-testing-through-the-uihttpsgroupsgooglecomforumtopicobjects-on-railslythzdqiwkw&quot;&gt;&lt;a href=&quot;https://groups.google.com/forum/#!topic/objects-on-rails/LytHzDQIwKw&quot;&gt;Cucumber and testing through the UI&lt;/a&gt;&lt;/h6&gt;
 
 &lt;p&gt;&lt;code&gt;GOOGLEGROUPS&lt;/code&gt; - Some thoughts about testing against User Interface.&lt;/p&gt;
 
-&lt;h6 id=&quot;vvernon__effective_aggregate_design_part_ii&quot;&gt;&lt;a href=&quot;https://vimeo.com/33708293&quot;&gt;V.Vernon - Effective Aggregate Design Part II&lt;/a&gt;&lt;/h6&gt;
+&lt;h6 id=&quot;vvernon---effective-aggregate-design-part-iihttpsvimeocom33708293&quot;&gt;&lt;a href=&quot;https://vimeo.com/33708293&quot;&gt;V.Vernon - Effective Aggregate Design Part II&lt;/a&gt;&lt;/h6&gt;
 
 &lt;p&gt;&lt;code&gt;VIDEO&lt;/code&gt; - this is the second part, Vaugh talks about the aggregates.&lt;/p&gt;
 
-&lt;h6 id=&quot;article_on_professionalism_and_tdd_reprise&quot;&gt;&lt;a href=&quot;https://gist.github.com/sandal/1c6c7ec0d7603775ed17&quot;&gt;Article on Professionalism and TDD (Reprise)&lt;/a&gt;&lt;/h6&gt;
+&lt;h6 id=&quot;article-on-professionalism-and-tdd-reprisehttpsgistgithubcomsandal1c6c7ec0d7603775ed17&quot;&gt;&lt;a href=&quot;https://gist.github.com/sandal/1c6c7ec0d7603775ed17&quot;&gt;Article on Professionalism and TDD (Reprise)&lt;/a&gt;&lt;/h6&gt;
 
 &lt;p&gt;&lt;code&gt;ARTICLE&lt;/code&gt; - A remix of Bob Martin’s essay on Professionalism and TDD (Reprise) edited by Gregory Brown.&lt;/p&gt;
 
-&lt;h6 id=&quot;elephant_in_the_room__test_first_after_and_beyond&quot;&gt;&lt;a href=&quot;http://elephantintheroom.io/&quot;&gt;Elephant in the room - Test First, After and Beyond&lt;/a&gt;&lt;/h6&gt;
+&lt;h6 id=&quot;elephant-in-the-room---test-first-after-and-beyondhttpelephantintheroomio&quot;&gt;&lt;a href=&quot;http://elephantintheroom.io/&quot;&gt;Elephant in the room - Test First, After and Beyond&lt;/a&gt;&lt;/h6&gt;
 
 &lt;p&gt;&lt;code&gt;PODCAST&lt;/code&gt; - Testing is more than TDD. There’s a whole world out there of ideas and testing strategies you can employ to grow the team’s confidence in the code. In this episode, Mathias and Konstantin talk about topics such as.&lt;/p&gt;
 
-&lt;h6 id=&quot;models__service_layers_hemoglobin__hogoblins__slides&quot;&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=3uV3ngl1Z8g&quot;&gt;Models &amp;amp; Service Layers; Hemoglobin &amp;amp; Hogoblins&lt;/a&gt; | &lt;a href=&quot;http://www.slideshare.net/rosstuck/models-and-service-layers-hemoglobin-and-hobgoblins&quot;&gt;Slides&lt;/a&gt;&lt;/h6&gt;
+&lt;h6 id=&quot;models--service-layers-hemoglobin--hogoblinshttpswwwyoutubecomwatchv3uv3ngl1z8g--slideshttpwwwslidesharenetrosstuckmodels-and-service-layers-hemoglobin-and-hobgoblins&quot;&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=3uV3ngl1Z8g&quot;&gt;Models &amp;amp; Service Layers; Hemoglobin &amp;amp; Hogoblins&lt;/a&gt; | &lt;a href=&quot;http://www.slideshare.net/rosstuck/models-and-service-layers-hemoglobin-and-hobgoblins&quot;&gt;Slides&lt;/a&gt;&lt;/h6&gt;
 
-&lt;p&gt;&lt;code&gt;VIDEO&lt;/code&gt;|&lt;code&gt;SLIDES&lt;/code&gt; - There is more info in Ross Tuck’s &lt;a href=&quot;http://rosstuck.com/&quot;&gt;blog&lt;/a&gt;&lt;/p&gt;
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;VIDEO&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;SLIDES&lt;/code&gt; - There is more info in Ross Tuck’s &lt;a href=&quot;http://rosstuck.com/&quot;&gt;blog&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-&lt;h4 id=&quot;todo_list&quot;&gt;TODO list&lt;/h4&gt;
+&lt;h4 id=&quot;todo-list&quot;&gt;TODO list&lt;/h4&gt;
 
 &lt;p&gt;This resources has been suggested to me, but I never had time to review.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=4cVZvoFGJTU&quot;&gt;video- Michael Feathers - the deep synergy between testability and good design&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&quot;http://watirmelon.com/2010/12/10/cucumber-imperative-or-declarative-that-is-the-question/&quot;&gt;blog - Cucumber: imperative or declarative? that is the question&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&quot;http://aslakhellesoy.com/post/11055981222/the-training-wheels-came-off&quot;&gt;the-training-wheels-came-off&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&quot;http://vimeo.com/39660655&quot;&gt;Matt Wynne on Refuctoring Your Cukes&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&quot;https://www.relishapp.com/relish/relish/docs/billing&quot;&gt;https://www.relishapp.com/relish/relish/docs/billing&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&quot;http://skillsmatter.com/podcast/agile-scrum/bdd-as-its-meant-to-be-done&quot;&gt;bdd-as-its-meant-to-be-done&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/results?search_query=Robert+C.+Martin&quot;&gt;All the videos from Uncle Bob&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&quot;http://cleancoders.com/category/fundamentals&quot;&gt;Clean Coders&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description>
+  &lt;li&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=4cVZvoFGJTU&quot;&gt;video- Michael Feathers - the deep synergy between testability and good design &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://watirmelon.com/2010/12/10/cucumber-imperative-or-declarative-that-is-the-question/&quot;&gt;blog - Cucumber: imperative or declarative? that is the question&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://aslakhellesoy.com/post/11055981222/the-training-wheels-came-off&quot;&gt;the-training-wheels-came-off&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://vimeo.com/39660655&quot;&gt;Matt Wynne on Refuctoring Your Cukes&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.relishapp.com/relish/relish/docs/billing&quot;&gt;https://www.relishapp.com/relish/relish/docs/billing&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://skillsmatter.com/podcast/agile-scrum/bdd-as-its-meant-to-be-done&quot;&gt;bdd-as-its-meant-to-be-done&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/results?search_query=Robert+C.+Martin&quot;&gt;All the videos from Uncle Bob&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://cleancoders.com/category/fundamentals&quot;&gt;Clean Coders&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
             <pubDate>Mon, 05 May 2014 00:00:00 +0200</pubDate>
             <link>http://welcometothebundle.com//best-resources-about-symfony-tdd-bdd-ddd-methologies</link>
             <guid isPermaLink="true">http://welcometothebundle.com//best-resources-about-symfony-tdd-bdd-ddd-methologies</guid>
@@ -106,9 +258,11 @@
         
         <item>
             <title>Domain Driven Design principles with Symfony2 also for dummy applications</title>
-            <description>&lt;h3 id=&quot;part_1__the_new_flow_the_layered_architecture_and_the_entities&quot;&gt;Part 1 - The new flow, the layered architecture and the entities.&lt;/h3&gt;
+            <description>
+&lt;h3 id=&quot;part-1---the-new-flow-the-layered-architecture-and-the-entities&quot;&gt;Part 1 - The new flow, the layered architecture and the entities.&lt;/h3&gt;
 
-&lt;p&gt;The objective of this series of articles is to show how and why I have changed the way of programming, I would also point to the benefits of adopting certain principles of Domain Driven Design also with simple applications, instead using DDD strictly might benefit only for some particular and complex Domains.&lt;/p&gt;
+&lt;p&gt;The objective of this series of articles is to show how and why I have changed the way of programming,
+I would also point to the benefits of adopting certain principles of Domain Driven Design also with simple applications, instead using DDD strictly might benefit only for some particular and complex Domains.&lt;/p&gt;
 
 &lt;p&gt;I do not want to say I am an evangelist of the Domain Driven Development philosophy, but the &lt;a href=&quot;http://www.amazon.it/Implementing-Domain-Driven-Design-Vaughn-Vernon/dp/0321834577&quot;&gt;red book of V.Vaughn&lt;/a&gt; and the movement, has profoundly changed and improved the way I code today.&lt;/p&gt;
 
@@ -116,41 +270,48 @@
 
 &lt;h2 id=&quot;history&quot;&gt;History&lt;/h2&gt;
 
-&lt;p&gt;Around 2003/2004 I gave birth to a PHP framework that would help me on some small software, was a jumble of libraries stacked with copy and paste, starting from &lt;a href=&quot;https://www.phpnuke.org/&quot;&gt;php-nuke&lt;/a&gt;. I released it on &lt;a href=&quot;https://www.sourceforge.net&quot;&gt;sourceforge&lt;/a&gt; the project had many “include” and a few contributors, the name of the project is a secret, it was a youth error.&lt;/p&gt;
+&lt;p&gt;Around 2003/2004 I gave birth to a PHP framework that would help me on some small software, 
+was a jumble of libraries stacked with copy and paste, starting from &lt;a href=&quot;https://www.phpnuke.org/&quot;&gt;php-nuke&lt;/a&gt;.
+I released it on &lt;a href=&quot;https://www.sourceforge.net&quot;&gt;sourceforge&lt;/a&gt; the project had many “include” and a few contributors,
+the name of the project is a secret, it was a youth error.&lt;/p&gt;
 
 &lt;p&gt;That was the first time I understood that the decoupling not occurs only at the class level, and the benefit of using a library for the template and a library for the database abstraction gave to me a new mindset, in the meanwhile Eric Evans was publishing &lt;a href=&quot;http://www.amazon.it/gp/product/0321125215/ref=pd_lpo_sbs_dp_ss_1&quot;&gt;the Blue Book&lt;/a&gt; .&lt;/p&gt;
 
-&lt;p&gt;My programming style has changed, and I do not understand how music artists or painters keep their style for an entire career, even in the same version of Symfony my developing style changes and evolves.&lt;/p&gt;
+&lt;p&gt;My programming style has changed,
+and I do not understand how music artists or painters keep their style for an entire career,
+even in the same version of Symfony my developing style changes and evolves.&lt;/p&gt;
 
 &lt;p&gt;To better understand how changed let’s start with a real example:&lt;/p&gt;
 
 &lt;p&gt;Stories:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;As Author I want to be able to write a new Blog-Post as draft.&lt;/li&gt;
-
-&lt;li&gt;Given a blog-post already written, as Author I want to be able to publish a new Blog-Post.&lt;/li&gt;
-
-&lt;li&gt;The Blog-Post is written by an Author with a title and a body.&lt;/li&gt;
-
-&lt;li&gt;When a blog post is written is not public.&lt;/li&gt;
-
-&lt;li&gt;As Author I want to see a list of my posts.&lt;/li&gt;
+  &lt;li&gt;As Author I want to be able to write a new Blog-Post as draft.&lt;/li&gt;
+  &lt;li&gt;Given a blog-post already written, as Author I want to be able to publish a new Blog-Post.&lt;/li&gt;
+  &lt;li&gt;The Blog-Post is written by an Author with a title and a body.&lt;/li&gt;
+  &lt;li&gt;When a blog post is written is not public.&lt;/li&gt;
+  &lt;li&gt;As Author I want to see a list of my posts.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id=&quot;before_code_first_it_means_bundlefirst&quot;&gt;Before: code first (it means bundle-first).&lt;/h3&gt;
+&lt;h3 id=&quot;before-code-first-it-means-bundle-first&quot;&gt;Before: code first (it means bundle-first).&lt;/h3&gt;
 
-&lt;p&gt;If few years ago I’d thought to the database first, Symfony2 gave a breath of fresh pushing forward the mentality of modularity and decoupling.&lt;/p&gt;
+&lt;p&gt;If few years ago I’d thought to the  database first, 
+Symfony2 gave a breath of fresh pushing forward the mentality of modularity and decoupling.&lt;/p&gt;
 
-&lt;p&gt;It was explicit the good practice of not putting the logic inside the controllers, but as a side effect in the ecosystem has become quite common the ”&lt;strong&gt;bundle-everything with thin controllers and fat services&lt;/strong&gt;”.&lt;/p&gt;
+&lt;p&gt;It was explicit the good practice of not putting the logic inside the controllers, but as a side effect in the ecosystem
+has become quite common the “&lt;strong&gt;bundle-everything with thin controllers and fat services&lt;/strong&gt;”.&lt;/p&gt;
 
 &lt;p&gt;Services full of logic, and empty ORM entities (empty means only with setters and getters).&lt;/p&gt;
 
-&lt;h3 id=&quot;thin_controllers_and_fat_services__smell&quot;&gt;Thin Controllers and Fat Services = smell&lt;/h3&gt;
+&lt;h3 id=&quot;thin-controllers-and-fat-services--smell&quot;&gt;Thin Controllers and Fat Services = smell&lt;/h3&gt;
 
-&lt;p&gt;With a new project you start installing the symfony-standard, you create a bundle for each concept, then you create thousands of Doctrine2 entities (get and set on each property), and then you start testing the service before coding, then a slim controller and a functional test over the Reponse playing with HTML and css path in order to have green tests.&lt;/p&gt;
+&lt;p&gt;With a new project you start installing the symfony-standard,
+you create a bundle for each concept,
+then you create thousands of Doctrine2 entities (get and set on each property), and then you start testing the service before coding, then
+a slim controller and a functional test over the Reponse playing with HTML and css path in order to have green tests.&lt;/p&gt;
 
-&lt;p&gt;This way of doing it is not even too wrong, it does not suck, but adding new features you’d have a lot of interdependent Symfony bundles, many fat services (maybe) with abstract nouns such as ‘manager’, ‘service’, ‘handler’ and even a CoreBundle with the shared logic. Entities with getters, setters, but also full of annotations (doctrine and serializer).&lt;/p&gt;
+&lt;p&gt;This way of doing it is not even too wrong, it does not suck, but adding new features you’d have a lot of interdependent Symfony bundles, many fat services (maybe) with abstract nouns such as ‘manager’, ‘service’, ‘handler’ and even a CoreBundle with the shared logic.
+Entities with getters, setters, but also full of annotations (doctrine and serializer).&lt;/p&gt;
 
 &lt;p&gt;The folders would have this structure:&lt;/p&gt;
 
@@ -172,11 +333,12 @@
 │    │   └── Currency.php
 │    ├── Service
 	 
-...&lt;/code&gt;&lt;/pre&gt;
+...
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;http://blog.codinghorror.com/i-shall-call-it-somethingmanager/&lt;/p&gt;
 
-&lt;h4 id=&quot;something_wrong_and_anemic_domain_model&quot;&gt;Something wrong and Anemic Domain Model&lt;/h4&gt;
+&lt;h4 id=&quot;something-wrong-and-anemic-domain-model&quot;&gt;Something wrong and Anemic Domain Model&lt;/h4&gt;
 
 &lt;p&gt;A couple of years ago after a big project in Symfony2, I realized there was something that could be improved, too many bundles, too many entities persisted without a real value, too many connections, too many fat services, too much Symfony2-centric application, something had changed, and in the my PHP community began to appear articles from &lt;a href=&quot;http://williamdurand.fr&quot;&gt;williamdurand&lt;/a&gt; and &lt;a href=&quot;http://verraes.net/&quot;&gt;Verraes&lt;/a&gt; on how we could improve this pattern.&lt;/p&gt;
 
@@ -185,38 +347,40 @@
 &lt;p&gt;What is the problem of moving a lot of logic in the services?&lt;/p&gt;
 
 &lt;p&gt;A service should reside in the application layer should be small by definition:&lt;/p&gt;
+
 &lt;blockquote&gt;In general, the more behavior you find in the services, the more likely you are to be robbing yourself of the benefits of a domain model. If all your logic is in services, you've robbed yourself blind.&lt;small&gt;Martin Fowler&lt;/small&gt;&lt;/blockquote&gt;
+
 &lt;h2 id=&quot;today&quot;&gt;Today&lt;/h2&gt;
 
 &lt;p&gt;Today I develop in a different way, many more &lt;a href=&quot;/persist-the-money-doctrine-value-object/&quot;&gt;Value Objects&lt;/a&gt;, Entities with more logic, I would start by specifying use cases, and above all the flow of development has changed.&lt;/p&gt;
 
 &lt;p&gt;Thinking first about objects that have to perform behaviors, protagonists of the use cases are domain entities (should not be confused with the doctrine-entity) and aggregates, the step of deciding how to persist should be sent to a later stage.&lt;/p&gt;
 
-&lt;h3 id=&quot;layered_architecture&quot;&gt;Layered Architecture&lt;/h3&gt;
+&lt;h3 id=&quot;layered-architecture&quot;&gt;Layered Architecture&lt;/h3&gt;
 
 &lt;p&gt;The thing that mostly changed the way I develop is the separation of the various concerns of our application by isolating the expression of domain model and business logic, eliminate any dependency from the business logic.&lt;/p&gt;
 
 &lt;p&gt;For &lt;a href=&quot;http://www.amazon.com/Pattern-Oriented-Software-Architecture-Volume-Patterns/dp/0471958697/ref=tmm_hrd_title_0?&quot;&gt;Buschmann&lt;/a&gt; there are 4 layers:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Domain Layer&lt;/strong&gt;: the internal layer is where you have to define the outlines of the use cases&lt;/li&gt;
-
-&lt;li&gt;&lt;strong&gt;Application Layer&lt;/strong&gt;: the flow of the behavior&lt;/li&gt;
-
-&lt;li&gt;&lt;strong&gt;User Interface layer&lt;/strong&gt;: how to present to the user&lt;/li&gt;
-
-&lt;li&gt;&lt;strong&gt;Infrastructure Layer&lt;/strong&gt;: and finally how to implement them, the choice of the framework should be made in this final layer.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Domain Layer&lt;/strong&gt;: the internal layer is where you have to define the outlines of the use cases&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Application Layer&lt;/strong&gt;: the flow of the behavior &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;User Interface layer&lt;/strong&gt;: how to present to the user&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Infrastructure Layer&lt;/strong&gt;: and finally how to implement them, the choice of the framework should be made in this final layer.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;At the beginning we do not want to think about how we will save our objects, we just want the use cases satisfied, we do not want to think about which framework we will use, we are in the &lt;code&gt;Domain Layer&lt;/code&gt;.&lt;/p&gt;
+
 &lt;blockquote&gt;It doesn't depend on any particular UI or service interface-related technology, it just describes use cases.&lt;/blockquote&gt;
+
 &lt;p&gt;Let’s see specifically how to proceed in the development, starting from the use cases.&lt;/p&gt;
 
 &lt;p&gt;Install a BDD tool that helps you to write user stories:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;composer init
-composer behat/behat &amp;quot;2.4.*@stable&amp;quot;
-bin/behat --init&lt;/code&gt;&lt;/pre&gt;
+composer behat/behat &quot;2.4.*@stable&quot;
+bin/behat --init
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;So we start writing the business goal in &lt;code&gt;features/post.feature&lt;/code&gt;&lt;/p&gt;
 
@@ -224,13 +388,13 @@ bin/behat --init&lt;/code&gt;&lt;/pre&gt;
     Given I am an Author
     When I fill in the following:
       |  First Post | Great Description |
-    Then the &amp;quot;First Post&amp;quot; post should be written.
+    Then the &quot;First Post&quot; post should be written.
 
   Scenario: Publish a blog Post
     Given I am an Author
-    And I wrote a post with &amp;quot;First Post&amp;quot; and &amp;quot;Great Description&amp;quot; as description
-    When I publish the post with the title &amp;quot;First Post&amp;quot;
-    Then the &amp;quot;First Post&amp;quot; post should be public.
+    And I wrote a post with &quot;First Post&quot; and &quot;Great Description&quot; as description
+    When I publish the post with the title &quot;First Post&quot;
+    Then the &quot;First Post&quot; post should be public.
 
   Scenario: List of all my posts
     Given I am an Author
@@ -238,22 +402,25 @@ bin/behat --init&lt;/code&gt;&lt;/pre&gt;
       |  First Post | Great Description |
       |  Second Post | Bad Description |
     When I see the list of all my posts
-    Then the &amp;quot;First Post&amp;quot; and the &amp;quot;Second Post&amp;quot; should be shown.&lt;/code&gt;&lt;/pre&gt;
+    Then the &quot;First Post&quot; and the &quot;Second Post&quot; should be shown.
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;So we have completed the outside specification, now we could go deep inside with &lt;code&gt;phpspec&lt;/code&gt; describing the behaviours of our domain.&lt;/p&gt;
 
-&lt;p&gt;We have recognized 2 entities &lt;code&gt;Post&lt;/code&gt; and &lt;code&gt;Author&lt;/code&gt; they didn’t change together so they are 2 different concepts, they are &lt;code&gt;Entity&lt;/code&gt; and not value objects because they could change, and they have a lifecycle, and we do want to identify an Author or a Post.&lt;/p&gt;
+&lt;p&gt;We have recognized 2 entities &lt;code&gt;Post&lt;/code&gt; and &lt;code&gt;Author&lt;/code&gt; they didn’t change together so they are 2 different concepts, 
+they are &lt;code&gt;Entity&lt;/code&gt; and not value objects because they could change, and they have a lifecycle, and we do want to identify an Author or a Post.&lt;/p&gt;
 
 &lt;p&gt;Install the tool that helps you to design focusing on the behaviors:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;composer require &amp;quot;phpspec/phpspec&amp;quot; &amp;quot;~2.0&amp;quot;
-bin/phpspec describe Liuggio/Blog/Post&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;composer require &quot;phpspec/phpspec&quot; &quot;~2.0&quot;
+bin/phpspec describe Liuggio/Blog/Post
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&quot;post_behaviours&quot;&gt;Post behaviours&lt;/h3&gt;
+&lt;h3 id=&quot;post-behaviours&quot;&gt;Post behaviours&lt;/h3&gt;
 
 &lt;p&gt;We want to describe how the &lt;code&gt;Post&lt;/code&gt; entity will works before writing the code:&lt;/p&gt;
 
-&lt;h5 id=&quot;the_blogpost_is_written_by_an_author_with_a_title_and_a_body&quot;&gt;The Blog-Post is written by an Author with a title and a body.&lt;/h5&gt;
+&lt;h5 id=&quot;the-blog-post-is-written-by-an-author-with-a-title-and-a-body&quot;&gt;The Blog-Post is written by an Author with a title and a body.&lt;/h5&gt;
 
 &lt;p&gt;describing the specification in &lt;code&gt;spec/postSpec.php&lt;/code&gt;:&lt;/p&gt;
 
@@ -267,7 +434,8 @@ function it_should_be_written_as_drafted()
 
 function it_should_be_published()
 {
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Running phpspec you will have:&lt;/p&gt;
 
@@ -281,11 +449,13 @@ function it_should_be_published()
     todo: write pending example
 1 specs
 3 examples (3 pending)
-2ms&lt;/code&gt;&lt;/pre&gt;
+2ms
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;What is obvious from the first specification? we need an &lt;code&gt;Author&lt;/code&gt; object.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;bin/phpspec describe Liuggio/Blog/Author&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;bin/phpspec describe Liuggio/Blog/Author
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;and then in &lt;code&gt;spec/Liuggio/Blog/AuthorSpec.php&lt;/code&gt;&lt;/p&gt;
 
@@ -293,7 +463,8 @@ function it_should_be_published()
 {
     $this-&amp;gt;beConstructedWith($nickname);
     $this-&amp;gt;shouldHaveType('Liuggio\Blog\Author');
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Running &lt;code&gt;bin/phpspec  run --format=pretty&lt;/code&gt;&lt;/p&gt;
 
@@ -306,7 +477,8 @@ function it_should_be_published()
     function __construct($nickname)
     {
         $this-&amp;gt;nickname = $nickname;
-    }&lt;/code&gt;&lt;/pre&gt;
+    }
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;We prefer to have in the constructor &lt;code&gt;$nickname&lt;/code&gt;, in this way we are protecting the Entity &lt;code&gt;Author&lt;/code&gt; to be consistent by specification (nickname could also be a Value Object).&lt;/p&gt;
 
@@ -316,7 +488,8 @@ function it_should_be_published()
 {
     $this-&amp;gt;beConstructedWith($author, 'title', 'body');
     $this-&amp;gt;shouldHaveType('Liuggio\Blog\Post');
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Then we write our Post Entity Class.&lt;/p&gt;
 
@@ -327,11 +500,12 @@ function it_should_be_published()
     private $body;
 
     function __construct(Author $author, $text, $body)
-    ...&lt;/code&gt;&lt;/pre&gt;
+    ...
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;What changed is that we don’t care here about Doctrine and Identity, we care only about the behaviour.&lt;/p&gt;
 
-&lt;h5 id=&quot;when_a_blog_post_is_written_is_not_public&quot;&gt;When a blog post is written is not public&lt;/h5&gt;
+&lt;h5 id=&quot;when-a-blog-post-is-written-is-not-public&quot;&gt;When a blog post is written is not public&lt;/h5&gt;
 
 &lt;p&gt;We have to add an object that represents the state of the post, we are going to use a Value Object.&lt;/p&gt;
 
@@ -344,9 +518,11 @@ function it_should_be_published()
 &lt;pre&gt;&lt;code&gt;function it_should_be_written_as_drafted()
 {
     $this-&amp;gt;isPublic()-&amp;gt;shouldBe(false);
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;We are describing the behavior we expect the entity Post, and we put this rule in the constructor into &lt;code&gt;\Liuggio\Blog\Post&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;We are describing the behavior we expect the entity Post,
+and we put this rule in the constructor into &lt;code&gt;\Liuggio\Blog\Post&lt;/code&gt;:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;class Post
 {
@@ -357,10 +533,11 @@ function it_should_be_published()
         $this-&amp;gt;title = $title;
         $this-&amp;gt;body = $body;
         $this-&amp;gt;state = State::draft();
-        $this-&amp;gt;createdAt = new \Datetime(&amp;quot;now&amp;quot;);
-    }&lt;/code&gt;&lt;/pre&gt;
+        $this-&amp;gt;createdAt = new \Datetime(&quot;now&quot;);
+    }
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h5 id=&quot;the_blogpost_could_be_published&quot;&gt;The Blog-Post could be published.&lt;/h5&gt;
+&lt;h5 id=&quot;the-blog-post-could-be-published&quot;&gt;The Blog-Post could be published.&lt;/h5&gt;
 
 &lt;p&gt;&lt;code&gt;spec/Liuggio/Blog/PostSpec.php&lt;/code&gt;&lt;/p&gt;
 
@@ -374,7 +551,8 @@ function it_should_raise_exception_during_publish_if_it_was_already_public()
 {
     $this-&amp;gt;publish();
     $this-&amp;gt;shouldThrow('Exception')-&amp;gt;duringPublish();
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;We have reached a point where our entity &lt;code&gt;Post&lt;/code&gt; will be like:&lt;/p&gt;
 
@@ -390,7 +568,7 @@ function it_should_raise_exception_during_publish_if_it_was_already_public()
     public function publish()
     {
         if (!$this-&amp;gt;couldBePublished()) {
-            throw new \Exception(&amp;quot;Could not do this transition&amp;quot;);
+            throw new \Exception(&quot;Could not do this transition&quot;);
         }
 
         return $this-&amp;gt;state = State::published();
@@ -399,7 +577,8 @@ function it_should_raise_exception_during_publish_if_it_was_already_public()
     private function couldBePublished()
     {
         return !$this-&amp;gt;isPublic();
-    }&lt;/code&gt;&lt;/pre&gt;
+    }
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;The folder is now:&lt;/p&gt;
 
@@ -411,33 +590,39 @@ function it_should_raise_exception_during_publish_if_it_was_already_public()
 	│   └── Blog
 	│       ├── Author.php
 	│       ├── Post.php
-	│       └── State.php&lt;/code&gt;&lt;/pre&gt;
+	│       └── State.php
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;the_github_repository&quot;&gt;The github repository&lt;/h2&gt;
+&lt;h2 id=&quot;the-github-repository&quot;&gt;The github repository&lt;/h2&gt;
 
 &lt;p&gt;There’s a repository at &lt;a href=&quot;https://github.com/liuggio/DDD-dummy-blog-with-symfony2/&quot;&gt;liuggio/DDD-dummy-blog-with-symfony2&lt;/a&gt; you could see the working code using the tag &lt;code&gt;part-1&lt;/code&gt; with:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;git clone liuggio/DDD-dummy-blog-with-symfony2
 cd DDD-dummy-blog-with-symfony2
 composer install
-git checkout -f part-1&lt;/code&gt;&lt;/pre&gt;
+git checkout -f part-1
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;All the tags for the demo project at &lt;a href=&quot;https://github.com/liuggio/DDD-dummy-blog-with-symfony2/tags&quot;&gt;tags&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;edited_30042014&quot;&gt;EDITED 30/04/2014&lt;/h3&gt;
+&lt;h3 id=&quot;edited-30042014&quot;&gt;EDITED 30/04/2014&lt;/h3&gt;
 
 &lt;p&gt;I love feedbacks:&lt;/p&gt;
+
 &lt;blockquote&gt;Good post but Ubiquitous Language is lacking. You don't &quot;create&quot; blog post, it is written. A post doesn't &quot;have&quot; an author etc
-&lt;small&gt;&lt;a href='https://twitter.com/mathiasverraes'&gt;&lt;img alt='@mathiasverraes' src='http://www.gravatar.com/avatar/3a7cb0c3c8d5864e2e72c49cafc3e4d5?s=25' /&gt;@mathiasverraes&lt;/a&gt;&lt;/small&gt;&lt;/blockquote&gt;
+&lt;small&gt;&lt;a href=&quot;https://twitter.com/mathiasverraes&quot;&gt;&lt;img src=&quot;http://www.gravatar.com/avatar/3a7cb0c3c8d5864e2e72c49cafc3e4d5?s=25&quot; alt=&quot;@mathiasverraes&quot; /&gt;@mathiasverraes&lt;/a&gt;&lt;/small&gt;&lt;/blockquote&gt;
 &lt;p&gt;then I modified the stories and the behaviours.&lt;/p&gt;
 
 &lt;h2 id=&quot;next&quot;&gt;Next?&lt;/h2&gt;
 
-&lt;p&gt;We focused on the behaviors of the &lt;code&gt;Post&lt;/code&gt; and &lt;code&gt;Author&lt;/code&gt; entities during the specification, our &lt;code&gt;spec&lt;/code&gt; are green now, but our &lt;code&gt;behat&lt;/code&gt; stories are red.&lt;/p&gt;
+&lt;p&gt;We focused on the behaviors of the &lt;code&gt;Post&lt;/code&gt; and &lt;code&gt;Author&lt;/code&gt; entities during the specification,
+our &lt;code&gt;spec&lt;/code&gt; are green now, but our &lt;code&gt;behat&lt;/code&gt; stories are red.&lt;/p&gt;
 
-&lt;p&gt;In the next post, we will finish adding &lt;strong&gt;services&lt;/strong&gt; using command patterns, we will describe how to create &lt;strong&gt;repositories&lt;/strong&gt;, how to complete the project, how to create the &lt;strong&gt;business expectations over the application layer&lt;/strong&gt; and not on the user interface, and how to works with Symfony2 in the &lt;strong&gt;Infrastructure layer&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;In the next post, we will finish adding &lt;strong&gt;services&lt;/strong&gt; using command patterns, we will describe how to create &lt;strong&gt;repositories&lt;/strong&gt;, how to complete the project, how to create the &lt;strong&gt;business expectations over the application layer&lt;/strong&gt; and not on the user interface,
+and how to works with Symfony2 in the &lt;strong&gt;Infrastructure layer&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;Stay tuned and tweet if you want the next episode.&lt;/p&gt;</description>
+&lt;p&gt;Stay tuned and tweet if you want the next episode.&lt;/p&gt;
+</description>
             <pubDate>Tue, 29 Apr 2014 00:00:00 +0200</pubDate>
             <link>http://welcometothebundle.com//domain-driven-design-and-symfony-for-simple-app</link>
             <guid isPermaLink="true">http://welcometothebundle.com//domain-driven-design-and-symfony-for-simple-app</guid>
@@ -445,9 +630,11 @@ git checkout -f part-1&lt;/code&gt;&lt;/pre&gt;
         
         <item>
             <title>Persist the Money, Doctrine Value Object</title>
-            <description>&lt;p&gt;Working on large projects, I noticed that we lose too much time thinking about the famous ‘M’ of the &lt;em&gt;MVC&lt;/em&gt; pattern instead of thinking about the communication of the various modules.&lt;/p&gt;
+            <description>
+&lt;p&gt;Working on large projects, I noticed that we lose too much time thinking about the famous ‘M’ of the &lt;em&gt;MVC&lt;/em&gt; pattern 
+instead of thinking about the communication of the various modules.&lt;/p&gt;
 
-&lt;h2 id=&quot;the_magical_world_of_the_value_object&quot;&gt;The magical world of the Value Object&lt;/h2&gt;
+&lt;h2 id=&quot;the-magical-world-of-the-value-object&quot;&gt;The magical world of the Value Object&lt;/h2&gt;
 
 &lt;p&gt;Surely the Value Objects has always been overshadowed by the entity as V.Vernon also says in &lt;a href=&quot;http://www.amazon.it/Implementing-Domain-Driven-Design-Vaughn-Vernon/dp/0321834577&quot;&gt;his red book&lt;/a&gt;.&lt;/p&gt;
 
@@ -455,7 +642,7 @@ git checkout -f part-1&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;If you want to enter into the magical world of the value object, you could find more detail on internet, the value object is an important concept for the DDD community.&lt;/p&gt;
 
-&lt;h2 id=&quot;identify_a_value_object&quot;&gt;Identify a Value Object&lt;/h2&gt;
+&lt;h2 id=&quot;identify-a-value-object&quot;&gt;Identify a Value Object&lt;/h2&gt;
 
 &lt;p&gt;A simplified recipe to identify an entity from a value object:&lt;/p&gt;
 
@@ -465,7 +652,7 @@ git checkout -f part-1&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Very Often you could find a Value Object inside an Entity.&lt;/p&gt;
 
-&lt;h2 id=&quot;implementing_money&quot;&gt;Implementing Money&lt;/h2&gt;
+&lt;h2 id=&quot;implementing-money&quot;&gt;Implementing Money&lt;/h2&gt;
 
 &lt;p&gt;The most famous example of Value Object is the Money scenario.&lt;/p&gt;
 
@@ -478,7 +665,8 @@ git checkout -f part-1&lt;/code&gt;&lt;/pre&gt;
   protected $currency;
   
   … more proprerties
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Does this sound familiar?&lt;/p&gt;
 
@@ -491,17 +679,19 @@ git checkout -f part-1&lt;/code&gt;&lt;/pre&gt;
   protected $price;
   
   // … more proprerties
-}  &lt;/code&gt;&lt;/pre&gt;
+}  
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;$order-&amp;gt;setPrice(new Money(10, ‘EUR’));&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Price&lt;/em&gt; is a Value Object!&lt;/p&gt;
 
-&lt;h3 id=&quot;persisting_value_objects_in_php&quot;&gt;Persisting Value Objects in PHP&lt;/h3&gt;
+&lt;h3 id=&quot;persisting-value-objects-in-php&quot;&gt;Persisting Value Objects in PHP&lt;/h3&gt;
 
-&lt;p&gt;With Doctrine minor2.5 a custom type is allowed only for one-to-one mapping between field and column of the relational database, and representing an object with more proprerties is difficult.&lt;/p&gt;
+&lt;p&gt;With Doctrine minor2.5 a custom type is allowed only for one-to-one mapping between field and column of the relational database,
+and representing an object with more proprerties is difficult.&lt;/p&gt;
 
-&lt;p&gt;A very common approach was to create a custom &lt;code&gt;MoneyType&lt;/code&gt; see &lt;a href=&quot;https://github.com/mathiasverraes/money/blob/708d8d53b2374e1f9686dceee4f9636df32f6d43/lib/Money/Doctrine2/MoneyType.php&quot;&gt;Doctrine2/MoneyType&lt;/a&gt;, with this custom type Money is converted to a string eg. &lt;code&gt;Money(100, 'EUR')&lt;/code&gt; would become a &lt;code&gt;string&lt;/code&gt; of &lt;code&gt;&amp;quot;1000 EUR&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;A very common approach was to create a custom &lt;code&gt;MoneyType&lt;/code&gt; see &lt;a href=&quot;https://github.com/mathiasverraes/money/blob/708d8d53b2374e1f9686dceee4f9636df32f6d43/lib/Money/Doctrine2/MoneyType.php&quot;&gt;Doctrine2/MoneyType&lt;/a&gt;, with this custom type Money is converted to a string eg. &lt;code&gt;Money(100, 'EUR')&lt;/code&gt; would become a &lt;code&gt;string&lt;/code&gt; of &lt;code&gt;&quot;1000 EUR&quot;&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;A good approach to represent a Value Object leveraging on its immutability, was to record the value object directly as a serialized &lt;a href=&quot;http://doctrine-orm.readthedocs.org/en/latest/reference/basic-mapping.html#doctrine-mapping-types&quot;&gt;Object type&lt;/a&gt; in Doctrine.&lt;/p&gt;
 
@@ -517,27 +707,30 @@ class Order
     /** @Id */
     private $id;
 
-    /** @Embedded(class = &amp;quot;Money&amp;quot;) */
+    /** @Embedded(class = &quot;Money&quot;) */
     private $money;
 }
 
 /** @Embeddable */
 class Money
 {
-    /** @Column(type = &amp;quot;int&amp;quot;) */ // better then decimal see the mathiasverraes/money documentation
+    /** @Column(type = &quot;int&quot;) */ // better then decimal see the mathiasverraes/money documentation
     private $amount;
 
-    /** @Column(type = &amp;quot;string&amp;quot;) */
+    /** @Column(type = &quot;string&quot;) */
     private $currency;
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Is also possible to use DQL to order by the amount or to filter using the fields of the Value Object.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;SELECT o FROM Order o WHERE o.money.currency = :currency&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;SELECT o FROM Order o WHERE o.money.currency = :currency
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;A very used library for handle &lt;a href=&quot;https://packagist.org/packages/mathiasverraes/money&quot;&gt;Money is here&lt;/a&gt; thanks to &lt;a href=&quot;https://twitter.com/mathiasverraes&quot;&gt;@mathiasverraes&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;That’s all, thanks Domain Driven Design and Doctrine community.&lt;/p&gt;</description>
+&lt;p&gt;That’s all, thanks Domain Driven Design and Doctrine community.&lt;/p&gt;
+</description>
             <pubDate>Fri, 21 Mar 2014 00:00:00 +0100</pubDate>
             <link>http://welcometothebundle.com//persist-the-money-doctrine-value-object</link>
             <guid isPermaLink="true">http://welcometothebundle.com//persist-the-money-doctrine-value-object</guid>
@@ -545,68 +738,75 @@ class Money
         
         <item>
             <title>part 3 - Symfony2 API: the rest of REST</title>
-            <description>&lt;h3 id=&quot;part_3__the_rest_of_rest&quot;&gt;Part 3 - the rest of rest.&lt;/h3&gt;
+            <description>
+&lt;h3 id=&quot;part-3---the-rest-of-rest&quot;&gt;Part 3 - the rest of rest.&lt;/h3&gt;
 
-&lt;p&gt;This is trilogy’s final, in the part1 ’&lt;a href=&quot;http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way/&quot;&gt;best web API with Symfony2&lt;/a&gt;’ we created the application and the bundle, we wrote the &lt;code&gt;GET&lt;/code&gt; method, we also talked about the importance of the Interfaces, the content negotiation, and we gave an example of dumb controllers and smart services&lt;/p&gt;
+&lt;p&gt;This is trilogy&amp;#8217;s final, in the part1 &amp;#8216;&lt;a href=&quot;http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way/&quot;&gt;best web API with Symfony2&lt;/a&gt;&amp;#8217; we created the application and the bundle, we wrote the &lt;code&gt;GET&lt;/code&gt; method, we also talked about the importance of the Interfaces, the content negotiation, and we gave an example of dumb controllers and smart services&amp;#8230;&lt;/p&gt;
 
-&lt;p&gt;In the part2 ’&lt;a href=&quot;http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way/&quot;&gt;REST and Symfony the best way&lt;/a&gt;’ we created a new &lt;code&gt;Page&lt;/code&gt; via &lt;strong&gt;REST API&lt;/strong&gt;, we talked about &lt;code&gt;idempotent&lt;/code&gt; and &lt;code&gt;safe&lt;/code&gt; methods, and we understood how much the form is important&lt;/p&gt;
+&lt;p&gt;In the part2 &amp;#8216;&lt;a href=&quot;http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way/&quot;&gt;REST and Symfony the best way&lt;/a&gt;&amp;#8217; we created a new &lt;code&gt;Page&lt;/code&gt; via &lt;strong&gt;REST API&lt;/strong&gt;, we talked about &lt;code&gt;idempotent&lt;/code&gt; and &lt;code&gt;safe&lt;/code&gt; methods, and we understood how much the form is important&amp;#8230;&lt;/p&gt;
 
 &lt;p&gt;In this article we are going to show how to properly modify a given resource using &lt;code&gt;PUT&lt;/code&gt;,&lt;code&gt;PATCH&lt;/code&gt;, how to handle different role for the Page resource, and how to disable the CRSF protection only when using API.&lt;/p&gt;
 
-&lt;h2 id=&quot;the_github_repository&quot;&gt;The github repository&lt;/h2&gt;
+&lt;h2 id=&quot;the-github-repository&quot;&gt;The github repository&lt;/h2&gt;
 
-&lt;p&gt;There’s a repository at &lt;a href=&quot;https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/&quot;&gt;liuggio/symfony2-rest-api-the-best-2013-way&lt;/a&gt; you could see the working code using the tag &lt;code&gt;part3&lt;/code&gt; with&lt;/p&gt;
+&lt;p&gt;There&amp;#8217;s a repository at &lt;a href=&quot;https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/&quot;&gt;liuggio/symfony2-rest-api-the-best-2013-way&lt;/a&gt;
+you could see the working code using the tag &lt;code&gt;part3&lt;/code&gt; with&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;php composer.phar create-project liuggio/symfony2-rest-api-the-best-2013-way blog-rest-symfony2 -sdev
 cd blog-rest-symfony2
 git checkout -f part3
-bin/phpunit -c app&lt;/code&gt;&lt;/pre&gt;
+bin/phpunit -c app
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;All the tags for the demo project are at &lt;a href=&quot;https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/tags&quot;&gt;tags&lt;/a&gt;, and also you could compare the 2 articles with &lt;a href=&quot;https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/compare/part2...part3&quot;&gt;compare/part2…part3&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;All the tags for the demo project are at &lt;a href=&quot;https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/tags&quot;&gt;tags&lt;/a&gt;, and also you could compare the 2 articles with &lt;a href=&quot;https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/compare/part2...part3&quot;&gt;compare/part2&amp;#8230;part3&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2 id=&quot;this_is_a_crud_world&quot;&gt;This is a CRUD world&lt;/h2&gt;
+&lt;h2 id=&quot;this-is-a-crud-world&quot;&gt;This is a CRUD world&lt;/h2&gt;
 
-&lt;p&gt;In the second article, we also saw how to properly use the HTTP-verbs, if you have to create a resource you should use the &lt;code&gt;POST&lt;/code&gt; method, if you want to fetch a resource you should use the &lt;code&gt;GET&lt;/code&gt; method, you have all the tools in order to create a CRUD (Create, Read, Update and Delete) with REST.&lt;/p&gt;
+&lt;p&gt;In the second article, we also saw how to properly use the HTTP-verbs, if you have to create a resource you should use the &lt;code&gt;POST&lt;/code&gt; method,
+ if you want to fetch a resource you should use the &lt;code&gt;GET&lt;/code&gt; method,
+ you have all the tools in order to create a CRUD (Create, Read, Update and Delete) with REST.&lt;/p&gt;
+
 &lt;blockquote&gt;
 The key principles of REST involve separating your API into logical resources. These resources are manipulated using HTTP requests where the method (GET, POST, PUT, PATCH, DELETE) has specific meaning.&lt;small&gt;Best Practices for Designing a Pragmatic RESTful API&lt;/small&gt;
-&lt;/blockquote&gt;&lt;blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
 The great thing about REST is that you're leveraging existing HTTP methods to implement significant functionality on just a single /tickets endpoint. There are no method naming conventions to follow and the URL structure is clean and clear.&lt;small&gt;Best Practices for Designing a Pragmatic RESTful API&lt;/small&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;the_update_implementation&quot;&gt;The update implementation&lt;/h2&gt;
 
-&lt;p&gt;&lt;code&gt;PUT&lt;/code&gt; method is used to replace all the content of a resource, the &lt;code&gt;PATCH&lt;/code&gt; method is utilized instead to partially update a resource.&lt;/p&gt;
+&lt;h2 id=&quot;the-update-implementation&quot;&gt;The update implementation&lt;/h2&gt;
 
-&lt;h3 id=&quot;put_that_patch&quot;&gt;PUT that PATCH&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;PUT&lt;/code&gt; method is used to replace all the content of a resource,
+the &lt;code&gt;PATCH&lt;/code&gt; method is utilized instead to partially update a resource.&lt;/p&gt;
+
+&lt;h3 id=&quot;put-that-patch&quot;&gt;PUT that PATCH&lt;/h3&gt;
 
 &lt;p&gt;As always we need the stories and the tests before coding:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;PUT&lt;/strong&gt; - given a Page, is possible to replace all its proprieties, and if that page doesn’t exist should be created.&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;PATCH&lt;/strong&gt; - given a Page, is possible to replace some proprieties.&lt;/p&gt;
-&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;PUT&lt;/strong&gt; - given a Page, is possible to replace all its proprieties, and if that page doesn&amp;#8217;t exist should be created.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;PATCH&lt;/strong&gt; - given a Page, is possible to replace some proprieties.&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;githubs_star&quot;&gt;github’s star&lt;/h3&gt;
+&lt;h3 id=&quot;githubs-star&quot;&gt;github&amp;#8217;s star&lt;/h3&gt;
 
 &lt;p&gt;If you where github, how did you develop the API in order to add a star to a Gist?&lt;/p&gt;
 
-&lt;p&gt;Story: A user should be able to ‘star’ a gist.&lt;/p&gt;
+&lt;p&gt;Story: A user should be able to &amp;#8216;star&amp;#8217; a gist.&lt;/p&gt;
 
 &lt;p&gt;Github api/v3 uses:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;PUT /gists/:id/star - to ‘star’ a gist and it will response a &lt;code&gt;204 No Content&lt;/code&gt;&lt;/li&gt;
-
-&lt;li&gt;DELETE /gists/:id/star - to ‘unstar’ a gist and it will response a &lt;code&gt;204 No Content&lt;/code&gt;&lt;/li&gt;
-
-&lt;li&gt;GET /gists/:id/star - to check if a gist is starred was starred will response a &lt;code&gt;204 No Content&lt;/code&gt; and return a &lt;code&gt;404&lt;/code&gt; if it wasn’t.&lt;/li&gt;
+  &lt;li&gt;PUT    /gists/:id/star - to &amp;#8216;star&amp;#8217; a gist and it will response a &lt;code&gt;204 No Content&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;DELETE /gists/:id/star - to &amp;#8216;unstar&amp;#8217; a gist and it will response a &lt;code&gt;204 No Content&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;GET    /gists/:id/star - to check if a gist is starred was starred will response a &lt;code&gt;204 No Content&lt;/code&gt; and return a &lt;code&gt;404&lt;/code&gt; if it wasn&amp;#8217;t.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;put_the_implementation&quot;&gt;PUT the implementation&lt;/h3&gt;
+&lt;h3 id=&quot;put-the-implementation&quot;&gt;PUT the implementation&lt;/h3&gt;
 
 &lt;p&gt;The implementation of the PUT and PATCH methods should be in our service called &lt;code&gt;PageHandler&lt;/code&gt;, all the job is already done by the &lt;code&gt;processForm&lt;/code&gt; function that we have developed in the last article.&lt;/p&gt;
 
@@ -636,17 +836,18 @@ public function put(PageInterface $page, array $parameters)
 public function patch(PageInterface $page, array $parameters)
 {
     return $this-&amp;gt;processForm($page, $parameters, 'PATCH');
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The function Put doesn’t create the resource.&lt;/p&gt;
+&lt;p&gt;The function Put doesn&amp;#8217;t create the resource.&lt;/p&gt;
 
-&lt;h4 id=&quot;so__easy&quot;&gt;So #@* easy?&lt;/h4&gt;
+&lt;h4 id=&quot;so--easy&quot;&gt;So #@* easy?&lt;/h4&gt;
 
 &lt;p&gt;&lt;strong&gt;yes!&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;The functions need a Page object and its parameters, the form will do the magic.&lt;/p&gt;
 
-&lt;h3 id=&quot;the_controller&quot;&gt;The Controller&lt;/h3&gt;
+&lt;h3 id=&quot;the-controller&quot;&gt;The Controller&lt;/h3&gt;
 
 &lt;p&gt;In the controller we have to handle the HTTP status code, the headers, and the page object.&lt;/p&gt;
 
@@ -668,7 +869,7 @@ public function patch(PageInterface $page, array $parameters)
         array(),
         array(),
         array('CONTENT_TYPE' =&amp;gt; 'application/json'),
-        '{&amp;quot;title&amp;quot;:&amp;quot;abc&amp;quot;,&amp;quot;body&amp;quot;:&amp;quot;def&amp;quot;}'
+        '{&quot;title&quot;:&quot;abc&quot;,&quot;body&quot;:&quot;def&quot;}'
     );
 
     $this-&amp;gt;assertJsonResponse($this-&amp;gt;client-&amp;gt;getResponse(), 204, false);
@@ -693,11 +894,12 @@ public function testJsonPutPageActionShouldCreate()
         array(),
         array(),
         array('CONTENT_TYPE' =&amp;gt; 'application/json'),
-        '{&amp;quot;title&amp;quot;:&amp;quot;abc&amp;quot;,&amp;quot;body&amp;quot;:&amp;quot;def&amp;quot;}'
+        '{&quot;title&quot;:&quot;abc&quot;,&quot;body&quot;:&quot;def&quot;}'
     );
 
     $this-&amp;gt;assertJsonResponse($this-&amp;gt;client-&amp;gt;getResponse(), 201, false);
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;And the &lt;code&gt;PUT&lt;/code&gt; controller will look like:&lt;/p&gt;
 
@@ -706,17 +908,17 @@ public function testJsonPutPageActionShouldCreate()
  *
  * @ApiDoc(
  *   resource = true,
- *   input = &amp;quot;Acme\DemoBundle\Form\PageType&amp;quot;,
+ *   input = &quot;Acme\DemoBundle\Form\PageType&quot;,
  *   statusCodes = {
- *     201 = &amp;quot;Returned when the Page is created&amp;quot;,
- *     204 = &amp;quot;Returned when successful&amp;quot;,
- *     400 = &amp;quot;Returned when the form has errors&amp;quot;
+ *     201 = &quot;Returned when the Page is created&quot;,
+ *     204 = &quot;Returned when successful&quot;,
+ *     400 = &quot;Returned when the form has errors&quot;
  *   }
  * )
  *
  * @Annotations\View(
- *  template = &amp;quot;AcmeBlogBundle:Page:editPage.html.twig&amp;quot;,
- *  templateVar = &amp;quot;form&amp;quot;
+ *  template = &quot;AcmeBlogBundle:Page:editPage.html.twig&quot;,
+ *  templateVar = &quot;form&quot;
  * )
  *
  * @param Request $request the request object
@@ -753,39 +955,46 @@ public function putPageAction(Request $request, $id)
 
         return $exception-&amp;gt;getForm();
     }
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;The PatchPageAction and the DeletePageAction will be very similar.&lt;/p&gt;
 
-&lt;h3 id=&quot;manually_testing_the_lifecycle&quot;&gt;Manually testing the lifecycle&lt;/h3&gt;
+&lt;h3 id=&quot;manually-testing-the-lifecycle&quot;&gt;Manually testing the lifecycle&lt;/h3&gt;
 
-&lt;p&gt;We are going to reproduce all the page lifecycle putting the value of the result of the post into a bash variable, so we could reuse.&lt;/p&gt;
+&lt;p&gt;We are going to reproduce all the page lifecycle putting the value of the result of the post
+into a bash variable, so we could reuse. &lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;location=`curl -X POST -d '{&amp;quot;title&amp;quot;:&amp;quot;liuggio&amp;quot;,&amp;quot;body&amp;quot;:&amp;quot;homepage&amp;quot;}' \
+&lt;pre&gt;&lt;code&gt;location=`curl -X POST -d '{&quot;title&quot;:&quot;liuggio&quot;,&quot;body&quot;:&quot;homepage&quot;}' \
    http://localhost:8000/api/v1/pages.json \
-   --header &amp;quot;Content-Type:application/json&amp;quot; -v 2&amp;gt;&amp;amp;1 | grep Location | cut -d \  -f 3`;
+   --header &quot;Content-Type:application/json&quot; -v 2&amp;gt;&amp;amp;1 | grep Location | cut -d \  -f 3`;
 
-echo &amp;quot;created result at: &amp;quot;$location&lt;/code&gt;&lt;/pre&gt;
+echo &quot;created result at: &quot;$location
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;the result will look something like:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;created result at http://localhost:8000/api/v1/pages/143.json&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;created result at http://localhost:8000/api/v1/pages/143.json
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;and we are going to use this $location variable and we will modify the resource:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;curl -X PUT -d '{&amp;quot;title&amp;quot;:&amp;quot;my&amp;quot;,&amp;quot;body&amp;quot;:&amp;quot;homepage&amp;quot;}' $location --header &amp;quot;Content-Type:application/json&amp;quot; -v
+&lt;pre&gt;&lt;code&gt;curl -X PUT -d '{&quot;title&quot;:&quot;my&quot;,&quot;body&quot;:&quot;homepage&quot;}' $location --header &quot;Content-Type:application/json&quot; -v
 
-curl -X PATCH -d '{&amp;quot;body&amp;quot;:&amp;quot;life&amp;quot;}' $location --header &amp;quot;Content-Type:application/json&amp;quot; -v&lt;/code&gt;&lt;/pre&gt;
+curl -X PATCH -d '{&quot;body&quot;:&quot;life&quot;}' $location --header &quot;Content-Type:application/json&quot; -v
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;and then the get:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;curl $location --header &amp;quot;Content-Type:application/json&amp;quot; &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;curl $location --header &quot;Content-Type:application/json&quot; 
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;the result will be:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;{&amp;quot;id&amp;quot;:140,&amp;quot;title&amp;quot;:&amp;quot;my&amp;quot;,&amp;quot;body&amp;quot;:&amp;quot;life&amp;quot;}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;{&quot;id&quot;:140,&quot;title&quot;:&quot;my&quot;,&quot;body&quot;:&quot;life&quot;}
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;get_all_the_pages&quot;&gt;GET all the Pages&lt;/h2&gt;
+&lt;h2 id=&quot;get-all-the-pages&quot;&gt;GET all the Pages&lt;/h2&gt;
 
 &lt;p&gt;We want to be able to get a list of all the pages, we want to limit the result with pagination.&lt;/p&gt;
 
@@ -795,15 +1004,15 @@ curl -X PATCH -d '{&amp;quot;body&amp;quot;:&amp;quot;life&amp;quot;}' $location
  * @ApiDoc(
  *   resource = true,
  *   statusCodes = {
- *     200 = &amp;quot;Returned when successful&amp;quot;
+ *     200 = &quot;Returned when successful&quot;
  *   }
  * )
  *
- * @Annotations\QueryParam(name=&amp;quot;offset&amp;quot;, requirements=&amp;quot;\d+&amp;quot;, nullable=true, description=&amp;quot;Offset from which to start listing pages.&amp;quot;)
- * @Annotations\QueryParam(name=&amp;quot;limit&amp;quot;, requirements=&amp;quot;\d+&amp;quot;, default=&amp;quot;5&amp;quot;, description=&amp;quot;How many pages to return.&amp;quot;)
+ * @Annotations\QueryParam(name=&quot;offset&quot;, requirements=&quot;\d+&quot;, nullable=true, description=&quot;Offset from which to start listing pages.&quot;)
+ * @Annotations\QueryParam(name=&quot;limit&quot;, requirements=&quot;\d+&quot;, default=&quot;5&quot;, description=&quot;How many pages to return.&quot;)
  *
  * @Annotations\View(
- *  templateVar=&amp;quot;pages&amp;quot;
+ *  templateVar=&quot;pages&quot;
  * )
  *
  * @param Request               $request      the request object
@@ -818,9 +1027,10 @@ public function getPagesAction(Request $request, ParamFetcherInterface $paramFet
     $limit = $paramFetcher-&amp;gt;get('limit');
 
     return $this-&amp;gt;container-&amp;gt;get('acme_blog.page.handler')-&amp;gt;all($limit, $offset);
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Using the annotation &lt;code&gt;@Annotations\QueryParam&lt;/code&gt;, is very easy to get the &lt;code&gt;offset&lt;/code&gt;, and &lt;code&gt;limit&lt;/code&gt; that is ORM-ready :).&lt;/p&gt;
+&lt;p&gt;Using the annotation &lt;code&gt;@Annotations\QueryParam&lt;/code&gt;, is very easy to get the &lt;code&gt;offset&lt;/code&gt;, and &lt;code&gt;limit&lt;/code&gt; that is ORM-ready :). &lt;/p&gt;
 
 &lt;p&gt;This is the &lt;code&gt;PageHandler::all&lt;/code&gt;:&lt;/p&gt;
 
@@ -835,28 +1045,36 @@ public function getPagesAction(Request $request, ParamFetcherInterface $paramFet
 public function all($limit = 5, $offset = 0, $orderby = null)
 {
     return $this-&amp;gt;repository-&amp;gt;findBy(array(), $orderby, $limit, $offset);
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&quot;pagination_with_headers&quot;&gt;Pagination with headers&lt;/h3&gt;
+&lt;h3 id=&quot;pagination-with-headers&quot;&gt;Pagination with headers&lt;/h3&gt;
 
-&lt;p&gt;Is possible to include pagination into the headers, there is a RFC: &lt;a href=&quot;http://tools.ietf.org/html/rfc5988#page-6&quot;&gt;Link header introduced by RFC 5988&lt;/a&gt;, you could find a good implementation on the &lt;a href=&quot;http://developer.github.com/v3/#pagination&quot;&gt;github pagination documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Is possible to include pagination into the headers, there is a RFC: &lt;a href=&quot;http://tools.ietf.org/html/rfc5988#page-6&quot;&gt;Link header introduced by RFC 5988&lt;/a&gt;,
+you could find a good implementation on the &lt;a href=&quot;http://developer.github.com/v3/#pagination&quot;&gt;github pagination documentation&lt;/a&gt;.&lt;/p&gt;
+
 &lt;blockquote&gt;
 &lt;b&gt;Link Header&lt;/b&gt;&lt;br /&gt;
 The pagination info is included in the Link header. It is important to follow these Link header values instead of constructing your own URLs. In some instances, such as in the Commits API, pagination is based on SHA1 and not on page number.&lt;small&gt;github link header&lt;/small&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;github example:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;Link: &amp;lt;https://api.github.com/user/repos?page=3&amp;amp;per_page=100&amp;gt;; rel=&amp;quot;next&amp;quot;,&amp;lt;https://api.github.com/user/repos?page=50&amp;amp;per_page=100&amp;gt;; rel=&amp;quot;last&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;github example: &lt;/p&gt;
 
-&lt;h2 id=&quot;symfony2_goodies&quot;&gt;Symfony2 goodies&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;Link: &amp;lt;https://api.github.com/user/repos?page=3&amp;amp;per_page=100&amp;gt;; rel=&quot;next&quot;,&amp;lt;https://api.github.com/user/repos?page=50&amp;amp;per_page=100&amp;gt;; rel=&quot;last&quot;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&quot;head_method&quot;&gt;HEAD method&lt;/h3&gt;
+&lt;h2 id=&quot;symfony2-goodies&quot;&gt;Symfony2 goodies&lt;/h2&gt;
 
-&lt;p&gt;In Symfony2 the HEAD method follows the same routes and settings of the GET method, if you have the GET method available you will also have the &lt;code&gt;HEAD&lt;/code&gt; that links to the same actions, the response will be empty.&lt;/p&gt;
+&lt;h3 id=&quot;head-method&quot;&gt;HEAD method&lt;/h3&gt;
 
-&lt;h3 id=&quot;patching_the_patch_problem&quot;&gt;Patching the PATCH problem&lt;/h3&gt;
+&lt;p&gt;In Symfony2 the HEAD method follows the same routes and settings of the GET method,
+if you have the GET method available you will also have the &lt;code&gt;HEAD&lt;/code&gt; that links to the same actions,
+the response will be empty.&lt;/p&gt;
 
-&lt;p&gt;Some browser doesn’t support some methods as &lt;code&gt;PUT&lt;/code&gt;, &lt;code&gt;PATCH&lt;/code&gt; and &lt;code&gt;DELETE&lt;/code&gt; HTTP methods:&lt;/p&gt;
+&lt;h3 id=&quot;patching-the-patch-problem&quot;&gt;Patching the PATCH problem&lt;/h3&gt;
+
+&lt;p&gt;Some browser doesn&amp;#8217;t support some methods as &lt;code&gt;PUT&lt;/code&gt;, &lt;code&gt;PATCH&lt;/code&gt; and &lt;code&gt;DELETE&lt;/code&gt; HTTP methods:&lt;/p&gt;
+
 &lt;blockquote&gt;
     Fortunately Symfony2 provides you with a simple way of working around this limitation.&lt;br /&gt;
      By including a _method parameter in the query string or parameters of an HTTP request,
@@ -865,18 +1083,22 @@ The pagination info is included in the Link header. It is important to follow th
       See the related chapter in the forms documentation for more information.
     &lt;small&gt;http://symfony.com/doc/current/cookbook/routing/method_parameters.html#faking-the-method-with-method&lt;/small&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;disable_csrf_with_rest&quot;&gt;Disable CSRF with REST&lt;/h2&gt;
 
-&lt;h3 id=&quot;theory_on_crosssite_request_forgery&quot;&gt;Theory on Cross-site request forgery&lt;/h3&gt;
+&lt;h2 id=&quot;disable-csrf-with-rest&quot;&gt;Disable CSRF with REST&lt;/h2&gt;
 
-&lt;p&gt;If you don’t know what CSFR is there is lot of documentation on internet, please have a look to the &lt;a href=&quot;http://symfony.com/doc/current/book/forms.html#csrf-protection&quot;&gt;csrf-protection&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;theory-on-cross-site-request-forgery&quot;&gt;Theory on Cross-site request forgery&lt;/h3&gt;
+
+&lt;p&gt;If you don&amp;#8217;t know what CSFR is there is lot of documentation on internet, please have a look to the &lt;a href=&quot;http://symfony.com/doc/current/book/forms.html#csrf-protection&quot;&gt;csrf-protection&lt;/a&gt;&lt;/p&gt;
+
 &lt;blockquote&gt;
 CSRF protection works by adding a hidden field to your form - called _token by default - that contains a value that only you and your user knows. This ensures that the user - not some other entity - is submitting the given data. Symfony automatically validates the presence and accuracy of this token.
 &lt;small&gt;http://symfony.com/doc/current/book/forms.html#csrf-protection&lt;/small&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&quot;csrf_and_rest&quot;&gt;CSRF and REST&lt;/h3&gt;
 
-&lt;p&gt;Is possible to disable the CSRF based on the user’s role, the documentation on Friend-Of-Symfony repository is self-explanatory: &lt;a href=&quot;https://github.com/FriendsOfSymfony/FOSRestBundle/blob/master/Resources/doc/2-the-view-layer.md#CSRF-validation&quot;&gt;FOSRestBundle doc CSRF validation&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;csrf-and-rest&quot;&gt;CSRF and REST&lt;/h3&gt;
+
+&lt;p&gt;Is possible to disable the CSRF based on the user&amp;#8217;s role, the documentation on Friend-Of-Symfony repository is self-explanatory:
+&lt;a href=&quot;https://github.com/FriendsOfSymfony/FOSRestBundle/blob/master/Resources/doc/2-the-view-layer.md#CSRF-validation&quot;&gt;FOSRestBundle doc CSRF validation&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;We need to associate the &lt;code&gt;ROLE_API&lt;/code&gt; to the REST users:&lt;/p&gt;
 
@@ -886,15 +1108,17 @@ providers:
         memory:
             users:
                 user:  { password: userpass, roles: [ 'ROLE_USER', 'ROLE_API' ] }
-                admin: { password: adminpass, roles: [ 'ROLE_ADMIN', 'ROLE_API' ] }&lt;/code&gt;&lt;/pre&gt;
+                admin: { password: adminpass, roles: [ 'ROLE_ADMIN', 'ROLE_API' ] }
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;then in the config.yml we need to enable the feature&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;# app/config/config.yml
 fos_rest:
-    disable_csrf_role: ROLE_API&lt;/code&gt;&lt;/pre&gt;
+    disable_csrf_role: ROLE_API
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;We have now to modify the functional tests adding the authentication:&lt;/p&gt;
+&lt;p&gt;We have now to modify the functional tests adding the authentication: &lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;// /src/Acme/BlogBundle/Tests/Controller/PageControllerTest.php
 public function setUp()
@@ -905,31 +1129,36 @@ public function setUp()
     );
 
     $this-&amp;gt;client = static::createClient(array(), $this-&amp;gt;auth);
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;strong&gt;EDITED 2-gen-2014&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;EDITED 2-gen-2014&lt;/strong&gt; &lt;/p&gt;
 
 &lt;p&gt;Adding &lt;code&gt;disable_csrf_role&lt;/code&gt; you should add the basic auth to the CURL call:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;curl -X POST -d '{&amp;quot;title&amp;quot;:&amp;quot;title&amp;quot;,&amp;quot;body&amp;quot;:&amp;quot;body&amp;quot;}' \
+&lt;pre&gt;&lt;code&gt;curl -X POST -d '{&quot;title&quot;:&quot;title&quot;,&quot;body&quot;:&quot;body&quot;}' \
  http://localhost:8000/api/v1/pages.json \
- --header &amp;quot;Content-Type:application/json&amp;quot; --user user:userpass&lt;/code&gt;&lt;/pre&gt;
+ --header &quot;Content-Type:application/json&quot; --user user:userpass
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;different_points_of_view&quot;&gt;Different points of view&lt;/h2&gt;
+&lt;h2 id=&quot;different-points-of-view&quot;&gt;Different points of view&lt;/h2&gt;
 
 &lt;p&gt;It is very common when the API should serves different fields according to the role of the user that requests a resource.&lt;/p&gt;
 
-&lt;p&gt;For example the field &lt;code&gt;state&lt;/code&gt; that determines whether the page is public or not, can only be viewed and changed by the administrator. There are also more complex scenario, eg. the same field may follow different validations.&lt;/p&gt;
+&lt;p&gt;For example the field &lt;code&gt;state&lt;/code&gt; that determines whether the page is public or not, can only be viewed and changed by the administrator.
+There are also more complex scenario, eg. the same field may follow different validations.&lt;/p&gt;
 
 &lt;p&gt;How to handle those differences on the same Page Entity?&lt;/p&gt;
 
 &lt;p&gt;There are many ways: validation groups, using serialization groups, or use different forms.&lt;/p&gt;
 
-&lt;h3 id=&quot;the_form_is_the_resource&quot;&gt;The form is the resource&lt;/h3&gt;
+&lt;h3 id=&quot;the-form-is-the-resource&quot;&gt;The form is the resource&lt;/h3&gt;
 
-&lt;p&gt;I personally prefer the form, an idea could be associate a form to a role. Given the same URI, if the user was authenticated as an administrator would use the &lt;code&gt;PageAdminType&lt;/code&gt; form, otherwise she/he would use the &lt;code&gt;PageUserType&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;I personally prefer the form, an idea could be associate a form to a role. 
+Given the same URI, if the user was authenticated as an administrator would use the &lt;code&gt;PageAdminType&lt;/code&gt; form, otherwise she/he would use the &lt;code&gt;PageUserType&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;But this idea of associating a form to a role, does not fully comply with the REST philosophy, each request should be made to the desired resource, but technically the forms are different.&lt;/p&gt;
+&lt;p&gt;But this idea of associating a form to a role, does not fully comply with the REST philosophy,
+ each request should be made to the desired resource, but technically the forms are different.&lt;/p&gt;
 
 &lt;p&gt;The URI should indicate which resource you want, and the layer of authorization should only accept or reject your request.&lt;/p&gt;
 
@@ -938,62 +1167,61 @@ public function setUp()
 &lt;p&gt;Maybe the best option is use different URIs for different form and role.&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;api/v1/pages/&lt;/code&gt;, the form is the standard &lt;code&gt;PageType&lt;/code&gt;.&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;api/v1/admin/pages/&lt;/code&gt; the form used will have more fields and different authentication.&lt;/p&gt;
-&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code&gt;api/v1/pages/&lt;/code&gt;, the form is the standard &lt;code&gt;PageType&lt;/code&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code&gt;api/v1/admin/pages/&lt;/code&gt; the form used will have more fields and different authentication.&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;We just apply the definition of Resource not to the Entity but to the form.&lt;/p&gt;
 
-&lt;h2 id=&quot;the_perfection&quot;&gt;The perfection?&lt;/h2&gt;
+&lt;h2 id=&quot;the-perfection&quot;&gt;The perfection?&lt;/h2&gt;
 
 &lt;p&gt;In the enterprise the perfect software is when timing, clean-code and maintenance are in the correct balance with the specifications.&lt;/p&gt;
 
-&lt;p&gt;In the open-source and in the Symfony ecosystem developers tend to do their best, it would be possible to improve our application and our bundle?&lt;/p&gt;
+&lt;p&gt;In the open-source and in the Symfony ecosystem developers tend to do their best,
+it would be possible to improve our application and our bundle?&lt;/p&gt;
 
-&lt;h3 id=&quot;thin_bundle_fat_library&quot;&gt;Thin Bundle, Fat library.&lt;/h3&gt;
+&lt;h3 id=&quot;thin-bundle-fat-library&quot;&gt;Thin Bundle, Fat library.&lt;/h3&gt;
 
-&lt;p&gt;We could improve the loose coupling leaving in the bundle only the files that are truly related to Symfony and create a library for the entities, forms and services. But this could be another topic a blog post :).&lt;/p&gt;
+&lt;p&gt;We could improve the loose coupling leaving in the bundle only the files that are truly related to Symfony
+and create a library for the entities, forms and services. But this could be another topic a blog post :).&lt;/p&gt;
 
 &lt;h2 id=&quot;recap&quot;&gt;Recap&lt;/h2&gt;
 
 &lt;p&gt;We are in the end of this epic tale, this recapitulate should contain few concepts:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;We have created a smart service &lt;code&gt;PageHandler&lt;/code&gt; where all the logic about the page is.&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;The service &lt;code&gt;PageHandler&lt;/code&gt; is an API for all the Symfony application, it respects the Interface &lt;code&gt;PageHandlerInterface&lt;/code&gt;, and is available in the container.&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;We have developed a controller &lt;code&gt;PageController&lt;/code&gt;, the actions have @docblock annotations in order to decorate the View, those annotations also create the documentation, and provide a parameters filtering.&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;The form is very important in this REST application, the form is the input for our PUT/PATCH/POST methods, it also validates and hydrates the object.&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;The form could also be the resource named by the URI.&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;We have defined what is the meaning of &lt;code&gt;idempotent&lt;/code&gt; and why &lt;code&gt;PUT&lt;/code&gt; should also create the resource.&lt;/p&gt;
-&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;We have created a smart service &lt;code&gt;PageHandler&lt;/code&gt; where all the logic about the page is.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The service &lt;code&gt;PageHandler&lt;/code&gt; is an API for all the Symfony application,
+it respects the Interface &lt;code&gt;PageHandlerInterface&lt;/code&gt;, and is available in the container.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;We have developed a controller &lt;code&gt;PageController&lt;/code&gt;, the actions have @docblock annotations in order to decorate the View,
+those annotations also create the documentation, and provide a parameters filtering.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The form is very important in this REST application, the form is the input for our PUT/PATCH/POST methods,
+it also validates and hydrates the object.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The form could also be the resource named by the URI.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;We have defined what is the meaning of &lt;code&gt;idempotent&lt;/code&gt; and why &lt;code&gt;PUT&lt;/code&gt; should also create the resource.&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;There are a lot of concepts about REST that I won’t cover here like RESTFul, HAL, OAuth &lt;/p&gt;
+&lt;p&gt;There are a lot of concepts about REST that I won&amp;#8217;t cover here like RESTFul, HAL, OAuth &amp;#8230;&lt;/p&gt;
 
 &lt;p&gt;The &lt;a href=&quot;https://github.com/liuggio/symfony2-rest-api-the-best-2013-way&quot;&gt;repository&lt;/a&gt; contains all the functions and the tests that we have seen during those articles.&lt;/p&gt;
 
-&lt;h5 id=&quot;have_a_rest&quot;&gt;Have a REST.&lt;/h5&gt;
+&lt;h5 id=&quot;have-a-rest&quot;&gt;Have a REST.&lt;/h5&gt;
 
 &lt;p&gt;That is all for the 2013&lt;/p&gt;
 
@@ -1011,7 +1239,8 @@ public function setUp()
 
 &lt;p&gt;&lt;a href=&quot;http://idbentley.com/blog/2013/03/14/should-restful-apis-include-relationships/&quot;&gt;should-restful-apis-include-relationships/&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api&quot;&gt;best-practices-for-a-pragmatic-restful-api&lt;/a&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&quot;http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api&quot;&gt;best-practices-for-a-pragmatic-restful-api&lt;/a&gt;&lt;/p&gt;
+</description>
             <pubDate>Tue, 03 Dec 2013 13:00:00 +0000</pubDate>
             <link>http://welcometothebundle.com//symfony2-rest-api-the-best-way-part-3</link>
             <guid isPermaLink="true">http://welcometothebundle.com//symfony2-rest-api-the-best-way-part-3</guid>
@@ -1019,9 +1248,12 @@ public function setUp()
         
         <item>
             <title>part2 - Web API REST with Symfony2</title>
-            <description>&lt;h3 id=&quot;part_2__the_&quot;&gt;Part 2 - the &lt;code&gt;POST&lt;/code&gt;&lt;/h3&gt;
+            <description>
+&lt;h3 id=&quot;part-2---the-post&quot;&gt;Part 2 - the &lt;code&gt;POST&lt;/code&gt;&lt;/h3&gt;
 
-&lt;p&gt;In the ’&lt;a href=&quot;http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way/&quot;&gt;Symfony2 REST part 1&lt;/a&gt;’ we created the application, the bundle, we talked about the &lt;code&gt;GET&lt;/code&gt; method, we also talked about the importance of the Interfaces, the content negotiation, and we gave an example of dumb controllers and brain services.&lt;/p&gt;
+&lt;p&gt;In the ‘&lt;a href=&quot;http://welcometothebundle.com/symfony2-rest-api-the-best-2013-way/&quot;&gt;Symfony2 REST part 1&lt;/a&gt;’ we created the application,
+the bundle, we talked about the &lt;code&gt;GET&lt;/code&gt; method,
+we also talked about the importance of the Interfaces, the content negotiation, and we gave an example of dumb controllers and brain services.&lt;/p&gt;
 
 &lt;p&gt;Here you could find the &lt;a href=&quot;/symfony2-rest-api-the-best-way-part-3/&quot;&gt;last article Part3 - The rest of REST&lt;/a&gt;&lt;/p&gt;
 
@@ -1030,87 +1262,93 @@ public function setUp()
 &lt;p&gt;&lt;strong&gt;Edited&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;3/12/2013: Added the Request in the actions, thanks to &lt;a href=&quot;http://twitter.com/stloyd&quot;&gt;stloyd&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;3/12/2013: Added the Request in the actions, thanks to &lt;a href=&quot;http://twitter.com/stloyd&quot;&gt;stloyd&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;the_github_repository&quot;&gt;The github repository&lt;/h2&gt;
+&lt;h2 id=&quot;the-github-repository&quot;&gt;The github repository&lt;/h2&gt;
 
-&lt;p&gt;There’s a repository at &lt;a href=&quot;https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/&quot;&gt;liuggio/symfony2-rest-api-the-best-2013-way&lt;/a&gt; you could see the working code using the tag &lt;code&gt;part2&lt;/code&gt; with&lt;/p&gt;
+&lt;p&gt;There’s a repository at &lt;a href=&quot;https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/&quot;&gt;liuggio/symfony2-rest-api-the-best-2013-way&lt;/a&gt;
+you could see the working code using the tag &lt;code&gt;part2&lt;/code&gt; with&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;php composer.phar create-project liuggio/symfony2-rest-api-the-best-2013-way blog-rest-symfony2 -sdev
 cd blog-rest-symfony2
 git checkout -f part2
-bin/phpunit -c app&lt;/code&gt;&lt;/pre&gt;
+bin/phpunit -c app
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;All the tags for the demo project are at &lt;a href=&quot;https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/tags&quot;&gt;tags&lt;/a&gt;, and also you could compare the first 2 articles with &lt;a href=&quot;https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/compare/part1...part2&quot;&gt;compare/part1…part2&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2 id=&quot;httpbang_theory&quot;&gt;HTTP-bang theory&lt;/h2&gt;
+&lt;h2 id=&quot;http-bang-theory&quot;&gt;HTTP-bang theory&lt;/h2&gt;
 
 &lt;p&gt;Just few concepts to know before coding.&lt;/p&gt;
+
 &lt;blockquote&gt;
 Miyagi: Wax on... wax off. Wax on... wax off.
 &lt;small&gt;Karate Kid&lt;/small&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&quot;the_http_methods&quot;&gt;The HTTP Methods&lt;/h3&gt;
 
-&lt;p&gt;The HTTP Methods are well described by &lt;a href=&quot;http://developer.github.com/v3/&quot;&gt;github v3 api&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;the-http-methods&quot;&gt;The HTTP Methods&lt;/h3&gt;
+
+&lt;p&gt;The HTTP Methods are well described by &lt;a href=&quot;http://developer.github.com/v3/&quot;&gt;github v3 api&lt;/a&gt; &lt;/p&gt;
 
 &lt;p&gt;Where possible, API strives to use appropriate HTTP verbs for each action.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;HEAD Can be issued against any resource to get just the HTTP header info.&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;GET Used for retrieving resources.&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;POST Used for creating resources, or performing custom actions (such as merging a pull request).&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;DELETE Used for deleting resources.&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;PATCH Used for updating resources with partial JSON data. For instance, an Issue resource has title and body attributes. A PATCH request may accept one or more of the attributes to update the resource. PATCH is a relatively new and uncommon HTTP Methods.&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;PUT Used for replacing resources or collections.&lt;/p&gt;
-&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;HEAD Can be issued against any resource to get just the HTTP header info.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;GET  Used for retrieving resources.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;POST     Used for creating resources, or performing custom actions (such as merging a pull request).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;DELETE   Used for deleting resources.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;PATCH    Used for updating resources with partial JSON data. For instance, an Issue resource has title and body attributes. A PATCH request may accept one or more of the attributes to update the resource. PATCH is a relatively new and uncommon HTTP Methods.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;PUT  Used for replacing resources or collections.&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;safe_and_idempotent&quot;&gt;Safe and idempotent:&lt;/h3&gt;
+&lt;h3 id=&quot;safe-and-idempotent&quot;&gt;Safe and idempotent:&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;Safe methods&lt;/strong&gt;&lt;/p&gt;
+
 &lt;blockquote&gt;
     In particular, the convention has been established that the GET and HEAD methods SHOULD NOT have the significance of taking an action other than retrieval. These methods ought to be considered &quot;safe&quot;. This allows user agents to represent other methods, such as POST, PUT and DELETE, in a special way, so that the user is made aware of the fact that a possibly unsafe action is being requested. 
-    &lt;small&gt; w3c.org &lt;cite title='Source Title'&gt;w3c-1 w3.org protocols rfc2616-sec9&lt;/cite&gt;&lt;/small&gt;
+    &lt;small&gt; w3c.org &lt;cite title=&quot;Source Title&quot;&gt;w3c-1 w3.org protocols rfc2616-sec9&lt;/cite&gt;&lt;/small&gt;
 &lt;/blockquote&gt;
+
 &lt;p&gt;&lt;strong&gt;Idempotent methods&lt;/strong&gt;&lt;/p&gt;
+
 &lt;blockquote&gt;
-    Methods can also have the property of &quot;idempotence&quot; in that (aside from error or expiration issues) the side-effects of N &gt; 0 identical requests is the same as for a single request. The methods GET, HEAD, PUT and DELETE share this property. Also, the methods OPTIONS and TRACE SHOULD NOT have side effects, and so are inherently idempotent.
-    &lt;small&gt; w3c.org &lt;cite title='Source Title'&gt;w3c-1 w3.org protocols rfc2616-sec9&lt;/cite&gt;&lt;/small&gt;
+    Methods can also have the property of &quot;idempotence&quot; in that (aside from error or expiration issues) the side-effects of N &amp;gt; 0 identical requests is the same as for a single request. The methods GET, HEAD, PUT and DELETE share this property. Also, the methods OPTIONS and TRACE SHOULD NOT have side effects, and so are inherently idempotent.
+    &lt;small&gt; w3c.org &lt;cite title=&quot;Source Title&quot;&gt;w3c-1 w3.org protocols rfc2616-sec9&lt;/cite&gt;&lt;/small&gt;
 &lt;/blockquote&gt;
+
 &lt;p&gt;So idempotent is about the state of the system, if I create a new resource with POST, the state of the system change every time I call the same Post.&lt;/p&gt;
 
-&lt;p&gt;If I delete a resource with $id=10, the system goes always to the same state, so for example multiples and concurrent requests with DELETE pages/10 are accepted without ‘side effect’.&lt;/p&gt;
+&lt;p&gt;If I delete a resource with $id=10, the system goes always to the same state, so for example multiples and concurrent requests with DELETE pages/10 are accepted without ‘side effect’. &lt;/p&gt;
 
-&lt;p&gt;The Safe methods are very important for HTTP-Caching, and idempontent is about the Request, the response could be different, the code and the message could change.&lt;/p&gt;
+&lt;p&gt;The Safe methods are very important for HTTP-Caching, and 
+idempontent is about the Request, the response could be different, the code and the message could change. &lt;/p&gt;
 
 &lt;p&gt;You’d see how the response is about communication and request is about action.&lt;/p&gt;
 
-&lt;h3 id=&quot;verbs_and_nouns&quot;&gt;Verbs and nouns&lt;/h3&gt;
+&lt;h3 id=&quot;verbs-and-nouns&quot;&gt;Verbs and nouns&lt;/h3&gt;
 
-&lt;p&gt;Since you want to follow the REST methodology, you should create a web interface, which it uses the HTTP Methods that are available.&lt;/p&gt;
+&lt;p&gt;Since you want to follow the REST methodology, you should create a web interface,
+which it uses the HTTP Methods that are available.&lt;/p&gt;
 
 &lt;p&gt;The good practices suggests to use &lt;strong&gt;nouns&lt;/strong&gt; not verbs (this is not really always true we’ll see in the last part of this trilogy).&lt;/p&gt;
 
 &lt;p&gt;The convention also imposes to use plurals nouns, &lt;code&gt;pages&lt;/code&gt; instead &lt;code&gt;page&lt;/code&gt;, is simpler and coherent.&lt;/p&gt;
-&lt;table class='table'&gt;
+
+&lt;table class=&quot;table&quot;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
     &lt;th&gt;Resource&lt;/th&gt;
@@ -1140,18 +1378,22 @@ Miyagi: Wax on... wax off. Wax on... wax off.
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+
 &lt;p&gt;The &lt;code&gt;POST&lt;/code&gt; should create a new resource, the &lt;code&gt;PUT&lt;/code&gt; should modify an entity.&lt;/p&gt;
 
 &lt;p&gt;The &lt;code&gt;PUT&lt;/code&gt; should also create the resource if it not exists, as the definition of &lt;code&gt;idempotent&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;But some (quite a lot) web APIs simplify the objective of the PUT (usually they are rubist), giving to it only the update action of a given resource, because is simpler separate the create with &lt;code&gt;POST&lt;/code&gt; and the update with &lt;code&gt;PUT&lt;/code&gt;, but the real difference is well explained by the RFC:&lt;/p&gt;
+
 &lt;blockquote&gt;
     The fundamental difference between the POST and PUT requests is reflected in the different meaning of the Request-URI. The URI in a POST request identifies the resource that will handle the enclosed entity. That resource might be a data-accepting process, a gateway to some other protocol, or a separate entity that accepts annotations. In contrast, the URI in a PUT request identifies the entity enclosed with the request -- the user agent knows what URI is intended and the server MUST NOT attempt to apply the request to some other resource. If the server desires that the request be applied to a different URI,
 &lt;/blockquote&gt;
-&lt;h3 id=&quot;the_actions&quot;&gt;The actions&lt;/h3&gt;
+
+&lt;h3 id=&quot;the-actions&quot;&gt;The actions&lt;/h3&gt;
 
 &lt;p&gt;The table below, describes the name of the actions, on the head of the table the HTTP Methods.&lt;/p&gt;
-&lt;table class='table'&gt;
+
+&lt;table class=&quot;table&quot;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
     &lt;th&gt;Resource&lt;/th&gt;
@@ -1194,17 +1436,20 @@ Miyagi: Wax on... wax off. Wax on... wax off.
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+
 &lt;p&gt;So just creating the action properly we will have automatically configured the routes, with the proper HTTP Methods.&lt;/p&gt;
 
 &lt;p&gt;More info at &lt;a href=&quot;https://github.com/FriendsOfSymfony/FOSRestBundle/blob/master/Resources/doc/5-automatic-route-generation_single-restful-controller.md#rest-actions&quot;&gt;rest-action fosRestBundle&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2 id=&quot;the_creation&quot;&gt;The creation&lt;/h2&gt;
+&lt;h2 id=&quot;the-creation&quot;&gt;The creation&lt;/h2&gt;
 
 &lt;p&gt;Back to our Page example, we need a REST API that allows the creation of a Page.&lt;/p&gt;
 
-&lt;h2 id=&quot;step_1_writing_the_story&quot;&gt;Step 1 Writing the story&lt;/h2&gt;
+&lt;h2 id=&quot;step-1-writing-the-story&quot;&gt;Step 1 Writing the story&lt;/h2&gt;
 
-&lt;p&gt;The story: calling the resource &lt;code&gt;/api/v1/pages.json&lt;/code&gt; with POST method, and giving the whole serialized content of a &lt;code&gt;Page&lt;/code&gt; entity, the response should have the status code &lt;code&gt;201&lt;/code&gt;, and should be a json response.&lt;/p&gt;
+&lt;p&gt;The story: calling the resource &lt;code&gt;/api/v1/pages.json&lt;/code&gt; with POST method, 
+and giving the whole serialized content of a &lt;code&gt;Page&lt;/code&gt; entity,
+the response should have the status code &lt;code&gt;201&lt;/code&gt;, and should be a json response.&lt;/p&gt;
 
 &lt;p&gt;We could easily write this story into a functional test:&lt;/p&gt;
 
@@ -1218,14 +1463,17 @@ public function testJsonPostPageAction()
         array(),
         array(),
         array('CONTENT_TYPE' =&amp;gt; 'application/json'),
-        '{&amp;quot;title&amp;quot;:&amp;quot;title1&amp;quot;,&amp;quot;body&amp;quot;:&amp;quot;body1&amp;quot;}'
+        '{&quot;title&quot;:&quot;title1&quot;,&quot;body&quot;:&quot;body1&quot;}'
     );
     $this-&amp;gt;assertJsonResponse($this-&amp;gt;client-&amp;gt;getResponse(), 201, false);
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;and there is another story:&lt;/p&gt;
 
-&lt;p&gt;calling the resource &lt;code&gt;/api/v1/pages.json&lt;/code&gt; with the POST method, and giving a not valid serialized content of the &lt;code&gt;Page&lt;/code&gt; entity, the response should have the status code &lt;code&gt;400&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;calling the resource &lt;code&gt;/api/v1/pages.json&lt;/code&gt; with the POST method, 
+and giving a not valid serialized content of the &lt;code&gt;Page&lt;/code&gt; entity,
+the response should have the status code &lt;code&gt;400&lt;/code&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;public function testJsonPostPageActionShouldReturn400WithBadParameters()
 {
@@ -1236,19 +1484,21 @@ public function testJsonPostPageAction()
         array(),
         array(),
         array('CONTENT_TYPE' =&amp;gt; 'application/json'),
-        '{&amp;quot;ninja&amp;quot;:&amp;quot;turtles&amp;quot;}'
+        '{&quot;ninja&quot;:&quot;turtles&quot;}'
     );
 
     $this-&amp;gt;assertJsonResponse($this-&amp;gt;client-&amp;gt;getResponse(), 400, false);
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Of course the tests are red, we had to add the &lt;code&gt;post&lt;/code&gt; function in &lt;code&gt;PageHandler&lt;/code&gt; then the &lt;code&gt;postPageAction&lt;/code&gt; in the Controller.&lt;/p&gt;
 
 &lt;p&gt;We are going to create a &lt;code&gt;post&lt;/code&gt; function that takes the parameters (as an array) containing all the fields of the entity &lt;code&gt;Page&lt;/code&gt;,&lt;/p&gt;
 
-&lt;p&gt;the &lt;strong&gt;form&lt;/strong&gt; is responsible to validate and hydrate the new &lt;code&gt;Page&lt;/code&gt; object, then this object is persisted to the Object Manager.&lt;/p&gt;
+&lt;p&gt;the &lt;strong&gt;form&lt;/strong&gt; is responsible to validate and hydrate the new &lt;code&gt;Page&lt;/code&gt; object,
+then this object is persisted to the Object Manager.&lt;/p&gt;
 
-&lt;h2 id=&quot;step_2_the_entity_validation&quot;&gt;Step 2 The Entity validation&lt;/h2&gt;
+&lt;h2 id=&quot;step-2-the-entity-validation&quot;&gt;Step 2 The Entity validation&lt;/h2&gt;
 
 &lt;p&gt;We have to add the validation layer that will be invisible, the form will perform it automatically:&lt;/p&gt;
 
@@ -1261,18 +1511,20 @@ Acme\BlogBundle\Entity\Page:
             - Length:
                 min: 2
                 max: 50
-                minMessage: &amp;quot;Your title must be at least  characters length&amp;quot;
-                maxMessage: &amp;quot;Your title name cannot be longer than  characters length&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+                minMessage: &quot;Your title must be at least  characters length&quot;
+                maxMessage: &quot;Your title name cannot be longer than  characters length&quot;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;step_3_the_pagehandlerpost&quot;&gt;Step 3 The PageHandler::post&lt;/h2&gt;
+&lt;h2 id=&quot;step-3-the-pagehandlerpost&quot;&gt;Step 3 The PageHandler::post&lt;/h2&gt;
 
 &lt;p&gt;In the first article we created a service called &lt;code&gt;PageHandler&lt;/code&gt;, its objective is to respect the &lt;code&gt;PageHandlerInterface&lt;/code&gt;, serving the &lt;code&gt;Page&lt;/code&gt; entity with &lt;code&gt;get(id)&lt;/code&gt; and &lt;code&gt;post()&lt;/code&gt;: it could read and write a &lt;code&gt;Page&lt;/code&gt; resource.&lt;/p&gt;
 
 &lt;p&gt;The first step should be create a test that respects the behavior that we want for the post.&lt;/p&gt;
 
-&lt;p&gt;Given parameters containing properties of the &lt;code&gt;Page&lt;/code&gt; like &lt;code&gt;array('title'=&amp;gt;'title')&lt;/code&gt; the function should return an already persisted object respecting the interface &lt;code&gt;PageInterface&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Given parameters containing properties of the &lt;code&gt;Page&lt;/code&gt; like &lt;code&gt;array('title'=&amp;gt;'title')&lt;/code&gt;
+the function should return an already persisted object respecting the interface &lt;code&gt;PageInterface&lt;/code&gt;. &lt;/p&gt;
 
-&lt;h3 id=&quot;step_3a_the_post_function&quot;&gt;Step 3.a The post function&lt;/h3&gt;
+&lt;h3 id=&quot;step-3a-the-post-function&quot;&gt;Step 3.a The post function&lt;/h3&gt;
 
 &lt;p&gt;We are now going to create a function that look like even in the name to the controller’s function.&lt;/p&gt;
 
@@ -1290,9 +1542,10 @@ public function post(array $parameters)
 
     // Process form does all the magic, validate and hydrate the Page Object.
     return $this-&amp;gt;processForm($page, $parameters, 'POST');
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&quot;step_3b_the_form_factory&quot;&gt;Step 3.b The form factory&lt;/h3&gt;
+&lt;h3 id=&quot;step-3b-the-form-factory&quot;&gt;Step 3.b The form factory&lt;/h3&gt;
 
 &lt;p&gt;In order to use the form we need the &lt;code&gt;form.factory&lt;/code&gt; injected into the service:&lt;/p&gt;
 
@@ -1309,23 +1562,28 @@ public function __construct(ObjectManager $om, $entityClass, FormFactoryInterfac
     $this-&amp;gt;entityClass = $entityClass;
     $this-&amp;gt;repository = $this-&amp;gt;om-&amp;gt;getRepository($this-&amp;gt;entityClass);
     $this-&amp;gt;formFactory = $formFactory;
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;and then we have to add a new argument into the page handler service at &lt;code&gt;/src/Acme/BlogBundle/Resources/config/services.xml&lt;/code&gt;&lt;/p&gt;
-&lt;?xml version=&quot;1.0&quot; ?&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;services&amp;gt;
-    &amp;lt;service id=&amp;quot;acme_blog.page.handler&amp;quot; class=&amp;quot;%acme_blog.page.handler.class%&amp;quot;&amp;gt;
-        &amp;lt;argument type=&amp;quot;service&amp;quot; id=&amp;quot;doctrine.orm.entity_manager&amp;quot; /&amp;gt;
-        &amp;lt;argument&amp;gt;%acme_blog.page.class%&amp;lt;/argument&amp;gt;
-        &amp;lt;argument type=&amp;quot;service&amp;quot; id=&amp;quot;form.factory&amp;quot;&amp;gt;&amp;lt;/argument&amp;gt;
-    &amp;lt;/service&amp;gt;
-&amp;lt;/services&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&quot;step_3c_the_processform&quot;&gt;Step 3.c The processForm&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&quot;1.0&quot; ?&amp;gt;
+&amp;lt;services&amp;gt;
+    &amp;lt;service id=&quot;acme_blog.page.handler&quot; class=&quot;%acme_blog.page.handler.class%&quot;&amp;gt;
+        &amp;lt;argument type=&quot;service&quot; id=&quot;doctrine.orm.entity_manager&quot; /&amp;gt;
+        &amp;lt;argument&amp;gt;%acme_blog.page.class%&amp;lt;/argument&amp;gt;
+        &amp;lt;argument type=&quot;service&quot; id=&quot;form.factory&quot;&amp;gt;&amp;lt;/argument&amp;gt;
+    &amp;lt;/service&amp;gt;
+&amp;lt;/services&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;step-3c-the-processform&quot;&gt;Step 3.c The processForm&lt;/h3&gt;
 
 &lt;p&gt;It’s time to back to &lt;code&gt;\Acme\BlogBundle\Handler\PageHandler&lt;/code&gt; and create the &lt;code&gt;processForm&lt;/code&gt; function, the hearth of the write functions.&lt;/p&gt;
 
-&lt;p&gt;You have surely already used &lt;a href=&quot;http://api.symfony.com/2.3/Symfony/Component/Form/FormInterface.html&quot;&gt;form-&amp;gt;handleRequest($request)&lt;/a&gt;, but in this case we don’t have the Request but only the values ​​ in an array, so instead of &lt;code&gt;handleRequest&lt;/code&gt;, we are going to &lt;code&gt;submit&lt;/code&gt; the form.&lt;/p&gt;
+&lt;p&gt;You have surely already used &lt;a href=&quot;http://api.symfony.com/2.3/Symfony/Component/Form/FormInterface.html&quot;&gt;form-&amp;gt;handleRequest($request)&lt;/a&gt;,
+but in this case we don’t have the Request but only the values ​​
+in an array, so instead of &lt;code&gt;handleRequest&lt;/code&gt;, we are going to &lt;code&gt;submit&lt;/code&gt; the form.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;/**
  * Processes the form.
@@ -1338,7 +1596,7 @@ public function __construct(ObjectManager $om, $entityClass, FormFactoryInterfac
  *
  * @throws \Acme\BlogBundle\Exception\InvalidFormException
  */
-private function processForm(PageInterface $page, array $parameters, $method = &amp;quot;PUT&amp;quot;)
+private function processForm(PageInterface $page, array $parameters, $method = &quot;PUT&quot;)
 {
     $form = $this-&amp;gt;formFactory-&amp;gt;create(new PageType(), $page, array('method' =&amp;gt; $method));
     $form-&amp;gt;submit($parameters, 'PATCH' !== $method);
@@ -1352,17 +1610,20 @@ private function processForm(PageInterface $page, array $parameters, $method = &
     }
 
     throw new InvalidFormException('Invalid submitted data', $form);
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;This function returns an object of &lt;code&gt;PageInterface&lt;/code&gt; type, but if the parameters are not valid it throws an &lt;code&gt;InvalidFormException&lt;/code&gt; that will be handled and caught by the controller.&lt;/p&gt;
+&lt;p&gt;This function returns an object of &lt;code&gt;PageInterface&lt;/code&gt; type, but if the parameters are not valid it
+throws an &lt;code&gt;InvalidFormException&lt;/code&gt; that will be handled and caught by the controller.&lt;/p&gt;
 
 &lt;p&gt;The test class is at &lt;a href=&quot;https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/blob/part2/src/Acme/BlogBundle/Tests/Handler/PageHandlerTest.php/&quot;&gt;part2-src/Acme/BlogBundle/Tests/Handler/PageHandlerTest.php&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;why_dont_use_the_request&quot;&gt;Why don’t use the request?&lt;/h3&gt;
+&lt;h3 id=&quot;why-dont-use-the-request&quot;&gt;Why don’t use the request?&lt;/h3&gt;
 
 &lt;p&gt;The real question is: do we really need the request here?&lt;/p&gt;
 
-&lt;p&gt;The answer is &lt;strong&gt;no&lt;/strong&gt;, the main responsibility of &lt;code&gt;PageHandler&lt;/code&gt; class is to &lt;code&gt;handle&lt;/code&gt; (creating, editing, showing) the &lt;code&gt;Page&lt;/code&gt; entity, given some parameters, it doesn’t care about Request.&lt;/p&gt;
+&lt;p&gt;The answer is &lt;strong&gt;no&lt;/strong&gt;, the main responsibility of &lt;code&gt;PageHandler&lt;/code&gt; class is to &lt;code&gt;handle&lt;/code&gt; (creating, editing, showing)
+the &lt;code&gt;Page&lt;/code&gt; entity, given some parameters, it doesn’t care about Request.&lt;/p&gt;
 
 &lt;p&gt;In this way you could use &lt;code&gt;PageHandler&lt;/code&gt; from container services, without injecting or faking the Request.&lt;/p&gt;
 
@@ -1370,9 +1631,9 @@ private function processForm(PageInterface $page, array $parameters, $method = &
 
 &lt;p&gt;but the PageHandler is itself an API, usable by services of your application via service container.&lt;/p&gt;
 
-&lt;h2 id=&quot;step_4_the_post_and_the_controller&quot;&gt;Step 4 The POST and the Controller&lt;/h2&gt;
+&lt;h2 id=&quot;step-4-the-post-and-the-controller&quot;&gt;Step 4 The POST and the Controller&lt;/h2&gt;
 
-&lt;h3 id=&quot;the_function&quot;&gt;The function&lt;/h3&gt;
+&lt;h3 id=&quot;the-function&quot;&gt;The function&lt;/h3&gt;
 
 &lt;p&gt;The postPageAction is simple, all the domain logic is demanded to the &lt;code&gt;PageHandler&lt;/code&gt;.&lt;/p&gt;
 
@@ -1381,18 +1642,18 @@ private function processForm(PageInterface $page, array $parameters, $method = &
  *
  * @ApiDoc(
  *   resource = true,
- *   description = &amp;quot;Creates a new page from the submitted data.&amp;quot;,
- *   input = &amp;quot;Acme\BlogBundle\Form\PageType&amp;quot;,
+ *   description = &quot;Creates a new page from the submitted data.&quot;,
+ *   input = &quot;Acme\BlogBundle\Form\PageType&quot;,
  *   statusCodes = {
- *     200 = &amp;quot;Returned when successful&amp;quot;,
- *     400 = &amp;quot;Returned when the form has errors&amp;quot;
+ *     200 = &quot;Returned when successful&quot;,
+ *     400 = &quot;Returned when the form has errors&quot;
  *   }
  * )
  *
  * @Annotations\View(
- *  template = &amp;quot;AcmeBlogBundle:Page:newPage.html.twig&amp;quot;,
+ *  template = &quot;AcmeBlogBundle:Page:newPage.html.twig&quot;,
  *  statusCode = Codes::HTTP_BAD_REQUEST,
- *  templateVar = &amp;quot;form&amp;quot;
+ *  templateVar = &quot;form&quot;
  * )
  *
  * @param Request $request the request object
@@ -1417,35 +1678,39 @@ public function postPageAction(Request $request)
 
        return $exception-&amp;gt;getForm();
    }
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&quot;the_location&quot;&gt;The location&lt;/h3&gt;
+&lt;h3 id=&quot;the-location&quot;&gt;The location&lt;/h3&gt;
 
-&lt;p&gt;A new page is created by the &lt;code&gt;PageHandler&lt;/code&gt;, then the helper &lt;code&gt;routeRedirectView&lt;/code&gt; adds to the http header the location: &lt;code&gt;http://localhost:8000/api/v1/pages/47.json&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;A new page is created by the &lt;code&gt;PageHandler&lt;/code&gt;, then the helper &lt;code&gt;routeRedirectView&lt;/code&gt; adds to the http header
+ the location: &lt;code&gt;http://localhost:8000/api/v1/pages/47.json&lt;/code&gt;.&lt;/p&gt;
 
-&lt;h3 id=&quot;the_template&quot;&gt;The template&lt;/h3&gt;
+&lt;h3 id=&quot;the-template&quot;&gt;The template&lt;/h3&gt;
 
 &lt;p&gt;Remember to create the template newPage.html.twig something like&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;/src/Acme/BlogBundle/Resources/views/Page/newPage.html.twig
 &amp;lt;h1&amp;gt;Page Form&amp;lt;/h1&amp;gt;
-&amp;lt;form action=&amp;quot;{ { url('api_1_post_page') } }&amp;quot; method=&amp;quot;POST&amp;quot; { { form_enctype(form) } }&amp;gt;
+&amp;lt;form action=&quot;{ { url('api_1_post_page') } }&quot; method=&quot;POST&quot; { { form_enctype(form) } }&amp;gt;
     { { form_widget(form) } }
-    &amp;lt;input type=&amp;quot;submit&amp;quot; value=&amp;quot;submit&amp;quot;&amp;gt;
-&amp;lt;/form&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+    &amp;lt;input type=&quot;submit&quot; value=&quot;submit&quot;&amp;gt;
+&amp;lt;/form&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&quot;the_api&quot;&gt;The API&lt;/h3&gt;
+&lt;h3 id=&quot;the-api&quot;&gt;The API&lt;/h3&gt;
 
 &lt;p&gt;Maybe it has gone unnoticed but in the annotation of the documentation, the input of the post is not the &lt;code&gt;Page&lt;/code&gt; object but a form type:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;* @ApiDoc(
 *   ...
-*   input = &amp;quot;Acme\BlogBundle\Form\PageType&amp;quot;,
-*   ...&lt;/code&gt;&lt;/pre&gt;
+*   input = &quot;Acme\BlogBundle\Form\PageType&quot;,
+*   ...
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;You’d see how much the form is important in our API application.&lt;/p&gt;
 
-&lt;h3 id=&quot;the_name_of_the_form_type&quot;&gt;The name of the Form type&lt;/h3&gt;
+&lt;h3 id=&quot;the-name-of-the-form-type&quot;&gt;The name of the Form type&lt;/h3&gt;
 
 &lt;p&gt;One thing that seems very obscure in the eyes of those doing the rest with the form is the &lt;code&gt;getName&lt;/code&gt;,&lt;/p&gt;
 
@@ -1458,11 +1723,13 @@ public function postPageAction(Request $request)
 public function getName()
 {
     return 'page';
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;The data should be sent with a different syntax:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;curl -X POST -d '{&amp;quot;page&amp;quot;:{&amp;quot;title&amp;quot;:&amp;quot;title1&amp;quot;,&amp;quot;body&amp;quot;:&amp;quot;body1&amp;quot;}}' http://localhost:8000/api/v1/pages.json --header &amp;quot;Content-Type:application/json&amp;quot; -v&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;curl -X POST -d '{&quot;page&quot;:{&quot;title&quot;:&quot;title1&quot;,&quot;body&quot;:&quot;body1&quot;}}' http://localhost:8000/api/v1/pages.json --header &quot;Content-Type:application/json&quot; -v
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;and the controller should look something like&lt;/p&gt;
 
@@ -1473,29 +1740,34 @@ public function getName()
         $newPage = $this-&amp;gt;container-&amp;gt;get('acme_blog.page.handler')-&amp;gt;post(
                 $request-&amp;gt;request-&amp;gt;get($form-&amp;gt;getName())
         );
-// ...&lt;/code&gt;&lt;/pre&gt;
+// ...
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;rest_is_also_for_human&quot;&gt;Rest is (also) for human&lt;/h2&gt;
+&lt;h2 id=&quot;rest-is-also-for-human&quot;&gt;Rest is (also) for human&lt;/h2&gt;
 
-&lt;h3 id=&quot;people_and_rest_got_the_power&quot;&gt;People (and REST) got the power&lt;/h3&gt;
+&lt;h3 id=&quot;people-and-rest-got-the-power&quot;&gt;People (and REST) got the power&lt;/h3&gt;
 
 &lt;p&gt;There are many protocols and each has its advantages and its reasons, SOAP, XML-RPC. The added value of REST is that it is not just for client API and web browser is &lt;strong&gt;for people too&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;h2 id=&quot;conventional_actions&quot;&gt;Conventional Actions&lt;/h2&gt;
+&lt;h2 id=&quot;conventional-actions&quot;&gt;Conventional Actions&lt;/h2&gt;
 
-&lt;p&gt;The title &lt;code&gt;Rest is also for human&lt;/code&gt; is self explanatory and the guys at Friends Of Symfony, wrote how to increase the interaction with the REST process, adding some &lt;code&gt;conventional actions&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;The title &lt;code&gt;Rest is also for human&lt;/code&gt; is self explanatory and the guys at Friends Of Symfony, 
+wrote how to increase the interaction with the REST process, adding some &lt;code&gt;conventional actions&lt;/code&gt;:&lt;/p&gt;
+
 &lt;blockquote&gt;
 HATEOAS, or Hypermedia as the Engine of Application State, is an aspect of REST which allows clients to interact with the REST service with hypertext - most commonly through an HTML page. There are 3 Conventional Action routings that are supported by this bundle: 
 
 &lt;b&gt;new&lt;/b&gt;, &lt;b&gt;edit&lt;/b&gt;, &lt;b&gt;remove&lt;/b&gt; ... from FOSREST-1
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;step_5_the_newpage_action&quot;&gt;Step 5 The newPage action&lt;/h2&gt;
+
+&lt;h2 id=&quot;step-5-the-newpage-action&quot;&gt;Step 5 The newPage action&lt;/h2&gt;
 
 &lt;p&gt;We are going to create the new action:&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;new&lt;/strong&gt; - A hypermedia representation that acts as the engine to POST. Typically this is a form that allows the client to POST a new resource. Shown as PageController::newPagesAction()&lt;/p&gt;
 
-&lt;p&gt;We are providing a REST API for &lt;code&gt;json&lt;/code&gt;, &lt;code&gt;xml&lt;/code&gt;, and &lt;code&gt;html&lt;/code&gt; formats, so a user could be able to create a correct request, we should provide also a web page to create the form:&lt;/p&gt;
+&lt;p&gt;We are providing a REST API for &lt;code&gt;json&lt;/code&gt;, &lt;code&gt;xml&lt;/code&gt;, and &lt;code&gt;html&lt;/code&gt; formats,
+so a user could be able to create a correct request, we should provide also a web page to create the form:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;/**
  * Presents the form to use to create a new page.
@@ -1503,7 +1775,7 @@ HATEOAS, or Hypermedia as the Engine of Application State, is an aspect of REST 
  * @ApiDoc(
  *   resource = true,
  *   statusCodes = {
- *     200 = &amp;quot;Returned when successful&amp;quot;
+ *     200 = &quot;Returned when successful&quot;
  *   }
  * )
  *
@@ -1514,9 +1786,11 @@ HATEOAS, or Hypermedia as the Engine of Application State, is an aspect of REST 
 public function newPageAction()
 {
     return $this-&amp;gt;createForm(new PageType());
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Automatically a new route is added at &lt;code&gt;/api/v1/pages/new.{_format}&lt;/code&gt; you could check it with&lt;/p&gt;
+&lt;p&gt;Automatically a new route is added at &lt;code&gt;/api/v1/pages/new.{_format}&lt;/code&gt;
+you could check it with&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;app/console router:debug | grep api&lt;/code&gt;&lt;/p&gt;
 
@@ -1524,27 +1798,30 @@ public function newPageAction()
 
 &lt;p&gt;you will obtain a working html form.&lt;/p&gt;
 
-&lt;h2 id=&quot;manually_test_the_application&quot;&gt;Manually test the application&lt;/h2&gt;
+&lt;h2 id=&quot;manually-test-the-application&quot;&gt;Manually test the application&lt;/h2&gt;
 
-&lt;h3 id=&quot;the_happy_path_201&quot;&gt;The happy path 201&lt;/h3&gt;
+&lt;h3 id=&quot;the-happy-path-201&quot;&gt;The happy path 201&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;curl -X POST -d '{&amp;quot;title&amp;quot;:&amp;quot;title&amp;quot;,&amp;quot;body&amp;quot;:&amp;quot;body&amp;quot;}' http://localhost:8000/api/v1/pages.json --header &amp;quot;Content-Type:application/json&amp;quot; &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;curl -X POST -d '{&quot;title&quot;:&quot;title&quot;,&quot;body&quot;:&quot;body&quot;}' http://localhost:8000/api/v1/pages.json --header &quot;Content-Type:application/json&quot; 
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;It will return&lt;/p&gt;
+&lt;p&gt;It will return &lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt; HTTP/1.1 201 Created
 &amp;lt; Host: localhost:8000
 &amp;lt; Location: http://localhost:8000/api/v1/pages/50.json
 &amp;lt; Allow: POST
-&amp;lt; Content-Type: application/json&lt;/code&gt;&lt;/pre&gt;
+&amp;lt; Content-Type: application/json
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;This is great! HTTP Status code &lt;code&gt;201&lt;/code&gt; resource created, and location tells to the consumers where to get this resource.&lt;/p&gt;
 
-&lt;h3 id=&quot;bad_parameters_400&quot;&gt;Bad parameters 400&lt;/h3&gt;
+&lt;h3 id=&quot;bad-parameters-400&quot;&gt;Bad parameters 400&lt;/h3&gt;
 
 &lt;p&gt;Let’s try to send a bad content:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;curl -X POST -d '{&amp;quot;ninja&amp;quot;:&amp;quot;title&amp;quot;,&amp;quot;turtles&amp;quot;:&amp;quot;body&amp;quot;}' http://localhost:8000/api/v1/pages.json --header &amp;quot;Content-Type:application/json&amp;quot; -v&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;curl -X POST -d '{&quot;ninja&quot;:&quot;title&quot;,&quot;turtles&quot;:&quot;body&quot;}' http://localhost:8000/api/v1/pages.json --header &quot;Content-Type:application/json&quot; -v
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;The Response will be &lt;code&gt;400&lt;/code&gt;&lt;/p&gt;
 
@@ -1552,52 +1829,59 @@ public function newPageAction()
 &amp;lt; Host: localhost:8000
 &amp;lt; Content-Type: application/json
 &amp;lt; 
-&amp;lt; {&amp;quot;form&amp;quot;:{&amp;quot;errors&amp;quot;:[&amp;quot;This form should not contain extra fields.&amp;quot;],&amp;quot;children&amp;quot;:{&amp;quot;title&amp;quot;:[],&amp;quot;body&amp;quot;:[]}}}&lt;/code&gt;&lt;/pre&gt;
+&amp;lt; {&quot;form&quot;:{&quot;errors&quot;:[&quot;This form should not contain extra fields.&quot;],&quot;children&quot;:{&quot;title&quot;:[],&quot;body&quot;:[]}}}
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;things_to_know_and_not_always_to_do&quot;&gt;Things to know (and not always to do)&lt;/h2&gt;
+&lt;h2 id=&quot;things-to-know-and-not-always-to-do&quot;&gt;Things to know (and not always to do)&lt;/h2&gt;
 
 &lt;p&gt;There are simple steps that could improve a little bit the project:&lt;/p&gt;
 
-&lt;h3 id=&quot;the_nonproblem&quot;&gt;The non-problem&lt;/h3&gt;
+&lt;h3 id=&quot;the-non-problem&quot;&gt;The non-problem&lt;/h3&gt;
 
 &lt;p&gt;Do you remember how we used the formFactory in the PageHandler?&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;// src\Acme\BlogBundle\Handler\PageHandler::$formFactory
-$form = $this-&amp;gt;formFactory-&amp;gt;create(new PageType(), $page, array('method' =&amp;gt; $method));&lt;/code&gt;&lt;/pre&gt;
+$form = $this-&amp;gt;formFactory-&amp;gt;create(new PageType(), $page, array('method' =&amp;gt; $method));
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;and do you remember how we created the PageType?&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;// src/Acme/BlogBundle/Form/PageType.php
-'data_class' =&amp;gt; 'Acme\BlogBundle\Entity\Page',&lt;/code&gt;&lt;/pre&gt;
+'data_class' =&amp;gt; 'Acme\BlogBundle\Entity\Page',
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;We hardcoded the classes inside another class, we create an hard dependency.&lt;/p&gt;
 
-&lt;h3 id=&quot;the_solution&quot;&gt;The solution&lt;/h3&gt;
+&lt;h3 id=&quot;the-solution&quot;&gt;The solution&lt;/h3&gt;
 
 &lt;p&gt;we could create the PageType as service, and use the name of the service from the PageHandler.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;&amp;lt;parameter key=&amp;quot;acme_blog.page.type.class&amp;quot;&amp;gt;Acme\BlogBundle\Form\PageType&amp;lt;/parameter&amp;gt;
-&amp;lt;parameter key=&amp;quot;acme_blog.page.type.name&amp;quot;&amp;gt;&amp;lt;/parameter&amp;gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;parameter key=&quot;acme_blog.page.type.class&quot;&amp;gt;Acme\BlogBundle\Form\PageType&amp;lt;/parameter&amp;gt;
+&amp;lt;parameter key=&quot;acme_blog.page.type.name&quot;&amp;gt;&amp;lt;/parameter&amp;gt;
+ 
 
-
-&amp;lt;service id=&amp;quot;acme_blog.page.type&amp;quot; class=&amp;quot;Leaphly\CartBundle\Form\Type\CartFormType&amp;quot;&amp;gt;
+&amp;lt;service id=&quot;acme_blog.page.type&quot; class=&quot;Leaphly\CartBundle\Form\Type\CartFormType&quot;&amp;gt;
     &amp;lt;argument&amp;gt;%acme_blog.page.type.class%&amp;lt;/argument&amp;gt;
-    &amp;lt;tag name=&amp;quot;form.type&amp;quot; alias=&amp;quot;leaphly_cart&amp;quot; /&amp;gt;
-&amp;lt;/service&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+    &amp;lt;tag name=&quot;form.type&quot; alias=&quot;leaphly_cart&quot; /&amp;gt;
+&amp;lt;/service&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;and then in the &lt;code&gt;Page handler&lt;/code&gt; do something like:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$this-&amp;gt;formFactory-&amp;gt;createNamed ...&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;$this-&amp;gt;formFactory-&amp;gt;createNamed ...
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;the code given on github &lt;strong&gt;doesn’t cover&lt;/strong&gt; the form type as service.&lt;/p&gt;
 
-&lt;h3 id=&quot;justifying_this_extra_effort&quot;&gt;Justifying this extra effort&lt;/h3&gt;
+&lt;h3 id=&quot;justifying-this-extra-effort&quot;&gt;Justifying this extra effort&lt;/h3&gt;
 
 &lt;p&gt;In few cases this could be considered an &lt;a href=&quot;http://en.wikipedia.org/wiki/Overengineering&quot;&gt;over-engineered&lt;/a&gt; task,&lt;/p&gt;
 
-&lt;p&gt;but when the form type needs extra powers(eg. database access) or when we want to remove all the hard-coding and explicit classes, or if we want to centralize the parameters and the classes in order to be easily changed or renamed, the form type as service could be useful.&lt;/p&gt;
+&lt;p&gt;but when the form type needs extra powers(eg. database access) or when we want to remove all the hard-coding and explicit classes,
+or if we want to centralize the parameters and the classes in order to be easily changed or renamed,
+the form type as service could be useful.&lt;/p&gt;
 
-&lt;h2 id=&quot;the_documentation_as_bonus&quot;&gt;The documentation as bonus&lt;/h2&gt;
+&lt;h2 id=&quot;the-documentation-as-bonus&quot;&gt;The documentation as bonus&lt;/h2&gt;
 
 &lt;p&gt;With &lt;a href=&quot;https://github.com/nelmio/NelmioApiDocBundle&quot;&gt;NelmioApiDocBundle&lt;/a&gt; we will have a documentation &lt;strong&gt;for free&lt;/strong&gt;&lt;/p&gt;
 
@@ -1605,23 +1889,25 @@ $form = $this-&amp;gt;formFactory-&amp;gt;create(new PageType(), $page, array('m
 
 &lt;pre&gt;&lt;code&gt;# app/config/routing.yml
 NelmioApiDocBundle:
-    resource: &amp;quot;@NelmioApiDocBundle/Resources/config/routing.yml&amp;quot;
-    prefix:   /api/doc&lt;/code&gt;&lt;/pre&gt;
+    resource: &quot;@NelmioApiDocBundle/Resources/config/routing.yml&quot;
+    prefix:   /api/doc
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;then modifying the PostAction annotations&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;/**
  * @ApiDoc(
  *   resource = true,
- *   description = &amp;quot;Creates a new page from the submitted data.&amp;quot;,
- *   input = &amp;quot;Acme\BlogBundle\Form\PageType&amp;quot;,
+ *   description = &quot;Creates a new page from the submitted data.&quot;,
+ *   input = &quot;Acme\BlogBundle\Form\PageType&quot;,
  *   statusCodes = {
- *     200 = &amp;quot;Returned when successful&amp;quot;,
- *     400 = &amp;quot;Returned when the form has errors&amp;quot;
+ *     200 = &quot;Returned when successful&quot;,
+ *     400 = &quot;Returned when the form has errors&quot;
  *   }
  * )
  */
-public function postPageAction&lt;/code&gt;&lt;/pre&gt;
+public function postPageAction
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;And thanks to &lt;a href=&quot;https://github.com/nelmio/NelmioApiDocBundle/graphs/contributors&quot;&gt;this guys&lt;/a&gt; you will have something like:&lt;/p&gt;
 
@@ -1629,12 +1915,14 @@ public function postPageAction&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&quot;recap&quot;&gt;Recap&lt;/h2&gt;
 
-&lt;p&gt;Now we could create and read a resource via HTTP REST, using those routes:&lt;/p&gt;
+&lt;p&gt;Now we could create and read a resource via HTTP REST,
+using those routes:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;api_1_get_page           GET    ANY    ANY  /api/v1/pages/{id}.{_format}
 api_1_new_page           GET    ANY    ANY  /api/v1/pages/new.{_format}
 api_1_post_page          POST   ANY    ANY  /api/v1/pages.{_format}
-nelmio_api_doc_index     GET    ANY    ANY  /api/doc/&lt;/code&gt;&lt;/pre&gt;
+nelmio_api_doc_index     GET    ANY    ANY  /api/doc/
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;We also have created another API usable via service container and the API are defined into the &lt;code&gt;PageHandlerInterface&lt;/code&gt;:&lt;/p&gt;
 
@@ -1662,29 +1950,27 @@ interface PageHandlerInterface
      * @return PageInterface
      */
     public function post(array $parameters);
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;next__the_last_rest_api_episode&quot;&gt;Next ›› &lt;a href=&quot;/symfony2-rest-api-the-best-way-part-3/&quot;&gt;The last REST API episode&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;next--the-last-rest-api-episodesymfony2-rest-api-the-best-way-part-3&quot;&gt;Next ›› &lt;a href=&quot;/symfony2-rest-api-the-best-way-part-3/&quot;&gt;The last REST API episode&lt;/a&gt;&lt;/h2&gt;
 
-&lt;p&gt;In the next articles, we will describe how to delete, edit partially and totally a resource with &lt;code&gt;DELETE&lt;/code&gt;, &lt;code&gt;PATCH&lt;/code&gt;, &lt;code&gt;PUT&lt;/code&gt;, we will talk how use other important HTTP headers, we will play with &lt;code&gt;filter&lt;/code&gt; &lt;/p&gt;
+&lt;p&gt;In the next articles, we will describe how to delete, edit partially and totally a resource with &lt;code&gt;DELETE&lt;/code&gt;, &lt;code&gt;PATCH&lt;/code&gt;, &lt;code&gt;PUT&lt;/code&gt;,
+we will talk how use other important HTTP headers, we will play with &lt;code&gt;filter&lt;/code&gt; …&lt;/p&gt;
 
 &lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html&quot;&gt;W3C-1 w3.org/Protocols/rfc2616/rfc2616-sec9&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html&quot;&gt;W3C-1  w3.org/Protocols/rfc2616/rfc2616-sec9&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://zachholman.com/2010/03/the-human-is-a-restful-client/&quot;&gt;ZAC-1 - Zach Holman: The Human is a RESTful Client&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/FriendsOfSymfony/FOSRestBundle/blob/master/Resources/doc/5-automatic-route-generation_single-restful-controller.md#conventional-actions&quot;&gt;FOSREST-1 conventional-actions&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://symfony.com/doc/current/cookbook/form/direct_submit.html&quot;&gt;symfony.com/doc/current/cookbook/form/direct_submit.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://symfony.com/doc/current/cookbook/form/create_custom_field_type.html&quot;&gt;symfony.com/doc/current/cookbook/form/create_custom_field_type.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/nelmio/NelmioApiDocBundle&quot;&gt;NelmioApiDocBundle&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/lsmith77/symfony-rest-edition/&quot;&gt;lsmith77/symfony-rest-edition/&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;li&gt;&lt;a href=&quot;http://zachholman.com/2010/03/the-human-is-a-restful-client/&quot;&gt;ZAC-1 - Zach Holman: The Human is a RESTful Client&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&quot;https://github.com/FriendsOfSymfony/FOSRestBundle/blob/master/Resources/doc/5-automatic-route-generation_single-restful-controller.md#conventional-actions&quot;&gt;FOSREST-1 conventional-actions&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&quot;http://symfony.com/doc/current/cookbook/form/direct_submit.html&quot;&gt;symfony.com/doc/current/cookbook/form/direct_submit.html&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&quot;http://symfony.com/doc/current/cookbook/form/create_custom_field_type.html&quot;&gt;symfony.com/doc/current/cookbook/form/create_custom_field_type.html&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&quot;https://github.com/nelmio/NelmioApiDocBundle&quot;&gt;NelmioApiDocBundle&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&quot;https://github.com/lsmith77/symfony-rest-edition/&quot;&gt;lsmith77/symfony-rest-edition/&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</description>
+</description>
             <pubDate>Sat, 16 Nov 2013 13:00:00 +0000</pubDate>
             <link>http://welcometothebundle.com//web-api-rest-with-symfony2-the-best-way-the-post-method</link>
             <guid isPermaLink="true">http://welcometothebundle.com//web-api-rest-with-symfony2-the-best-way-the-post-method</guid>
@@ -1692,11 +1978,13 @@ interface PageHandlerInterface
         
         <item>
             <title>Symfony2 REST API: the best way</title>
-            <description>&lt;h3 id=&quot;part_1__the_&quot;&gt;Part 1 - the &lt;code&gt;GET&lt;/code&gt;&lt;/h3&gt;
+            <description>
+&lt;h3 id=&quot;part-1---the-get&quot;&gt;Part 1 - the &lt;code&gt;GET&lt;/code&gt;&lt;/h3&gt;
 
 &lt;p&gt;Here’s another nice guide on how to create an API with Symfony2, this is the &lt;strong&gt;part 1&lt;/strong&gt; of a series of articles.&lt;/p&gt;
 
-&lt;p&gt;Here you could find the &lt;a href=&quot;/web-api-rest-with-symfony2-the-best-way-the-post-method/&quot;&gt;Part2 - the ‘POST’&lt;/a&gt;, and the last article &lt;a href=&quot;/symfony2-rest-api-the-best-way-part-3/&quot;&gt;Part3 - The rest of REST&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Here you could find the &lt;a href=&quot;/web-api-rest-with-symfony2-the-best-way-the-post-method/&quot;&gt;Part2 - the ‘POST’&lt;/a&gt;,
+and the last article &lt;a href=&quot;/symfony2-rest-api-the-best-way-part-3/&quot;&gt;Part3 - The rest of REST&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I would like to be short and concise bringing practical examples.&lt;/p&gt;
 
@@ -1717,37 +2005,37 @@ interface PageHandlerInterface
 &lt;h3 id=&quot;rules&quot;&gt;Rules&lt;/h3&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Interface as contracts.&lt;/li&gt;
-
-&lt;li&gt;Thin Controller, Fat Service.&lt;/li&gt;
-
-&lt;li&gt;The &lt;code&gt;Content Negotiation&lt;/code&gt; in the HTTP and REST.&lt;/li&gt;
-
-&lt;li&gt;Form as API interface.&lt;/li&gt;
+  &lt;li&gt;Interface as contracts.&lt;/li&gt;
+  &lt;li&gt;Thin Controller, Fat Service.&lt;/li&gt;
+  &lt;li&gt;The &lt;code&gt;Content Negotiation&lt;/code&gt; in the HTTP and REST.&lt;/li&gt;
+  &lt;li&gt;Form as API interface.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;the_github_repository&quot;&gt;The github repository&lt;/h2&gt;
+&lt;h2 id=&quot;the-github-repository&quot;&gt;The github repository&lt;/h2&gt;
 
-&lt;p&gt;There’s a repository at &lt;a href=&quot;https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/&quot;&gt;liuggio/symfony2-rest-api-the-best-2013-way&lt;/a&gt; you could see the working code using the tag &lt;code&gt;part1&lt;/code&gt; with&lt;/p&gt;
+&lt;p&gt;There’s a repository at &lt;a href=&quot;https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/&quot;&gt;liuggio/symfony2-rest-api-the-best-2013-way&lt;/a&gt;
+you could see the working code using the tag &lt;code&gt;part1&lt;/code&gt; with&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;php composer.phar create-project liuggio/symfony2-rest-api-the-best-2013-way blog-rest-symfony2 -sdev
 cd blog-rest-symfony2
 git checkout -f part1
 php app/console doctrine:database:create
 php app/console doctrine:schema:create
-bin/phpunit -c app&lt;/code&gt;&lt;/pre&gt;
+bin/phpunit -c app
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;All the tags for the demo project at &lt;a href=&quot;https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/tags&quot;&gt;tags&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;step_1a_the_application&quot;&gt;Step 1.A The application&lt;/h2&gt;
+&lt;h2 id=&quot;step-1a-the-application&quot;&gt;Step 1.A The application&lt;/h2&gt;
 
 &lt;p&gt;Create a Symfony application&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;php composer.phar create-project symfony/framework-standard-edition BlogRESTAPI/
 cd BlogRESTAPI
-php composer.phar require &amp;quot;friendsofsymfony/rest-bundle&amp;quot; &amp;quot;@dev&amp;quot;
-php composer.phar require &amp;quot;jms/serializer-bundle&amp;quot; &amp;quot;@dev&amp;quot;
-php composer.phar require &amp;quot;nelmio/api-doc-bundle&amp;quot; &amp;quot;@dev&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+php composer.phar require &quot;friendsofsymfony/rest-bundle&quot; &quot;@dev&quot;
+php composer.phar require &quot;jms/serializer-bundle&quot; &quot;@dev&quot;
+php composer.phar require &quot;nelmio/api-doc-bundle&quot; &quot;@dev&quot;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;then we had to configure the bundles properly and add to the appKernel.php&lt;/p&gt;
 
@@ -1756,72 +2044,83 @@ $bundles = array(
     //..
     new FOS\RestBundle\FOSRestBundle(),
     new JMS\SerializerBundle\JMSSerializerBundle(),
-    new Nelmio\ApiDocBundle\NelmioApiDocBundle(),&lt;/code&gt;&lt;/pre&gt;
+    new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;step_1b_the_blog_bundle&quot;&gt;Step 1.B The Blog Bundle&lt;/h2&gt;
+&lt;h2 id=&quot;step-1b-the-blog-bundle&quot;&gt;Step 1.B The Blog Bundle&lt;/h2&gt;
 
-&lt;p&gt;We are going to create a REST controller for the Page Entity, in your symfony2 standard application we need to create the bundle:&lt;/p&gt;
+&lt;p&gt;We are going to create a REST controller for the Page Entity,
+in your symfony2 standard application we need to create the bundle:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;php app/console generate:bundle --namespace=Acme/BlogBundle --dir=src --no-interaction&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;php app/console generate:bundle --namespace=Acme/BlogBundle --dir=src --no-interaction
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;step_1c_the_model&quot;&gt;Step 1.C The Model&lt;/h2&gt;
+&lt;h2 id=&quot;step-1c-the-model&quot;&gt;Step 1.C The Model&lt;/h2&gt;
 
 &lt;p&gt;We are going to create an Entity called &lt;code&gt;Page&lt;/code&gt; with &lt;code&gt;text&lt;/code&gt; and &lt;code&gt;body&lt;/code&gt;:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;php app/console doctrine:generate:entity --entity=AcmeBlogBundle:Page \
-  --format=annotation --fields=&amp;quot;title:string(255) body:text&amp;quot; \
+  --format=annotation --fields=&quot;title:string(255) body:text&quot; \
   --no-interaction
 php app/console doctrine:database:create
-php app/console doctrine:schema:create&lt;/code&gt;&lt;/pre&gt;
+php app/console doctrine:schema:create
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;step_1d_the_page_form&quot;&gt;Step 1.D The Page Form&lt;/h2&gt;
+&lt;h2 id=&quot;step-1d-the-page-form&quot;&gt;Step 1.D The Page Form&lt;/h2&gt;
 
 &lt;p&gt;Now we need the form for that entity, another generator command :)&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;php app/console doctrine:generate:form AcmeBlogBundle:Page --no-interaction&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;php app/console doctrine:generate:form AcmeBlogBundle:Page --no-interaction
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;step_2__start_with_rest&quot;&gt;Step 2 - Start with Rest&lt;/h2&gt;
+&lt;h2 id=&quot;step-2---start-with-rest&quot;&gt;Step 2 - Start with Rest&lt;/h2&gt;
 
-&lt;h3 id=&quot;step_2a__the_functional_test&quot;&gt;Step 2.A - The functional test&lt;/h3&gt;
+&lt;h3 id=&quot;step-2a---the-functional-test&quot;&gt;Step 2.A - The functional test&lt;/h3&gt;
 
-&lt;p&gt;We want to create a function that when it’s called it returns the resource with the format requested.&lt;/p&gt;
+&lt;p&gt;We want to create a function that when it’s called it returns the resource
+with the format requested.&lt;/p&gt;
 
 &lt;p&gt;Any good controller should start with a Functional test, but in order to reduce the verbosity I’ll talk about functional test later, see the section 3.C below.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;1. /api/v1/pages/{id}.{_format}
 2. /api/v1/pages/{id}.json  # will return a json file
 3. /api/v1/pages/{id}.xml   # will return a xml file
-4. /api/v1/pages/{id} and /api/1/pages/{id}.html  # will return the web page file&lt;/code&gt;&lt;/pre&gt;
+4. /api/v1/pages/{id} and /api/1/pages/{id}.html  # will return the web page file
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;We’ll see later how to not explicitly specify the format, and how to use and set-up correctly the content-negotiation using HTTP Headers.&lt;/p&gt;
 
-&lt;h3 id=&quot;step_2b__the_controller&quot;&gt;Step 2.B - The controller&lt;/h3&gt;
+&lt;h3 id=&quot;step-2b---the-controller&quot;&gt;Step 2.B - The controller&lt;/h3&gt;
 
 &lt;p&gt;We want to create the controller class&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;// /src/Acme/BlogBundle/Controller/PageController.php
-class PageController extends FOSRestController&lt;/code&gt;&lt;/pre&gt;
+class PageController extends FOSRestController
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;and then we add a simple and dirty function (we’ll refactor soon)&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;public function getPageAction($id)
 {
     return $this-&amp;gt;container-&amp;gt;get('doctrine.entity_manager')-&amp;gt;getRepository('Page')-&amp;gt;find($id);
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&quot;edit14112013_samuel_gordalina_suggests&quot;&gt;&lt;strong&gt;EDIT-14/11/2013&lt;/strong&gt; Samuel Gordalina suggests:&lt;/h4&gt;
+&lt;h4 id=&quot;edit-14112013-samuel-gordalina-suggests&quot;&gt;&lt;strong&gt;EDIT-14/11/2013&lt;/strong&gt; Samuel Gordalina suggests:&lt;/h4&gt;
 
-&lt;p&gt;You can use ParamConverter which fetches an entity from database or returns a 404 exception. For more info see &lt;a href=&quot;https://github.com/gordalina/sample-twitter-api-symfony2/blob/master/src/Twitter/ApiBundle/Controller/TweetController.php#L37&quot;&gt;sample-twitter-api-symfony2:37&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can use ParamConverter which fetches an entity from database or returns a 404 exception.
+For more info see &lt;a href=&quot;https://github.com/gordalina/sample-twitter-api-symfony2/blob/master/src/Twitter/ApiBundle/Controller/TweetController.php#L37&quot;&gt;sample-twitter-api-symfony2:37&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;step_2c__adding_the_routes&quot;&gt;Step 2.C - Adding the routes&lt;/h3&gt;
+&lt;h3 id=&quot;step-2c---adding-the-routes&quot;&gt;Step 2.C - Adding the routes&lt;/h3&gt;
 
-&lt;p&gt;Add to the route file&lt;/p&gt;
+&lt;p&gt;Add to the route file &lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;# /app/config/routing.yml
 acme_blog:
     type: rest
     prefix: /api
-    resource: &amp;quot;@AcmeBlogBundle/Resources/config/routes.yml&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+    resource: &quot;@AcmeBlogBundle/Resources/config/routes.yml&quot;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Create a route file into the bundle:&lt;/p&gt;
 
@@ -1829,38 +2128,45 @@ acme_blog:
 acme_blog_Page:
     type: rest
     prefix: /v1
-    resource: &amp;quot;Acme\BlogBundle\Controller\PageController&amp;quot;
-    name_prefix:  api_1_ # naming collision&lt;/code&gt;&lt;/pre&gt;
+    resource: &quot;Acme\BlogBundle\Controller\PageController&quot;
+    name_prefix:  api_1_ # naming collision
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;check all the API routes with:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;app/console route:debug | grep api&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;app/console route:debug | grep api
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;it should contain the &lt;code&gt;api_1_get_page&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;So we now have a route, and a controller that responses to the get(id) with the Page resource, is that what we wanted?&lt;/p&gt;
+&lt;p&gt;So we now have a route, and a controller that responses to the get(id) with the Page resource,
+is that what we wanted?&lt;/p&gt;
 
 &lt;p&gt;Yes but we could do better.&lt;/p&gt;
 
-&lt;h2 id=&quot;step_3__refactoring&quot;&gt;Step 3 - Refactoring&lt;/h2&gt;
+&lt;h2 id=&quot;step-3---refactoring&quot;&gt;Step 3 - Refactoring&lt;/h2&gt;
 
 &lt;p&gt;OMG we have only created a little Controller, why we need to refactor?&lt;/p&gt;
 
-&lt;p&gt;As I said we are trying to do things at our best, while this may seem over-engineering, in later articles we will see how take advantage of the changes made.&lt;/p&gt;
+&lt;p&gt;As I said we are trying to do things at our best, while this may seem over-engineering, 
+in later articles we will see how take advantage of the changes made.&lt;/p&gt;
 
-&lt;h3 id=&quot;step_3a__interface_as_contract&quot;&gt;Step 3.A - Interface as contract&lt;/h3&gt;
+&lt;h3 id=&quot;step-3a---interface-as-contract&quot;&gt;Step 3.A - Interface as contract&lt;/h3&gt;
+
 &lt;blockquote&gt;
 Type hinting the injected object means that you can be sure that a suitable dependency has been injected.
 By type-hinting, you'll get a clear error immediately if an unsuitable dependency is injected.
 By type hinting using an interface rather than a class you can make the choice of dependency more flexible.
 And assuming you only use methods defined in the interface, you can gain that flexibility and still safely use the object.
- &lt;small&gt; from &lt;cite title='Source Title'&gt;sf2 - symfony.com&lt;/cite&gt;&lt;/small&gt;
+ &lt;small&gt; from &lt;cite title=&quot;Source Title&quot;&gt;sf2 - symfony.com&lt;/cite&gt;&lt;/small&gt;
 &lt;/blockquote&gt;
+
 &lt;p&gt;Following this as first rule, we need to create an interface in &lt;code&gt;/src/Acme/BlogBundle/Model/PageInterface.php&lt;/code&gt; and then put &lt;code&gt;implements PageInterface&lt;/code&gt; in the entity &lt;code&gt;Page&lt;/code&gt;.&lt;/p&gt;
 
-&lt;h3 id=&quot;step_3b__the_page_handler&quot;&gt;Step 3.B - The Page Handler&lt;/h3&gt;
+&lt;h3 id=&quot;step-3b---the-page-handler&quot;&gt;Step 3.B - The Page Handler&lt;/h3&gt;
 
-&lt;p&gt;In order to remove all the logic from the &lt;code&gt;PageController&lt;/code&gt;, we have to create a service, we call it &lt;code&gt;PageHandler&lt;/code&gt; in &lt;code&gt;/src/Acme/BlogBundle/Handler/PageHandler.php&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;In order to remove all the logic from the &lt;code&gt;PageController&lt;/code&gt;,
+we have to create a service, we call it &lt;code&gt;PageHandler&lt;/code&gt; in &lt;code&gt;/src/Acme/BlogBundle/Handler/PageHandler.php&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;The test for the the &lt;code&gt;PageHandler&lt;/code&gt; looks something like:&lt;/p&gt;
 
@@ -1876,7 +2182,8 @@ public function testGet()
         -&amp;gt;will($this-&amp;gt;returnValue($page));
 
     $this-&amp;gt;pageHandler-&amp;gt;get($id); // call the get.
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;So it uses &lt;code&gt;find&lt;/code&gt; to fetch an &lt;code&gt;id&lt;/code&gt; using the doctrine repository.&lt;/p&gt;
 
@@ -1898,43 +2205,48 @@ class PageHandler implements PageHandlerInterface
     {
         return $this-&amp;gt;repository-&amp;gt;find($id);
     }
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;We need to make this class available as a service from the dependency injection:&lt;/p&gt;
 
 &lt;p&gt;/src/Acme/BlogBundle/Resources/config/services.xml&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;parameters&amp;gt;
-    &amp;lt;parameter key=&amp;quot;acme_blog.page.handler.class&amp;quot;&amp;gt;Acme\BlogBundle\Handler\PageHandler&amp;lt;/parameter&amp;gt;
-    &amp;lt;parameter key=&amp;quot;acme_blog.page.class&amp;quot;&amp;gt;Acme\BlogBundle\Entity\Page&amp;lt;/parameter&amp;gt;
+    &amp;lt;parameter key=&quot;acme_blog.page.handler.class&quot;&amp;gt;Acme\BlogBundle\Handler\PageHandler&amp;lt;/parameter&amp;gt;
+    &amp;lt;parameter key=&quot;acme_blog.page.class&quot;&amp;gt;Acme\BlogBundle\Entity\Page&amp;lt;/parameter&amp;gt;
 &amp;lt;/parameters&amp;gt;
 
 &amp;lt;services&amp;gt;
-    &amp;lt;service id=&amp;quot;acme_blog.page.handler&amp;quot; class=&amp;quot;%acme_blog.page.handler.class%&amp;quot;&amp;gt;
-        &amp;lt;argument type=&amp;quot;service&amp;quot; id=&amp;quot;doctrine.orm.entity_manager&amp;quot; /&amp;gt;
+    &amp;lt;service id=&quot;acme_blog.page.handler&quot; class=&quot;%acme_blog.page.handler.class%&quot;&amp;gt;
+        &amp;lt;argument type=&quot;service&quot; id=&quot;doctrine.orm.entity_manager&quot; /&amp;gt;
         &amp;lt;argument&amp;gt;%acme_blog.page.class%&amp;lt;/argument&amp;gt;
     &amp;lt;/service&amp;gt;
-&amp;lt;/services&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&amp;lt;/services&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&quot;step_3c__thin_controller&quot;&gt;Step 3.C - Thin Controller&lt;/h3&gt;
+&lt;h3 id=&quot;step-3c---thin-controller&quot;&gt;Step 3.C - Thin Controller&lt;/h3&gt;
 
 &lt;p&gt;Now we have to refactor the controller in order to follow the modification above and use the &lt;code&gt;PageHandler&lt;/code&gt;.&lt;/p&gt;
 
-&lt;h4 id=&quot;the_functional_test_for_the_controller&quot;&gt;The functional test for the controller:&lt;/h4&gt;
+&lt;h4 id=&quot;the-functional-test-for-the-controller&quot;&gt;The functional test for the controller:&lt;/h4&gt;
 
 &lt;p&gt;first add to your &lt;code&gt;composer.json&lt;/code&gt; the require-dev section:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;&amp;quot;require-dev&amp;quot;: {
-    &amp;quot;doctrine/doctrine-fixtures-bundle&amp;quot;: &amp;quot;dev-master&amp;quot;,
-    &amp;quot;phpunit/phpunit&amp;quot;: &amp;quot;3.7.*&amp;quot;,
-    &amp;quot;liip/functional-test-bundle&amp;quot;:&amp;quot;dev-master&amp;quot;
-},&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&quot;require-dev&quot;: {
+    &quot;doctrine/doctrine-fixtures-bundle&quot;: &quot;dev-master&quot;,
+    &quot;phpunit/phpunit&quot;: &quot;3.7.*&quot;,
+    &quot;liip/functional-test-bundle&quot;:&quot;dev-master&quot;
+},
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;then we have to update the dependencies running &lt;code&gt;php composer.phar update&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;There’s a lot to say about the functional test, we are going to test that when the &lt;code&gt;api_1_get_page&lt;/code&gt; is called, it should return a response with &lt;code&gt;200&lt;/code&gt;, the type of the content should be &lt;code&gt;json&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;There’s a lot to say about the functional test, we are going to test that when the &lt;code&gt;api_1_get_page&lt;/code&gt; is called,
+it should return a response with &lt;code&gt;200&lt;/code&gt;, the type of the content should be &lt;code&gt;json&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;The &lt;code&gt;liip/functional-test-bundle&lt;/code&gt; helps us to handle the fixtures data to the persistence layer before each test.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;liip/functional-test-bundle&lt;/code&gt; helps us
+to handle the fixtures data to the persistence layer before each test.&lt;/p&gt;
 
 &lt;p&gt;First we configure &lt;code&gt;fos_rest&lt;/code&gt; in order to handle correct format see: &lt;code&gt;/app/config/config.yml:69&lt;/code&gt;&lt;/p&gt;
 
@@ -1956,7 +2268,8 @@ class PageHandler implements PageHandlerInterface
 
     $decoded = json_decode($content, true);
     $this-&amp;gt;assertTrue(isset($decoded['id']));
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;The assertJsonResponse function is well described here: &lt;a href=&quot;http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/#testing&quot;&gt;williamdurand-rest-apis-with-symfony2-the-right-way/#testing&lt;/a&gt;.&lt;/p&gt;
 
@@ -1971,15 +2284,15 @@ class PageHandler implements PageHandlerInterface
  *
  * @ApiDoc(
  *   resource = true,
- *   description = &amp;quot;Gets a Page for a given id&amp;quot;,
- *   output = &amp;quot;Acme\BlogBundle\Entity\Page&amp;quot;,
+ *   description = &quot;Gets a Page for a given id&quot;,
+ *   output = &quot;Acme\BlogBundle\Entity\Page&quot;,
  *   statusCodes = {
- *     200 = &amp;quot;Returned when successful&amp;quot;,
- *     404 = &amp;quot;Returned when the page is not found&amp;quot;
+ *     200 = &quot;Returned when successful&quot;,
+ *     404 = &quot;Returned when the page is not found&quot;
  *   }
  * )
  *
- * @Annotations\View(templateVar=&amp;quot;page&amp;quot;)
+ * @Annotations\View(templateVar=&quot;page&quot;)
  *
  * @param Request $request the request object
  * @param int     $id      the page id
@@ -1995,11 +2308,13 @@ public function getPageAction($id)
         -&amp;gt;get($id);
 
     return $page;
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;executing the test:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;bin/phpunit -c app&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;bin/phpunit -c app
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Woow green test!&lt;/p&gt;
 
@@ -2027,17 +2342,20 @@ public function getPageAction($id)
         │   └── Entity
         │       └── LoadPageData.php
         └── Handler
-            └── PageHandlerTest.php&lt;/code&gt;&lt;/pre&gt;
+            └── PageHandlerTest.php
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;accessing_to_the_response&quot;&gt;Accessing to the response&lt;/h2&gt;
+&lt;h2 id=&quot;accessing-to-the-response&quot;&gt;Accessing to the response&lt;/h2&gt;
 
 &lt;p&gt;Is time to see how the application responses, so executing the php http server&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;app/console server:run &amp;amp;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;app/console server:run &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;and then accessing to the the resource with &lt;code&gt;wget&lt;/code&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;wget -S  localhost:8000/api/v1/pages/0.html&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;wget -S  localhost:8000/api/v1/pages/0.html
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;We will have a &lt;code&gt;500&lt;/code&gt; because the database is empty, and that resource doesn’t exists:&lt;/p&gt;
 
@@ -2046,11 +2364,15 @@ Connecting to localhost (localhost)|127.0.0.1|:8000... connected.
 HTTP request sent, awaiting response... 
   HTTP/1.0 500 Internal Server Error
   Content-type: text/html
-2013-11-09 15:46:37 ERROR 500: Internal Server Error.&lt;/code&gt;&lt;/pre&gt;
+2013-11-09 15:46:37 ERROR 500: Internal Server Error.
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The resource ‘0’ doesn’t exists, but we want that the status codes reflects the application behaviour, so it should return a &lt;code&gt;404&lt;/code&gt; resource not found.&lt;/p&gt;
+&lt;p&gt;The resource ‘0’ doesn’t exists,
+but we want that the status codes reflects the application behaviour,
+so it should return a &lt;code&gt;404&lt;/code&gt; resource not found.&lt;/p&gt;
 
-&lt;p&gt;We are going to create a private function that throws an Exception if the &lt;code&gt;Page&lt;/code&gt; is not found, the Exception will modify also automatically the Response Header.&lt;/p&gt;
+&lt;p&gt;We are going to create a private function that throws an Exception if the &lt;code&gt;Page&lt;/code&gt; is not found,
+the Exception will modify also automatically the Response Header.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;/**
  * Fetch the Page or throw a 404 exception.
@@ -2068,19 +2390,25 @@ protected function getOr404($id)
     }
 
     return $page;
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The controller now should use this function and executing &lt;code&gt;wget -S  localhost:8000/api/v1/pages/0.html&lt;/code&gt;, we receive a &lt;code&gt;404&lt;/code&gt; and we are happy :)&lt;/p&gt;
+&lt;p&gt;The controller now should use this function and
+executing &lt;code&gt;wget -S  localhost:8000/api/v1/pages/0.html&lt;/code&gt;, we receive a &lt;code&gt;404&lt;/code&gt; and we are happy :)&lt;/p&gt;
 
-&lt;h2 id=&quot;content_negotiation&quot;&gt;Content Negotiation&lt;/h2&gt;
+&lt;h2 id=&quot;content-negotiation&quot;&gt;Content Negotiation&lt;/h2&gt;
 
 &lt;p&gt;An important concept developing the REST API is the &lt;a href=&quot;http://en.wikipedia.org/wiki/Content_negotiation&quot;&gt;Content Negotiation&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;If you think that everything is a resource, maybe you care also about the name of the resource, if the page &lt;code&gt;10&lt;/code&gt; is at &lt;code&gt;/api/v1/pages/10&lt;/code&gt;, you may want to retrieve the same resource with different content type, not specifying the &lt;code&gt;format&lt;/code&gt; explicitly in the extension &lt;code&gt;/api/v1/pages/10.html&lt;/code&gt;, but instead using HTTP &lt;code&gt;Accept&lt;/code&gt; header.&lt;/p&gt;
+&lt;p&gt;If you think that everything is a resource, maybe you care also about the name of the resource,
+if the page &lt;code&gt;10&lt;/code&gt; is at &lt;code&gt;/api/v1/pages/10&lt;/code&gt;, you may want to retrieve the same resource with different content type,
+not specifying the &lt;code&gt;format&lt;/code&gt; explicitly in the extension &lt;code&gt;/api/v1/pages/10.html&lt;/code&gt;, but instead using HTTP &lt;code&gt;Accept&lt;/code&gt; header.&lt;/p&gt;
 
-&lt;p&gt;[EDIT] removed the tags content-negotiation. If you want to play with the rest application without the extension, set false to &lt;code&gt;prefer_extension&lt;/code&gt; here:&lt;code&gt;https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/blob/master/app/config/config.yml#L102&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;[EDIT] removed the tags content-negotiation.
+If you want to play with the rest application without the extension, set false to &lt;code&gt;prefer_extension&lt;/code&gt; here:&lt;code&gt;https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/blob/master/app/config/config.yml#L102&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;Request: &lt;code&gt;curl -i localhost:8000/api/v1/pages/10&lt;/code&gt; No Accept header is sent so the fallback is &lt;code&gt;text/html&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Request: &lt;code&gt;curl -i localhost:8000/api/v1/pages/10&lt;/code&gt;
+No Accept header is sent so the fallback is &lt;code&gt;text/html&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;HTTP/1.1 200 OK
 Host: localhost:8000
@@ -2088,11 +2416,13 @@ Content-Type: text/html; charset=UTF-8
 Allow: GET
 
 &amp;lt;html&amp;gt;&amp;lt;body&amp;gt;&amp;lt;h1&amp;gt;10- title&amp;lt;/h2&amp;gt;
-&amp;lt;p&amp;gt;body&amp;lt;/p&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&amp;lt;p&amp;gt;body&amp;lt;/p&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;So we retrieve the same resource changing the header:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;curl -i -H &amp;quot;Accept: application/json&amp;quot;  localhost:8000/api/v1/pages/10&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;curl -i -H &quot;Accept: application/json&quot;  localhost:8000/api/v1/pages/10
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Tadaaaam the response is a json file:&lt;/p&gt;
 
@@ -2101,11 +2431,13 @@ Host: localhost:8000
 Content-Type: application/json
 Allow: GET
 
-{&amp;quot;id&amp;quot;:10,&amp;quot;title&amp;quot;:&amp;quot;title&amp;quot;,&amp;quot;body&amp;quot;:&amp;quot;body&amp;quot;}&lt;/code&gt;&lt;/pre&gt;
+{&quot;id&quot;:10,&quot;title&quot;:&quot;title&quot;,&quot;body&quot;:&quot;body&quot;}
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;We could also send different Content type accepted with different preferences eg:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;curl -i -H &amp;quot;Accept: application/json; q=1.0, t/pages/10 q=0.8&amp;quot; localhost:8000/api/v1/&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;curl -i -H &quot;Accept: application/json; q=1.0, t/pages/10 q=0.8&quot; localhost:8000/api/v1/
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;The response will be a json file as well:&lt;/p&gt;
 
@@ -2114,29 +2446,31 @@ Host: localhost:8000
 Content-Type: application/json
 Allow: GET
 
-{&amp;quot;id&amp;quot;:10,&amp;quot;title&amp;quot;:&amp;quot;title&amp;quot;,&amp;quot;body&amp;quot;:&amp;quot;body&amp;quot;}&lt;/code&gt;&lt;/pre&gt;
+{&quot;id&quot;:10,&quot;title&quot;:&quot;title&quot;,&quot;body&quot;:&quot;body&quot;}
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&quot;recap&quot;&gt;Recap&lt;/h2&gt;
 
-&lt;p&gt;We have created a Doctrine entity called &lt;code&gt;Page&lt;/code&gt;, we have identified the methods of the interface that will be very useful later on. We first created a functional test, then the thin controller without logic. We have created unit test and then the service &lt;code&gt;PageHandler&lt;/code&gt; which instead of the controller, contains the logic to retrieve the information. We understood the importance of Content Negotiation.&lt;/p&gt;
+&lt;p&gt;We have created a Doctrine entity called &lt;code&gt;Page&lt;/code&gt;, we have identified the methods of the interface that will be very useful later on.
+We first created a functional test, then the thin controller without logic.
+We have created unit test and then the service &lt;code&gt;PageHandler&lt;/code&gt; which instead of the controller, contains the logic to retrieve the information.
+We understood the importance of Content Negotiation.&lt;/p&gt;
 
-&lt;h2 id=&quot;next__create_a_resource_with_api_rest&quot;&gt;Next ›› &lt;a href=&quot;/web-api-rest-with-symfony2-the-best-way-the-post-method/&quot;&gt;create a resource with API REST&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;next--create-a-resource-with-api-restweb-api-rest-with-symfony2-the-best-way-the-post-method&quot;&gt;Next ›› &lt;a href=&quot;/web-api-rest-with-symfony2-the-best-way-the-post-method/&quot;&gt;create a resource with API REST&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;In the next articles, we will describe how to use the page form as shared interface, we will create, modify, and delete Pages, with &lt;code&gt;PUT&lt;/code&gt;, &lt;code&gt;PATCH&lt;/code&gt;, &lt;code&gt;POST&lt;/code&gt;, &lt;code&gt;DELETE&lt;/code&gt;, and we will detail how use other important HTTP headers.&lt;/p&gt;
 
 &lt;h3 id=&quot;references&quot;&gt;References:&lt;/h3&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.symfony2.com&quot;&gt;sf2 - Symfony.com&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.symfony2.com&quot;&gt;sf2 - Symfony.com&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=Kkby5fG89K0&quot;&gt;Lukas Kahwe Smith: resting with Sf2 - video&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/&quot;&gt;William Durand: rest-apis-with-symfony2-the-right-way - blog&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://speakerdeck.com/gordalina/rest-apis-made-easy-with-symfony2&quot;&gt;Samuel Gordalina: REST APIs made easy with Symfony2 - slide&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.slideshare.net/dlondero/rest-in-practice-27335543&quot;&gt;Daniel Londero: Rest in practice - slide&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;li&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=Kkby5fG89K0&quot;&gt;Lukas Kahwe Smith: resting with Sf2 - video&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&quot;http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/&quot;&gt;William Durand: rest-apis-with-symfony2-the-right-way - blog&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&quot;https://speakerdeck.com/gordalina/rest-apis-made-easy-with-symfony2&quot;&gt;Samuel Gordalina: REST APIs made easy with Symfony2 - slide&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&quot;http://www.slideshare.net/dlondero/rest-in-practice-27335543&quot;&gt;Daniel Londero: Rest in practice - slide&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</description>
+</description>
             <pubDate>Wed, 13 Nov 2013 13:00:00 +0000</pubDate>
             <link>http://welcometothebundle.com//symfony2-rest-api-the-best-2013-way</link>
             <guid isPermaLink="true">http://welcometothebundle.com//symfony2-rest-api-the-best-2013-way</guid>
@@ -2144,11 +2478,14 @@ Allow: GET
         
         <item>
             <title>Symfony2 design patterns @ symfonyday</title>
-            <description>&lt;p&gt;I had the good fortune of being able to speech for the second time in a row, on the Symfony-Day conference.&lt;/p&gt;
+            <description>
+&lt;p&gt;I had the good fortune of being able to speech for the second time in a row,
+on the Symfony-Day conference.&lt;/p&gt;
 
 &lt;p&gt;This time I had a quality partner &lt;a href=&quot;http://giorgiocefaro.com/&quot;&gt;mr @giorrrgio (Giorgio Cefaro)&lt;/a&gt;, we talked about design patterns in Symfony2, and even about some Anti-patterns.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://www.slideshare.net/liuggio/design-pattern-symfony2&quot;&gt;Design pattern symfony2 - Nanos gigantium humeris insidentes&lt;/a&gt;.&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&quot;http://www.slideshare.net/liuggio/design-pattern-symfony2&quot;&gt;Design pattern symfony2 - Nanos gigantium humeris insidentes&lt;/a&gt;.&lt;/p&gt;
+</description>
             <pubDate>Fri, 18 Oct 2013 00:00:00 +0200</pubDate>
             <link>http://welcometothebundle.com//symfony2-design-patterns</link>
             <guid isPermaLink="true">http://welcometothebundle.com//symfony2-design-patterns</guid>
@@ -2156,17 +2493,19 @@ Allow: GET
         
         <item>
             <title>Design by contract behaviour</title>
-            <description>&lt;p&gt;In recent years, &lt;a href=&quot;http://getcomposer.org&quot;&gt;Composer&lt;/a&gt; has given a breath of freshness to the dependencies, and framework such as &lt;a href=&quot;http://www.symfony.com&quot;&gt;Symfony2&lt;/a&gt; have made best practices and decoupling their pride.&lt;/p&gt;
+            <description>
+&lt;p&gt;In recent years, &lt;a href=&quot;http://getcomposer.org&quot;&gt;Composer&lt;/a&gt; has given a breath of freshness to the dependencies, and framework such as &lt;a href=&quot;http://www.symfony.com&quot;&gt;Symfony2&lt;/a&gt;
+ have made best practices and decoupling their pride.&lt;/p&gt;
 
 &lt;p&gt;The union of these two phenomena have moved the attentions to the type hinting in order to have contracts with &lt;code&gt;Interfaces&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;PHP doesn’t have the support for &lt;a href=&quot;http://en.wikipedia.org/wiki/Structural_type_system&quot;&gt;Structural type system&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;PHP doesn&amp;#8217;t have the support for &lt;a href=&quot;http://en.wikipedia.org/wiki/Structural_type_system&quot;&gt;Structural type system&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;the_problem&quot;&gt;The problem&lt;/h2&gt;
+&lt;h2 id=&quot;the-problem&quot;&gt;The problem&lt;/h2&gt;
 
 &lt;p&gt;The problem comes when a library uses a functionality of a third library, but do not want to hard-code the third-part library in the namespace&lt;/p&gt;
 
-&lt;h2 id=&quot;case_study&quot;&gt;Case Study&lt;/h2&gt;
+&lt;h2 id=&quot;case-study&quot;&gt;Case Study&lt;/h2&gt;
 
 &lt;p&gt;I have a library that uses a logger:&lt;/p&gt;
 
@@ -2185,11 +2524,13 @@ class MyService
    public function doSomethig()
    {
       $this-&amp;gt;log-&amp;gt;info('log this');
-   }&lt;/code&gt;&lt;/pre&gt;
+   }
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;I want to use the type hinting because that dependency will be called with &lt;code&gt;info&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;Then I add the type-hinting LoggerInterface, but which namespace to use? I can’t define a new mine LoggerInterface, so use the Monolog one.&lt;/p&gt;
+&lt;p&gt;Then I add the type-hinting LoggerInterface, but which namespace to use?
+I can&amp;#8217;t define a new mine LoggerInterface, so use the Monolog one.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;// src/Service/MyService
 namespace MyLib\Service;
@@ -2208,11 +2549,15 @@ class MyService
    public function doSomethig()
    {
       $this-&amp;gt;log-&amp;gt;info('log this');
-   }&lt;/code&gt;&lt;/pre&gt;
+   }
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Doing this I have hardcoded a &lt;strong&gt;dependency&lt;/strong&gt; to the Monolog library, composer.json and this file &lt;code&gt;src/Service/MyService&lt;/code&gt; has to be maintained together, isn’t smell to you?&lt;/p&gt;
+&lt;p&gt;Doing this I have hardcoded a &lt;strong&gt;dependency&lt;/strong&gt; to the Monolog library, composer.json and this file &lt;code&gt;src/Service/MyService&lt;/code&gt; has to be maintained together,
+isn&amp;#8217;t smell to you?&lt;/p&gt;
 
-&lt;p&gt;And what happen when I’ll find a better logger library that has got the same LoggerInterface and the function ‘info’? I’ve to change the namespace to the new LoggerInterface or the type hinting would fail, because the control for the type hinting is also on the namespace of the interface and not on the behaviour.&lt;/p&gt;
+&lt;p&gt;And what happen when I&amp;#8217;ll find a better logger library that has got the same LoggerInterface and the function &amp;#8216;info&amp;#8217;?
+I&amp;#8217;ve to change the namespace to the new LoggerInterface or the type hinting would fail,
+ because the control for the type hinting is also on the namespace of the interface and not on the behaviour.&lt;/p&gt;
 
 &lt;h2 id=&quot;solution&quot;&gt;Solution?&lt;/h2&gt;
 
@@ -2220,31 +2565,36 @@ class MyService
 
 &lt;p&gt;One solution would be to permit the alias for namespaces.&lt;/p&gt;
 
-&lt;p&gt;Another &lt;code&gt;naive&lt;/code&gt; solution would be modify the &lt;code&gt;php-internal&lt;/code&gt; of how type hinting works, maybe defining an interface with a sort of keyword eg.&lt;code&gt;behaviour&lt;/code&gt; that forces the engine to check that the type that you pass has the same behavior (functions) and not forcing the namespace.&lt;/p&gt;
+&lt;p&gt;Another &lt;code&gt;naive&lt;/code&gt; solution would be modify the &lt;code&gt;php-internal&lt;/code&gt; of how type hinting works,
+maybe defining an interface with a sort of keyword eg.&lt;code&gt;behaviour&lt;/code&gt; that forces the engine to check that
+the type that you pass has the same behavior (functions) and not forcing the namespace.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;namespace MyLib;
 Behaviour Interface LoggerInterface
 {
     public function info($string);
-}&lt;/code&gt;&lt;/pre&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&quot;why&quot;&gt;Why?&lt;/h2&gt;
 
 &lt;p&gt;Can you imagine a world where the libraries are decoupled but they respects the interfaces without sharing file but sharing &lt;code&gt;behaviour&lt;/code&gt;?&lt;/p&gt;
 
-&lt;h2 id=&quot;phpfig&quot;&gt;PHP-fig&lt;/h2&gt;
+&lt;h2 id=&quot;php-fig&quot;&gt;PHP-fig&lt;/h2&gt;
 
-&lt;p&gt;PHP-fig is a great tool but it’s democratic and democracy on internet is not always able to satisfy the minorities, and to be competitive with the times.&lt;/p&gt;
+&lt;p&gt;PHP-fig is a great tool but it&amp;#8217;s democratic and democracy on internet is not always able to satisfy the minorities, and to be competitive with the times.&lt;/p&gt;
 
-&lt;h2 id=&quot;another_example&quot;&gt;Another example&lt;/h2&gt;
+&lt;h2 id=&quot;another-example&quot;&gt;Another example&lt;/h2&gt;
 
-&lt;p&gt;Another example, if you want to use this library http://yohan.giarel.li/Finite/index.html, you have to put a dependency with Finite\StatefulInterface only because your class has to have the functions &lt;code&gt;getFiniteState&lt;/code&gt; and &lt;code&gt;setFiniteState&lt;/code&gt;, this is good and it works but hard-coding namespaces and dependencies is not the best option.&lt;/p&gt;
+&lt;p&gt;Another example, if you want to use this library http://yohan.giarel.li/Finite/index.html, you have to put a dependency with
+Finite\StatefulInterface only because your class has to have the functions &lt;code&gt;getFiniteState&lt;/code&gt; and &lt;code&gt;setFiniteState&lt;/code&gt;, this is good and it works
+but hard-coding namespaces and dependencies is not the best option.&lt;/p&gt;
 
-&lt;h2 id=&quot;what_do_you_think_about_it&quot;&gt;What do you think about it?&lt;/h2&gt;
+&lt;h2 id=&quot;what-do-you-think-about-it&quot;&gt;What do you think about it?&lt;/h2&gt;
 
 &lt;h2 id=&quot;edit&quot;&gt;EDIT&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;That’s a RFC for that&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;That&amp;#8217;s a RFC for that&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://twitter.com/giorrrgio&quot;&gt;giorrrgio&lt;/a&gt; told me about this RFC: &lt;a href=&quot;https://wiki.php.net/rfc/protocol_type_hinting&quot;&gt;php.net/rfc/protocol_type_hinting&lt;/a&gt;&lt;/p&gt;
 
@@ -2252,7 +2602,9 @@ Behaviour Interface LoggerInterface
 
 &lt;p&gt;Then has followed a twitter conversation:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://twitter.com/liuggio/statuses/377818409062236160&quot;&gt;&lt;img src=&quot;/assets/themes/readable-liuggio/img/ircmaxell.png&quot; alt=&quot;Twitter conversation with @ircmaxell&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/liuggio/statuses/377818409062236160&quot;&gt;&lt;img src=&quot;/assets/themes/readable-liuggio/img/ircmaxell.png&quot; alt=&quot;Twitter conversation with @ircmaxell&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+</description>
             <pubDate>Wed, 11 Sep 2013 00:00:00 +0200</pubDate>
             <link>http://welcometothebundle.com//design-by-contract-behaviour</link>
             <guid isPermaLink="true">http://welcometothebundle.com//design-by-contract-behaviour</guid>
@@ -2260,7 +2612,8 @@ Behaviour Interface LoggerInterface
         
         <item>
             <title>Caching and data analysis will move your application to the next level</title>
-            <description>&lt;h3 id=&quot;if_you_dont_ignore_data_you_could_find_a_business_value&quot;&gt;If you don’t ignore data you could find a business value.&lt;/h3&gt;
+            <description>
+&lt;h3 id=&quot;if-you-dont-ignore-data-you-could-find-a-business-value&quot;&gt;If you don&amp;#8217;t ignore data you could find a business value.&lt;/h3&gt;
 
 &lt;p&gt;The presentation focuses on data analysis, how to track and measure applications and why the use of software metrics that push information are essential.&lt;/p&gt;
 
@@ -2268,76 +2621,11 @@ Behaviour Interface LoggerInterface
 
 &lt;p&gt;The final part of the presentation concludes with methodologies of advanced scalability, events, messages and queues.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://www.slideshare.net/liuggio/caching-and-data-analysis-will-move-your-symfony2-application-to-the-next-level&quot;&gt;Caching and data analysis will move your Symfony2 application to the next level&lt;/a&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&quot;http://www.slideshare.net/liuggio/caching-and-data-analysis-will-move-your-symfony2-application-to-the-next-level&quot;&gt;Caching and data analysis will move your Symfony2 application to the next level&lt;/a&gt;&lt;/p&gt;
+</description>
             <pubDate>Fri, 17 May 2013 00:00:00 +0200</pubDate>
             <link>http://welcometothebundle.com//caching-and-data-analysis-will-move-your-application-to-the-next-level</link>
             <guid isPermaLink="true">http://welcometothebundle.com//caching-and-data-analysis-will-move-your-application-to-the-next-level</guid>
-        </item>
-        
-        <item>
-            <title>Doctrine2 tracking policy</title>
-            <description>&lt;h1 id=&quot;which_tracking_policy_are_you_using&quot;&gt;Which tracking policy are you using?&lt;/h1&gt;
-
-&lt;p&gt;With doctrine you can change the tracking policy for each entity, the tracking policy is the way in which Doctrine understands if a entity property must be ‘saved’ in the database.&lt;/p&gt;
-
-&lt;p&gt;Doctrine definition: “Change tracking is the process of determining what has changed in managed entities since the last time they were synchronized with the database.”&lt;/p&gt;
-
-&lt;p&gt;There are 3 tracking policies: Implicit, Explicit, Nofity.&lt;/p&gt;
-
-&lt;h2 id=&quot;implicit_tracking_the_default_one&quot;&gt;Implicit tracking (the default one)&lt;/h2&gt;
-
-&lt;p&gt;The implicit is the default one and the slowest, you don’t need to explicit call ‘persist’ eg.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt; // $entity is not a new object, and has $entity-&amp;gt;Title = 'liuggio loves tvision.github.io'&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt; $entity-&amp;gt;setTitle('liuggio loves symfony2');&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt; $entityManager-&amp;gt;flush();&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt; echo $entity-&amp;gt;getTitle();   // output 'liuggio loves symfony2'&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Unit of work now has &lt;strong&gt;$entity.title=liuggio loves symfony2&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Database has flushed without persist &lt;strong&gt;$entity.title=liuggio loves symfony2&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Pro&lt;/strong&gt;: &lt;code&gt;$entityManager-&amp;gt;persist($entity)&lt;/code&gt; is not necessary&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Cons&lt;/strong&gt;: Slowness, Doctrine has to check property-by-property for all the object in the unit of work&lt;/p&gt;
-
-&lt;h2 id=&quot;the_explicit_tracking_the_suggested_one&quot;&gt;The explicit tracking (the suggested one)&lt;/h2&gt;
-
-&lt;p&gt;You have to explicit flag which object you want to persist, than Doctrine will check property-by-property in order to find with property has changed.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Pro&lt;/strong&gt;: Faster than implicit, must if you have a lot of entities.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Cons&lt;/strong&gt;: the object in the unit of work could be different from that one in the db, not easy to debug.&lt;/p&gt;
-
-&lt;p&gt;The example&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt; // $entity is not a new object, and has $entity-&amp;gt;Title = 'liuggio loves tvision.github.io'&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt; $entity-&amp;gt;setTitle('liuggio loves symfony2');&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt; $entityManager-&amp;gt;flush();&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt; echo $entity-&amp;gt;getTitle();   // output 'liuggio loves symfony2'&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Unit of work now has &lt;strong&gt;$entity.title=liuggio loves symfony2&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Database has different state for that entity &lt;strong&gt;liuggio loves tvision.github.io&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;notify_tracking&quot;&gt;Notify tracking&lt;/h2&gt;
-
-&lt;p&gt;It’s not really a tracking policy, if you want to develop your own tracking policy, you have the tool for doing it.&lt;/p&gt;
-
-&lt;p&gt;Don’t understimate this policy useful if you a domain logic.&lt;/p&gt;
-
-&lt;h2 id=&quot;link_to_doctrine_doc&quot;&gt;Link to doctrine doc&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://docs.doctrine-project.org/en/latest/reference/change-tracking-policies.html&quot;&gt;doctrine/change-tracking-policies&lt;/a&gt;&lt;/p&gt;</description>
-            <pubDate>Tue, 23 Apr 2013 00:00:00 +0200</pubDate>
-            <link>http://welcometothebundle.com//doctrine2-tracking-policy</link>
-            <guid isPermaLink="true">http://welcometothebundle.com//doctrine2-tracking-policy</guid>
         </item>
         
     </channel>

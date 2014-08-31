@@ -45,11 +45,6 @@
             
         </div>
     </header>
-<div class="hiring" style="position: absolute; top: 0px; right: 0px;z-index:1">
-    <a href="http://tvision.github.io/job/back-end-developer/" title="My team is hiring!!!">
-        <img width="220" src="http://cambridgelocalfirst.org/wp-content/uploads/2014/01/hiring.png">
-    </a>
-</div>
 
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
     <section id="content">
@@ -221,11 +216,15 @@
      
     	<li class="tag-list tag-size-3"><a href="/tags.html#api-ref" rel="3">api <span>3</span></a></li>
      
-    	<li class="tag-list tag-size-3"><a href="/tags.html#DDD-ref" rel="3">DDD <span>3</span></a></li>
+    	<li class="tag-list tag-size-4"><a href="/tags.html#DDD-ref" rel="4">DDD <span>4</span></a></li>
      
-    	<li class="tag-list tag-size-1"><a href="/tags.html#value objects-ref" rel="1">value objects <span>1</span></a></li>
+    	<li class="tag-list tag-size-2"><a href="/tags.html#value objects-ref" rel="2">value objects <span>2</span></a></li>
+     
+    	<li class="tag-list tag-size-2"><a href="/tags.html#money-ref" rel="2">money <span>2</span></a></li>
      
     	<li class="tag-list tag-size-1"><a href="/tags.html#symfony-ref" rel="1">symfony <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#price-ref" rel="1">price <span>1</span></a></li>
     
   
 
@@ -238,6 +237,10 @@
                     <div id="related" class="boxed">
                     <h3>Related Posts</h3>
                     <ul class="posts">
+                    
+                    <li>
+                      <a href="/price-more-then-money-php-library">Price more then Money - PHP library</a>
+                    </li>
                     
                     <li>
                       <a href="/best-resources-about-symfony-tdd-bdd-ddd-methologies">(my) Best resources about methodologies on Symfony, PHP, DDD, BDD ...</a>
@@ -253,10 +256,6 @@
                     
                     <li>
                       <a href="/web-api-rest-with-symfony2-the-best-way-the-post-method">part2 - Web API REST with Symfony2</a>
-                    </li>
-                    
-                    <li>
-                      <a href="/symfony2-rest-api-the-best-2013-way">Symfony2 REST API: the best way</a>
                     </li>
                     
                     </ul>
@@ -325,9 +324,11 @@
      
     	<li class="tag-list tag-size-2"><a href="/tags.html#doctrine-ref">doctrine <span>2</span></a></li>
      
-    	<li class="tag-list tag-size-3"><a href="/tags.html#DDD-ref">DDD <span>3</span></a></li>
+    	<li class="tag-list tag-size-4"><a href="/tags.html#DDD-ref">DDD <span>4</span></a></li>
      
-    	<li class="tag-list tag-size-1"><a href="/tags.html#value objects-ref">value objects <span>1</span></a></li>
+    	<li class="tag-list tag-size-2"><a href="/tags.html#value objects-ref">value objects <span>2</span></a></li>
+     
+    	<li class="tag-list tag-size-2"><a href="/tags.html#money-ref">money <span>2</span></a></li>
     
   
 
@@ -339,9 +340,11 @@
         </div>
     </div>
     <article>
-        <p>Working on large projects, I noticed that we lose too much time thinking about the famous ‘M’ of the <em>MVC</em> pattern instead of thinking about the communication of the various modules.</p>
+        
+<p>Working on large projects, I noticed that we lose too much time thinking about the famous ‘M’ of the <em>MVC</em> pattern 
+instead of thinking about the communication of the various modules.</p>
 
-<h2 id="the_magical_world_of_the_value_object">The magical world of the Value Object</h2>
+<h2 id="the-magical-world-of-the-value-object">The magical world of the Value Object</h2>
 
 <p>Surely the Value Objects has always been overshadowed by the entity as V.Vernon also says in <a href="http://www.amazon.it/Implementing-Domain-Driven-Design-Vaughn-Vernon/dp/0321834577">his red book</a>.</p>
 
@@ -349,7 +352,7 @@
 
 <p>If you want to enter into the magical world of the value object, you could find more detail on internet, the value object is an important concept for the DDD community.</p>
 
-<h2 id="identify_a_value_object">Identify a Value Object</h2>
+<h2 id="identify-a-value-object">Identify a Value Object</h2>
 
 <p>A simplified recipe to identify an entity from a value object:</p>
 
@@ -359,7 +362,7 @@
 
 <p>Very Often you could find a Value Object inside an Entity.</p>
 
-<h2 id="implementing_money">Implementing Money</h2>
+<h2 id="implementing-money">Implementing Money</h2>
 
 <p>The most famous example of Value Object is the Money scenario.</p>
 
@@ -372,7 +375,8 @@
   protected $currency;
   
   … more proprerties
-}</code></pre>
+}
+</code></pre>
 
 <p>Does this sound familiar?</p>
 
@@ -385,17 +389,19 @@
   protected $price;
   
   // … more proprerties
-}  </code></pre>
+}  
+</code></pre>
 
 <p>$order-&gt;setPrice(new Money(10, ‘EUR’));</p>
 
 <p><em>Price</em> is a Value Object!</p>
 
-<h3 id="persisting_value_objects_in_php">Persisting Value Objects in PHP</h3>
+<h3 id="persisting-value-objects-in-php">Persisting Value Objects in PHP</h3>
 
-<p>With Doctrine minor2.5 a custom type is allowed only for one-to-one mapping between field and column of the relational database, and representing an object with more proprerties is difficult.</p>
+<p>With Doctrine minor2.5 a custom type is allowed only for one-to-one mapping between field and column of the relational database,
+and representing an object with more proprerties is difficult.</p>
 
-<p>A very common approach was to create a custom <code>MoneyType</code> see <a href="https://github.com/mathiasverraes/money/blob/708d8d53b2374e1f9686dceee4f9636df32f6d43/lib/Money/Doctrine2/MoneyType.php">Doctrine2/MoneyType</a>, with this custom type Money is converted to a string eg. <code>Money(100, 'EUR')</code> would become a <code>string</code> of <code>&quot;1000 EUR&quot;</code>.</p>
+<p>A very common approach was to create a custom <code>MoneyType</code> see <a href="https://github.com/mathiasverraes/money/blob/708d8d53b2374e1f9686dceee4f9636df32f6d43/lib/Money/Doctrine2/MoneyType.php">Doctrine2/MoneyType</a>, with this custom type Money is converted to a string eg. <code>Money(100, 'EUR')</code> would become a <code>string</code> of <code>"1000 EUR"</code>.</p>
 
 <p>A good approach to represent a Value Object leveraging on its immutability, was to record the value object directly as a serialized <a href="http://doctrine-orm.readthedocs.org/en/latest/reference/basic-mapping.html#doctrine-mapping-types">Object type</a> in Doctrine.</p>
 
@@ -411,27 +417,30 @@ class Order
     /** @Id */
     private $id;
 
-    /** @Embedded(class = &quot;Money&quot;) */
+    /** @Embedded(class = "Money") */
     private $money;
 }
 
 /** @Embeddable */
 class Money
 {
-    /** @Column(type = &quot;int&quot;) */ // better then decimal see the mathiasverraes/money documentation
+    /** @Column(type = "int") */ // better then decimal see the mathiasverraes/money documentation
     private $amount;
 
-    /** @Column(type = &quot;string&quot;) */
+    /** @Column(type = "string") */
     private $currency;
-}</code></pre>
+}
+</code></pre>
 
 <p>Is also possible to use DQL to order by the amount or to filter using the fields of the Value Object.</p>
 
-<pre><code>SELECT o FROM Order o WHERE o.money.currency = :currency</code></pre>
+<pre><code>SELECT o FROM Order o WHERE o.money.currency = :currency
+</code></pre>
 
 <p>A very used library for handle <a href="https://packagist.org/packages/mathiasverraes/money">Money is here</a> thanks to <a href="https://twitter.com/mathiasverraes">@mathiasverraes</a></p>
 
 <p>That’s all, thanks Domain Driven Design and Doctrine community.</p>
+
     </article>
     <hr>
     <div id="related">
@@ -439,15 +448,15 @@ class Money
       <ul class="posts">
       
       <li>
+       <span>31 Aug 2014 &raquo;</span> <a href="/price-more-then-money-php-library">Price more then Money - PHP library</a>
+      </li>
+      
+      <li>
        <span>05 May 2014 &raquo;</span> <a href="/best-resources-about-symfony-tdd-bdd-ddd-methologies">(my) Best resources about methodologies on Symfony, PHP, DDD, BDD ...</a>
       </li>
       
       <li>
        <span>29 Apr 2014 &raquo;</span> <a href="/domain-driven-design-and-symfony-for-simple-app">Domain Driven Design principles with Symfony2 also for dummy applications</a>
-      </li>
-      
-      <li>
-       <span>03 Dec 2013 &raquo;</span> <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
       </li>
       
       </ul>

@@ -45,11 +45,6 @@
             
         </div>
     </header>
-<div class="hiring" style="position: absolute; top: 0px; right: 0px;z-index:1">
-    <a href="http://tvision.github.io/job/back-end-developer/" title="My team is hiring!!!">
-        <img width="220" src="http://cambridgelocalfirst.org/wp-content/uploads/2014/01/hiring.png">
-    </a>
-</div>
 
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
     <section id="content">
@@ -221,11 +216,15 @@
      
     	<li class="tag-list tag-size-3"><a href="/tags.html#api-ref" rel="3">api <span>3</span></a></li>
      
-    	<li class="tag-list tag-size-3"><a href="/tags.html#DDD-ref" rel="3">DDD <span>3</span></a></li>
+    	<li class="tag-list tag-size-4"><a href="/tags.html#DDD-ref" rel="4">DDD <span>4</span></a></li>
      
-    	<li class="tag-list tag-size-1"><a href="/tags.html#value objects-ref" rel="1">value objects <span>1</span></a></li>
+    	<li class="tag-list tag-size-2"><a href="/tags.html#value objects-ref" rel="2">value objects <span>2</span></a></li>
+     
+    	<li class="tag-list tag-size-2"><a href="/tags.html#money-ref" rel="2">money <span>2</span></a></li>
      
     	<li class="tag-list tag-size-1"><a href="/tags.html#symfony-ref" rel="1">symfony <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#price-ref" rel="1">price <span>1</span></a></li>
     
   
 
@@ -238,6 +237,10 @@
                     <div id="related" class="boxed">
                     <h3>Related Posts</h3>
                     <ul class="posts">
+                    
+                    <li>
+                      <a href="/price-more-then-money-php-library">Price more then Money - PHP library</a>
+                    </li>
                     
                     <li>
                       <a href="/best-resources-about-symfony-tdd-bdd-ddd-methologies">(my) Best resources about methodologies on Symfony, PHP, DDD, BDD ...</a>
@@ -253,10 +256,6 @@
                     
                     <li>
                       <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
-                    </li>
-                    
-                    <li>
-                      <a href="/web-api-rest-with-symfony2-the-best-way-the-post-method">part2 - Web API REST with Symfony2</a>
                     </li>
                     
                     </ul>
@@ -345,9 +344,10 @@
         </div>
     </div>
     <article>
-        <p>The first part of a series of short articles (maybe three) where I’d like to share my tiny experience with BDD and in particular with PHPSpec.</p>
+        
+<p>The first part of a series of short articles (maybe three) where I’d like to share my tiny experience with BDD and in particular with PHPSpec.</p>
 
-<h2 id="phpunit_vs_phpspec_a_word_on_behaviour_testing">PHPUnit vs <a href="https://github.com/phpspec/phpspec2">PHPSpec</a>: A word on behaviour testing</h2>
+<h2 id="phpunit-vs-phpspechttpsgithubcomphpspecphpspec2-a-word-on-behaviour-testing">PHPUnit vs <a href="https://github.com/phpspec/phpspec2">PHPSpec</a>: A word on behaviour testing</h2>
 
 <p>I recently discovered that there is an alternative to PHPUnit, and I really like this new approach.</p>
 
@@ -358,42 +358,39 @@
 <p>If you’ve ever worked in TDD, you know it’s very time consuming</p>
 
 <ol>
-<li>
-<p>create - create or modify the test</p>
-</li>
-
-<li>
-<p>fail - see it fail</p>
-</li>
-
-<li>
-<p>pass - code the minimum to get the test passed</p>
-</li>
-
-<li>
-<p>refactor - Refactoring</p>
-</li>
-
-<li>
-<p>go to step 1</p>
-</li>
+  <li>
+    <p>create - create or modify the test</p>
+  </li>
+  <li>
+    <p>fail - see it fail</p>
+  </li>
+  <li>
+    <p>pass - code the minimum to get the test passed</p>
+  </li>
+  <li>
+    <p>refactor - Refactoring</p>
+  </li>
+  <li>
+    <p>go to step 1</p>
+  </li>
 </ol>
 
-<h2 id="the_differences_in_a_sentence">The differences in a sentence</h2>
+<h2 id="the-differences-in-a-sentence">The differences in a sentence</h2>
 
 <p>If the story is a key of the development, the behaviour is the differrence between TDD and BDD.</p>
 
-<p>If you need to test the insertion of an object into a collection and the collection is represented by an Array, with xUnit you should assert that the collection contains the object in the Array, but if the collection will change to another type of container, graph for example, the xUnit will fail, even if the behaviour is unchanged. In BDD you are not testing you are describing what that classes will do, and so you can continue creating the class (PHPSpec will create the class and the methods for you)</p>
+<p>If you need to test the insertion of an object into a collection and the collection is represented by an Array, with xUnit you should assert that the collection contains the object in the Array, but if the collection will change to another type of container, graph for example, the xUnit will fail, even if the behaviour is unchanged.
+In BDD you are not testing you are describing what that classes will do, and so you can continue creating the class (PHPSpec will create the class and the methods for you)</p>
 
 <h2 id="bdd">BDD</h2>
 
 <p>There are several BDD frameworks on PHP depending on what you want to test.</p>
 
-<h4 id="external_behaviour">External behaviour</h4>
+<h4 id="external-behaviour">External behaviour</h4>
 
 <p><a href="http://behat.org/">Behat</a> deals to have specifications that reflects the environment from the outside.</p>
 
-<h4 id="internal_behaviour">Internal behaviour</h4>
+<h4 id="internal-behaviour">Internal behaviour</h4>
 
 <p><a href="https://github.com/phpspec/phpspec2">PHPSpec</a> responds to the behaviour in the lower level, from the internal of the classes.</p>
 
@@ -401,7 +398,8 @@
 
 <h2 id="summary">Summary</h2>
 
-<p>The BDD tests what the object does instead of what it is, and what it does is much more important.</p>
+<p>The BDD tests what the object does instead of what it is,
+and what it does is much more important.</p>
 
 <p>We have to say that Ruby community helped a lot the evolution of BDD, RSpec is a standard-de-facto, in Ruby world.</p>
 
@@ -423,11 +421,13 @@
 
 <p><strong>BUT</strong> You would be distracted by the code loosing focus on the result, and you might miss the concept of behaviour. [EDITED 07-01-2013 thanks to <a href="http://twitter.com/euxpom">euxpom <img src="http://gravatar.com/avatar/77014411a56fa9c746d6a89b7fd96121?size=20" alt="exupom" /></a>]</p>
 
-<h2 id="phpspec_advantages"><a href="https://github.com/phpspec/phpspec2">PHPSpec</a> advantages</h2>
+<h2 id="phpspechttpsgithubcomphpspecphpspec2-advantages"><a href="https://github.com/phpspec/phpspec2">PHPSpec</a> advantages</h2>
 
-<p>xSpec is context specific, expectation, the output is the documentation and it is for this reason that the language is used because the same syntax you guide you to focus in behaviour, and the importance of documentation.</p>
+<p>xSpec is context specific, expectation, the output is the documentation
+and it is for this reason that the language is used because the same syntax you guide you to focus in behaviour, and the importance of documentation.</p>
 
-<pre><code>bin/phpspec run -f prettify -v</code></pre>
+<pre><code>bin/phpspec run -f prettify -v
+</code></pre>
 
 <p>So the big change is on how you write test code.</p>
 
@@ -436,14 +436,16 @@
 <h2 id="bibliography">Bibliography</h2>
 
 <ol>
-<li>
-<p><a href="http://pragprog.com/book/achbd/the-rspec-book">The RSpec Book Behaviour-Driven Development with RSpec, Cucumber, and Friends</a> by David Chelimsky, Dave Astels, Zach Dennis, Aslak Hellesøy, Bryan Helmkamp, Dan North</p>
-</li>
-
-<li>
-<p>Test Driven Development. By Example di Kent Beck (dic. 2002)</p>
-</li>
+  <li>
+    <p><a href="http://pragprog.com/book/achbd/the-rspec-book">The RSpec Book Behaviour-Driven Development with RSpec, Cucumber, and Friends</a> 
+by David Chelimsky, Dave Astels, Zach Dennis, Aslak Hellesøy, Bryan Helmkamp, Dan North</p>
+  </li>
+  <li>
+    <p>Test Driven Development. By Example di Kent Beck (dic. 2002) </p>
+  </li>
 </ol>
+
+
     </article>
     <hr>
     <div id="related">
@@ -451,15 +453,15 @@
       <ul class="posts">
       
       <li>
+       <span>31 Aug 2014 &raquo;</span> <a href="/price-more-then-money-php-library">Price more then Money - PHP library</a>
+      </li>
+      
+      <li>
        <span>05 May 2014 &raquo;</span> <a href="/best-resources-about-symfony-tdd-bdd-ddd-methologies">(my) Best resources about methodologies on Symfony, PHP, DDD, BDD ...</a>
       </li>
       
       <li>
        <span>29 Apr 2014 &raquo;</span> <a href="/domain-driven-design-and-symfony-for-simple-app">Domain Driven Design principles with Symfony2 also for dummy applications</a>
-      </li>
-      
-      <li>
-       <span>21 Mar 2014 &raquo;</span> <a href="/persist-the-money-doctrine-value-object">Persist the Money, Doctrine Value Object</a>
       </li>
       
       </ul>

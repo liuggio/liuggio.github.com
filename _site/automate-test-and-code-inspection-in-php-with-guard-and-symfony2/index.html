@@ -45,11 +45,6 @@
             
         </div>
     </header>
-<div class="hiring" style="position: absolute; top: 0px; right: 0px;z-index:1">
-    <a href="http://tvision.github.io/job/back-end-developer/" title="My team is hiring!!!">
-        <img width="220" src="http://cambridgelocalfirst.org/wp-content/uploads/2014/01/hiring.png">
-    </a>
-</div>
 
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
     <section id="content">
@@ -221,11 +216,15 @@
      
     	<li class="tag-list tag-size-3"><a href="/tags.html#api-ref" rel="3">api <span>3</span></a></li>
      
-    	<li class="tag-list tag-size-3"><a href="/tags.html#DDD-ref" rel="3">DDD <span>3</span></a></li>
+    	<li class="tag-list tag-size-4"><a href="/tags.html#DDD-ref" rel="4">DDD <span>4</span></a></li>
      
-    	<li class="tag-list tag-size-1"><a href="/tags.html#value objects-ref" rel="1">value objects <span>1</span></a></li>
+    	<li class="tag-list tag-size-2"><a href="/tags.html#value objects-ref" rel="2">value objects <span>2</span></a></li>
+     
+    	<li class="tag-list tag-size-2"><a href="/tags.html#money-ref" rel="2">money <span>2</span></a></li>
      
     	<li class="tag-list tag-size-1"><a href="/tags.html#symfony-ref" rel="1">symfony <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#price-ref" rel="1">price <span>1</span></a></li>
     
   
 
@@ -238,6 +237,10 @@
                     <div id="related" class="boxed">
                     <h3>Related Posts</h3>
                     <ul class="posts">
+                    
+                    <li>
+                      <a href="/price-more-then-money-php-library">Price more then Money - PHP library</a>
+                    </li>
                     
                     <li>
                       <a href="/best-resources-about-symfony-tdd-bdd-ddd-methologies">(my) Best resources about methodologies on Symfony, PHP, DDD, BDD ...</a>
@@ -253,10 +256,6 @@
                     
                     <li>
                       <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
-                    </li>
-                    
-                    <li>
-                      <a href="/web-api-rest-with-symfony2-the-best-way-the-post-method">part2 - Web API REST with Symfony2</a>
                     </li>
                     
                     </ul>
@@ -345,11 +344,13 @@
         </div>
     </div>
     <article>
-        <h2 id="hey_phper_do_you_automate_your_test">Hey PHPer do you automate your test?</h2>
+        
+<h2 id="hey-phper-do-you-automate-your-test">Hey PHPer do you automate your test?</h2>
 
-<p>In everyday life there are tools that can not only speed, but also lighten the workload of your mind, in that regard I wanted to share a useful library: <a href="https://github.com/guard/guard">Guard</a>.</p>
+<p>In everyday life there are tools that can not only speed, but also lighten the workload of your mind,
+in that regard I wanted to share a useful library: <a href="https://github.com/guard/guard">Guard</a>.</p>
 
-<h2 id="_guard"><code>Watch</code> Guard!</h2>
+<h2 id="watch--guard"><code>Watch</code>  Guard!</h2>
 
 <p><a href="https://github.com/guard/guard">Guard</a> is written in Ruby, it automates commands based on events that happen in the filesystem.</p>
 
@@ -361,32 +362,35 @@
 
 <p>For years I had the <strong>CTRL+S</strong> tic, in fact in my life I have saved (by mistake) around 2000 pages browsing with Firefox.</p>
 
-<p>Before finding out <a href="https://github.com/guard/guard">Guard</a>, I was using a crude one-line script, it runs each 3 seconds PHPUnit if error otherwise waits 10 seconds</p>
+<p>Before finding out <a href="https://github.com/guard/guard">Guard</a>, I was using a crude one-line script,
+it runs each 3 seconds PHPUnit if error otherwise waits 10 seconds</p>
 
-<pre><code>while true; do clear; phpunit; if [ ! $? ]; then sleep 10; else sleep 3;fi; done;</code></pre>
+<pre><code>while true; do clear; phpunit; if [ ! $? ]; then sleep 10; else sleep 3;fi; done;
+</code></pre>
 
 <p>but it was not enough, I needed something which could perform only the Test for the file that I had changed: <a href="https://github.com/Maher4Ever/guard-phpunit">guard-phpunit</a></p>
 
 <p>In the PHP world, <a href="https://github.com/guard/guard">Guard</a> is not so popular but instead would require much more importance.</p>
 
-<h2 id="install_guardphpunit"><strong>Install</strong> <a href="https://github.com/Maher4Ever/guard-phpunit">guard-phpunit</a>!</h2>
+<h2 id="install-guard-phpunithttpsgithubcommaher4everguard-phpunit"><strong>Install</strong> <a href="https://github.com/Maher4Ever/guard-phpunit">guard-phpunit</a>!</h2>
 
 <p>Simply follow the instructions of the README.md https://github.com/Maher4Ever/guard-phpunit</p>
 
-<h3 id="1_install_guardphpunit">1 Install guard-phpunit</h3>
+<h3 id="install-guard-phpunit">1 Install guard-phpunit</h3>
 
 <p><code>gem install guard-phpunit</code></p>
 
-<h3 id="2_step_create_a_">2 Step create a <code>Guardfile</code></h3>
+<h3 id="step-create-a-guardfile">2 Step create a <code>Guardfile</code></h3>
 
 <pre><code>guard 'phpunit', :tests_path =&gt; 'Tests', :cli =&gt; '--colors' do
  # Watch tests files
  watch(%r{^.+Test\.php$})
  # Watch library files and run their tests
- watch(%r{^Object/(.+)\.php}) { |m| &quot;Tests/#{m[1]}Test.php&quot; }
-end</code></pre>
+ watch(%r{^Object/(.+)\.php}) { |m| "Tests/#{m[1]}Test.php" }
+end
+</code></pre>
 
-<h3 id="3_run_with_">3 Run with <code>guard</code></h3>
+<h3 id="run-with-guard">3 Run with <code>guard</code></h3>
 
 <pre><code>liuggio@liuggio:/var/repos/StatsDClientBundle$ guard
 20:33:21 - INFO - Guard uses NotifySend to send notifications.
@@ -396,7 +400,8 @@ end</code></pre>
 &gt; [#51616B16C20E]
 &gt; [#51616B16C20E] Finished in 2 seconds
 &gt; [#51616B16C20E] 18 tests, 43 assertions
-20:33:23 - INFO - Guard is now watching at '/var/www/StatsDClientBundle'</code></pre>
+20:33:23 - INFO - Guard is now watching at '/var/www/StatsDClientBundle'
+</code></pre>
 
 <p>This will test the entire library for you, any changes will test only the files that have changed</p>
 
@@ -408,20 +413,21 @@ end</code></pre>
 
 <p><img src="http://welcometothebundle.com/assets/themes/readable-liuggio/img/guard-phpunit-sf2.png" alt="liuggio-guard-phpunit-sf2-notifier" /></p>
 
-<h3 id="4_trick_guard_on_large_directories">4 Trick Guard on large directories</h3>
+<h3 id="trick-guard-on-large-directories">4 Trick Guard on large directories</h3>
 
 <p>If you have big project you need to increase the amount of watches of libnotify</p>
 
 <p>see this page for more info: https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers</p>
 
-<h2 id="_guard_2"><code>Inspect</code> Guard!</h2>
+<h2 id="inspect--guard"><code>Inspect</code>  Guard!</h2>
 
 <p>Another plugin that I suggest is Guard for code inspection:</p>
 
 <p>is easy to install</p>
 
 <pre><code>sudo pear install PHP_CodeSniffer
-sudo gem install guard-phpcs</code></pre>
+sudo gem install guard-phpcs
+</code></pre>
 
 <p>and then add to your Guardfile</p>
 
@@ -429,15 +435,16 @@ sudo gem install guard-phpcs</code></pre>
  # Watch tests files
  watch(%r{^.+Test\.php$})
  # Watch library files and run their tests
- watch(%r{^/(.+)/(.+)/(.+)\.php}) { |m| &quot;Test/#{m[1]}/#{m[2]}/#{m[3]}Test.php&quot; }
+ watch(%r{^/(.+)/(.+)/(.+)\.php}) { |m| "Test/#{m[1]}/#{m[2]}/#{m[3]}Test.php" }
 end
 guard 'phpcs', :standard =&gt; 'PSR1' do
     watch(%r{.*\.php$})
-end</code></pre>
+end
+</code></pre>
 
 <p>This will detect all the camel case problems, and you will have to follow the standard PSR1 :D</p>
 
-<h2 id="guard____guardphpunitsf2">Guard + <code>Symfony2</code> = <a href="https://github.com/liuggio/guard-phpunit-sf2">guard-phpunit-sf2</a></h2>
+<h2 id="guard--symfony2--guard-phpunit-sf2httpsgithubcomliuggioguard-phpunit-sf2">Guard + <code>Symfony2</code> = <a href="https://github.com/liuggio/guard-phpunit-sf2">guard-phpunit-sf2</a></h2>
 
 <p>Unfortunately <code>guard-phpunit</code> does not work with symfony2 framework,</p>
 
@@ -450,7 +457,8 @@ end</code></pre>
 <pre><code>git clone git@github.com:liuggio/guard-phpunit-sf2.git
 cd guard-phpunit-sf2
 gem build guard-phpunit-sf2.gemspec
-sudo gem instal guard-phpunit-sf2-0.1.4.gem</code></pre>
+sudo gem instal guard-phpunit-sf2-0.1.4.gem
+</code></pre>
 
 <p>then create the Guardfile into the root of your Symfony2 project</p>
 
@@ -460,16 +468,25 @@ sudo gem instal guard-phpunit-sf2-0.1.4.gem</code></pre>
 
      # Watch src file and run its test,
      # Test string: src/Tvision/Bundle/CartBundle/Repository/CartRepository.php
-     watch(%r{^src\/(.+)\/(.+)Bundle\/(.+)\.php$}) { |m| &quot;src/#{m[1]}/#{m[2]}Bundle/Tests/#{m[3]}Test.php&quot; } # Watch all files in your bundles and run the respective tests on change
-end</code></pre>
+     watch(%r{^src\/(.+)\/(.+)Bundle\/(.+)\.php$}) { |m| "src/#{m[1]}/#{m[2]}Bundle/Tests/#{m[3]}Test.php" } # Watch all files in your bundles and run the respective tests on change
+end
+</code></pre>
 
 <p>then lunch <code>guard</code> and start testing.</p>
 
-<p>PS: maybe you should uninstall guard-phpunit in order to work with symfony2 :|</p>
+<table>
+  <tbody>
+    <tr>
+      <td>PS: maybe you should uninstall guard-phpunit in order to work with symfony2 :</td>
+    </tr>
+  </tbody>
+</table>
 
 <p><code>sudo gem uninstall guard-phpunit</code></p>
 
 <p>Happy test to everybody.</p>
+
+
     </article>
     <hr>
     <div id="related">
@@ -477,15 +494,15 @@ end</code></pre>
       <ul class="posts">
       
       <li>
+       <span>31 Aug 2014 &raquo;</span> <a href="/price-more-then-money-php-library">Price more then Money - PHP library</a>
+      </li>
+      
+      <li>
        <span>05 May 2014 &raquo;</span> <a href="/best-resources-about-symfony-tdd-bdd-ddd-methologies">(my) Best resources about methodologies on Symfony, PHP, DDD, BDD ...</a>
       </li>
       
       <li>
        <span>29 Apr 2014 &raquo;</span> <a href="/domain-driven-design-and-symfony-for-simple-app">Domain Driven Design principles with Symfony2 also for dummy applications</a>
-      </li>
-      
-      <li>
-       <span>21 Mar 2014 &raquo;</span> <a href="/persist-the-money-doctrine-value-object">Persist the Money, Doctrine Value Object</a>
       </li>
       
       </ul>

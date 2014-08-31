@@ -3,9 +3,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Domain Driven Design principles with Symfony2 also for dummy applications</title>
+    <title>Price more then Money - PHP library</title>
     
-    <meta name="description" content="The way we develop evolves">
+    <meta name="description" content="A Price is the amount in different currencies.">
     
     <meta name="author" content="Giulio De Donato">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -239,11 +239,11 @@
                     <ul class="posts">
                     
                     <li>
-                      <a href="/price-more-then-money-php-library">Price more then Money - PHP library</a>
+                      <a href="/best-resources-about-symfony-tdd-bdd-ddd-methologies">(my) Best resources about methodologies on Symfony, PHP, DDD, BDD ...</a>
                     </li>
                     
                     <li>
-                      <a href="/best-resources-about-symfony-tdd-bdd-ddd-methologies">(my) Best resources about methodologies on Symfony, PHP, DDD, BDD ...</a>
+                      <a href="/domain-driven-design-and-symfony-for-simple-app">Domain Driven Design principles with Symfony2 also for dummy applications</a>
                     </li>
                     
                     <li>
@@ -271,26 +271,22 @@
 <div class="span9">
     <div class="page-header">
         <div class="row">
-            <h1 class="span8">Domain Driven Design principles with Symfony2 also for dummy applications 
+            <h1 class="span8">Price more then Money - PHP library 
             </h1>
           <div class="span1 right bottom sticky center">
               
               <div id="edit-github">
-                  <a class="btn btn-mini" target="_blank" href="https://github.com/liuggio/liuggio.github.com/blob/master/_posts/2014-04-29-domain-driven-design-and-symfony-for-simple-app.md" title="Found a typo? Please edit it on Github"><i class="icon-edit pull-left"></i><b>Fix</b></a>
+                  <a class="btn btn-mini" target="_blank" href="https://github.com/liuggio/liuggio.github.com/blob/master/_posts/2014-08-31-price-more-then-money-php-library.md" title="Found a typo? Please edit it on Github"><i class="icon-edit pull-left"></i><b>Fix</b></a>
               </div>
               
 
               <div id="sticky-pagination" class="hidden">
                   
-                      <a class="btn-mini pull-left" target="_blank" href="/persist-the-money-doctrine-value-object" title="Persist the Money, Doctrine Value Object">
+                      <a class="btn-mini pull-left" target="_blank" href="/best-resources-about-symfony-tdd-bdd-ddd-methologies" title="(my) Best resources about methodologies on Symfony, PHP, DDD, BDD ...">
                           <i class="icon-arrow-left"></i>
                       </a>
                   
 
-                  
-                  <a class="btn-mini pull-right" target="_blank" href="/best-resources-about-symfony-tdd-bdd-ddd-methologies" title="(my) Best resources about methodologies on Symfony, PHP, DDD, BDD ...">
-                      <i class="icon-arrow-right"></i>
-                  </a>
                   
               </div>
 
@@ -310,7 +306,7 @@
         <hr>
         <div class="row">
             <div class="span4">
-                <div class="date"><span>29 April 2014</span></div>
+                <div class="date"><span>31 August 2014</span></div>
             </div>
 
             <div class="span5">
@@ -322,13 +318,13 @@
 
   
      
-    	<li class="tag-list tag-size-1"><a href="/tags.html#symfony-ref">symfony <span>1</span></a></li>
-     
-    	<li class="tag-list tag-size-13"><a href="/tags.html#PHP-ref">PHP <span>13</span></a></li>
-     
-    	<li class="tag-list tag-size-4"><a href="/tags.html#BDD-ref">BDD <span>4</span></a></li>
-     
     	<li class="tag-list tag-size-4"><a href="/tags.html#DDD-ref">DDD <span>4</span></a></li>
+     
+    	<li class="tag-list tag-size-2"><a href="/tags.html#value objects-ref">value objects <span>2</span></a></li>
+     
+    	<li class="tag-list tag-size-2"><a href="/tags.html#money-ref">money <span>2</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#price-ref">price <span>1</span></a></li>
     
   
 
@@ -341,369 +337,144 @@
     </div>
     <article>
         
-<h3 id="part-1---the-new-flow-the-layered-architecture-and-the-entities">Part 1 - The new flow, the layered architecture and the entities.</h3>
+<h2 id="abstract">Abstract</h2>
 
-<p>The objective of this series of articles is to show how and why I have changed the way of programming,
-I would also point to the benefits of adopting certain principles of Domain Driven Design also with simple applications, instead using DDD strictly might benefit only for some particular and complex Domains.</p>
+<p>When we want to put a new open-source library it should be a useful library, it should not exist it the ecosystem, but we should put libraries that explain a good practice, when we satisfy this we are adding a value.</p>
 
-<p>I do not want to say I am an evangelist of the Domain Driven Development philosophy, but the <a href="http://www.amazon.it/Implementing-Domain-Driven-Design-Vaughn-Vernon/dp/0321834577">red book of V.Vaughn</a> and the movement, has profoundly changed and improved the way I code today.</p>
+<h2 id="you-need-the-money-lib">You need the Money lib.</h2>
 
-<p>I’m sorry for this new trilogy :), I would like to be short and concise bringing practical examples, as always I love to say that I didn’t invent anything.</p>
+<h3 id="down-with-float">Down with Float</h3>
 
-<h2 id="history">History</h2>
+<p>In the different versions of our e-commerce we first have used the float to represent the money, yes it was a bad choise, PHP is very bad with all the float operations, shortly we started using BC-math, yet bad choice it was too difficult and too instable.</p>
 
-<p>Around 2003/2004 I gave birth to a PHP framework that would help me on some small software, 
-was a jumble of libraries stacked with copy and paste, starting from <a href="https://www.phpnuke.org/">php-nuke</a>.
-I released it on <a href="https://www.sourceforge.net">sourceforge</a> the project had many “include” and a few contributors,
-the name of the project is a secret, it was a youth error.</p>
+<h3 id="long-live-value-object">Long live Value Object</h3>
 
-<p>That was the first time I understood that the decoupling not occurs only at the class level, and the benefit of using a library for the template and a library for the database abstraction gave to me a new mindset, in the meanwhile Eric Evans was publishing <a href="http://www.amazon.it/gp/product/0321125215/ref=pd_lpo_sbs_dp_ss_1">the Blue Book</a> .</p>
+<p>I already talked about the importance of the <a href="persist-the-money-doctrine-value-object/">value objects and how to implement the Money</a>.</p>
 
-<p>My programming style has changed,
-and I do not understand how music artists or painters keep their style for an entire career,
-even in the same version of Symfony my developing style changes and evolves.</p>
+<p>Shortly, how to represent the money information of a product like a <code>T-Shirt</code>?</p>
 
-<p>To better understand how changed let’s start with a real example:</p>
-
-<p>Stories:</p>
-
-<ol>
-  <li>As Author I want to be able to write a new Blog-Post as draft.</li>
-  <li>Given a blog-post already written, as Author I want to be able to publish a new Blog-Post.</li>
-  <li>The Blog-Post is written by an Author with a title and a body.</li>
-  <li>When a blog post is written is not public.</li>
-  <li>As Author I want to see a list of my posts.</li>
-</ol>
-
-<h3 id="before-code-first-it-means-bundle-first">Before: code first (it means bundle-first).</h3>
-
-<p>If few years ago I’d thought to the  database first, 
-Symfony2 gave a breath of fresh pushing forward the mentality of modularity and decoupling.</p>
-
-<p>It was explicit the good practice of not putting the logic inside the controllers, but as a side effect in the ecosystem
-has become quite common the “<strong>bundle-everything with thin controllers and fat services</strong>”.</p>
-
-<p>Services full of logic, and empty ORM entities (empty means only with setters and getters).</p>
-
-<h3 id="thin-controllers-and-fat-services--smell">Thin Controllers and Fat Services = smell</h3>
-
-<p>With a new project you start installing the symfony-standard,
-you create a bundle for each concept,
-then you create thousands of Doctrine2 entities (get and set on each property), and then you start testing the service before coding, then
-a slim controller and a functional test over the Reponse playing with HTML and css path in order to have green tests.</p>
-
-<p>This way of doing it is not even too wrong, it does not suck, but adding new features you’d have a lot of interdependent Symfony bundles, many fat services (maybe) with abstract nouns such as ‘manager’, ‘service’, ‘handler’ and even a CoreBundle with the shared logic.
-Entities with getters, setters, but also full of annotations (doctrine and serializer).</p>
-
-<p>The folders would have this structure:</p>
-
-<pre><code>Symfony standard
-├── BlogBundle
-│    ├── Entity
-│    │   └── Blog.php
-│    │   └── BlogRepository.php
-│    ├── Service
-│    │   └── BlogService.php
-│    │   └── BlogManager.php
-│    │   └── BlogManipulator.php
-│    │   └── BlogFactory.php
-│    │   └── BlogHandler.php
-│    └── Controller
-│        └── BlogController.php
-│    CoreBundle
-│    ├── Entity
-│    │   └── Currency.php
-│    ├── Service
-	 
-...
+<pre><code>// bad example
+$amount = '40.0';
+$currency = 'EUR';
 </code></pre>
 
-<p>http://blog.codinghorror.com/i-shall-call-it-somethingmanager/</p>
+<p>As already you know the value object is the answer, read more at <a href="http://martinfowler.com/books.html">Martin Fowler’s PoEAA</a>,
+and the <a href="https://github.com/mathiasverraes/money">Money lib of Mathias Verraes</a> is a good implementation:</p>
 
-<h4 id="something-wrong-and-anemic-domain-model">Something wrong and Anemic Domain Model</h4>
-
-<p>A couple of years ago after a big project in Symfony2, I realized there was something that could be improved, too many bundles, too many entities persisted without a real value, too many connections, too many fat services, too much Symfony2-centric application, something had changed, and in the my PHP community began to appear articles from <a href="http://williamdurand.fr">williamdurand</a> and <a href="http://verraes.net/">Verraes</a> on how we could improve this pattern.</p>
-
-<p>Connected bundles wasn’t the biggest problem, the system was suffering also of <a href="http://www.martinfowler.com/bliki/AnemicDomainModel.html">Anemic Domain Model</a>.</p>
-
-<p>What is the problem of moving a lot of logic in the services?</p>
-
-<p>A service should reside in the application layer should be small by definition:</p>
-
-<blockquote>In general, the more behavior you find in the services, the more likely you are to be robbing yourself of the benefits of a domain model. If all your logic is in services, you've robbed yourself blind.<small>Martin Fowler</small></blockquote>
-
-<h2 id="today">Today</h2>
-
-<p>Today I develop in a different way, many more <a href="/persist-the-money-doctrine-value-object/">Value Objects</a>, Entities with more logic, I would start by specifying use cases, and above all the flow of development has changed.</p>
-
-<p>Thinking first about objects that have to perform behaviors, protagonists of the use cases are domain entities (should not be confused with the doctrine-entity) and aggregates, the step of deciding how to persist should be sent to a later stage.</p>
-
-<h3 id="layered-architecture">Layered Architecture</h3>
-
-<p>The thing that mostly changed the way I develop is the separation of the various concerns of our application by isolating the expression of domain model and business logic, eliminate any dependency from the business logic.</p>
-
-<p>For <a href="http://www.amazon.com/Pattern-Oriented-Software-Architecture-Volume-Patterns/dp/0471958697/ref=tmm_hrd_title_0?">Buschmann</a> there are 4 layers:</p>
-
-<ol>
-  <li><strong>Domain Layer</strong>: the internal layer is where you have to define the outlines of the use cases</li>
-  <li><strong>Application Layer</strong>: the flow of the behavior </li>
-  <li><strong>User Interface layer</strong>: how to present to the user</li>
-  <li><strong>Infrastructure Layer</strong>: and finally how to implement them, the choice of the framework should be made in this final layer.</li>
-</ol>
-
-<p>At the beginning we do not want to think about how we will save our objects, we just want the use cases satisfied, we do not want to think about which framework we will use, we are in the <code>Domain Layer</code>.</p>
-
-<blockquote>It doesn't depend on any particular UI or service interface-related technology, it just describes use cases.</blockquote>
-
-<p>Let’s see specifically how to proceed in the development, starting from the use cases.</p>
-
-<p>Install a BDD tool that helps you to write user stories:</p>
-
-<pre><code>composer init
-composer behat/behat "2.4.*@stable"
-bin/behat --init
+<pre><code>// Using the Verraes Library
+$fiveEur = Money::EUR(500);
+$tenEur = $fiveEur-&gt;add($fiveEur);
 </code></pre>
 
-<p>So we start writing the business goal in <code>features/post.feature</code></p>
+<h2 id="you-need-a-price">You need a Price.</h2>
 
-<pre><code> Scenario: Write a new blog Post
-    Given I am an Author
-    When I fill in the following:
-      |  First Post | Great Description |
-    Then the "First Post" post should be written.
+<p>There is always a moment when you need to work on a product that hase different amount on different currencies, especially if you need to implement an e-commerce sooner or later you need different values.</p>
 
-  Scenario: Publish a blog Post
-    Given I am an Author
-    And I wrote a post with "First Post" and "Great Description" as description
-    When I publish the post with the title "First Post"
-    Then the "First Post" post should be public.
+<p>So how to implement the object Price?</p>
 
-  Scenario: List of all my posts
-    Given I am an Author
-    And I wrote the following posts:
-      |  First Post | Great Description |
-      |  Second Post | Bad Description |
-    When I see the list of all my posts
-    Then the "First Post" and the "Second Post" should be shown.
-</code></pre>
+<h3 id="down-with-the-arrays">Down with the arrays</h3>
 
-<p>So we have completed the outside specification, now we could go deep inside with <code>phpspec</code> describing the behaviours of our domain.</p>
+<p>If a price calculator must return the price of a T-shirt in both Euro and Dollar, </p>
 
-<p>We have recognized 2 entities <code>Post</code> and <code>Author</code> they didn’t change together so they are 2 different concepts, 
-they are <code>Entity</code> and not value objects because they could change, and they have a lifecycle, and we do want to identify an Author or a Post.</p>
+<p>surely the array is not the best choice:</p>
 
-<p>Install the tool that helps you to design focusing on the behaviors:</p>
-
-<pre><code>composer require "phpspec/phpspec" "~2.0"
-bin/phpspec describe Liuggio/Blog/Post
-</code></pre>
-
-<h3 id="post-behaviours">Post behaviours</h3>
-
-<p>We want to describe how the <code>Post</code> entity will works before writing the code:</p>
-
-<h5 id="the-blog-post-is-written-by-an-author-with-a-title-and-a-body">The Blog-Post is written by an Author with a title and a body.</h5>
-
-<p>describing the specification in <code>spec/postSpec.php</code>:</p>
-
-<pre><code>function it_should_be_written_by_an_author_containing_a_title_and_body()
+<pre><code>// bad example
+function HowMuchItCosts()
 {
-}
-
-function it_should_be_written_as_drafted()
-{
-}
-
-function it_should_be_published()
-{
+    return array(
+    'EUR' =&gt; Money::EUR(500),
+    'USD' =&gt; Money::USD(550)
+    );
 }
 </code></pre>
 
-<p>Running phpspec you will have:</p>
+<h3 id="the-value-object">The value object</h3>
 
-<pre><code>$ bin/phpspec  run --format=pretty
-  post
-10  - should be written by an author containing a title and a body
-    todo: write pending example
-14  - should be written as drafted
-    todo: write pending example
-18  - should be published
-    todo: write pending example
-1 specs
-3 examples (3 pending)
-2ms
+<p>We have relased the <a href="https://github.com/leaphly/price">Price library</a>:</p>
+
+<pre><code>composer require leaphly\price 1.0-dev;
 </code></pre>
 
-<p>What is obvious from the first specification? we need an <code>Author</code> object.</p>
+<h4 id="simple-usage">Simple usage</h4>
 
-<pre><code>bin/phpspec describe Liuggio/Blog/Author
+<pre><code>The T-Shirt costs 10€ and 8£
 </code></pre>
 
-<p>and then in <code>spec/Liuggio/Blog/AuthorSpec.php</code></p>
+<p>In PHP:</p>
 
-<pre><code>function it_should_always_have_a_nickname($nickname)
-{
-    $this-&gt;beConstructedWith($nickname);
-    $this-&gt;shouldHaveType('Liuggio\Blog\Author');
-}
+<pre><code>$ticketPrice = new Price(
+  [
+    'EUR' =&gt; 1000,
+    'GBP' =&gt; 800
+  ]
+);
+
+echo $tShirtPrice-&gt;inEUR();  // return 1000
+
+var_dump($ticketPrice-&gt;availableCurrencies()); // array with EUR, GBP
 </code></pre>
 
-<p>Running <code>bin/phpspec  run --format=pretty</code></p>
+<h3 id="a-price-is-the-amount-in-different-currencies">A Price is the amount in different currencies.</h3>
 
-<p>We are going to create the BlogAuthor:</p>
+<h4 id="math-operations">Math operations</h4>
 
-<pre><code>class Author
-{
-    private $nickname;
+<p>Has a different mathematical operators:</p>
 
-    function __construct($nickname)
-    {
-        $this-&gt;nickname = $nickname;
-    }
+<pre><code>$ticketPrice = new Price(
+    [
+    'EUR' =&gt; 1000,
+    'USD' =&gt; 1300
+    ]
+);
+
+$discount = new Price(
+    [
+    'EUR' =&gt; 10,
+    'USD' =&gt; 13
+    ]
+);
+
+$ticketPrice = $ticketPrice-&gt;subtract($discount);
 </code></pre>
 
-<p>We prefer to have in the constructor <code>$nickname</code>, in this way we are protecting the Entity <code>Author</code> to be consistent by specification (nickname could also be a Value Object).</p>
+<h3 id="the-api">the API</h3>
 
-<p>Back to our Blog specifications we could add here the Author <code>spec/Liuggio/Blog/PostSpec.php</code></p>
+<p>the API is in alpha release:</p>
 
-<pre><code>function it_should_be_written_by_an_author_containing_a_title_and_body(Author $author)
-{
-    $this-&gt;beConstructedWith($author, 'title', 'body');
-    $this-&gt;shouldHaveType('Liuggio\Blog\Post');
-}
+<ul>
+  <li>inXXX magic call eg. <code>inEUR</code>() alias of getAmount(‘EUR’)</li>
+  <li><code>getConversions</code></li>
+  <li><code>isZero</code></li>
+  <li><code>hasAmount</code></li>
+  <li><code>getAmount</code></li>
+  <li><code>availableCurrencies</code></li>
+  <li><code>add</code></li>
+  <li><code>equals</code></li>
+  <li><code>subtract</code></li>
+  <li><code>multiply</code></li>
+  <li><code>divide</code></li>
+</ul>
+
+<h3 id="working-with-conversions">Working with Conversions</h3>
+
+<p>Happens that you have only one fixed amount eg. 10 EUR, 
+and you want to provide the converted amount for another currency,
+that’s a good way to do it:</p>
+
+<pre><code>$price = new Price(
+    array(
+        'EUR' =&gt; 100,
+    ),
+    array('EUR/USD 1.500') // ISO.
+);
+
+echo $price-&gt;inUSD(); // will return 150
+var_dump($price-&gt;availableCurrencies()); // will return array('EUR', 'USD')
 </code></pre>
 
-<p>Then we write our Post Entity Class.</p>
+<h3 id="stabilization-process">Stabilization process</h3>
 
-<pre><code>class Post
-{
-    private $author;
-    private $text;
-    private $body;
-
-    function __construct(Author $author, $text, $body)
-    ...
-</code></pre>
-
-<p>What changed is that we don’t care here about Doctrine and Identity, we care only about the behaviour.</p>
-
-<h5 id="when-a-blog-post-is-written-is-not-public">When a blog post is written is not public</h5>
-
-<p>We have to add an object that represents the state of the post, we are going to use a Value Object.</p>
-
-<p>Although there are several libraries to work with Finite State Machine, maybe a simple value object in this case may be perfect.</p>
-
-<p>As always, we start from the specifications to get an object that represents the states of Drafted and Published.</p>
-
-<p><code>spec/Liuggio/Blog/PostSpec.php</code></p>
-
-<pre><code>function it_should_be_written_as_drafted()
-{
-    $this-&gt;isPublic()-&gt;shouldBe(false);
-}
-</code></pre>
-
-<p>We are describing the behavior we expect the entity Post,
-and we put this rule in the constructor into <code>\Liuggio\Blog\Post</code>:</p>
-
-<pre><code>class Post
-{
-	// ..
-    public function __construct(Author $author, $title, $body)
-    {
-        $this-&gt;author = $author;
-        $this-&gt;title = $title;
-        $this-&gt;body = $body;
-        $this-&gt;state = State::draft();
-        $this-&gt;createdAt = new \Datetime("now");
-    }
-</code></pre>
-
-<h5 id="the-blog-post-could-be-published">The Blog-Post could be published.</h5>
-
-<p><code>spec/Liuggio/Blog/PostSpec.php</code></p>
-
-<pre><code>function it_should_be_published()
-{
-    $this-&gt;publish();
-    $this-&gt;isPublic()-&gt;shouldBe(true);
-}
-
-function it_should_raise_exception_during_publish_if_it_was_already_public()
-{
-    $this-&gt;publish();
-    $this-&gt;shouldThrow('Exception')-&gt;duringPublish();
-}
-</code></pre>
-
-<p>We have reached a point where our entity <code>Post</code> will be like:</p>
-
-<pre><code>class Post
-{
-    //...
-
-    public function isPublic()
-    {
-        return $this-&gt;state-&gt;isPublic();
-    }
-
-    public function publish()
-    {
-        if (!$this-&gt;couldBePublished()) {
-            throw new \Exception("Could not do this transition");
-        }
-
-        return $this-&gt;state = State::published();
-    }
-
-    private function couldBePublished()
-    {
-        return !$this-&gt;isPublic();
-    }
-</code></pre>
-
-<p>The folder is now:</p>
-
-<pre><code>My-Domain-Driven-Blog
-	├── spec
-	│   └── Liuggio
-	│       └── Blog
-	├── src
-	│   └── Blog
-	│       ├── Author.php
-	│       ├── Post.php
-	│       └── State.php
-</code></pre>
-
-<h2 id="the-github-repository">The github repository</h2>
-
-<p>There’s a repository at <a href="https://github.com/liuggio/DDD-dummy-blog-with-symfony2/">liuggio/DDD-dummy-blog-with-symfony2</a> you could see the working code using the tag <code>part-1</code> with:</p>
-
-<pre><code>git clone liuggio/DDD-dummy-blog-with-symfony2
-cd DDD-dummy-blog-with-symfony2
-composer install
-git checkout -f part-1
-</code></pre>
-
-<p>All the tags for the demo project at <a href="https://github.com/liuggio/DDD-dummy-blog-with-symfony2/tags">tags</a></p>
-
-<h3 id="edited-30042014">EDITED 30/04/2014</h3>
-
-<p>I love feedbacks:</p>
-
-<blockquote>Good post but Ubiquitous Language is lacking. You don't "create" blog post, it is written. A post doesn't "have" an author etc
-<small><a href="https://twitter.com/mathiasverraes"><img src="http://www.gravatar.com/avatar/3a7cb0c3c8d5864e2e72c49cafc3e4d5?s=25" alt="@mathiasverraes" />@mathiasverraes</a></small></blockquote>
-<p>then I modified the stories and the behaviours.</p>
-
-<h2 id="next">Next?</h2>
-
-<p>We focused on the behaviors of the <code>Post</code> and <code>Author</code> entities during the specification,
-our <code>spec</code> are green now, but our <code>behat</code> stories are red.</p>
-
-<p>In the next post, we will finish adding <strong>services</strong> using command patterns, we will describe how to create <strong>repositories</strong>, how to complete the project, how to create the <strong>business expectations over the application layer</strong> and not on the user interface,
-and how to works with Symfony2 in the <strong>Infrastructure layer</strong>.</p>
-
-<p>Stay tuned and tweet if you want the next episode.</p>
+<p>The library is not stable, there are few issues opened, this value object is not immutable, when the issues will be closed, the <code>Price</code> library will have a new release.</p>
 
     </article>
     <hr>
@@ -712,11 +483,11 @@ and how to works with Symfony2 in the <strong>Infrastructure layer</strong>.</p>
       <ul class="posts">
       
       <li>
-       <span>31 Aug 2014 &raquo;</span> <a href="/price-more-then-money-php-library">Price more then Money - PHP library</a>
+       <span>05 May 2014 &raquo;</span> <a href="/best-resources-about-symfony-tdd-bdd-ddd-methologies">(my) Best resources about methodologies on Symfony, PHP, DDD, BDD ...</a>
       </li>
       
       <li>
-       <span>05 May 2014 &raquo;</span> <a href="/best-resources-about-symfony-tdd-bdd-ddd-methologies">(my) Best resources about methodologies on Symfony, PHP, DDD, BDD ...</a>
+       <span>29 Apr 2014 &raquo;</span> <a href="/domain-driven-design-and-symfony-for-simple-app">Domain Driven Design principles with Symfony2 also for dummy applications</a>
       </li>
       
       <li>
@@ -729,13 +500,12 @@ and how to works with Symfony2 in the <strong>Infrastructure layer</strong>.</p>
     <div class="pagination">
         <ul class="pager span9">
             
-            <li class="prev span3"><a href="/persist-the-money-doctrine-value-object" title="Persist the Money, Doctrine Value Object"><i class="icon-arrow-left"></i><br>
-                Previous - Persist the Money, Doctrine Value Object</a></li>
+            <li class="prev span3"><a href="/best-resources-about-symfony-tdd-bdd-ddd-methologies" title="(my) Best resources about methodologies on Symfony, PHP, DDD, BDD ..."><i class="icon-arrow-left"></i><br>
+                Previous - (my) Best resources about methodologies on Symfony, PHP, DDD, BDD ...</a></li>
             
             <li  class="span2 center"><a style=" width: 100%;" href="/index.html"><br>Archive</a></li>
             
-            <li class="next span3"><a href="/best-resources-about-symfony-tdd-bdd-ddd-methologies" title="(my) Best resources about methodologies on Symfony, PHP, DDD, BDD ..."><i class="icon-arrow-right"></i> <br>Next - (my) Best resources about methodologies on Symfony, PHP, DDD, BDD ...</a>
-            </li>
+            <li class="next disabled span2"><a><i class="icon-arrow-right"></i> <br>Next</a></li>
             
         </ul>
     </div>

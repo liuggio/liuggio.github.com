@@ -3,7 +3,7 @@ layout: post
 title: "Persist the Money, Doctrine Value Object"
 description: "Finally is possible to use and persist value object"
 category: tutorial
-tags: [doctrine, DDD, value objects]
+tags: [doctrine, DDD, value objects, money]
 edit-link: https://github.com/liuggio/liuggio.github.com/edit/master/_posts/2014-03-21-persist-the-money-doctrine-value-object.md
 ---
 {% include JB/setup %}

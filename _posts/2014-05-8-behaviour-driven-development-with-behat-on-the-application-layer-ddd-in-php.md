@@ -11,7 +11,9 @@ edit-link: https://github.com/liuggio/liuggio.github.com/blob/master/_posts/2014
 
 This is the second part of a series of articles, in the first part we talked about how the design flow has changed using [a layered architecture in php](/domain-driven-design-and-symfony-for-simple-app), we started from the use cases, we created our business Entities, we wrote user stories, and we described the behaviour of the `Post` and the `Author` Entities.
 
-We are trying to apply some DDD principles using a simple domain, also because when a project starts you don't know yet whether it will be a complex domain.
+We are trying to apply some DDD principles using a simple domain, because POTREMMO avere unvantaggio .... e poi
+
+also because when a project starts you don't know yet whether it will be a complex domain, this approach is called DDD-lite.
 
 ## Domain Layer and User stories on the Application Layer.
 
@@ -21,7 +23,7 @@ We designed the use cases, we used the business language, and we have created mo
 The models could also contain their validators.
 We gave importance to Value objects, we have created only the methods that we needed, we have avoided writing getters and setters of our Entities.
 
-We have also protected the entities putting needs directly in the constructor. 
+We have also protected the entities putting the needs directly in the constructor. 
 
 **Is it time to talk about implementation?** Not now.
 

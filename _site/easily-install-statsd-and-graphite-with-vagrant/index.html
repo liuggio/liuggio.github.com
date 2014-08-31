@@ -45,11 +45,6 @@
             
         </div>
     </header>
-<div class="hiring" style="position: absolute; top: 0px; right: 0px;z-index:1">
-    <a href="http://tvision.github.io/job/back-end-developer/" title="My team is hiring!!!">
-        <img width="220" src="http://cambridgelocalfirst.org/wp-content/uploads/2014/01/hiring.png">
-    </a>
-</div>
 
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
     <section id="content">
@@ -221,11 +216,15 @@
      
     	<li class="tag-list tag-size-3"><a href="/tags.html#api-ref" rel="3">api <span>3</span></a></li>
      
-    	<li class="tag-list tag-size-3"><a href="/tags.html#DDD-ref" rel="3">DDD <span>3</span></a></li>
+    	<li class="tag-list tag-size-4"><a href="/tags.html#DDD-ref" rel="4">DDD <span>4</span></a></li>
      
-    	<li class="tag-list tag-size-1"><a href="/tags.html#value objects-ref" rel="1">value objects <span>1</span></a></li>
+    	<li class="tag-list tag-size-2"><a href="/tags.html#value objects-ref" rel="2">value objects <span>2</span></a></li>
+     
+    	<li class="tag-list tag-size-2"><a href="/tags.html#money-ref" rel="2">money <span>2</span></a></li>
      
     	<li class="tag-list tag-size-1"><a href="/tags.html#symfony-ref" rel="1">symfony <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#price-ref" rel="1">price <span>1</span></a></li>
     
   
 
@@ -238,6 +237,10 @@
                     <div id="related" class="boxed">
                     <h3>Related Posts</h3>
                     <ul class="posts">
+                    
+                    <li>
+                      <a href="/price-more-then-money-php-library">Price more then Money - PHP library</a>
+                    </li>
                     
                     <li>
                       <a href="/best-resources-about-symfony-tdd-bdd-ddd-methologies">(my) Best resources about methodologies on Symfony, PHP, DDD, BDD ...</a>
@@ -253,10 +256,6 @@
                     
                     <li>
                       <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
-                    </li>
-                    
-                    <li>
-                      <a href="/web-api-rest-with-symfony2-the-best-way-the-post-method">part2 - Web API REST with Symfony2</a>
                     </li>
                     
                     </ul>
@@ -343,7 +342,8 @@
         </div>
     </div>
     <article>
-        <p>If Engineering at Tvision has a religion, it’s the Church of Graphs. If it moves, we track it.</p>
+        
+<p>If Engineering at Tvision has a religion, it’s the Church of Graphs. If it moves, we track it. </p>
 
 <p>Ops I already heard this sentence, please read carefully this blog post <a href="http://codeascraft.etsy.com/2011/02/15/measure-anything-measure-everything/">measure-anything-measure-everything</a></p>
 
@@ -351,39 +351,43 @@
 
 <p>If your salary is paid by a website, you need to <strong>monitor and react</strong>, you need a monitor that pushes the informations.</p>
 
-<h2 id="install_statsd__graphite__carbon__whisper__linuxos__apache__python__django__mod_wsgi_">Install Statsd + Graphite + Carbon + Whisper + LinuxOS + apache + python + django + mod_wsgi </h2>
+<h2 id="install-statsd--graphite--carbon--whisper--linuxos--apache--python--django--modwsgi-">Install Statsd + Graphite + Carbon + Whisper + LinuxOS + apache + python + django + mod_wsgi …</h2>
 
-<p>The first time I spent 3 hours installing Graphite, now with vagrant you could try Statsd+Graphite in few minutes.</p>
+<p>The first time I spent 3 hours installing Graphite, 
+now with vagrant you could try Statsd+Graphite in few minutes.</p>
 
 <ol>
-<li>
-<p>Install vagrant</p>
+  <li>
+    <p>Install vagrant</p>
 
-<p><code>gem install vagrant</code> (if you need see the official documentation)</p>
-</li>
+    <p><code>gem install vagrant</code>  (if you need see the official documentation)</p>
+  </li>
+  <li>
+    <p>Installing the world with <a href="http://vagrantup.com/">vagrant</a> is so easy</p>
 
-<li>
-<p>Installing the world with <a href="http://vagrantup.com/">vagrant</a> is so easy</p>
+    <p><code>git clone https://github.com/liuggio/vagrant-statsd-graphite-puppet.git</code></p>
 
-<p><code>git clone https://github.com/liuggio/vagrant-statsd-graphite-puppet.git</code></p>
+    <p><code>cd vagrant-statsd-graphite-puppet.git</code></p>
 
-<p><code>cd vagrant-statsd-graphite-puppet.git</code></p>
+    <p><code>vagrant up</code></p>
 
-<p><code>vagrant up</code></p>
+    <p><em>My repo is just a fork of <code>Jimdo/vagrant-statsd-graphite-puppet</code> with a small bug fix</em></p>
+  </li>
+  <li>
+    <p>Say ‘WOOOW’ then connect to </p>
 
-<p><em>My repo is just a fork of <code>Jimdo/vagrant-statsd-graphite-puppet</code> with a small bug fix</em></p>
-</li>
+    <p>graphite: http://localhost:8080/</p>
 
-<li>
-<p>Say ‘WOOOW’ then connect to</p>
-
-<p>graphite: http://localhost:8080/</p>
-
-<p>statsd: 8125:udp</p>
-</li>
+    <p>statsd: 8125:udp</p>
+  </li>
 </ol>
 
-<p>Everything is done, your virtual box with StatsD is ready to use, if you are a developer and you like web application YOU MUST use a web framework, if you are a php developer you SHOULD use Symfony2, if you use Symfony2 you should have a look to <a href="https://github.com/liuggio/StatsDClientBundle">symfony2 liuggio StatsDClientBundle</a></p>
+<p>Everything is done, your virtual box with StatsD is ready to use, 
+if you are a developer and you like web application YOU MUST use a web framework,
+if you are a php developer you SHOULD use Symfony2,
+if you use Symfony2 you should have a look to 
+<a href="https://github.com/liuggio/StatsDClientBundle">symfony2 liuggio StatsDClientBundle</a></p>
+
     </article>
     <hr>
     <div id="related">
@@ -391,15 +395,15 @@
       <ul class="posts">
       
       <li>
+       <span>31 Aug 2014 &raquo;</span> <a href="/price-more-then-money-php-library">Price more then Money - PHP library</a>
+      </li>
+      
+      <li>
        <span>05 May 2014 &raquo;</span> <a href="/best-resources-about-symfony-tdd-bdd-ddd-methologies">(my) Best resources about methodologies on Symfony, PHP, DDD, BDD ...</a>
       </li>
       
       <li>
        <span>29 Apr 2014 &raquo;</span> <a href="/domain-driven-design-and-symfony-for-simple-app">Domain Driven Design principles with Symfony2 also for dummy applications</a>
-      </li>
-      
-      <li>
-       <span>21 Mar 2014 &raquo;</span> <a href="/persist-the-money-doctrine-value-object">Persist the Money, Doctrine Value Object</a>
       </li>
       
       </ul>

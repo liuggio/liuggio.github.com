@@ -45,11 +45,6 @@
             
         </div>
     </header>
-<div class="hiring" style="position: absolute; top: 0px; right: 0px;z-index:1">
-    <a href="http://tvision.github.io/job/back-end-developer/" title="My team is hiring!!!">
-        <img width="220" src="http://cambridgelocalfirst.org/wp-content/uploads/2014/01/hiring.png">
-    </a>
-</div>
 
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
     <section id="content">
@@ -221,11 +216,15 @@
      
     	<li class="tag-list tag-size-3"><a href="/tags.html#api-ref" rel="3">api <span>3</span></a></li>
      
-    	<li class="tag-list tag-size-3"><a href="/tags.html#DDD-ref" rel="3">DDD <span>3</span></a></li>
+    	<li class="tag-list tag-size-4"><a href="/tags.html#DDD-ref" rel="4">DDD <span>4</span></a></li>
      
-    	<li class="tag-list tag-size-1"><a href="/tags.html#value objects-ref" rel="1">value objects <span>1</span></a></li>
+    	<li class="tag-list tag-size-2"><a href="/tags.html#value objects-ref" rel="2">value objects <span>2</span></a></li>
+     
+    	<li class="tag-list tag-size-2"><a href="/tags.html#money-ref" rel="2">money <span>2</span></a></li>
      
     	<li class="tag-list tag-size-1"><a href="/tags.html#symfony-ref" rel="1">symfony <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#price-ref" rel="1">price <span>1</span></a></li>
     
   
 
@@ -238,6 +237,10 @@
                     <div id="related" class="boxed">
                     <h3>Related Posts</h3>
                     <ul class="posts">
+                    
+                    <li>
+                      <a href="/price-more-then-money-php-library">Price more then Money - PHP library</a>
+                    </li>
                     
                     <li>
                       <a href="/best-resources-about-symfony-tdd-bdd-ddd-methologies">(my) Best resources about methodologies on Symfony, PHP, DDD, BDD ...</a>
@@ -253,10 +256,6 @@
                     
                     <li>
                       <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
-                    </li>
-                    
-                    <li>
-                      <a href="/web-api-rest-with-symfony2-the-best-way-the-post-method">part2 - Web API REST with Symfony2</a>
                     </li>
                     
                     </ul>
@@ -339,11 +338,13 @@
         </div>
     </div>
     <article>
-        <h3 id="part_1__the_">Part 1 - the <code>GET</code></h3>
+        
+<h3 id="part-1---the-get">Part 1 - the <code>GET</code></h3>
 
 <p>Here’s another nice guide on how to create an API with Symfony2, this is the <strong>part 1</strong> of a series of articles.</p>
 
-<p>Here you could find the <a href="/web-api-rest-with-symfony2-the-best-way-the-post-method/">Part2 - the ‘POST’</a>, and the last article <a href="/symfony2-rest-api-the-best-way-part-3/">Part3 - The rest of REST</a></p>
+<p>Here you could find the <a href="/web-api-rest-with-symfony2-the-best-way-the-post-method/">Part2 - the ‘POST’</a>,
+and the last article <a href="/symfony2-rest-api-the-best-way-part-3/">Part3 - The rest of REST</a></p>
 
 <p>I would like to be short and concise bringing practical examples.</p>
 
@@ -364,37 +365,37 @@
 <h3 id="rules">Rules</h3>
 
 <ol>
-<li>Interface as contracts.</li>
-
-<li>Thin Controller, Fat Service.</li>
-
-<li>The <code>Content Negotiation</code> in the HTTP and REST.</li>
-
-<li>Form as API interface.</li>
+  <li>Interface as contracts.</li>
+  <li>Thin Controller, Fat Service.</li>
+  <li>The <code>Content Negotiation</code> in the HTTP and REST.</li>
+  <li>Form as API interface.</li>
 </ol>
 
-<h2 id="the_github_repository">The github repository</h2>
+<h2 id="the-github-repository">The github repository</h2>
 
-<p>There’s a repository at <a href="https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/">liuggio/symfony2-rest-api-the-best-2013-way</a> you could see the working code using the tag <code>part1</code> with</p>
+<p>There’s a repository at <a href="https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/">liuggio/symfony2-rest-api-the-best-2013-way</a>
+you could see the working code using the tag <code>part1</code> with</p>
 
 <pre><code>php composer.phar create-project liuggio/symfony2-rest-api-the-best-2013-way blog-rest-symfony2 -sdev
 cd blog-rest-symfony2
 git checkout -f part1
 php app/console doctrine:database:create
 php app/console doctrine:schema:create
-bin/phpunit -c app</code></pre>
+bin/phpunit -c app
+</code></pre>
 
 <p>All the tags for the demo project at <a href="https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/tags">tags</a></p>
 
-<h2 id="step_1a_the_application">Step 1.A The application</h2>
+<h2 id="step-1a-the-application">Step 1.A The application</h2>
 
 <p>Create a Symfony application</p>
 
 <pre><code>php composer.phar create-project symfony/framework-standard-edition BlogRESTAPI/
 cd BlogRESTAPI
-php composer.phar require &quot;friendsofsymfony/rest-bundle&quot; &quot;@dev&quot;
-php composer.phar require &quot;jms/serializer-bundle&quot; &quot;@dev&quot;
-php composer.phar require &quot;nelmio/api-doc-bundle&quot; &quot;@dev&quot;</code></pre>
+php composer.phar require "friendsofsymfony/rest-bundle" "@dev"
+php composer.phar require "jms/serializer-bundle" "@dev"
+php composer.phar require "nelmio/api-doc-bundle" "@dev"
+</code></pre>
 
 <p>then we had to configure the bundles properly and add to the appKernel.php</p>
 
@@ -403,72 +404,83 @@ $bundles = array(
     //..
     new FOS\RestBundle\FOSRestBundle(),
     new JMS\SerializerBundle\JMSSerializerBundle(),
-    new Nelmio\ApiDocBundle\NelmioApiDocBundle(),</code></pre>
+    new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+</code></pre>
 
-<h2 id="step_1b_the_blog_bundle">Step 1.B The Blog Bundle</h2>
+<h2 id="step-1b-the-blog-bundle">Step 1.B The Blog Bundle</h2>
 
-<p>We are going to create a REST controller for the Page Entity, in your symfony2 standard application we need to create the bundle:</p>
+<p>We are going to create a REST controller for the Page Entity,
+in your symfony2 standard application we need to create the bundle:</p>
 
-<pre><code>php app/console generate:bundle --namespace=Acme/BlogBundle --dir=src --no-interaction</code></pre>
+<pre><code>php app/console generate:bundle --namespace=Acme/BlogBundle --dir=src --no-interaction
+</code></pre>
 
-<h2 id="step_1c_the_model">Step 1.C The Model</h2>
+<h2 id="step-1c-the-model">Step 1.C The Model</h2>
 
 <p>We are going to create an Entity called <code>Page</code> with <code>text</code> and <code>body</code>:</p>
 
 <pre><code>php app/console doctrine:generate:entity --entity=AcmeBlogBundle:Page \
-  --format=annotation --fields=&quot;title:string(255) body:text&quot; \
+  --format=annotation --fields="title:string(255) body:text" \
   --no-interaction
 php app/console doctrine:database:create
-php app/console doctrine:schema:create</code></pre>
+php app/console doctrine:schema:create
+</code></pre>
 
-<h2 id="step_1d_the_page_form">Step 1.D The Page Form</h2>
+<h2 id="step-1d-the-page-form">Step 1.D The Page Form</h2>
 
 <p>Now we need the form for that entity, another generator command :)</p>
 
-<pre><code>php app/console doctrine:generate:form AcmeBlogBundle:Page --no-interaction</code></pre>
+<pre><code>php app/console doctrine:generate:form AcmeBlogBundle:Page --no-interaction
+</code></pre>
 
-<h2 id="step_2__start_with_rest">Step 2 - Start with Rest</h2>
+<h2 id="step-2---start-with-rest">Step 2 - Start with Rest</h2>
 
-<h3 id="step_2a__the_functional_test">Step 2.A - The functional test</h3>
+<h3 id="step-2a---the-functional-test">Step 2.A - The functional test</h3>
 
-<p>We want to create a function that when it’s called it returns the resource with the format requested.</p>
+<p>We want to create a function that when it’s called it returns the resource
+with the format requested.</p>
 
 <p>Any good controller should start with a Functional test, but in order to reduce the verbosity I’ll talk about functional test later, see the section 3.C below.</p>
 
 <pre><code>1. /api/v1/pages/{id}.{_format}
 2. /api/v1/pages/{id}.json  # will return a json file
 3. /api/v1/pages/{id}.xml   # will return a xml file
-4. /api/v1/pages/{id} and /api/1/pages/{id}.html  # will return the web page file</code></pre>
+4. /api/v1/pages/{id} and /api/1/pages/{id}.html  # will return the web page file
+</code></pre>
 
 <p>We’ll see later how to not explicitly specify the format, and how to use and set-up correctly the content-negotiation using HTTP Headers.</p>
 
-<h3 id="step_2b__the_controller">Step 2.B - The controller</h3>
+<h3 id="step-2b---the-controller">Step 2.B - The controller</h3>
 
 <p>We want to create the controller class</p>
 
 <pre><code>// /src/Acme/BlogBundle/Controller/PageController.php
-class PageController extends FOSRestController</code></pre>
+class PageController extends FOSRestController
+</code></pre>
 
 <p>and then we add a simple and dirty function (we’ll refactor soon)</p>
 
 <pre><code>public function getPageAction($id)
 {
     return $this-&gt;container-&gt;get('doctrine.entity_manager')-&gt;getRepository('Page')-&gt;find($id);
-}</code></pre>
+}
+</code></pre>
 
-<h4 id="edit14112013_samuel_gordalina_suggests"><strong>EDIT-14/11/2013</strong> Samuel Gordalina suggests:</h4>
+<h4 id="edit-14112013-samuel-gordalina-suggests"><strong>EDIT-14/11/2013</strong> Samuel Gordalina suggests:</h4>
 
-<p>You can use ParamConverter which fetches an entity from database or returns a 404 exception. For more info see <a href="https://github.com/gordalina/sample-twitter-api-symfony2/blob/master/src/Twitter/ApiBundle/Controller/TweetController.php#L37">sample-twitter-api-symfony2:37</a></p>
+<p>You can use ParamConverter which fetches an entity from database or returns a 404 exception.
+For more info see <a href="https://github.com/gordalina/sample-twitter-api-symfony2/blob/master/src/Twitter/ApiBundle/Controller/TweetController.php#L37">sample-twitter-api-symfony2:37</a></p>
 
-<h3 id="step_2c__adding_the_routes">Step 2.C - Adding the routes</h3>
+<h3 id="step-2c---adding-the-routes">Step 2.C - Adding the routes</h3>
 
-<p>Add to the route file</p>
+<p>Add to the route file </p>
 
 <pre><code># /app/config/routing.yml
 acme_blog:
     type: rest
     prefix: /api
-    resource: &quot;@AcmeBlogBundle/Resources/config/routes.yml&quot;</code></pre>
+    resource: "@AcmeBlogBundle/Resources/config/routes.yml"
+</code></pre>
 
 <p>Create a route file into the bundle:</p>
 
@@ -476,38 +488,45 @@ acme_blog:
 acme_blog_Page:
     type: rest
     prefix: /v1
-    resource: &quot;Acme\BlogBundle\Controller\PageController&quot;
-    name_prefix:  api_1_ # naming collision</code></pre>
+    resource: "Acme\BlogBundle\Controller\PageController"
+    name_prefix:  api_1_ # naming collision
+</code></pre>
 
 <p>check all the API routes with:</p>
 
-<pre><code>app/console route:debug | grep api</code></pre>
+<pre><code>app/console route:debug | grep api
+</code></pre>
 
 <p>it should contain the <code>api_1_get_page</code></p>
 
-<p>So we now have a route, and a controller that responses to the get(id) with the Page resource, is that what we wanted?</p>
+<p>So we now have a route, and a controller that responses to the get(id) with the Page resource,
+is that what we wanted?</p>
 
 <p>Yes but we could do better.</p>
 
-<h2 id="step_3__refactoring">Step 3 - Refactoring</h2>
+<h2 id="step-3---refactoring">Step 3 - Refactoring</h2>
 
 <p>OMG we have only created a little Controller, why we need to refactor?</p>
 
-<p>As I said we are trying to do things at our best, while this may seem over-engineering, in later articles we will see how take advantage of the changes made.</p>
+<p>As I said we are trying to do things at our best, while this may seem over-engineering, 
+in later articles we will see how take advantage of the changes made.</p>
 
-<h3 id="step_3a__interface_as_contract">Step 3.A - Interface as contract</h3>
+<h3 id="step-3a---interface-as-contract">Step 3.A - Interface as contract</h3>
+
 <blockquote>
 Type hinting the injected object means that you can be sure that a suitable dependency has been injected.
 By type-hinting, you'll get a clear error immediately if an unsuitable dependency is injected.
 By type hinting using an interface rather than a class you can make the choice of dependency more flexible.
 And assuming you only use methods defined in the interface, you can gain that flexibility and still safely use the object.
- <small> from <cite title='Source Title'>sf2 - symfony.com</cite></small>
+ <small> from <cite title="Source Title">sf2 - symfony.com</cite></small>
 </blockquote>
+
 <p>Following this as first rule, we need to create an interface in <code>/src/Acme/BlogBundle/Model/PageInterface.php</code> and then put <code>implements PageInterface</code> in the entity <code>Page</code>.</p>
 
-<h3 id="step_3b__the_page_handler">Step 3.B - The Page Handler</h3>
+<h3 id="step-3b---the-page-handler">Step 3.B - The Page Handler</h3>
 
-<p>In order to remove all the logic from the <code>PageController</code>, we have to create a service, we call it <code>PageHandler</code> in <code>/src/Acme/BlogBundle/Handler/PageHandler.php</code>.</p>
+<p>In order to remove all the logic from the <code>PageController</code>,
+we have to create a service, we call it <code>PageHandler</code> in <code>/src/Acme/BlogBundle/Handler/PageHandler.php</code>.</p>
 
 <p>The test for the the <code>PageHandler</code> looks something like:</p>
 
@@ -523,7 +542,8 @@ public function testGet()
         -&gt;will($this-&gt;returnValue($page));
 
     $this-&gt;pageHandler-&gt;get($id); // call the get.
-}</code></pre>
+}
+</code></pre>
 
 <p>So it uses <code>find</code> to fetch an <code>id</code> using the doctrine repository.</p>
 
@@ -545,43 +565,48 @@ class PageHandler implements PageHandlerInterface
     {
         return $this-&gt;repository-&gt;find($id);
     }
-}</code></pre>
+}
+</code></pre>
 
 <p>We need to make this class available as a service from the dependency injection:</p>
 
 <p>/src/Acme/BlogBundle/Resources/config/services.xml</p>
 
 <pre><code>&lt;parameters&gt;
-    &lt;parameter key=&quot;acme_blog.page.handler.class&quot;&gt;Acme\BlogBundle\Handler\PageHandler&lt;/parameter&gt;
-    &lt;parameter key=&quot;acme_blog.page.class&quot;&gt;Acme\BlogBundle\Entity\Page&lt;/parameter&gt;
+    &lt;parameter key="acme_blog.page.handler.class"&gt;Acme\BlogBundle\Handler\PageHandler&lt;/parameter&gt;
+    &lt;parameter key="acme_blog.page.class"&gt;Acme\BlogBundle\Entity\Page&lt;/parameter&gt;
 &lt;/parameters&gt;
 
 &lt;services&gt;
-    &lt;service id=&quot;acme_blog.page.handler&quot; class=&quot;%acme_blog.page.handler.class%&quot;&gt;
-        &lt;argument type=&quot;service&quot; id=&quot;doctrine.orm.entity_manager&quot; /&gt;
+    &lt;service id="acme_blog.page.handler" class="%acme_blog.page.handler.class%"&gt;
+        &lt;argument type="service" id="doctrine.orm.entity_manager" /&gt;
         &lt;argument&gt;%acme_blog.page.class%&lt;/argument&gt;
     &lt;/service&gt;
-&lt;/services&gt;</code></pre>
+&lt;/services&gt;
+</code></pre>
 
-<h3 id="step_3c__thin_controller">Step 3.C - Thin Controller</h3>
+<h3 id="step-3c---thin-controller">Step 3.C - Thin Controller</h3>
 
 <p>Now we have to refactor the controller in order to follow the modification above and use the <code>PageHandler</code>.</p>
 
-<h4 id="the_functional_test_for_the_controller">The functional test for the controller:</h4>
+<h4 id="the-functional-test-for-the-controller">The functional test for the controller:</h4>
 
 <p>first add to your <code>composer.json</code> the require-dev section:</p>
 
-<pre><code>&quot;require-dev&quot;: {
-    &quot;doctrine/doctrine-fixtures-bundle&quot;: &quot;dev-master&quot;,
-    &quot;phpunit/phpunit&quot;: &quot;3.7.*&quot;,
-    &quot;liip/functional-test-bundle&quot;:&quot;dev-master&quot;
-},</code></pre>
+<pre><code>"require-dev": {
+    "doctrine/doctrine-fixtures-bundle": "dev-master",
+    "phpunit/phpunit": "3.7.*",
+    "liip/functional-test-bundle":"dev-master"
+},
+</code></pre>
 
 <p>then we have to update the dependencies running <code>php composer.phar update</code></p>
 
-<p>There’s a lot to say about the functional test, we are going to test that when the <code>api_1_get_page</code> is called, it should return a response with <code>200</code>, the type of the content should be <code>json</code>.</p>
+<p>There’s a lot to say about the functional test, we are going to test that when the <code>api_1_get_page</code> is called,
+it should return a response with <code>200</code>, the type of the content should be <code>json</code>.</p>
 
-<p>The <code>liip/functional-test-bundle</code> helps us to handle the fixtures data to the persistence layer before each test.</p>
+<p>The <code>liip/functional-test-bundle</code> helps us
+to handle the fixtures data to the persistence layer before each test.</p>
 
 <p>First we configure <code>fos_rest</code> in order to handle correct format see: <code>/app/config/config.yml:69</code></p>
 
@@ -603,7 +628,8 @@ class PageHandler implements PageHandlerInterface
 
     $decoded = json_decode($content, true);
     $this-&gt;assertTrue(isset($decoded['id']));
-}</code></pre>
+}
+</code></pre>
 
 <p>The assertJsonResponse function is well described here: <a href="http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/#testing">williamdurand-rest-apis-with-symfony2-the-right-way/#testing</a>.</p>
 
@@ -618,15 +644,15 @@ class PageHandler implements PageHandlerInterface
  *
  * @ApiDoc(
  *   resource = true,
- *   description = &quot;Gets a Page for a given id&quot;,
- *   output = &quot;Acme\BlogBundle\Entity\Page&quot;,
+ *   description = "Gets a Page for a given id",
+ *   output = "Acme\BlogBundle\Entity\Page",
  *   statusCodes = {
- *     200 = &quot;Returned when successful&quot;,
- *     404 = &quot;Returned when the page is not found&quot;
+ *     200 = "Returned when successful",
+ *     404 = "Returned when the page is not found"
  *   }
  * )
  *
- * @Annotations\View(templateVar=&quot;page&quot;)
+ * @Annotations\View(templateVar="page")
  *
  * @param Request $request the request object
  * @param int     $id      the page id
@@ -642,11 +668,13 @@ public function getPageAction($id)
         -&gt;get($id);
 
     return $page;
-}</code></pre>
+}
+</code></pre>
 
 <p>executing the test:</p>
 
-<pre><code>bin/phpunit -c app</code></pre>
+<pre><code>bin/phpunit -c app
+</code></pre>
 
 <p>Woow green test!</p>
 
@@ -674,17 +702,20 @@ public function getPageAction($id)
         │   └── Entity
         │       └── LoadPageData.php
         └── Handler
-            └── PageHandlerTest.php</code></pre>
+            └── PageHandlerTest.php
+</code></pre>
 
-<h2 id="accessing_to_the_response">Accessing to the response</h2>
+<h2 id="accessing-to-the-response">Accessing to the response</h2>
 
 <p>Is time to see how the application responses, so executing the php http server</p>
 
-<pre><code>app/console server:run &amp;</code></pre>
+<pre><code>app/console server:run &amp;
+</code></pre>
 
 <p>and then accessing to the the resource with <code>wget</code></p>
 
-<pre><code>wget -S  localhost:8000/api/v1/pages/0.html</code></pre>
+<pre><code>wget -S  localhost:8000/api/v1/pages/0.html
+</code></pre>
 
 <p>We will have a <code>500</code> because the database is empty, and that resource doesn’t exists:</p>
 
@@ -693,11 +724,15 @@ Connecting to localhost (localhost)|127.0.0.1|:8000... connected.
 HTTP request sent, awaiting response... 
   HTTP/1.0 500 Internal Server Error
   Content-type: text/html
-2013-11-09 15:46:37 ERROR 500: Internal Server Error.</code></pre>
+2013-11-09 15:46:37 ERROR 500: Internal Server Error.
+</code></pre>
 
-<p>The resource ‘0’ doesn’t exists, but we want that the status codes reflects the application behaviour, so it should return a <code>404</code> resource not found.</p>
+<p>The resource ‘0’ doesn’t exists,
+but we want that the status codes reflects the application behaviour,
+so it should return a <code>404</code> resource not found.</p>
 
-<p>We are going to create a private function that throws an Exception if the <code>Page</code> is not found, the Exception will modify also automatically the Response Header.</p>
+<p>We are going to create a private function that throws an Exception if the <code>Page</code> is not found,
+the Exception will modify also automatically the Response Header.</p>
 
 <pre><code>/**
  * Fetch the Page or throw a 404 exception.
@@ -715,19 +750,25 @@ protected function getOr404($id)
     }
 
     return $page;
-}</code></pre>
+}
+</code></pre>
 
-<p>The controller now should use this function and executing <code>wget -S  localhost:8000/api/v1/pages/0.html</code>, we receive a <code>404</code> and we are happy :)</p>
+<p>The controller now should use this function and
+executing <code>wget -S  localhost:8000/api/v1/pages/0.html</code>, we receive a <code>404</code> and we are happy :)</p>
 
-<h2 id="content_negotiation">Content Negotiation</h2>
+<h2 id="content-negotiation">Content Negotiation</h2>
 
 <p>An important concept developing the REST API is the <a href="http://en.wikipedia.org/wiki/Content_negotiation">Content Negotiation</a>.</p>
 
-<p>If you think that everything is a resource, maybe you care also about the name of the resource, if the page <code>10</code> is at <code>/api/v1/pages/10</code>, you may want to retrieve the same resource with different content type, not specifying the <code>format</code> explicitly in the extension <code>/api/v1/pages/10.html</code>, but instead using HTTP <code>Accept</code> header.</p>
+<p>If you think that everything is a resource, maybe you care also about the name of the resource,
+if the page <code>10</code> is at <code>/api/v1/pages/10</code>, you may want to retrieve the same resource with different content type,
+not specifying the <code>format</code> explicitly in the extension <code>/api/v1/pages/10.html</code>, but instead using HTTP <code>Accept</code> header.</p>
 
-<p>[EDIT] removed the tags content-negotiation. If you want to play with the rest application without the extension, set false to <code>prefer_extension</code> here:<code>https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/blob/master/app/config/config.yml#L102</code>.</p>
+<p>[EDIT] removed the tags content-negotiation.
+If you want to play with the rest application without the extension, set false to <code>prefer_extension</code> here:<code>https://github.com/liuggio/symfony2-rest-api-the-best-2013-way/blob/master/app/config/config.yml#L102</code>.</p>
 
-<p>Request: <code>curl -i localhost:8000/api/v1/pages/10</code> No Accept header is sent so the fallback is <code>text/html</code></p>
+<p>Request: <code>curl -i localhost:8000/api/v1/pages/10</code>
+No Accept header is sent so the fallback is <code>text/html</code></p>
 
 <pre><code>HTTP/1.1 200 OK
 Host: localhost:8000
@@ -735,11 +776,13 @@ Content-Type: text/html; charset=UTF-8
 Allow: GET
 
 &lt;html&gt;&lt;body&gt;&lt;h1&gt;10- title&lt;/h2&gt;
-&lt;p&gt;body&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</code></pre>
+&lt;p&gt;body&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre>
 
 <p>So we retrieve the same resource changing the header:</p>
 
-<pre><code>curl -i -H &quot;Accept: application/json&quot;  localhost:8000/api/v1/pages/10</code></pre>
+<pre><code>curl -i -H "Accept: application/json"  localhost:8000/api/v1/pages/10
+</code></pre>
 
 <p>Tadaaaam the response is a json file:</p>
 
@@ -748,11 +791,13 @@ Host: localhost:8000
 Content-Type: application/json
 Allow: GET
 
-{&quot;id&quot;:10,&quot;title&quot;:&quot;title&quot;,&quot;body&quot;:&quot;body&quot;}</code></pre>
+{"id":10,"title":"title","body":"body"}
+</code></pre>
 
 <p>We could also send different Content type accepted with different preferences eg:</p>
 
-<pre><code>curl -i -H &quot;Accept: application/json; q=1.0, t/pages/10 q=0.8&quot; localhost:8000/api/v1/</code></pre>
+<pre><code>curl -i -H "Accept: application/json; q=1.0, t/pages/10 q=0.8" localhost:8000/api/v1/
+</code></pre>
 
 <p>The response will be a json file as well:</p>
 
@@ -761,29 +806,31 @@ Host: localhost:8000
 Content-Type: application/json
 Allow: GET
 
-{&quot;id&quot;:10,&quot;title&quot;:&quot;title&quot;,&quot;body&quot;:&quot;body&quot;}</code></pre>
+{"id":10,"title":"title","body":"body"}
+</code></pre>
 
 <h2 id="recap">Recap</h2>
 
-<p>We have created a Doctrine entity called <code>Page</code>, we have identified the methods of the interface that will be very useful later on. We first created a functional test, then the thin controller without logic. We have created unit test and then the service <code>PageHandler</code> which instead of the controller, contains the logic to retrieve the information. We understood the importance of Content Negotiation.</p>
+<p>We have created a Doctrine entity called <code>Page</code>, we have identified the methods of the interface that will be very useful later on.
+We first created a functional test, then the thin controller without logic.
+We have created unit test and then the service <code>PageHandler</code> which instead of the controller, contains the logic to retrieve the information.
+We understood the importance of Content Negotiation.</p>
 
-<h2 id="next__create_a_resource_with_api_rest">Next ›› <a href="/web-api-rest-with-symfony2-the-best-way-the-post-method/">create a resource with API REST</a></h2>
+<h2 id="next--create-a-resource-with-api-restweb-api-rest-with-symfony2-the-best-way-the-post-method">Next ›› <a href="/web-api-rest-with-symfony2-the-best-way-the-post-method/">create a resource with API REST</a></h2>
 
 <p>In the next articles, we will describe how to use the page form as shared interface, we will create, modify, and delete Pages, with <code>PUT</code>, <code>PATCH</code>, <code>POST</code>, <code>DELETE</code>, and we will detail how use other important HTTP headers.</p>
 
 <h3 id="references">References:</h3>
 
 <ol>
-<li><a href="http://www.symfony2.com">sf2 - Symfony.com</a></li>
-
-<li><a href="http://www.youtube.com/watch?v=Kkby5fG89K0">Lukas Kahwe Smith: resting with Sf2 - video</a></li>
-
-<li><a href="http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/">William Durand: rest-apis-with-symfony2-the-right-way - blog</a></li>
-
-<li><a href="https://speakerdeck.com/gordalina/rest-apis-made-easy-with-symfony2">Samuel Gordalina: REST APIs made easy with Symfony2 - slide</a></li>
-
-<li><a href="http://www.slideshare.net/dlondero/rest-in-practice-27335543">Daniel Londero: Rest in practice - slide</a></li>
+  <li><a href="http://www.symfony2.com">sf2 - Symfony.com</a></li>
+  <li><a href="http://www.youtube.com/watch?v=Kkby5fG89K0">Lukas Kahwe Smith: resting with Sf2 - video</a></li>
+  <li><a href="http://williamdurand.fr/2012/08/02/rest-apis-with-symfony2-the-right-way/">William Durand: rest-apis-with-symfony2-the-right-way - blog</a></li>
+  <li><a href="https://speakerdeck.com/gordalina/rest-apis-made-easy-with-symfony2">Samuel Gordalina: REST APIs made easy with Symfony2 - slide</a></li>
+  <li><a href="http://www.slideshare.net/dlondero/rest-in-practice-27335543">Daniel Londero: Rest in practice - slide</a></li>
 </ol>
+
+
     </article>
     <hr>
     <div id="related">
@@ -791,15 +838,15 @@ Allow: GET
       <ul class="posts">
       
       <li>
+       <span>31 Aug 2014 &raquo;</span> <a href="/price-more-then-money-php-library">Price more then Money - PHP library</a>
+      </li>
+      
+      <li>
        <span>05 May 2014 &raquo;</span> <a href="/best-resources-about-symfony-tdd-bdd-ddd-methologies">(my) Best resources about methodologies on Symfony, PHP, DDD, BDD ...</a>
       </li>
       
       <li>
        <span>29 Apr 2014 &raquo;</span> <a href="/domain-driven-design-and-symfony-for-simple-app">Domain Driven Design principles with Symfony2 also for dummy applications</a>
-      </li>
-      
-      <li>
-       <span>21 Mar 2014 &raquo;</span> <a href="/persist-the-money-doctrine-value-object">Persist the Money, Doctrine Value Object</a>
       </li>
       
       </ul>

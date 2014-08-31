@@ -45,11 +45,6 @@
             
         </div>
     </header>
-<div class="hiring" style="position: absolute; top: 0px; right: 0px;z-index:1">
-    <a href="http://tvision.github.io/job/back-end-developer/" title="My team is hiring!!!">
-        <img width="220" src="http://cambridgelocalfirst.org/wp-content/uploads/2014/01/hiring.png">
-    </a>
-</div>
 
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
     <section id="content">
@@ -221,11 +216,15 @@
      
     	<li class="tag-list tag-size-3"><a href="/tags.html#api-ref" rel="3">api <span>3</span></a></li>
      
-    	<li class="tag-list tag-size-3"><a href="/tags.html#DDD-ref" rel="3">DDD <span>3</span></a></li>
+    	<li class="tag-list tag-size-4"><a href="/tags.html#DDD-ref" rel="4">DDD <span>4</span></a></li>
      
-    	<li class="tag-list tag-size-1"><a href="/tags.html#value objects-ref" rel="1">value objects <span>1</span></a></li>
+    	<li class="tag-list tag-size-2"><a href="/tags.html#value objects-ref" rel="2">value objects <span>2</span></a></li>
+     
+    	<li class="tag-list tag-size-2"><a href="/tags.html#money-ref" rel="2">money <span>2</span></a></li>
      
     	<li class="tag-list tag-size-1"><a href="/tags.html#symfony-ref" rel="1">symfony <span>1</span></a></li>
+     
+    	<li class="tag-list tag-size-1"><a href="/tags.html#price-ref" rel="1">price <span>1</span></a></li>
     
   
 
@@ -238,6 +237,10 @@
                     <div id="related" class="boxed">
                     <h3>Related Posts</h3>
                     <ul class="posts">
+                    
+                    <li>
+                      <a href="/price-more-then-money-php-library">Price more then Money - PHP library</a>
+                    </li>
                     
                     <li>
                       <a href="/best-resources-about-symfony-tdd-bdd-ddd-methologies">(my) Best resources about methodologies on Symfony, PHP, DDD, BDD ...</a>
@@ -253,10 +256,6 @@
                     
                     <li>
                       <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
-                    </li>
-                    
-                    <li>
-                      <a href="/web-api-rest-with-symfony2-the-best-way-the-post-method">part2 - Web API REST with Symfony2</a>
                     </li>
                     
                     </ul>
@@ -343,75 +342,84 @@
         </div>
     </div>
     <article>
-        <p>I made the following changes to the config, deps and autoload in order to push all the assets directly into a github repository.</p>
+        
+<p>I made the following changes to the config, deps and autoload in order to push all the assets directly into a github repository.</p>
 
 <p><strong>Why you should pay for CDN if you can use Github?</strong></p>
 
 <h2 id="theory">Theory</h2>
 
 <ol>
-<li>
-<p>[Php library] the library teqneers/PHP-Stream-Wrapper-for-Git registers a stream and commit to a repository each file that is moved throw the stream</p>
-</li>
-
-<li>
-<p>[Symfony2] Assetic bundle compresses and streams the files in your local repository, and twig render the raw.github url</p>
-</li>
-
-<li>
-<p>[Git-Hook] The Post-Commit hook will push to remote repository automatically</p>
-</li>
+  <li>
+    <p>[Php library] the library teqneers/PHP-Stream-Wrapper-for-Git  registers a stream and commit to a repository each file that is moved throw the stream</p>
+  </li>
+  <li>
+    <p>[Symfony2] Assetic bundle compresses and streams the files in your local repository, and twig render the raw.github url</p>
+  </li>
+  <li>
+    <p>[Git-Hook] The Post-Commit hook will push to remote repository automatically</p>
+  </li>
 </ol>
 
-<h2 id="how_to">How To</h2>
+<h2 id="how-to">How To</h2>
 
 <p>Just 3 steps</p>
 
-<h2 id="step_1_install_the_library_in_your_symfony2">Step 1 Install the library in your symfony2</h2>
+<h2 id="step-1-install-the-library-in-your-symfony2">Step 1 Install the library in your symfony2</h2>
 
 <p>In your deps file add the following lines, and then run bin/vendors install</p>
-<script src='https://gist.github.com/2427058.js?file=deps'> </script>
+
+<script src="https://gist.github.com/2427058.js?file=deps"> </script>
+
 <p>Register namespace and register stream into <code>app/autoload.php</code></p>
 
-<p>‘/usr/bin/git’ is where your git binary are</p>
+<p>‘/usr/bin/git’  is where your git binary are</p>
 
-<p>‘php-git’ is the name of the stream</p>
-<script src='https://gist.github.com/2427058.js?file=app-autoload.php'> </script>
-<h2 id="step_2_github_or_bitbucket_repository">Step 2 Github or BitBucket Repository</h2>
+<p>‘php-git’  is the name of the stream</p>
+
+<script src="https://gist.github.com/2427058.js?file=app-autoload.php"> </script>
+
+<h2 id="step-2-github-or-bitbucket-repository">Step 2 Github or BitBucket Repository</h2>
 
 <ul>
-<li>Create Repo in the root /UsingGitHubAsAssetsCloudFiles</li>
+  <li>Create Repo in the root /UsingGitHubAsAssetsCloudFiles</li>
 </ul>
 
 <p><a href="http://help.github.com/create-a-repo/">http://help.github.com/create-a-repo/</a></p>
 
-<p>the public url of the repo will be www.github.com/liuggio/UsingGitHubAsAssetsCloudFiles,</p>
+<p>the public url of the repo will be  www.github.com/liuggio/UsingGitHubAsAssetsCloudFiles,</p>
 
-<p>your remote name is ‘origin’ and the branch is ‘master’</p>
+<p>your remote name is ‘origin’  and the branch is ‘master’</p>
 
 <ul>
-<li>Add the Hook into the /UsingGitHubAsAssetsCloudFiles</li>
+  <li>Add the Hook into the /UsingGitHubAsAssetsCloudFiles</li>
 </ul>
 
 <p>create a file into ‘/UsingGitHubAsAssetsCloudFiles/.git/hooks/post-commit’</p>
-<script src='https://gist.github.com/2427058.js?file=UsingGitHubAsAssetsCloudFiles-.git-hooks-post-commit'> </script>
-<h2 id="step_3_configyml_and_assets">Step 3 Config.yml and Assets</h2>
+
+<script src="https://gist.github.com/2427058.js?file=UsingGitHubAsAssetsCloudFiles-.git-hooks-post-commit"> </script>
+
+<h2 id="step-3-configyml-and-assets">Step 3 Config.yml and Assets</h2>
 
 <ul>
-<li>modify your <code>app/config/config.yml</code> in 2 different places</li>
+  <li>modify your <code>app/config/config.yml</code> in 2 different places</li>
 </ul>
-<script src='https://gist.github.com/2427058.js?file=app-config-config.yml'> </script>
+
+<script src="https://gist.github.com/2427058.js?file=app-config-config.yml"> </script>
+
 <ul>
-<li>dump all the file for prod</li>
+  <li>dump all the file for prod</li>
 </ul>
 
 <p><code>app/console assetic:dump –env=prod</code></p>
 
-<p>go to your symfony2 website http://yoursymfony2.com/web/app.php/hello/{YES}</p>
+<p>go to your symfony2 website  http://yoursymfony2.com/web/app.php/hello/{YES}</p>
 
 <p>THAT’S ALL.</p>
 
-<p>Now github is hosting your assets (for free) and your web server is happy (and if your webserver is into the cloud you’ll not charged for assets )</p>
+<p>Now github is hosting your assets (for free) and your web server is happy (and if your webserver is into the cloud you’ll not charged for assets  )</p>
+
+
     </article>
     <hr>
     <div id="related">
@@ -419,15 +427,15 @@
       <ul class="posts">
       
       <li>
+       <span>31 Aug 2014 &raquo;</span> <a href="/price-more-then-money-php-library">Price more then Money - PHP library</a>
+      </li>
+      
+      <li>
        <span>05 May 2014 &raquo;</span> <a href="/best-resources-about-symfony-tdd-bdd-ddd-methologies">(my) Best resources about methodologies on Symfony, PHP, DDD, BDD ...</a>
       </li>
       
       <li>
        <span>29 Apr 2014 &raquo;</span> <a href="/domain-driven-design-and-symfony-for-simple-app">Domain Driven Design principles with Symfony2 also for dummy applications</a>
-      </li>
-      
-      <li>
-       <span>21 Mar 2014 &raquo;</span> <a href="/persist-the-money-doctrine-value-object">Persist the Money, Doctrine Value Object</a>
       </li>
       
       </ul>
