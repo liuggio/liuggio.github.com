@@ -168,7 +168,7 @@ The table below, describes the name of the actions, on the head of the table the
     <td>-</td>
 </tr>
 <tr>
-    <td><b>pages/{id}</b></td>
+    <td><b>page/{id}</b></td>
     <td>Show
 <br>
     getPageAction($id)</td>
