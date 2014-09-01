@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Price more then Money - PHP library"
+title: "Price: more then Money - PHP library"
 description: "A Price is the amount in different currencies."
 category: post
 published: true
@@ -87,6 +87,19 @@ In PHP:
 
 	var_dump($ticketPrice->availableCurrencies()); // array with EUR, GBP
 
+##### Constructor with Money
+
+If you already use the Money V.O. in your project the Price constructor also support Money.
+
+    use Money\Money;
+
+    $price = new Price(
+        array(
+            Money::EUR(5),
+            Money::USD(10),
+            'GBP' => 120  // or mixed
+        )
+    );
 
 ### A Price is the amount in different currencies.
 
@@ -149,7 +162,12 @@ that's a good way to do it, using a conversion ISO:
 
 More info at [Currency_pair](http://en.wikipedia.org/wiki/Currency_pair), and [mathiasverraes/CurrencyPair.php](https://github.com/mathiasverraes/money/blob/master/lib/Money/CurrencyPair.php).
 
+### Infrastructure Layer?
 
-### Stabilization process
+Um, it's up to you to understand if you need to persist the Price value object, is also up to you to choose which type of database and how to represent the Price in the database, **but** take a look to `src/Infrastructure/DoctrineORMPriceType.php` is the `Doctrine >2.0` custom type, it uses a string to store the value:
 
-The library is not stable, there are few issues opened: eg. the value object is not immutable, when this issue will be closed, the `Price` library will have a new `stable` release.
+    "EUR 1000;EUR/USD 1.3"
+
+Note: we are not suggesting a relational database as storage or doctrine as ORM, we are only providing a custom type if you decide to use Doctrine 2.0 dbal.
+
+**Enjoy** [github/leaphly/price](https://github.com/leaphly/price).
