@@ -11,13 +11,17 @@ edit-link: https://github.com/liuggio/liuggio.github.com/blob/master/_posts/2014
 
 ## Abstract 
 
-When we want to put a new open-source library it should be a useful library, it should not exist it the ecosystem, but we should put libraries that explain a good practice, when we satisfy this we are adding a value.
+When we want to put a new open-source library it should be a useful library, it should not exist it the ecosystem, but we should put libraries that explain a good practice, 
+
+when we satisfy this we are adding a value.
 
 ## You need the Money lib.
 
 ### Down with Float
 
-In the different versions of our e-commerce we first have used the float to represent the money, yes it was a bad choise, PHP is very bad with all the float operations, shortly we started using BC-math, yet bad choice it was too difficult and too instable.
+In the different versions of our e-commerce we first have used the float to represent the money, yes it was a bad choice,
+
+PHP is very bad with all the float operations, shortly we started using BC-math, yet bad choice it was too difficult and too instable.
 
 ### Long live Value Object
 
@@ -30,7 +34,7 @@ Shortly, how to represent the money information of a product like a `T-Shirt`?
     $currency = 'EUR';
 
 
-As already you know the value object is the answer, read more at [Martin Fowler’s PoEAA](http://martinfowler.com/books.html),
+As you already know the value object is the answer, read more at [Martin Fowler’s PoEAA](http://martinfowler.com/books.html),
 and the [Money lib of Mathias Verraes](https://github.com/mathiasverraes/money) is a good implementation:
 
 
@@ -40,7 +44,7 @@ and the [Money lib of Mathias Verraes](https://github.com/mathiasverraes/money) 
 
 ## You need a Price.
 
-There is always a moment when you need to work on a product that hase different amount on different currencies, especially if you need to implement an e-commerce sooner or later you need different values.
+There is always a moment when you need to work on a product that has different amount on different currencies, especially if you need to implement an e-commerce sooner or later you need different values.
 
 So how to implement the object Price?
 
@@ -62,7 +66,7 @@ surely the array is not the best choice:
 
 ### The value object
 
-We have relased the [Price library](https://github.com/leaphly/price):
+We have released the [Price library](https://github.com/leaphly/price):
 
 	composer require leaphly\price 1.0-dev;
 
@@ -109,7 +113,7 @@ Has a different mathematical operators:
 
 ### the API 
 
-the API is in alpha release:
+the APIs are in `-alpha` release:
 
 - inXXX magic call eg. `inEUR`() alias of getAmount('EUR')
 - `getConversions`
@@ -127,20 +131,25 @@ the API is in alpha release:
 
 Happens that you have only one fixed amount eg. 10 EUR, 
 and you want to provide the converted amount for another currency,
-that's a good way to do it:
+that's a good way to do it, using a conversion ISO:
 
 
 	$price = new Price(
 	    array(
 	        'EUR' => 100,
 	    ),
-	    array('EUR/USD 1.500') // ISO.
+	    array('EUR/USD 1.500') // ISO
 	);
 
 	echo $price->inUSD(); // will return 150
 	var_dump($price->availableCurrencies()); // will return array('EUR', 'USD')
 
 
+`EUR/USD 1.500` means that if you need the USD amount the Price object will convert starting from the EUR value.
+
+More info at [Currency_pair](http://en.wikipedia.org/wiki/Currency_pair), and [mathiasverraes/CurrencyPair.php](https://github.com/mathiasverraes/money/blob/master/lib/Money/CurrencyPair.php).
+
+
 ### Stabilization process
 
-The library is not stable, there are few issues opened, this value object is not immutable, when the issues will be closed, the `Price` library will have a new release.
+The library is not stable, there are few issues opened: eg. the value object is not immutable, when this issue will be closed, the `Price` library will have a new `stable` release.
