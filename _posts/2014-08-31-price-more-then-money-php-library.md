@@ -89,7 +89,7 @@ In PHP:
 
 ##### Constructor with Money
 
-If you already use the Money V.O. in your project the Price constructor also support Money.
+If you already use the Money V.O. in your project the Price constructor also supports Money.
 
     use Money\Money;
 
