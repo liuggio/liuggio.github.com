@@ -157,7 +157,7 @@ Fastest is not developed only for phpunit, with its syntax is able to paralleliz
 
 ## NIH
 
-If you are happy with `paratest` use it, it had in the past a lot of effort from the community and is mature, we have developed `fastest` because with our codebase wasn't stable with random failures, and instead parallel did a great job but the missing env. variables did not help our  functional tests. 
+If you are happy with `paratest` use it, it had a lot of effort from the community and is mature, we have developed `fastest` because with our codebase wasn't stable with random failures, and instead parallel did a great job but the missing env. variables did not help our  functional tests. 
 
 ## Moral
 
