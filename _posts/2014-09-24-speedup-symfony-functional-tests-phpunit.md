@@ -6,6 +6,7 @@ category: post
 published: true
 tags: [phpunit, fixture, test, functional]
 edit-link: https://github.com/liuggio/liuggio.github.com/blob/master/_posts/2014-09-24-speedup-symfony-functional-tests-phpunit.md
+date: 2014-09-30 08:00:01
 ---
 {% include JB/setup %}
 
@@ -166,7 +167,7 @@ Maybe it's time to think about that if you have tests that take too long is not 
 **Enjoy parallelization.**
 
 ### Great links:
-
+    
 1. http://zalas.eu/running-behat-in-parallel-with-selenium-grid/
 2. https://github.com/symfony/symfony/blob/master/.travis.yml#L35
 3. https://github.com/zendframework/zf2/blob/a7b91f585b7d342bcc61a810972997cba1d3ab17/.travis.yml#L21
