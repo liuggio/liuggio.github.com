@@ -39,7 +39,7 @@ What we needed was to run tests in parallel *limiting* the number of simultaneou
 
 ![CPU with Htop and Fastest]({{ ASSET_PATH }}/readable-liuggio/img/fastest-4-cpu.png)
 
-The picture is pretty self-explanatory: using that F*#@ing **Multi-Core:**
+The picture is pretty self-explanatory, use that F*#@ing **Multi-Core:**
 
 Usually functional tests have assertions on data storage, so the best is to divide tests into channels (one per Core), and each channel is associated to a database with a different name, and only one test is executed simultaneously per channel:
 eg. the test in the channel number 3 will read from the "test_3" database.
