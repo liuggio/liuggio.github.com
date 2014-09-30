@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Speed up the PHPunit and functional tests with Symfony - fastest"
+title: "Speed up PHPUnit and functional tests with Symfony and fastest"
 description: "No more slow test suite"
 category: post
 published: true
