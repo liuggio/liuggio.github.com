@@ -153,8 +153,7 @@ The trick is quite easy instead every requests the cache is checked only once fo
 
 ### Only PHPUnit
 
-Fastest non è stato pensato solamente per phpunit, anzi data la sua sintassi, puo' parallelizzare qualsiasi test funzionale, anche con behat.
-
+Fastest is not developed only for phpunit, with its syntax is able to parallelize any functional tests, even Behat.
 
 ## NIH
 
