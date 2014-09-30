@@ -163,6 +163,9 @@ If you are happy with `paratest` use it, it had in the past a lot of effort from
 
 Maybe it's time to think about that if you have tests that take too long is not the fault of the speed of the computer, but how was the code coupled...
 
+
+
+
 **Enjoy parallelization.**
 
 ### Great links:
