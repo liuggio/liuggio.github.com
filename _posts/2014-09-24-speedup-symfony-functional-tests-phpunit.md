@@ -150,8 +150,25 @@ The trick is quite easy instead every requests the cache is checked only once fo
         this->container->set('kernel', $this);   
     }
 
+### Only PHPUnit
+
+Fastest non è stato pensato solamente per phpunit, anzi data la sua sintassi, puo' parallelizzare qualsiasi test funzionale, anche con behat.
+
+
+## NIH
+
+If you are happy with `paratest` use it, it had in the past a lot of effort from the community and is mature, we have developed `fastest` because with our codebase wasn't stable with random failures, and instead parallel did a great job but the missing env. variables did not help our  functional tests. 
+
 ## Moral
 
 Maybe it's time to think about that if you have tests that take too long is not the fault of the speed of the computer, but how was the code coupled...
 
-Enjoy parallelization.
+**Enjoy parallelization.**
+
+### Great links:
+
+1. http://zalas.eu/running-behat-in-parallel-with-selenium-grid/
+2. https://github.com/symfony/symfony/blob/master/.travis.yml#L35
+3. https://github.com/zendframework/zf2/blob/a7b91f585b7d342bcc61a810972997cba1d3ab17/.travis.yml#L21
+4. https://github.com/brianium/paratest
+5. http://code.tutsplus.com/tutorials/parallel-testing-for-phpunit-with-paratest--net-32105
