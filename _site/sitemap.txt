@@ -7,6 +7,7 @@ http://welcometothebundle.com/sitemap.txt
 http://welcometothebundle.com/tags.html
 http://welcometothebundle.com/atom.xml
 
+http://welcometothebundle.com/speedup-symfony-functional-tests-phpunit
 http://welcometothebundle.com/price-more-then-money-php-library
 http://welcometothebundle.com/best-resources-about-symfony-tdd-bdd-ddd-methologies
 http://welcometothebundle.com/domain-driven-design-and-symfony-for-simple-app

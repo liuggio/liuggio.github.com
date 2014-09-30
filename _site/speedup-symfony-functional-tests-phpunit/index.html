@@ -3,9 +3,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>2013-Software Team Manifesto</title>
+    <title>Speed up the PHPunit and functional tests with Symfony - fastest</title>
     
-    <meta name="description" content="">
+    <meta name="description" content="No more slow test suite">
     
     <meta name="author" content="Giulio De Donato">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -243,10 +243,6 @@
                     <ul class="posts">
                     
                     <li>
-                      <a href="/speedup-symfony-functional-tests-phpunit">Speed up the PHPunit and functional tests with Symfony - fastest</a>
-                    </li>
-                    
-                    <li>
                       <a href="/price-more-then-money-php-library">Price: more then Money - PHP library</a>
                     </li>
                     
@@ -262,6 +258,10 @@
                       <a href="/persist-the-money-doctrine-value-object">Persist the Money, Doctrine Value Object</a>
                     </li>
                     
+                    <li>
+                      <a href="/symfony2-rest-api-the-best-way-part-3">part 3 - Symfony2 API: the rest of REST</a>
+                    </li>
+                    
                     </ul>
                     </div>
                 
@@ -275,26 +275,22 @@
 <div class="span9">
     <div class="page-header">
         <div class="row">
-            <h1 class="span8">2013-Software Team Manifesto 
+            <h1 class="span8">Speed up the PHPunit and functional tests with Symfony - fastest 
             </h1>
           <div class="span1 right bottom sticky center">
               
               <div id="edit-github">
-                  <a class="btn btn-mini" target="_blank" href="https://github.com/liuggio/liuggio.github.com/edit/master/_posts/2012-09-16-tvision-team-manifesto.md" title="Found a typo? Please edit it on Github"><i class="icon-edit pull-left"></i><b>Fix</b></a>
+                  <a class="btn btn-mini" target="_blank" href="https://github.com/liuggio/liuggio.github.com/blob/master/_posts/2014-09-24-speedup-symfony-functional-tests-phpunit.md" title="Found a typo? Please edit it on Github"><i class="icon-edit pull-left"></i><b>Fix</b></a>
               </div>
               
 
               <div id="sticky-pagination" class="hidden">
                   
-                      <a class="btn-mini pull-left" target="_blank" href="/easily-install-statsd-and-graphite-with-vagrant" title="Easily install statsd and graphite with vagrant">
+                      <a class="btn-mini pull-left" target="_blank" href="/price-more-then-money-php-library" title="Price: more then Money - PHP library">
                           <i class="icon-arrow-left"></i>
                       </a>
                   
 
-                  
-                  <a class="btn-mini pull-right" target="_blank" href="/symfony-day-5-october-turin-2012" title="Improving the performance of a Symfony2 web application.">
-                      <i class="icon-arrow-right"></i>
-                  </a>
                   
               </div>
 
@@ -314,7 +310,7 @@
         <hr>
         <div class="row">
             <div class="span4">
-                <div class="date"><span>16 September 2012</span></div>
+                <div class="date"><span>24 September 2014</span></div>
             </div>
 
             <div class="span5">
@@ -326,13 +322,13 @@
 
   
      
-    	<li class="tag-list tag-size-1"><a href="/tags.html#tvision-ref">tvision <span>1</span></a></li>
+    	<li class="tag-list tag-size-4"><a href="/tags.html#phpunit-ref">phpunit <span>4</span></a></li>
      
-    	<li class="tag-list tag-size-1"><a href="/tags.html#team-ref">team <span>1</span></a></li>
+    	<li class="tag-list tag-size-1"><a href="/tags.html#fixture-ref">fixture <span>1</span></a></li>
      
-    	<li class="tag-list tag-size-1"><a href="/tags.html#coding-ref">coding <span>1</span></a></li>
+    	<li class="tag-list tag-size-3"><a href="/tags.html#test-ref">test <span>3</span></a></li>
      
-    	<li class="tag-list tag-size-13"><a href="/tags.html#PHP-ref">PHP <span>13</span></a></li>
+    	<li class="tag-list tag-size-1"><a href="/tags.html#functional-ref">functional <span>1</span></a></li>
     
   
 
@@ -345,34 +341,164 @@
     </div>
     <article>
         
-<h2 id="abstract">Abstract</h2>
+<p>Once in a while a 35 minutes test suite reached 7 minutes thanks to a magician called <code>fastest</code></p>
 
-<p>In the chaos of the implicit, a programmer who joins a team must have a common language and some rules in order to have an integration without friction.</p>
+<p>&#8230; today we decided to release <code>fastest</code> as open-source library.</p>
 
-<p>There is a level 0, a common and accepted (or imposed by the architect) knowledge.</p>
+<h3 id="just-testing">Just Testing</h3>
 
-<p>This document defines the concepts and guidelines to follow in order to be a developer who can work in a software team in 2013.</p>
+<p>Have you ever seen how your computer&#8217;s multi-core works when you execute PHPUnit? </p>
 
-<p>I think that you are already proficient with this notions.</p>
+<p><img src="/assets/themes//readable-liuggio/img/phpunit-single-cpu.png" alt="CPU with Htop and PHPUnit" /></p>
 
-<p>We use PHP as language and Symofony2 as framework.</p>
+<p>Ehm technically only one core is fatigued, because the tests are serially launched.</p>
 
-<script src="https://gist.github.com/4339207.js"> </script>
+<h2 id="parallel-testing">Parallel testing</h2>
 
-<p>Any comment or help is really appreciated, </p>
+<h3 id="existing-tool">Existing tool</h3>
 
-<p>please help me to improve this document forking this <a href="https://gist.github.com/4339207">gist</a>.</p>
+<p>Maybe we can do better, we can use all cores, we have begun to experiment <a href="https://github.com/brianium/paratest">paratest</a>, and subsequently 
+<a href="https://github.com/grosser/parallel">Parallel</a>. </p>
 
+<p>Parallel is the one that gave us more satisfaction, but it was not enough, Parallel does not help the functional tests.</p>
+
+<h3 id="the-needs">The needs</h3>
+
+<p>What we needed was to run tests in parallel <em>limiting</em> the number of simultaneously tests by the number of cores on the computer (like parallel), not only by providing information of which <em>channel</em> is being used by environment variables (as paratest does) but a stable running suite with a lot of information for each test the goal is to have <em>*to easy make functional parallel testing</em>.</p>
+
+<h3 id="how">How?</h3>
+
+<p><img src="/assets/themes//readable-liuggio/img/fastest-4-cpu.png" alt="CPU with Htop and Fastest" /></p>
+
+<p>The picture is pretty self-explanatory: using that F*#@ing <strong>Multi-Core:</strong></p>
+
+<p>Usually functional tests have assertions on data storage, so the best is to divide tests into channels (one per Core), and each channel is associated to a database with a different name, and only one test is executed simultaneously per channel:
+eg. the test in the channel number 3 will read from the &#8220;test_3&#8221; database.</p>
+
+<h4 id="installing-fastest">Installing fastest</h4>
+
+<p>All the info to install <a href="git@github.com:liuggio/fastest.git">fastest</a> if you want a short version:</p>
+
+<p>add to your <code>composer.json</code></p>
+
+<pre><code>"require-dev": {
+    "liuggio/fastest": "dev-master"
+}
+</code></pre>
+
+<p>Each test will have access to the following variables:</p>
+
+<ol>
+  <li>Unique number for each test (useful for filename fixtures).</li>
+  <li>Channel number (from 1 to the core number).</li>
+  <li>Readeable database name.</li>
+  <li>Variable tells if is the first test on its channel, useful for clear cache (you&#8217;ll see later how this would help).</li>
+</ol>
+
+<p>In PHP is so easy to access to the env variable using: <code>getenv('varname')</code>.</p>
+
+<h2 id="improving-symfony-testing-speed">Improving Symfony testing speed</h2>
+
+<p>As we said we want to let the test decide which database use, Symfony allows you to pass the <a href="http://symfony.com/doc/current/cookbook/configuration/external_parameters.html">environment variables</a> as container parameters respecting the <a href="http://12factor.net/config">12 factors</a> <strong>but</strong> Symfony freezes the container, so the stylish way to let the environment variables decide the name of the database to use is to to decorate the DBAL Connection Factory as follow:</p>
+
+<pre><code>`config_test.yml`
+parameters:
+    doctrine.dbal.connection_factory.class: Liuggio\Fastest\Doctrine\DbalConnectionFactory
+</code></pre>
+
+<p>When a new connection is needed the factory will provide the correct <code>db_name</code> replacing the db name with the env. variable, using only one test environment.</p>
+
+<pre><code>// src/Doctrine/DbalConnectionFactory.php
+/**
+ * Create a connection by name, replacing the db name with the env. variable
+ */
+public function createConnection(array $params, Configuration $config = null, EventManager $eventManager = null, array $mappingTypes = array())
+{
+    $params['dbname'] = $this-&gt;getDbNameFromEnv($params['dbname']);
+
+    return parent::createConnection($params, $config, $eventManager, $mappingTypes);
+}
+...
+private function getDbNameEnvValue()
+{
+    return getenv(EnvCommandCreator::ENV_TEST_DB_NAME);
+}
+</code></pre>
+
+<p>To test the setting, execute </p>
+
+<p><code>export ENV_TEST_DB_NAME='test_1';app/console doctrine:database:create --env=test;</code></p>
+
+<p>You should see something similar to:</p>
+
+<pre><code>Created database for connection named `test_1`
+</code></pre>
+
+<h2 id="first-big-goal">First Big Goal</h2>
+
+<p>I thing you are ready to run your suite with</p>
+
+<pre><code>find src/* -name "*Test.php" |   \
+  bin/fastest                    \
+    --before="bin/initORM test"  \
+    --verbose                    \
+    --preserve-order             \
+    "bin/phpunit -c app {};"
+</code></pre>
+
+<p><a href="https://gist.github.com/liuggio/e927a86c8fa4dadbe828">InitORM is a simple script</a> that executes <code>doctrine:database:create --env=test</code>, <code>doctrine:database:drop --env=test</code>, and <code>doctrine:fixture:load --env=test</code>&#8230;</p>
+
+<h3 id="a-lot-of-failures-">A lot of failures ?!</h3>
+
+<p>Fastest executes each test in a single process, this mode may brings up many issues that are hided executing in the whole suite, the most well known are the namespace doesn&#8217;t not match with the filename, and the file given in input by the pipe match with the &#8220;*Test.php&#8221; but they might be abstract classes.</p>
+
+<p>If you want you could run Fastest with the <code>--xml</code> option instead piping the find result.</p>
+
+<p>If you don&#8217;t use the strategy of loading the fixtures the test need before it, may happens that a test modifies the content of the data storage, and the next test on the same channel fails.
+This is very annoying and adding the option <code>--rerun-failed</code> fastest will run again all the failed tests.</p>
+
+<p>If you are developing a new project or your test are isolated you may be interested on removing the <code>--preserve-order</code> option.</p>
+
+<h2 id="dont-check-if-the-cache-is-fresh">Don&#8217;t check if the cache is fresh!</h2>
+
+<p>In the second trick we will try to avoid a lot of disk accesses, using the env. variable <code>ENV_TEST_IS_FIRST_ON_CHANNEL</code> provided by fastest.</p>
+
+<p>Strongly inspired by the <a href="http://kriswallsmith.net/post/27979797907/get-fast-an-easy-symfony2-phpunit-optimization">kriswallsmith&#8217;s trick for phpunit optimization</a>, with a little modification for our parallel domain, we will save precious minutes by removing the cache is fresh check.</p>
+
+<p>The trick is quite easy instead every requests the cache is checked only once for channel process.</p>
+
+<pre><code>protected function initializeContainer()
+{   
+    $isFirst = getenv(\Liuggio\Fastest\Process\EnvCommandCreator::ENV_TEST_IS_FIRST_ON_ITS_THREAD);
+
+    if ('test' !== $this-&gt;getEnvironment()
+     || null === $isFirst
+     || 0 !== (int)$isFirst
+    ) {
+        parent::initializeContainer();
+        return;
+    }
+
+    $class = $this-&gt;getContainerClass();
+    $cache = new \Symfony\Component\Config\ConfigCache($this-&gt;getCacheDir().'/'.$class.'.php', $this-&gt;debug);
+
+    require_once $cache;
+    $this-&gt;container = new $class();
+    this-&gt;container-&gt;set('kernel', $this);   
+}
+</code></pre>
+
+<h2 id="moral">Moral</h2>
+
+<p>Maybe it&#8217;s time to think about that if you have tests that take too long is not the fault of the speed of the computer, but how was the code coupled&#8230;</p>
+
+<p>Enjoy parallelization.</p>
 
     </article>
     <hr>
     <div id="related">
       <h3>Related Posts</h3>
       <ul class="posts">
-      
-      <li>
-       <span>24 Sep 2014 &raquo;</span> <a href="/speedup-symfony-functional-tests-phpunit">Speed up the PHPunit and functional tests with Symfony - fastest</a>
-      </li>
       
       <li>
        <span>31 Aug 2014 &raquo;</span> <a href="/price-more-then-money-php-library">Price: more then Money - PHP library</a>
@@ -382,19 +508,22 @@
        <span>05 May 2014 &raquo;</span> <a href="/best-resources-about-symfony-tdd-bdd-ddd-methologies">(my) Best resources about methodologies on Symfony, PHP, DDD, BDD ...</a>
       </li>
       
+      <li>
+       <span>29 Apr 2014 &raquo;</span> <a href="/domain-driven-design-and-symfony-for-simple-app">Domain Driven Design principles with Symfony2 also for dummy applications</a>
+      </li>
+      
       </ul>
     </div>
     
     <div class="pagination">
         <ul class="pager span9">
             
-            <li class="prev span3"><a href="/easily-install-statsd-and-graphite-with-vagrant" title="Easily install statsd and graphite with vagrant"><i class="icon-arrow-left"></i><br>
-                Previous - Easily install statsd and graphite with vagrant</a></li>
+            <li class="prev span3"><a href="/price-more-then-money-php-library" title="Price: more then Money - PHP library"><i class="icon-arrow-left"></i><br>
+                Previous - Price: more then Money - PHP library</a></li>
             
             <li  class="span2 center"><a style=" width: 100%;" href="/index.html"><br>Archive</a></li>
             
-            <li class="next span3"><a href="/symfony-day-5-october-turin-2012" title="Improving the performance of a Symfony2 web application."><i class="icon-arrow-right"></i> <br>Next - Improving the performance of a Symfony2 web application.</a>
-            </li>
+            <li class="next disabled span2"><a><i class="icon-arrow-right"></i> <br>Next</a></li>
             
         </ul>
     </div>

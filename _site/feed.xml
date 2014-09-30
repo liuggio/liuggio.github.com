@@ -7,6 +7,167 @@
         <atom:link href="http://welcometothebundle.com/feed.xml" rel="self" type="application/rss+xml" />
         
         <item>
+            <title>Speed up the PHPunit and functional tests with Symfony - fastest</title>
+            <description>
+&lt;p&gt;Once in a while a 35 minutes test suite reached 7 minutes thanks to a magician called &lt;code&gt;fastest&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;#8230; today we decided to release &lt;code&gt;fastest&lt;/code&gt; as open-source library.&lt;/p&gt;
+
+&lt;h3 id=&quot;just-testing&quot;&gt;Just Testing&lt;/h3&gt;
+
+&lt;p&gt;Have you ever seen how your computer&amp;#8217;s multi-core works when you execute PHPUnit? &lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/themes//readable-liuggio/img/phpunit-single-cpu.png&quot; alt=&quot;CPU with Htop and PHPUnit&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ehm technically only one core is fatigued, because the tests are serially launched.&lt;/p&gt;
+
+&lt;h2 id=&quot;parallel-testing&quot;&gt;Parallel testing&lt;/h2&gt;
+
+&lt;h3 id=&quot;existing-tool&quot;&gt;Existing tool&lt;/h3&gt;
+
+&lt;p&gt;Maybe we can do better, we can use all cores, we have begun to experiment &lt;a href=&quot;https://github.com/brianium/paratest&quot;&gt;paratest&lt;/a&gt;, and subsequently 
+&lt;a href=&quot;https://github.com/grosser/parallel&quot;&gt;Parallel&lt;/a&gt;. &lt;/p&gt;
+
+&lt;p&gt;Parallel is the one that gave us more satisfaction, but it was not enough, Parallel does not help the functional tests.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-needs&quot;&gt;The needs&lt;/h3&gt;
+
+&lt;p&gt;What we needed was to run tests in parallel &lt;em&gt;limiting&lt;/em&gt; the number of simultaneously tests by the number of cores on the computer (like parallel), not only by providing information of which &lt;em&gt;channel&lt;/em&gt; is being used by environment variables (as paratest does) but a stable running suite with a lot of information for each test the goal is to have &lt;em&gt;*to easy make functional parallel testing&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;how&quot;&gt;How?&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/themes//readable-liuggio/img/fastest-4-cpu.png&quot; alt=&quot;CPU with Htop and Fastest&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The picture is pretty self-explanatory: using that F*#@ing &lt;strong&gt;Multi-Core:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Usually functional tests have assertions on data storage, so the best is to divide tests into channels (one per Core), and each channel is associated to a database with a different name, and only one test is executed simultaneously per channel:
+eg. the test in the channel number 3 will read from the &amp;#8220;test_3&amp;#8221; database.&lt;/p&gt;
+
+&lt;h4 id=&quot;installing-fastest&quot;&gt;Installing fastest&lt;/h4&gt;
+
+&lt;p&gt;All the info to install &lt;a href=&quot;git@github.com:liuggio/fastest.git&quot;&gt;fastest&lt;/a&gt; if you want a short version:&lt;/p&gt;
+
+&lt;p&gt;add to your &lt;code&gt;composer.json&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&quot;require-dev&quot;: {
+    &quot;liuggio/fastest&quot;: &quot;dev-master&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Each test will have access to the following variables:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Unique number for each test (useful for filename fixtures).&lt;/li&gt;
+  &lt;li&gt;Channel number (from 1 to the core number).&lt;/li&gt;
+  &lt;li&gt;Readeable database name.&lt;/li&gt;
+  &lt;li&gt;Variable tells if is the first test on its channel, useful for clear cache (you&amp;#8217;ll see later how this would help).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;In PHP is so easy to access to the env variable using: &lt;code&gt;getenv('varname')&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;improving-symfony-testing-speed&quot;&gt;Improving Symfony testing speed&lt;/h2&gt;
+
+&lt;p&gt;As we said we want to let the test decide which database use, Symfony allows you to pass the &lt;a href=&quot;http://symfony.com/doc/current/cookbook/configuration/external_parameters.html&quot;&gt;environment variables&lt;/a&gt; as container parameters respecting the &lt;a href=&quot;http://12factor.net/config&quot;&gt;12 factors&lt;/a&gt; &lt;strong&gt;but&lt;/strong&gt; Symfony freezes the container, so the stylish way to let the environment variables decide the name of the database to use is to to decorate the DBAL Connection Factory as follow:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;`config_test.yml`
+parameters:
+    doctrine.dbal.connection_factory.class: Liuggio\Fastest\Doctrine\DbalConnectionFactory
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;When a new connection is needed the factory will provide the correct &lt;code&gt;db_name&lt;/code&gt; replacing the db name with the env. variable, using only one test environment.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// src/Doctrine/DbalConnectionFactory.php
+/**
+ * Create a connection by name, replacing the db name with the env. variable
+ */
+public function createConnection(array $params, Configuration $config = null, EventManager $eventManager = null, array $mappingTypes = array())
+{
+    $params['dbname'] = $this-&amp;gt;getDbNameFromEnv($params['dbname']);
+
+    return parent::createConnection($params, $config, $eventManager, $mappingTypes);
+}
+...
+private function getDbNameEnvValue()
+{
+    return getenv(EnvCommandCreator::ENV_TEST_DB_NAME);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To test the setting, execute &lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;export ENV_TEST_DB_NAME='test_1';app/console doctrine:database:create --env=test;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;You should see something similar to:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Created database for connection named `test_1`
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;first-big-goal&quot;&gt;First Big Goal&lt;/h2&gt;
+
+&lt;p&gt;I thing you are ready to run your suite with&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;find src/* -name &quot;*Test.php&quot; |   \
+  bin/fastest                    \
+    --before=&quot;bin/initORM test&quot;  \
+    --verbose                    \
+    --preserve-order             \
+    &quot;bin/phpunit -c app {};&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://gist.github.com/liuggio/e927a86c8fa4dadbe828&quot;&gt;InitORM is a simple script&lt;/a&gt; that executes &lt;code&gt;doctrine:database:create --env=test&lt;/code&gt;, &lt;code&gt;doctrine:database:drop --env=test&lt;/code&gt;, and &lt;code&gt;doctrine:fixture:load --env=test&lt;/code&gt;&amp;#8230;&lt;/p&gt;
+
+&lt;h3 id=&quot;a-lot-of-failures-&quot;&gt;A lot of failures ?!&lt;/h3&gt;
+
+&lt;p&gt;Fastest executes each test in a single process, this mode may brings up many issues that are hided executing in the whole suite, the most well known are the namespace doesn&amp;#8217;t not match with the filename, and the file given in input by the pipe match with the &amp;#8220;*Test.php&amp;#8221; but they might be abstract classes.&lt;/p&gt;
+
+&lt;p&gt;If you want you could run Fastest with the &lt;code&gt;--xml&lt;/code&gt; option instead piping the find result.&lt;/p&gt;
+
+&lt;p&gt;If you don&amp;#8217;t use the strategy of loading the fixtures the test need before it, may happens that a test modifies the content of the data storage, and the next test on the same channel fails.
+This is very annoying and adding the option &lt;code&gt;--rerun-failed&lt;/code&gt; fastest will run again all the failed tests.&lt;/p&gt;
+
+&lt;p&gt;If you are developing a new project or your test are isolated you may be interested on removing the &lt;code&gt;--preserve-order&lt;/code&gt; option.&lt;/p&gt;
+
+&lt;h2 id=&quot;dont-check-if-the-cache-is-fresh&quot;&gt;Don&amp;#8217;t check if the cache is fresh!&lt;/h2&gt;
+
+&lt;p&gt;In the second trick we will try to avoid a lot of disk accesses, using the env. variable &lt;code&gt;ENV_TEST_IS_FIRST_ON_CHANNEL&lt;/code&gt; provided by fastest.&lt;/p&gt;
+
+&lt;p&gt;Strongly inspired by the &lt;a href=&quot;http://kriswallsmith.net/post/27979797907/get-fast-an-easy-symfony2-phpunit-optimization&quot;&gt;kriswallsmith&amp;#8217;s trick for phpunit optimization&lt;/a&gt;, with a little modification for our parallel domain, we will save precious minutes by removing the cache is fresh check.&lt;/p&gt;
+
+&lt;p&gt;The trick is quite easy instead every requests the cache is checked only once for channel process.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;protected function initializeContainer()
+{   
+    $isFirst = getenv(\Liuggio\Fastest\Process\EnvCommandCreator::ENV_TEST_IS_FIRST_ON_ITS_THREAD);
+
+    if ('test' !== $this-&amp;gt;getEnvironment()
+     || null === $isFirst
+     || 0 !== (int)$isFirst
+    ) {
+        parent::initializeContainer();
+        return;
+    }
+
+    $class = $this-&amp;gt;getContainerClass();
+    $cache = new \Symfony\Component\Config\ConfigCache($this-&amp;gt;getCacheDir().'/'.$class.'.php', $this-&amp;gt;debug);
+
+    require_once $cache;
+    $this-&amp;gt;container = new $class();
+    this-&amp;gt;container-&amp;gt;set('kernel', $this);   
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;moral&quot;&gt;Moral&lt;/h2&gt;
+
+&lt;p&gt;Maybe it&amp;#8217;s time to think about that if you have tests that take too long is not the fault of the speed of the computer, but how was the code coupled&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;Enjoy parallelization.&lt;/p&gt;
+</description>
+            <pubDate>Wed, 24 Sep 2014 00:00:00 +0200</pubDate>
+            <link>http://welcometothebundle.com//speedup-symfony-functional-tests-phpunit</link>
+            <guid isPermaLink="true">http://welcometothebundle.com//speedup-symfony-functional-tests-phpunit</guid>
+        </item>
+        
+        <item>
             <title>Price: more then Money - PHP library</title>
             <description>
 &lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
@@ -92,7 +253,7 @@ var_dump($ticketPrice-&amp;gt;availableCurrencies()); // array with EUR, GBP
 
 &lt;h5 id=&quot;constructor-with-money&quot;&gt;Constructor with Money&lt;/h5&gt;
 
-&lt;p&gt;If you already use the Money V.O. in your project the Price constructor also support Money.&lt;/p&gt;
+&lt;p&gt;If you already use the Money V.O. in your project the Price constructor also supports Money.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;use Money\Money;
 
@@ -2638,24 +2799,6 @@ but hard-coding namespaces and dependencies is not the best option.&lt;/p&gt;
             <pubDate>Wed, 11 Sep 2013 00:00:00 +0200</pubDate>
             <link>http://welcometothebundle.com//design-by-contract-behaviour</link>
             <guid isPermaLink="true">http://welcometothebundle.com//design-by-contract-behaviour</guid>
-        </item>
-        
-        <item>
-            <title>Caching and data analysis will move your application to the next level</title>
-            <description>
-&lt;h3 id=&quot;if-you-dont-ignore-data-you-could-find-a-business-value&quot;&gt;If you don&amp;#8217;t ignore data you could find a business value.&lt;/h3&gt;
-
-&lt;p&gt;The presentation focuses on data analysis, how to track and measure applications and why the use of software metrics that push information are essential.&lt;/p&gt;
-
-&lt;p&gt;Delegates will be shown practical examples of how Terravision uses Statsd, Sentry versus Graylog for the error behavior analysis of users, applications, operating systems and web servers.&lt;/p&gt;
-
-&lt;p&gt;The final part of the presentation concludes with methodologies of advanced scalability, events, messages and queues.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.slideshare.net/liuggio/caching-and-data-analysis-will-move-your-symfony2-application-to-the-next-level&quot;&gt;Caching and data analysis will move your Symfony2 application to the next level&lt;/a&gt;&lt;/p&gt;
-</description>
-            <pubDate>Fri, 17 May 2013 00:00:00 +0200</pubDate>
-            <link>http://welcometothebundle.com//caching-and-data-analysis-will-move-your-application-to-the-next-level</link>
-            <guid isPermaLink="true">http://welcometothebundle.com//caching-and-data-analysis-will-move-your-application-to-the-next-level</guid>
         </item>
         
     </channel>
