@@ -4,7 +4,7 @@
  <title>Welcome to the bundle</title>
  <link href="http://welcometothebundle.com/atom.xml" rel="self"/>
  <link href="http://welcometothebundle.com"/>
- <updated>2014-09-30T08:21:08+02:00</updated>
+ <updated>2014-09-30T08:42:05+02:00</updated>
  <id>http://welcometothebundle.com</id>
  <author>
    <name>liuggio</name>
@@ -13,18 +13,18 @@
 
  
  <entry>
-   <title>Speed up the PHPunit and functional tests with Symfony - fastest</title>
+   <title>Speed up PHPUnit and functional tests with Symfony and fastest</title>
    <link href="http://welcometothebundle.com/speedup-symfony-functional-tests-phpunit"/>
-   <updated>2014-09-24T00:00:00+02:00</updated>
+   <updated>2014-09-30T08:00:01Z</updated>
    <id>http://welcometothebundle.com/speedup-symfony-functional-tests-phpunit</id>
    <content type="html">
 &lt;p&gt;Once in a while a 35 minutes test suite reached 7 minutes thanks to a magician called &lt;code&gt;fastest&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&amp;#8230; today we decided to release &lt;code&gt;fastest&lt;/code&gt; as open-source library.&lt;/p&gt;
+&lt;p&gt;… today we decided to release &lt;code&gt;fastest&lt;/code&gt; as open-source library.&lt;/p&gt;
 
 &lt;h3 id=&quot;just-testing&quot;&gt;Just Testing&lt;/h3&gt;
 
-&lt;p&gt;Have you ever seen how your computer&amp;#8217;s multi-core works when you execute PHPUnit? &lt;/p&gt;
+&lt;p&gt;Have you ever seen how your computer’s multi-core works when you execute PHPUnit? &lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/themes//readable-liuggio/img/phpunit-single-cpu.png&quot; alt=&quot;CPU with Htop and PHPUnit&quot; /&gt;&lt;/p&gt;
 
@@ -50,7 +50,7 @@
 &lt;p&gt;The picture is pretty self-explanatory: using that F*#@ing &lt;strong&gt;Multi-Core:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Usually functional tests have assertions on data storage, so the best is to divide tests into channels (one per Core), and each channel is associated to a database with a different name, and only one test is executed simultaneously per channel:
-eg. the test in the channel number 3 will read from the &amp;#8220;test_3&amp;#8221; database.&lt;/p&gt;
+eg. the test in the channel number 3 will read from the “test_3” database.&lt;/p&gt;
 
 &lt;h4 id=&quot;installing-fastest&quot;&gt;Installing fastest&lt;/h4&gt;
 
@@ -69,7 +69,7 @@ eg. the test in the channel number 3 will read from the &amp;#8220;test_3&amp;#8
   &lt;li&gt;Unique number for each test (useful for filename fixtures).&lt;/li&gt;
   &lt;li&gt;Channel number (from 1 to the core number).&lt;/li&gt;
   &lt;li&gt;Readeable database name.&lt;/li&gt;
-  &lt;li&gt;Variable tells if is the first test on its channel, useful for clear cache (you&amp;#8217;ll see later how this would help).&lt;/li&gt;
+  &lt;li&gt;Variable tells if is the first test on its channel, useful for clear cache (you’ll see later how this would help).&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;In PHP is so easy to access to the env variable using: &lt;code&gt;getenv('varname')&lt;/code&gt;.&lt;/p&gt;
@@ -123,24 +123,24 @@ private function getDbNameEnvValue()
     &quot;bin/phpunit -c app {};&quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://gist.github.com/liuggio/e927a86c8fa4dadbe828&quot;&gt;InitORM is a simple script&lt;/a&gt; that executes &lt;code&gt;doctrine:database:create --env=test&lt;/code&gt;, &lt;code&gt;doctrine:database:drop --env=test&lt;/code&gt;, and &lt;code&gt;doctrine:fixture:load --env=test&lt;/code&gt;&amp;#8230;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://gist.github.com/liuggio/e927a86c8fa4dadbe828&quot;&gt;InitORM is a simple script&lt;/a&gt; that executes &lt;code&gt;doctrine:database:create --env=test&lt;/code&gt;, &lt;code&gt;doctrine:database:drop --env=test&lt;/code&gt;, and &lt;code&gt;doctrine:fixture:load --env=test&lt;/code&gt;…&lt;/p&gt;
 
 &lt;h3 id=&quot;a-lot-of-failures-&quot;&gt;A lot of failures ?!&lt;/h3&gt;
 
-&lt;p&gt;Fastest executes each test in a single process, this mode may brings up many issues that are hided executing in the whole suite, the most well known are the namespace doesn&amp;#8217;t not match with the filename, and the file given in input by the pipe match with the &amp;#8220;*Test.php&amp;#8221; but they might be abstract classes.&lt;/p&gt;
+&lt;p&gt;Fastest executes each test in a single process, this mode may brings up many issues that are hided executing in the whole suite, the most well known are the namespace doesn’t not match with the filename, and the file given in input by the pipe match with the “*Test.php” but they might be abstract classes.&lt;/p&gt;
 
 &lt;p&gt;If you want you could run Fastest with the &lt;code&gt;--xml&lt;/code&gt; option instead piping the find result.&lt;/p&gt;
 
-&lt;p&gt;If you don&amp;#8217;t use the strategy of loading the fixtures the test need before it, may happens that a test modifies the content of the data storage, and the next test on the same channel fails.
+&lt;p&gt;If you don’t use the strategy of loading the fixtures the test need before it, may happens that a test modifies the content of the data storage, and the next test on the same channel fails.
 This is very annoying and adding the option &lt;code&gt;--rerun-failed&lt;/code&gt; fastest will run again all the failed tests.&lt;/p&gt;
 
 &lt;p&gt;If you are developing a new project or your test are isolated you may be interested on removing the &lt;code&gt;--preserve-order&lt;/code&gt; option.&lt;/p&gt;
 
-&lt;h2 id=&quot;dont-check-if-the-cache-is-fresh&quot;&gt;Don&amp;#8217;t check if the cache is fresh!&lt;/h2&gt;
+&lt;h2 id=&quot;dont-check-if-the-cache-is-fresh&quot;&gt;Don’t check if the cache is fresh!&lt;/h2&gt;
 
 &lt;p&gt;In the second trick we will try to avoid a lot of disk accesses, using the env. variable &lt;code&gt;ENV_TEST_IS_FIRST_ON_CHANNEL&lt;/code&gt; provided by fastest.&lt;/p&gt;
 
-&lt;p&gt;Strongly inspired by the &lt;a href=&quot;http://kriswallsmith.net/post/27979797907/get-fast-an-easy-symfony2-phpunit-optimization&quot;&gt;kriswallsmith&amp;#8217;s trick for phpunit optimization&lt;/a&gt;, with a little modification for our parallel domain, we will save precious minutes by removing the cache is fresh check.&lt;/p&gt;
+&lt;p&gt;Strongly inspired by the &lt;a href=&quot;http://kriswallsmith.net/post/27979797907/get-fast-an-easy-symfony2-phpunit-optimization&quot;&gt;kriswallsmith’s trick for phpunit optimization&lt;/a&gt;, with a little modification for our parallel domain, we will save precious minutes by removing the cache is fresh check.&lt;/p&gt;
 
 &lt;p&gt;The trick is quite easy instead every requests the cache is checked only once for channel process.&lt;/p&gt;
 
@@ -165,11 +165,29 @@ This is very annoying and adding the option &lt;code&gt;--rerun-failed&lt;/code&
 }
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h3 id=&quot;only-phpunit&quot;&gt;Only PHPUnit&lt;/h3&gt;
+
+&lt;p&gt;Fastest non è stato pensato solamente per phpunit, anzi data la sua sintassi, puo’ parallelizzare qualsiasi test funzionale, anche con behat.&lt;/p&gt;
+
+&lt;h2 id=&quot;nih&quot;&gt;NIH&lt;/h2&gt;
+
+&lt;p&gt;If you are happy with &lt;code&gt;paratest&lt;/code&gt; use it, it had in the past a lot of effort from the community and is mature, we have developed &lt;code&gt;fastest&lt;/code&gt; because with our codebase wasn’t stable with random failures, and instead parallel did a great job but the missing env. variables did not help our  functional tests. &lt;/p&gt;
+
 &lt;h2 id=&quot;moral&quot;&gt;Moral&lt;/h2&gt;
 
-&lt;p&gt;Maybe it&amp;#8217;s time to think about that if you have tests that take too long is not the fault of the speed of the computer, but how was the code coupled&amp;#8230;&lt;/p&gt;
+&lt;p&gt;Maybe it’s time to think about that if you have tests that take too long is not the fault of the speed of the computer, but how was the code coupled…&lt;/p&gt;
 
-&lt;p&gt;Enjoy parallelization.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Enjoy parallelization.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;great-links&quot;&gt;Great links:&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;http://zalas.eu/running-behat-in-parallel-with-selenium-grid/&lt;/li&gt;
+  &lt;li&gt;https://github.com/symfony/symfony/blob/master/.travis.yml#L35&lt;/li&gt;
+  &lt;li&gt;https://github.com/zendframework/zf2/blob/a7b91f585b7d342bcc61a810972997cba1d3ab17/.travis.yml#L21&lt;/li&gt;
+  &lt;li&gt;https://github.com/brianium/paratest&lt;/li&gt;
+  &lt;li&gt;http://code.tutsplus.com/tutorials/parallel-testing-for-phpunit-with-paratest–net-32105&lt;/li&gt;
+&lt;/ol&gt;
 </content>
  </entry>
  
