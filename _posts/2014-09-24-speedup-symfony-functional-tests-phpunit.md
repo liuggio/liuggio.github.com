@@ -33,7 +33,7 @@ Parallel is the one that gave us more satisfaction, but it was not enough, Paral
 
 ### The needs
 
-What we needed was to run tests in parallel *limiting* the number of simultaneously tests by the number of cores on the computer (like parallel), not only by providing information of which *channel* is being used by environment variables (as paratest does) but a stable running suite with a lot of information for each test the goal is to have **to easy make functional parallel testing*.
+What we needed was to run tests in parallel *limiting* the number of simultaneously tests by the number of cores on the computer (like parallel), not only by providing information of which *channel* is being used by environment variables (as paratest does) but a stable running suite with a lot of information for each test the goal is **to easy make functional parallel testing**.
 
 ### How?
 
@@ -163,7 +163,7 @@ If you are happy with `paratest` use it, it had in the past a lot of effort from
 
 Maybe it's time to think about that if you have tests that take too long is not the fault of the speed of the computer, but how was the code coupled...
 
-
+ 
 
 
 **Enjoy parallelization.**
