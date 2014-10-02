@@ -133,7 +133,7 @@ The trick is quite easy instead every requests the cache is checked only once fo
 
     protected function initializeContainer()
     {   
-        $isFirst = getenv(\Liuggio\Fastest\Process\EnvCommandCreator::ENV_TEST_IS_FIRST_ON_ITS_THREAD);
+        $isFirst = getenv(\Liuggio\Fastest\Process\EnvCommandCreator::ENV_TEST_IS_FIRST_ON_CHANNEL);
 
         if ('test' !== $this->getEnvironment()
          || null === $isFirst
