@@ -118,6 +118,11 @@ We'll see later how to not explicitly specify the format, and how to use and set
 We want to create the controller class
 
     // /src/Acme/BlogBundle/Controller/PageController.php
+    
+    namespace Acme\BlogBundle\Controller;
+
+    use FOS\RestBundle\Controller\FOSRestController;
+    
     class PageController extends FOSRestController
 
 and then we add a simple and dirty function (we'll refactor soon)
