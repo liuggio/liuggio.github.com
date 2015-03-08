@@ -70,7 +70,7 @@ A very common approach was to create a custom `MoneyType` see [Doctrine2/MoneyTy
 
 A good approach to represent a Value Object leveraging on its immutability, was to record the value object directly as a serialized [Object type](http://doctrine-orm.readthedocs.org/en/latest/reference/basic-mapping.html#doctrine-mapping-types) in Doctrine.
 
-All the above approaches led to drawbacks in terms of usability especially when you need to queries.
+All the above approaches led to drawbacks in terms of usability especially when you need to query.
 
 ### Embeddables
 
