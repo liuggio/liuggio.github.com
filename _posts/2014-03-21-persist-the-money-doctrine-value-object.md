@@ -66,7 +66,7 @@ Well surely there is a more elegant way to do it, we are objects oriented progra
 With Doctrine minor2.5 a custom type is allowed only for one-to-one mapping between field and column of the relational database,
 and representing an object with more proprerties is difficult.
 
-A very common approach was to create a custom `MoneyType` see [Doctrine2/MoneyType](https://github.com/mathiasverraes/money/blob/708d8d53b2374e1f9686dceee4f9636df32f6d43/lib/Money/Doctrine2/MoneyType.php), with this custom type Money is converted to a string eg. `Money(100, 'EUR')` would become a `string` of `"1000 EUR"`.
+A very common approach was to create a custom `MoneyType` see [Doctrine2/MoneyType](https://github.com/mathiasverraes/money/blob/708d8d53b2374e1f9686dceee4f9636df32f6d43/lib/Money/Doctrine2/MoneyType.php), with this custom type Money is converted to a string eg. `Money(100, 'EUR')` would become a `string` of `"100 EUR"`.
 
 A good approach to represent a Value Object leveraging on its immutability, was to record the value object directly as a serialized [Object type](http://doctrine-orm.readthedocs.org/en/latest/reference/basic-mapping.html#doctrine-mapping-types) in Doctrine.
 
