@@ -48,7 +48,7 @@ eg. the test in the channel number 3 will read from the "test_3" database.
 
 #### Installing fastest
 
-All the info to install [fastest](git@github.com:liuggio/fastest.git) if you want a short version:
+All the info to install [fastest](https://github.com/liuggio/fastest) if you want a short version:
 
 add to your `composer.json`
 
@@ -103,7 +103,7 @@ You should see something similar to:
 
 ## First Big Goal
 
-I thing you are ready to run your suite with
+I think you are ready to run your suite with
 
     find src/* -name "*Test.php" |   \
       bin/fastest                    \
