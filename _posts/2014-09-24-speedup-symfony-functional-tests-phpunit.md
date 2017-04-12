@@ -18,7 +18,7 @@ Once in a while a 35 minutes test suite reached 7 minutes thanks to a magician c
 
 Have you ever seen how your computer's multi-core works when you execute PHPUnit? 
 
-![CPU with Htop and PHPUnit]({{ ASSET_PATH }}/readable-liuggio/img/phpunit-single-cpu.png)
+![CPU with Htop and PHPUnit]({{ ASSET_PATH }}/img/phpunit-single-cpu.png)
 
 Ehm technically only one core is fatigued, because the tests are serially launched.
 
@@ -39,7 +39,7 @@ What we needed was to run tests in parallel *limiting* the number of simultaneou
 
 ### How?
 
-![CPU with Htop and Fastest]({{ ASSET_PATH }}/readable-liuggio/img/fastest-4-cpu.png)
+![CPU with Htop and Fastest]({{ ASSET_PATH }}/img/fastest-4-cpu.png)
 
 The picture is pretty self-explanatory, use that F*#@ing **Multi-Core:**
 
