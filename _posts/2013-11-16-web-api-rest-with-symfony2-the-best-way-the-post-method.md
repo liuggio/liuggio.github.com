@@ -402,7 +402,7 @@ The postPageAction is simple, all the domain logic is demanded to the `PageHandl
      *
      * @return FormTypeInterface|View
      */
-    public function postPageAction(Request $request)
+    public function postPagesAction(Request $request)
     {
        try {
            // Hey Page handler create a new Page.
