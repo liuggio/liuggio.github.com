@@ -72,7 +72,7 @@ As we said we want to let the test decide which database use, Symfony allows you
 
     `config_test.yml`
     parameters:
-        doctrine.dbal.connection_factory.class: Liuggio\Fastest\Doctrine\DbalConnectionFactory
+        doctrine.dbal.connection_factory.class: Liuggio\Fastest\Doctrine\DBAL\ConnectionFactory
 
 When a new connection is needed the factory will provide the correct `db_name` replacing the db name with the env. variable, using only one test environment.
 
